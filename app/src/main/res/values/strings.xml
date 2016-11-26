@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PocketAid</string>
+    <!-- NAV BAR ITEMS -->
+    <string name="injuries">Injuries</string>
+    <string name="nearby">Nearby Hospitals</string>
+    <string name="practice">Interactive Practice</string>
+    <string name="about">About Us</string>
+
+    <!--NAV BAR STATUS? -->
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
