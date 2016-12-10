@@ -12,6 +12,16 @@
 
     <string name="action_settings">Settings</string>
 
+    <!-- INJURIES -->
+    <string name="injury_search">Search an injury</string>
+    <string name="fracture">Fracture</string>
+    <string name="burns">Burns</string>
+    <string name="concussion">Concussion</string>
+    <string name="laceration">Laceration</string>
+    <string name="contusion">Contusion</string>
+    <string name="bites">Bites</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
