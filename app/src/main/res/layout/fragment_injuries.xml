@@ -5,12 +5,14 @@
     tools:context=".Fragments.InjuriesFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <EditText
+    <android.support.v7.widget.SearchView
         android:id="@+id/injuries_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/injury_search"
-        android:inputType="textVisiblePassword" />
+        android:queryHint="@string/injury_search"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+    </android.support.v7.widget.SearchView>
 
     <ListView
         android:id="@+id/injuries_listview"
