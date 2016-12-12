@@ -34,22 +34,26 @@ public class InjuriesFragment extends Fragment {
 
     //list of injuries
     String[] injuries = {
-            "Fracture",
-            "Burns",
+            "Abrasion",
             "Bites",
+            "Burns",
             "Concussion",
             "Contusion",
-            "Laceration"
+            "Fracture",
+            "Laceration",
+            "Puncture"
     };
 
     //icons
     Integer[] icon = {
-            R.drawable.ic_menu_camera,
-            R.drawable.ic_menu_gallery,
-            R.drawable.ic_menu_manage,
-            R.drawable.ic_menu_send,
-            R.drawable.ic_menu_share,
-            R.drawable.ic_menu_slideshow
+            R.drawable.ic_menu_slideshow,
+            R.drawable.ic_bites,
+            R.drawable.ic_burns,
+            R.drawable.ic_menu_slideshow,
+            R.drawable.ic_menu_slideshow,
+            R.drawable.ic_fracture,
+            R.drawable.ic_laceration,
+            R.drawable.ic_puncture
     };
 
 
