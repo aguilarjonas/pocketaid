@@ -13,10 +13,10 @@ import com.example.jonas.pocketaid.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FractureFragment extends Fragment {
+public class AbrasionFragment extends Fragment {
 
 
-    public FractureFragment() {
+    public AbrasionFragment() {
         // Required empty public constructor
     }
 
@@ -25,8 +25,8 @@ public class FractureFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ((MainActivity)getActivity()).setActionBarTitle("Fracture");
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_fracture, container, false);
+        ((MainActivity)getActivity()).setActionBarTitle("Abrasion");
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_abrasion, container, false);
 
         return rootView;
     }

@@ -12,12 +12,14 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import com.example.jonas.pocketaid.Adapters.Injury;
 import com.example.jonas.pocketaid.Adapters.InjuryListAdapter;
+import com.example.jonas.pocketaid.InjuriesFragments.AbrasionFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.BitesFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.BurnsFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.ConcussionFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.ContusionFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.FractureFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.LacerationFragment;
+import com.example.jonas.pocketaid.InjuriesFragments.PunctureFragment;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 import java.util.ArrayList;
@@ -46,11 +48,11 @@ public class InjuriesFragment extends Fragment {
 
     //icons
     Integer[] icon = {
-            R.drawable.ic_menu_slideshow,
+            R.drawable.ic_abrasion,
             R.drawable.ic_bites,
             R.drawable.ic_burns,
-            R.drawable.ic_menu_slideshow,
-            R.drawable.ic_menu_slideshow,
+            R.drawable.ic_concussion,
+            R.drawable.ic_contusion,
             R.drawable.ic_fracture,
             R.drawable.ic_laceration,
             R.drawable.ic_puncture
@@ -93,25 +95,25 @@ public class InjuriesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position == 0) {
-                    FractureFragment fractureFragment = new FractureFragment();
+                    AbrasionFragment abrasionFragment = new AbrasionFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.add(fractureFragment, "Fracture")
-                            .replace(R.id.fragment_container, fractureFragment)
-                            .addToBackStack("Fracture")
+                    fragmentTransaction.add(abrasionFragment, "Abrasion")
+                            .replace(R.id.fragment_container, abrasionFragment)
+                            .addToBackStack("Abrasion")
                             .commit();
                 } else if(position == 1) {
-                    BurnsFragment burnsFragment = new BurnsFragment();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.add(burnsFragment, "Burns")
-                            .replace(R.id.fragment_container, burnsFragment)
-                            .addToBackStack("Burns")
-                            .commit();
-                } else if(position == 2) {
                     BitesFragment bitesFragment = new BitesFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.add(bitesFragment, "Bites")
                             .replace(R.id.fragment_container, bitesFragment)
                             .addToBackStack("Bites")
+                            .commit();
+                } else if(position == 2) {
+                    BurnsFragment burnsFragment = new BurnsFragment();
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.add(burnsFragment, "Burns")
+                            .replace(R.id.fragment_container, burnsFragment)
+                            .addToBackStack("Burns")
                             .commit();
                 } else if(position == 3) {
                     ConcussionFragment concussionFragment = new ConcussionFragment();
@@ -121,18 +123,18 @@ public class InjuriesFragment extends Fragment {
                             .addToBackStack("Concussion")
                             .commit();
                 } else if(position == 4) {
-                    BurnsFragment burnsFragment = new BurnsFragment();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.add(burnsFragment, "Burns")
-                            .replace(R.id.fragment_container, burnsFragment)
-                            .addToBackStack("Burns")
-                            .commit();
-                } else if(position == 5) {
                     ContusionFragment contusionFragment = new ContusionFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.add(contusionFragment, "Contusion")
                             .replace(R.id.fragment_container, contusionFragment)
                             .addToBackStack("Contusion")
+                            .commit();
+                } else if(position == 5) {
+                    FractureFragment fractureFragment = new FractureFragment();
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.add(fractureFragment, "Fracture")
+                            .replace(R.id.fragment_container, fractureFragment)
+                            .addToBackStack("Fracture")
                             .commit();
                 } else if(position == 6) {
                     LacerationFragment lacerationFragment = new LacerationFragment();
@@ -140,6 +142,13 @@ public class InjuriesFragment extends Fragment {
                     fragmentTransaction.add(lacerationFragment, "Laceration")
                             .replace(R.id.fragment_container, lacerationFragment)
                             .addToBackStack("Laceration")
+                            .commit();
+                } else if(position == 7) {
+                    PunctureFragment punctureFragment = new PunctureFragment();
+                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.add(punctureFragment, "Puncture")
+                            .replace(R.id.fragment_container, punctureFragment)
+                            .addToBackStack("Puncture")
                             .commit();
                 }
             }
