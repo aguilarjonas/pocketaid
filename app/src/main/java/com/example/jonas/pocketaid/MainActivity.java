@@ -32,16 +32,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        InjuriesFragment injuriesFragment = new InjuriesFragment();
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, injuriesFragment).commit();
-
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+        //redirect to phone with 911 pre-dialled
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +43,17 @@ public class MainActivity extends AppCompatActivity
                 startActivity(call);
             }
         });
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //initial page after app loads
+        InjuriesFragment injuriesFragment = new InjuriesFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, injuriesFragment).commit();
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -67,7 +70,7 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if(getSupportFragmentManager().getBackStackEntryCount() != 0) {
+        } else if(getSupportFragmentManager().getBackStackEntryCount() != 0) { //to avoid app getting closed (fragments)
             getSupportFragmentManager().popBackStack();
         } else {
             super.onBackPressed();
@@ -102,6 +105,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        //nav bar items redirection
         if (id == R.id.nav_injuries) {
             InjuriesFragment injuriesFragment = new InjuriesFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -137,6 +141,7 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    //method to set title bar
     public void setActionBarTitle(String title) {
         getSupportActionBar().setTitle(title);
     }

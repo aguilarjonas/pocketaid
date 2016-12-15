@@ -1,13 +1,53 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.jonas.pocketaid.InjuriesFragments.AbrasionFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <VideoView
+        android:id="@+id/abrasion_video"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/video_height" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal|center_vertical">
+
+        <TextView
+            android:id="@+id/download_note"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/video_marginTop"
+            android:layout_marginLeft="@dimen/marginRightLeft"
+            android:layout_marginStart="@dimen/marginRightLeft"
+            android:gravity="start"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:text="@string/download_note"
+            android:textSize="@dimen/textSize_injuriesFragment"/>
+
+        <Button
+            android:id="@+id/abrasion_download"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/downloadButton_height"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="@dimen/video_marginTop"
+            android:layout_marginRight="@dimen/marginRightLeft"
+            android:layout_marginEnd="@dimen/marginRightLeft"
+            android:text="@string/download"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSize_injuriesFragment"/>
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="ABRASION FRAGMENT" />
-
-</FrameLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="@dimen/marginRightLeft"
+        android:layout_marginStart="@dimen/marginRightLeft"
+        android:text="INSERT STEPS HERE"/>
+</LinearLayout>

@@ -157,6 +157,7 @@ public class InjuriesFragment extends Fragment {
         return rootView;
     }
 
+    //adding of injuries to adapter
     private ArrayList<Injury> getInjuries() {
         ArrayList<Injury> injuriesAL = new ArrayList<Injury>();
         Injury injury;

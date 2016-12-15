@@ -6,6 +6,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
@@ -15,6 +19,9 @@ import com.example.jonas.pocketaid.R;
  */
 public class ConcussionFragment extends Fragment {
 
+    private TextView downloadNote;
+    private Button downloadButton;
+    private VideoView videoView;
 
     public ConcussionFragment() {
         // Required empty public constructor
@@ -27,6 +34,21 @@ public class ConcussionFragment extends Fragment {
         // Inflate the layout for this fragment
         ((MainActivity)getActivity()).setActionBarTitle("Concussion");
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_concussion, container, false);
+
+        //initialization
+        downloadNote = (TextView) rootView.findViewById(R.id.download_note);
+        downloadButton = (Button) rootView.findViewById(R.id.concussion_download);
+        videoView = (VideoView) rootView.findViewById(R.id.concussion_video);
+
+        //onClickListener ng Download
+        downloadButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //replace with download logic
+                Toast.makeText(getActivity().getApplicationContext(),
+                        "Replace with download logic", Toast.LENGTH_LONG).show();
+            }
+        });
 
         return rootView;
     }
