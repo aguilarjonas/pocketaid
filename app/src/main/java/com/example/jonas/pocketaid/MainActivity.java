@@ -1,10 +1,15 @@
 package com.example.jonas.pocketaid;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,11 +19,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.jonas.pocketaid.Fragments.AboutFragment;
 import com.example.jonas.pocketaid.Fragments.InjuriesFragment;
 import com.example.jonas.pocketaid.Fragments.NearbyFragment;
 import com.example.jonas.pocketaid.Fragments.PracticeFragment;
+import com.example.jonas.pocketaid.InjuriesFragments.AbrasionFragment;
+import com.example.jonas.pocketaid.InjuriesFragments.BitesFragment;
+import com.example.jonas.pocketaid.InjuriesFragments.BurnsFragment;
+import com.example.jonas.pocketaid.InjuriesFragments.ConcussionFragment;
+import com.example.jonas.pocketaid.InjuriesFragments.ContusionFragment;
+import com.example.jonas.pocketaid.InjuriesFragments.FractureFragment;
+import com.example.jonas.pocketaid.InjuriesFragments.LacerationFragment;
+import com.example.jonas.pocketaid.InjuriesFragments.PunctureFragment;
 
 
 public class MainActivity extends AppCompatActivity
@@ -32,6 +46,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        checkPermission();
 
         //redirect to phone with 911 pre-dialled
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -139,6 +155,57 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void checkPermission() {
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[] {
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                }, 200);
+            }
+        }
+    }
+
+    public void downloadVideo(String fromFragment) {
+        Toast.makeText(getApplicationContext(), "Downloading", Toast.LENGTH_SHORT).show();
+        if(fromFragment.equals("Abrasion")) {
+            AbrasionFragment abrasionFragment = (AbrasionFragment) getSupportFragmentManager().findFragmentByTag("Abrasion");
+            abrasionFragment.downloadAbrasion();
+        } else if(fromFragment.equals("Bites")) {
+            BitesFragment bitesFragment = (BitesFragment) getSupportFragmentManager().findFragmentByTag("Bites");
+            bitesFragment.downloadBites();
+        } else if(fromFragment.equals("Burns")) {
+            BurnsFragment burnsFragment = (BurnsFragment) getSupportFragmentManager().findFragmentByTag("Burns");
+            burnsFragment.downloadBurns();
+        } else if(fromFragment.equals("Concussion")) {
+            ConcussionFragment concussionFragment = (ConcussionFragment) getSupportFragmentManager().findFragmentByTag("Concussion");
+            concussionFragment.downloadConcussion();
+        } else if(fromFragment.equals("Contusion")) {
+            ContusionFragment contusionFragment = (ContusionFragment) getSupportFragmentManager().findFragmentByTag("Contusion");
+            contusionFragment.downloadContusion();
+        } else if(fromFragment.equals("Fracture")) {
+            FractureFragment fractureFragment = (FractureFragment) getSupportFragmentManager().findFragmentByTag("Fracture");
+            fractureFragment.downloadFracture();
+        } else if(fromFragment.equals("Laceration")) {
+            LacerationFragment lacerationFragment = (LacerationFragment) getSupportFragmentManager().findFragmentByTag("Laceration");
+            lacerationFragment.downloadLaceration();
+        } else if(fromFragment.equals("Puncture")) {
+            PunctureFragment punctureFragment = (PunctureFragment) getSupportFragmentManager().findFragmentByTag("Puncture");
+            punctureFragment.downloadPuncture();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case 200:
+                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    return;
+                }
+             default:
+                 checkPermission();
+        }
     }
 
     //method to set title bar

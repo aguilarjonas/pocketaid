@@ -1,11 +1,17 @@
 package com.example.jonas.pocketaid.InjuriesFragments;
 
 
+import android.app.DownloadManager;
+import android.content.Context;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.MimeTypeMap;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +28,7 @@ public class BurnsFragment extends Fragment {
     private TextView downloadNote;
     private Button downloadButton;
     private VideoView videoView;
+    private String myURL = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/screencast.mp4";
 
     public BurnsFragment() {
         // Required empty public constructor
@@ -44,13 +51,26 @@ public class BurnsFragment extends Fragment {
         downloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //replace with download logic
-                Toast.makeText(getActivity().getApplicationContext(),
-                        "Replace with download logic", Toast.LENGTH_LONG).show();
+                //access checkPermission method sa MainActivity, passes String to fromFragment variable
+                ((MainActivity)getActivity()).downloadVideo("Burns");
             }
         });
 
         return rootView;
     }
 
+    public void downloadBurns() {
+        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(myURL));
+        request.setTitle("Burns Video");
+        request.setDescription("File is being downloaded...");
+
+        request.allowScanningByMediaScanner();
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        String fileName = URLUtil.guessFileName(myURL, null, MimeTypeMap.getFileExtensionFromUrl(myURL));
+
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName);
+
+        DownloadManager manager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
+        manager.enqueue(request);
+    }
 }
