@@ -13,13 +13,6 @@ import android.widget.ListView;
 import com.example.jonas.pocketaid.Adapters.Injury;
 import com.example.jonas.pocketaid.Adapters.InjuryListAdapter;
 import com.example.jonas.pocketaid.InjuriesFragments.AbrasionFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.BitesFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.BurnsFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.ConcussionFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.ContusionFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.FractureFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.LacerationFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.PunctureFragment;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 import java.util.ArrayList;
@@ -97,57 +90,106 @@ public class InjuriesFragment extends Fragment {
                 if(position == 0) {
                     AbrasionFragment abrasionFragment = new AbrasionFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    //To make fragments dynamic
+                    Bundle args = new Bundle();
+                    String injury = "Abrasion";
+                    args.putString("injury", injury);
+                    abrasionFragment.setArguments(args);
+
                     fragmentTransaction.add(abrasionFragment, "Abrasion")
                             .replace(R.id.fragment_container, abrasionFragment)
                             .addToBackStack("Abrasion")
                             .commit();
+
                 } else if(position == 1) {
-                    BitesFragment bitesFragment = new BitesFragment();
+                    AbrasionFragment abrasionFragment = new AbrasionFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.add(bitesFragment, "Bites")
-                            .replace(R.id.fragment_container, bitesFragment)
+                    //To make fragments dynamic
+                    Bundle args = new Bundle();
+                    String injury = "Bites";
+                    args.putString("injury", injury);
+                    abrasionFragment.setArguments(args);
+
+                    fragmentTransaction.add(abrasionFragment, "Bites")
+                            .replace(R.id.fragment_container, abrasionFragment)
                             .addToBackStack("Bites")
                             .commit();
                 } else if(position == 2) {
-                    BurnsFragment burnsFragment = new BurnsFragment();
+                    AbrasionFragment abrasionFragment = new AbrasionFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.add(burnsFragment, "Burns")
-                            .replace(R.id.fragment_container, burnsFragment)
+                    //To make fragments dynamic
+                    Bundle args = new Bundle();
+                    String injury = "Burns";
+                    args.putString("injury", injury);
+                    abrasionFragment.setArguments(args);
+
+                    fragmentTransaction.add(abrasionFragment, "Burns")
+                            .replace(R.id.fragment_container, abrasionFragment)
                             .addToBackStack("Burns")
                             .commit();
                 } else if(position == 3) {
-                    ConcussionFragment concussionFragment = new ConcussionFragment();
+                    AbrasionFragment abrasionFragment = new AbrasionFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.add(concussionFragment, "Concussion")
-                            .replace(R.id.fragment_container, concussionFragment)
+                    //To make fragments dynamic
+                    Bundle args = new Bundle();
+                    String injury = "Concussion";
+                    args.putString("injury", injury);
+                    abrasionFragment.setArguments(args);
+
+                    fragmentTransaction.add(abrasionFragment, "Concussion")
+                            .replace(R.id.fragment_container, abrasionFragment)
                             .addToBackStack("Concussion")
                             .commit();
                 } else if(position == 4) {
-                    ContusionFragment contusionFragment = new ContusionFragment();
+                    AbrasionFragment abrasionFragment = new AbrasionFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.add(contusionFragment, "Contusion")
-                            .replace(R.id.fragment_container, contusionFragment)
+                    //To make fragments dynamic
+                    Bundle args = new Bundle();
+                    String injury = "Contusion";
+                    args.putString("injury", injury);
+                    abrasionFragment.setArguments(args);
+
+                    fragmentTransaction.add(abrasionFragment, "Contusion")
+                            .replace(R.id.fragment_container, abrasionFragment)
                             .addToBackStack("Contusion")
                             .commit();
                 } else if(position == 5) {
-                    FractureFragment fractureFragment = new FractureFragment();
+                    AbrasionFragment abrasionFragment = new AbrasionFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.add(fractureFragment, "Fracture")
-                            .replace(R.id.fragment_container, fractureFragment)
+                    //To make fragments dynamic
+                    Bundle args = new Bundle();
+                    String injury = "Fracture";
+                    args.putString("injury", injury);
+                    abrasionFragment.setArguments(args);
+
+                    fragmentTransaction.add(abrasionFragment, "Fracture")
+                            .replace(R.id.fragment_container, abrasionFragment)
                             .addToBackStack("Fracture")
                             .commit();
                 } else if(position == 6) {
-                    LacerationFragment lacerationFragment = new LacerationFragment();
+                    AbrasionFragment abrasionFragment = new AbrasionFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.add(lacerationFragment, "Laceration")
-                            .replace(R.id.fragment_container, lacerationFragment)
+                    //To make fragments dynamic
+                    Bundle args = new Bundle();
+                    String injury = "Laceration";
+                    args.putString("injury", injury);
+                    abrasionFragment.setArguments(args);
+
+                    fragmentTransaction.add(abrasionFragment, "Laceration")
+                            .replace(R.id.fragment_container, abrasionFragment)
                             .addToBackStack("Laceration")
                             .commit();
                 } else if(position == 7) {
-                    PunctureFragment punctureFragment = new PunctureFragment();
+                    AbrasionFragment abrasionFragment = new AbrasionFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.add(punctureFragment, "Puncture")
-                            .replace(R.id.fragment_container, punctureFragment)
+                    //To make fragments dynamic
+                    Bundle args = new Bundle();
+                    String injury = "Puncture";
+                    args.putString("injury", injury);
+                    abrasionFragment.setArguments(args);
+
+                    fragmentTransaction.add(abrasionFragment, "Puncture")
+                            .replace(R.id.fragment_container, abrasionFragment)
                             .addToBackStack("Puncture")
                             .commit();
                 }

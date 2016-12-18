@@ -6,6 +6,7 @@ import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -14,6 +15,7 @@ import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
@@ -38,8 +40,13 @@ public class AbrasionFragment extends Fragment {
 
     private TextView downloadNote;
     private Button downloadButton;
+    private Button streamButton;
     private VideoView videoView;
-    private String myURL = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/screencast.mp4";
+    private String myURL = "";
+    private String injuryType = "";
+    MediaPlayer mediaC;
+
+
 
     public AbrasionFragment() {
         // Required empty public constructor
@@ -50,29 +57,74 @@ public class AbrasionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ((MainActivity)getActivity()).setActionBarTitle("Abrasion");
+        String chosenInjury = getArguments().getString("injury");
+        if (chosenInjury == "Abrasion"){
+            injuryType = "Abrasion";
+        }else if (chosenInjury == "Bites"){
+            injuryType = "Bites";
+        }else if (chosenInjury == "Burns"){
+            injuryType = "Burns";
+        }else if (chosenInjury == "Concussion"){
+            injuryType = "Concussion";
+        }else if (chosenInjury == "Contusion"){
+            injuryType = "Contusion";
+        }else if (chosenInjury == "Fracture"){
+            injuryType = "Fracture";
+        }else if (chosenInjury == "Laceration"){
+            injuryType = "Laceration";
+        }else if (chosenInjury == "Puncture"){
+            injuryType = "Puncture";
+        }
+
+        ((MainActivity)getActivity()).setActionBarTitle(injuryType);
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_abrasion, container, false);
 
         //initialization
         downloadNote = (TextView) rootView.findViewById(R.id.download_note);
         downloadButton = (Button) rootView.findViewById(R.id.abrasion_download);
+        streamButton = (Button) rootView.findViewById(R.id.stream_button);
         videoView = (VideoView) rootView.findViewById(R.id.abrasion_video);
+
+        //Para pag click ang video mag play
+//        videoView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                ((MainActivity)getActivity()).streamVideo(injuryType, videoView);
+//                 return true;
+//            }
+//        });
+
+
 
         //onClickListener ng Download
         downloadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //access checkPermission method sa MainActivity, passes String to fromFragment variable
-                ((MainActivity)getActivity()).downloadVideo("Abrasion");
+                ((MainActivity)getActivity()).downloadVideo(injuryType);
+
             }
         });
+
+        //Click listener ng Stream
+        streamButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //access checkPermission method sa MainActivity, passes String to fromFragment variable
+                //((MainActivity)getActivity()).downloadVideo(injuryType);
+                ((MainActivity)getActivity()).streamVideo(injuryType, videoView);
+
+            }
+        });
+
 
         return rootView;
     }
 
-    public void downloadAbrasion() {
+    public void downloadTutorial() {
+        myURL = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(myURL));
-        request.setTitle("Abrasion Video");
+        request.setTitle(injuryType + " Video");
         request.setDescription("File is being downloaded...");
 
         request.allowScanningByMediaScanner();
@@ -84,4 +136,6 @@ public class AbrasionFragment extends Fragment {
         DownloadManager manager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);
     }
+
+
 }

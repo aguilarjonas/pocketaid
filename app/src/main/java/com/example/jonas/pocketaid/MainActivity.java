@@ -3,6 +3,7 @@ package com.example.jonas.pocketaid;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,20 +20,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.MediaController;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.example.jonas.pocketaid.Fragments.AboutFragment;
-import com.example.jonas.pocketaid.Fragments.InjuriesFragment;
 import com.example.jonas.pocketaid.Fragments.NearbyFragment;
 import com.example.jonas.pocketaid.Fragments.PracticeFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.AbrasionFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.BitesFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.BurnsFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.ConcussionFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.ContusionFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.FractureFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.LacerationFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.PunctureFragment;
 
 
 public class MainActivity extends AppCompatActivity
@@ -41,6 +36,12 @@ public class MainActivity extends AppCompatActivity
 
     NavigationView navigationView = null;
     Toolbar toolbar = null;
+
+    //Added by Raeven
+    MediaController mediaC;
+    private VideoView videoView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         //initial page after app loads
-        InjuriesFragment injuriesFragment = new InjuriesFragment();
+        com.example.jonas.pocketaid.Fragments.InjuriesFragment injuriesFragment = new com.example.jonas.pocketaid.Fragments.InjuriesFragment();
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, injuriesFragment).commit();
 
@@ -79,6 +80,11 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //Added by Raeven
+        mediaC = new MediaController(this);
+        videoView = (VideoView)findViewById(R.id.abrasion_video);
+
+
     }
 
     @Override
@@ -123,7 +129,7 @@ public class MainActivity extends AppCompatActivity
 
         //nav bar items redirection
         if (id == R.id.nav_injuries) {
-            InjuriesFragment injuriesFragment = new InjuriesFragment();
+            com.example.jonas.pocketaid.Fragments.InjuriesFragment injuriesFragment = new com.example.jonas.pocketaid.Fragments.InjuriesFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.add(injuriesFragment, "Injuries")
                     .replace(R.id.fragment_container, injuriesFragment)
@@ -169,31 +175,43 @@ public class MainActivity extends AppCompatActivity
 
     public void downloadVideo(String fromFragment) {
         Toast.makeText(getApplicationContext(), "Downloading", Toast.LENGTH_SHORT).show();
-        if(fromFragment.equals("Abrasion")) {
-            AbrasionFragment abrasionFragment = (AbrasionFragment) getSupportFragmentManager().findFragmentByTag("Abrasion");
-            abrasionFragment.downloadAbrasion();
-        } else if(fromFragment.equals("Bites")) {
-            BitesFragment bitesFragment = (BitesFragment) getSupportFragmentManager().findFragmentByTag("Bites");
-            bitesFragment.downloadBites();
-        } else if(fromFragment.equals("Burns")) {
-            BurnsFragment burnsFragment = (BurnsFragment) getSupportFragmentManager().findFragmentByTag("Burns");
-            burnsFragment.downloadBurns();
-        } else if(fromFragment.equals("Concussion")) {
-            ConcussionFragment concussionFragment = (ConcussionFragment) getSupportFragmentManager().findFragmentByTag("Concussion");
-            concussionFragment.downloadConcussion();
-        } else if(fromFragment.equals("Contusion")) {
-            ContusionFragment contusionFragment = (ContusionFragment) getSupportFragmentManager().findFragmentByTag("Contusion");
-            contusionFragment.downloadContusion();
-        } else if(fromFragment.equals("Fracture")) {
-            FractureFragment fractureFragment = (FractureFragment) getSupportFragmentManager().findFragmentByTag("Fracture");
-            fractureFragment.downloadFracture();
-        } else if(fromFragment.equals("Laceration")) {
-            LacerationFragment lacerationFragment = (LacerationFragment) getSupportFragmentManager().findFragmentByTag("Laceration");
-            lacerationFragment.downloadLaceration();
-        } else if(fromFragment.equals("Puncture")) {
-            PunctureFragment punctureFragment = (PunctureFragment) getSupportFragmentManager().findFragmentByTag("Puncture");
-            punctureFragment.downloadPuncture();
-        }
+//        if(fromFragment.equals("Abrasion")) {
+            AbrasionFragment injuriesFragment = (AbrasionFragment) getSupportFragmentManager().findFragmentByTag(fromFragment);
+            injuriesFragment.downloadTutorial();
+//        } else if(fromFragment.equals("Bites")) {
+//            BitesFragment bitesFragment = (BitesFragment) getSupportFragmentManager().findFragmentByTag("Bites");
+//            bitesFragment.downloadBites();
+//        } else if(fromFragment.equals("Burns")) {
+//            BurnsFragment burnsFragment = (BurnsFragment) getSupportFragmentManager().findFragmentByTag("Burns");
+//            burnsFragment.downloadBurns();
+//        } else if(fromFragment.equals("Concussion")) {
+//            ConcussionFragment concussionFragment = (ConcussionFragment) getSupportFragmentManager().findFragmentByTag("Concussion");
+//            concussionFragment.downloadConcussion();
+//        } else if(fromFragment.equals("Contusion")) {
+//            ContusionFragment contusionFragment = (ContusionFragment) getSupportFragmentManager().findFragmentByTag("Contusion");
+//            contusionFragment.downloadContusion();
+//        } else if(fromFragment.equals("Fracture")) {
+//            FractureFragment fractureFragment = (FractureFragment) getSupportFragmentManager().findFragmentByTag("Fracture");
+//            fractureFragment.downloadFracture();
+//        } else if(fromFragment.equals("Laceration")) {
+//            LacerationFragment lacerationFragment = (LacerationFragment) getSupportFragmentManager().findFragmentByTag("Laceration");
+//            lacerationFragment.downloadLaceration();
+//        } else if(fromFragment.equals("Puncture")) {
+//            PunctureFragment punctureFragment = (PunctureFragment) getSupportFragmentManager().findFragmentByTag("Puncture");
+//            punctureFragment.downloadPuncture();
+//        }
+    }
+
+    //Added by Raeven
+    public void streamVideo (String injuryType, VideoView videoView){
+        String vidAddress = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
+        Uri vidUri = Uri.parse(vidAddress);
+
+        videoView.setVideoURI(vidUri);
+        MediaController vidControl = new MediaController(this);
+        videoView.setMediaController(mediaC);
+        mediaC.setAnchorView(videoView);
+        videoView.start();
     }
 
     @Override

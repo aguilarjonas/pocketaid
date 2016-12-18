@@ -10,7 +10,8 @@
     <VideoView
         android:id="@+id/abrasion_video"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/video_height" />
+        android:layout_height="@dimen/video_height"
+        android:clickable="false" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,6 +43,18 @@
             android:text="@string/download"
             android:textColor="@color/white"
             android:textSize="@dimen/textSize_injuriesFragment"/>
+
+        <Button
+            android:id="@+id/stream_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/downloadButton_height"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="@dimen/video_marginTop"
+            android:layout_marginRight="@dimen/marginRightLeft"
+            android:layout_marginEnd="@dimen/marginRightLeft"
+            android:text="@string/stream"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSize_injuriesFragment" />
     </LinearLayout>
 
     <TextView
