@@ -143,14 +143,14 @@ public class MainActivity extends AppCompatActivity
                     .addToBackStack("Injuries")
                     .commit();
         } else if (id == R.id.nav_nearby) {
-            /**NearbyFragment nearbyFragment = new NearbyFragment();
+            NearbyFragment nearbyFragment = new NearbyFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.add(nearbyFragment, "Nearby")
                     .replace(R.id.fragment_container, nearbyFragment)
                     .addToBackStack("Nearby")
-                    .commit();**/
-            Intent intent = new Intent(this, NearbyHospitalsActivity.class);
-            startActivity(intent);
+                    .commit();
+//            Intent intent = new Intent(this, NearbyHospitalsActivity.class);
+//            startActivity(intent);
         } else if (id == R.id.nav_practice) {
             PracticeFragment practiceFragment = new PracticeFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

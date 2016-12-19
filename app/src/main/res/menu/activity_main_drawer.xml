@@ -5,11 +5,11 @@
         <item
             android:id="@+id/nav_injuries"
             android:checked="true"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_injuries"
             android:title="@string/injuries" />
         <item
             android:id="@+id/nav_nearby"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_nearby"
             android:title="@string/nearby" />
         <item
             android:id="@+id/nav_practice"
@@ -17,7 +17,7 @@
             android:title="@string/practice" />
         <item
             android:id="@+id/nav_about"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_about"
             android:title="@string/about" />
     </group>
 

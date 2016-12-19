@@ -11,21 +11,9 @@
         android:layout_height="match_parent"
         tools:context=".Fragments.NearbyFragment"/>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnHospital"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-
-        <Button
-            android:id="@+id/btnHospital"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nearby Hospitals"
-            android:layout_marginTop="625dp" />
-
-
-    </LinearLayout>
-
+        android:text="Nearby Hospitals"/>
 </FrameLayout>
