@@ -9,10 +9,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.view.View;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -20,12 +19,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import android.widget.MediaController;
+
+import android.view.View;
+
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.jonas.pocketaid.Fragments.AboutFragment;
+
 import com.example.jonas.pocketaid.Fragments.NearbyFragment;
+
+import com.example.jonas.pocketaid.Fragments.InjuriesFragment;
+
 import com.example.jonas.pocketaid.Fragments.PracticeFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.AbrasionFragment;
 
@@ -136,12 +143,14 @@ public class MainActivity extends AppCompatActivity
                     .addToBackStack("Injuries")
                     .commit();
         } else if (id == R.id.nav_nearby) {
-            NearbyFragment nearbyFragment = new NearbyFragment();
+            /**NearbyFragment nearbyFragment = new NearbyFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.add(nearbyFragment, "Nearby")
                     .replace(R.id.fragment_container, nearbyFragment)
                     .addToBackStack("Nearby")
-                    .commit();
+                    .commit();**/
+            Intent intent = new Intent(this, NearbyHospitalsActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_practice) {
             PracticeFragment practiceFragment = new PracticeFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
