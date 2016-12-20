@@ -3,7 +3,6 @@ package com.example.jonas.pocketaid;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -19,20 +18,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import android.widget.MediaController;
-
 import android.view.View;
-
+import android.widget.MediaController;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.jonas.pocketaid.Fragments.AboutFragment;
-
 import com.example.jonas.pocketaid.Fragments.NearbyFragment;
-
-import com.example.jonas.pocketaid.Fragments.InjuriesFragment;
-
 import com.example.jonas.pocketaid.Fragments.PracticeFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.AbrasionFragment;
 
@@ -149,8 +141,6 @@ public class MainActivity extends AppCompatActivity
                     .replace(R.id.fragment_container, nearbyFragment)
                     .addToBackStack("Nearby")
                     .commit();
-//            Intent intent = new Intent(this, NearbyHospitalsActivity.class);
-//            startActivity(intent);
         } else if (id == R.id.nav_practice) {
             PracticeFragment practiceFragment = new PracticeFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

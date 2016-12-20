@@ -19,7 +19,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.jonas.pocketaid.MainActivity;
-import com.example.jonas.pocketaid.NearbyHospitalsActivity;
 import com.example.jonas.pocketaid.R;
 import com.example.jonas.pocketaid.SearchModules.GetNearbyPlacesData;
 import com.google.android.gms.common.ConnectionResult;
@@ -67,8 +66,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         // Inflate the layout for this fragment
         ((MainActivity)getActivity()).setActionBarTitle("Nearby Hospitals");
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_nearby, container, false);
-
-        this.btnHospital = (Button) rootView.findViewById(R.id.btnHospital);
+       this.btnHospital = (Button) rootView.findViewById(R.id.btnHospital);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
@@ -106,10 +104,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?daddr=%f,%f (%s)", 12f, 2f, "Where the party is at");
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-        intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
-
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
 
             @Override
