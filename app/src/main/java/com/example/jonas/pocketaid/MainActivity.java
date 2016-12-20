@@ -26,7 +26,7 @@ import android.widget.VideoView;
 import com.example.jonas.pocketaid.Fragments.AboutFragment;
 import com.example.jonas.pocketaid.Fragments.NearbyFragment;
 import com.example.jonas.pocketaid.Fragments.PracticeFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.AbrasionFragment;
+import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment;
 
 
 public class MainActivity extends AppCompatActivity
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity
     public void downloadVideo(String fromFragment) {
         Toast.makeText(getApplicationContext(), "Downloading", Toast.LENGTH_SHORT).show();
 //        if(fromFragment.equals("Abrasion")) {
-            AbrasionFragment injuriesFragment = (AbrasionFragment) getSupportFragmentManager().findFragmentByTag(fromFragment);
+            InjuryInformationFragment injuriesFragment = (InjuryInformationFragment) getSupportFragmentManager().findFragmentByTag(fromFragment);
             injuriesFragment.downloadTutorial();
 //        } else if(fromFragment.equals("Bites")) {
 //            BitesFragment bitesFragment = (BitesFragment) getSupportFragmentManager().findFragmentByTag("Bites");

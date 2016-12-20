@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.jonas.pocketaid.InjuriesFragments.BitesFragment">
+    android:id="@+id/fragment_abrasion"
+    tools:context="com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <VideoView
-        android:id="@+id/bites_video"
+        android:id="@+id/abrasion_video"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/video_height" />
+        android:layout_height="@dimen/video_height"
+        android:clickable="false" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,7 +33,7 @@
             android:textSize="@dimen/textSize_injuriesFragment"/>
 
         <Button
-            android:id="@+id/bites_download"
+            android:id="@+id/abrasion_download"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/downloadButton_height"
             android:background="@color/colorPrimary"
@@ -41,6 +43,18 @@
             android:text="@string/download"
             android:textColor="@color/white"
             android:textSize="@dimen/textSize_injuriesFragment"/>
+
+        <Button
+            android:id="@+id/stream_button"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/downloadButton_height"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="@dimen/video_marginTop"
+            android:layout_marginRight="@dimen/marginRightLeft"
+            android:layout_marginEnd="@dimen/marginRightLeft"
+            android:text="@string/stream"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSize_injuriesFragment" />
     </LinearLayout>
 
     <TextView
@@ -50,5 +64,4 @@
         android:layout_marginLeft="@dimen/marginRightLeft"
         android:layout_marginStart="@dimen/marginRightLeft"
         android:text="INSERT STEPS HERE"/>
-
 </LinearLayout>

@@ -1,42 +1,29 @@
 package com.example.jonas.pocketaid.InjuriesFragments;
 
 
-import android.Manifest;
 import android.app.DownloadManager;
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.webkit.URLUtil;
 import android.widget.Button;
-import android.widget.MediaController;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.VideoView;
 
-import com.amazonaws.auth.AWSCredentials;
-import com.amazonaws.auth.BasicAWSCredentials;
-import com.amazonaws.services.s3.AmazonS3;
-import com.amazonaws.services.s3.AmazonS3Client;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AbrasionFragment extends Fragment {
+public class InjuryInformationFragment extends Fragment {
 
     private TextView downloadNote;
     private Button downloadButton;
@@ -48,7 +35,7 @@ public class AbrasionFragment extends Fragment {
 
 
 
-    public AbrasionFragment() {
+    public InjuryInformationFragment() {
         // Required empty public constructor
     }
 
@@ -77,7 +64,7 @@ public class AbrasionFragment extends Fragment {
         }
 
         ((MainActivity)getActivity()).setActionBarTitle(injuryType);
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_abrasion, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injuryInformation, container, false);
 
         //initialization
         downloadNote = (TextView) rootView.findViewById(R.id.download_note);

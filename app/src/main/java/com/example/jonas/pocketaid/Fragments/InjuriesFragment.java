@@ -12,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import com.example.jonas.pocketaid.Adapters.Injury;
 import com.example.jonas.pocketaid.Adapters.InjuryListAdapter;
-import com.example.jonas.pocketaid.InjuriesFragments.AbrasionFragment;
+import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 import java.util.ArrayList;
@@ -88,7 +88,7 @@ public class InjuriesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position == 0) {
-                    AbrasionFragment abrasionFragment = new AbrasionFragment();
+                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -102,7 +102,7 @@ public class InjuriesFragment extends Fragment {
                             .commit();
 
                 } else if(position == 1) {
-                    AbrasionFragment abrasionFragment = new AbrasionFragment();
+                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -115,7 +115,7 @@ public class InjuriesFragment extends Fragment {
                             .addToBackStack("Bites")
                             .commit();
                 } else if(position == 2) {
-                    AbrasionFragment abrasionFragment = new AbrasionFragment();
+                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -128,7 +128,7 @@ public class InjuriesFragment extends Fragment {
                             .addToBackStack("Burns")
                             .commit();
                 } else if(position == 3) {
-                    AbrasionFragment abrasionFragment = new AbrasionFragment();
+                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -141,7 +141,7 @@ public class InjuriesFragment extends Fragment {
                             .addToBackStack("Concussion")
                             .commit();
                 } else if(position == 4) {
-                    AbrasionFragment abrasionFragment = new AbrasionFragment();
+                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -154,7 +154,7 @@ public class InjuriesFragment extends Fragment {
                             .addToBackStack("Contusion")
                             .commit();
                 } else if(position == 5) {
-                    AbrasionFragment abrasionFragment = new AbrasionFragment();
+                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -167,7 +167,7 @@ public class InjuriesFragment extends Fragment {
                             .addToBackStack("Fracture")
                             .commit();
                 } else if(position == 6) {
-                    AbrasionFragment abrasionFragment = new AbrasionFragment();
+                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -180,7 +180,7 @@ public class InjuriesFragment extends Fragment {
                             .addToBackStack("Laceration")
                             .commit();
                 } else if(position == 7) {
-                    AbrasionFragment abrasionFragment = new AbrasionFragment();
+                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
                     //To make fragments dynamic
                     Bundle args = new Bundle();
