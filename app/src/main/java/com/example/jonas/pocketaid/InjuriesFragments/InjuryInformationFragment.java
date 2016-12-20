@@ -64,7 +64,7 @@ public class InjuryInformationFragment extends Fragment {
         }
 
         ((MainActivity)getActivity()).setActionBarTitle(injuryType);
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injuryinformation, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injury_information, container, false);
 
         //initialization
         downloadNote = (TextView) rootView.findViewById(R.id.download_note);
