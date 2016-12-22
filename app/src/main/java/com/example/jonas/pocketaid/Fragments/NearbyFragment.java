@@ -196,8 +196,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
                 //new JSONTask().execute("http://jsonparsing.parseapp.com/jsonData/moviesDemoItem.txt");
                 new JSONTask().execute(url);
-
-
             }
         });
     }
@@ -432,12 +430,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             }
             //tvData.setText(result);
         }
-
-
-
-
-
-
     }
 }
 

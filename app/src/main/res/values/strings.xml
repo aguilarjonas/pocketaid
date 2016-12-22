@@ -38,7 +38,6 @@
         <item>St Martin De Porres Hospital</item>
         <item>St Martin De Porres Hospital</item>
         <item>St Martin De Porres Hospital</item>
-
     </string-array>
 
     <string-array name="hospital_contactNumber">
@@ -49,6 +48,15 @@
         <item>87000000</item>
         <item>87000000</item>
         <item>87000000</item>
-
     </string-array>
+
+    <!-- DISCLAIMER -->
+    <string name="disclaimer">
+        Can this contain a lot of text? Can it contain \n a newline? Yes it can.
+        Adding a 2nd line like this should work.
+        It should not cause parsing errors
+    </string>
+
+    <!-- GROUP NAME -->
+    <string name="grp_name">- FUNtastic FOUR</string>
 </resources>
