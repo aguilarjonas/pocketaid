@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -16,8 +17,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.amazonaws.http.HttpClient;
+import com.amazonaws.http.UrlHttpClient;
+import com.example.jonas.pocketaid.Adapters.Hospital;
+import com.example.jonas.pocketaid.Adapters.HospitalListAdapter;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 import com.example.jonas.pocketaid.SearchModules.GetNearbyPlacesData;
@@ -36,6 +42,21 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONStringer;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Array;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.Locale;
 
 
@@ -56,6 +77,12 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     LocationRequest mLocationRequest;
     private Button btnHospital;
 
+    //For Listview
+    private ListView hospitalView;
+    String[] hospitalNames;
+    String[] hospitalContactNumber;
+    HospitalListAdapter adapter;
+
     public NearbyFragment() {
         // Required empty public constructor
     }
@@ -66,7 +93,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         // Inflate the layout for this fragment
         ((MainActivity)getActivity()).setActionBarTitle("Nearby Hospitals");
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_nearby, container, false);
-       this.btnHospital = (Button) rootView.findViewById(R.id.btnHospital);
+        this.btnHospital = (Button) rootView.findViewById(R.id.btnHospital);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
@@ -84,6 +111,14 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        //For listview
+        hospitalView = (ListView)rootView.findViewById(R.id.listview_nearbyHospital);
+        hospitalNames = getResources().getStringArray(R.array.hospital_names);
+        hospitalContactNumber = getResources().getStringArray(R.array.hospital_contactNumber);
+
+
+
 
         return rootView;
     }
@@ -148,17 +183,26 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             public void onClick(View v) {
                 Log.d("onClick", "Button is Clicked");
                 mMap.clear();
-                String url = getUrl(latitude, longitude, Hospital);
+                ArrayList<String> url = new ArrayList<String>();
+                String urlHolder = getUrl(latitude, longitude, Hospital);
+                url.add(urlHolder);
                 Object[] DataTransfer = new Object[2];
                 DataTransfer[0] = mMap;
-                DataTransfer[1] = url;
-                Log.d("onClick", url);
+                DataTransfer[1] = url.get(0);
+                //Log.d("onClick", url);
                 GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
                 getNearbyPlacesData.execute(DataTransfer);
                 Toast.makeText(getActivity().getApplicationContext(),"Nearby Hospitals", Toast.LENGTH_LONG).show();
+
+                //new JSONTask().execute("http://jsonparsing.parseapp.com/jsonData/moviesDemoItem.txt");
+                new JSONTask().execute(url);
+
+
             }
         });
     }
+
+
 
     protected synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity().getApplicationContext())
@@ -189,7 +233,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         googlePlacesUrl.append("&radius=" + PROXIMITY_RADIUS);
         googlePlacesUrl.append("&type=" + nearbyPlace);
         googlePlacesUrl.append("&sensor=true");
-        googlePlacesUrl.append("&key=" + "AIzaSyATuUiZUkEc_UgHuqsBJa1oqaODI-3mLs0"); //dito yung api key nasa sticky note
+        googlePlacesUrl.append("&key=" + "AIzaSyBRaI6vWSTL-W1cJm-SB60xNBjlbb8TMaU"); //dito yung api key nasa sticky note
+        //Main Key = AIzaSyATuUiZUkEc_UgHuqsBJa1oqaODI-3mLs0 - Angel's key
+        //Alternative Key = AIzaSyBRaI6vWSTL-W1cJm-SB60xNBjlbb8TMaU - Raeven's key
         Log.d("getUrl", googlePlacesUrl.toString());
         return (googlePlacesUrl.toString());
     }
@@ -304,4 +350,95 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             // You can add here other case statements according to your requirement.
         }
     }
+
+    public class JSONTask extends AsyncTask<ArrayList<String>, String, ArrayList<String>>{
+        int counter = 0;
+
+        @Override
+        protected ArrayList<String> doInBackground(ArrayList<String>... params) {
+            HttpURLConnection connection = null;
+            JSONObject json;
+            BufferedReader reader = null;
+
+            try{
+                URL url2 = new URL(params[0].get(0));
+                connection = (HttpURLConnection) url2.openConnection();
+                connection.connect();
+
+                InputStream stream = connection.getInputStream();
+                reader = new BufferedReader(new InputStreamReader(stream));
+
+                StringBuffer buffer = new StringBuffer();
+                String line = "";
+                while ((line = reader.readLine()) != null){
+                    buffer.append(line);
+                }
+
+                String finalJSON = buffer.toString();
+                ArrayList<String> hospitalNames = new ArrayList<>();
+
+                JSONObject parentObject = new JSONObject(finalJSON);
+                JSONArray parentArray = parentObject.getJSONArray("results");
+                int i = 0;
+
+                counter = parentArray.length();
+                while (i != counter){
+                    JSONObject finalObject = parentArray.getJSONObject(i);
+                    String hospitalName = finalObject.getString("name");
+                    hospitalNames.add(hospitalName);
+                    i++;
+                }
+
+
+                return hospitalNames;
+            }
+            catch (MalformedURLException e){
+                e.printStackTrace();
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+            catch (JSONException e){
+                e.printStackTrace();
+            }
+            finally{
+                if (connection != null){
+                    connection.disconnect();
+                }
+                try {
+                    if (reader != null){
+                        reader.close();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return null;
+        }
+
+        protected void onPostExecute(ArrayList<String> result) {
+            //super.onPostExecute();
+
+            int i = 0;
+            adapter = new HospitalListAdapter(getActivity(), R.layout.layout_google_maps );
+            hospitalView.setAdapter(adapter);
+
+            while (i != counter){
+                String hospitalName123 = result.get(i);
+                Hospital hospitalProvider = new Hospital(hospitalName123, hospitalName123);
+                adapter.add(hospitalProvider);
+                i++;
+                //Toast.makeText(getActivity().getApplicationContext(), "test", Toast.LENGTH_LONG).show();
+            }
+            //tvData.setText(result);
+        }
+
+
+
+
+
+
+    }
 }
+
+

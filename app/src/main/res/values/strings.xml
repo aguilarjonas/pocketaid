@@ -28,4 +28,27 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="stream">STREAM</string>
+    <string name="hospitalName">Hospital Name</string>
+    <string name="hospitalContactNumber">111111</string>
+
+    <string-array name = "hospital_names">
+        <item>UST Hospital</item>
+        <item>Cardinal Santos Hospital</item>
+        <item>St Martin De Porres Hospital</item>
+        <item>St Martin De Porres Hospital</item>
+        <item>St Martin De Porres Hospital</item>
+        <item>St Martin De Porres Hospital</item>
+
+    </string-array>
+
+    <string-array name="hospital_contactNumber">
+        <item>74457090</item>
+        <item>91111111</item>
+        <item>87000000</item>
+        <item>87000000</item>
+        <item>87000000</item>
+        <item>87000000</item>
+        <item>87000000</item>
+
+    </string-array>
 </resources>
