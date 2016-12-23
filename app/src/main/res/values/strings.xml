@@ -31,7 +31,7 @@
     <string name="hospitalName">Hospital Name</string>
     <string name="hospitalContactNumber">111111</string>
 
-    <string-array name = "hospital_names">
+    <string-array name="hospital_names">
         <item>UST Hospital</item>
         <item>Cardinal Santos Hospital</item>
         <item>St Martin De Porres Hospital</item>

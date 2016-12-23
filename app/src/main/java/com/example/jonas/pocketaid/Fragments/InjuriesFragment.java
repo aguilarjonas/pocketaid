@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import com.example.jonas.pocketaid.Adapters.Injury;
 import com.example.jonas.pocketaid.Adapters.InjuryListAdapter;
+import com.example.jonas.pocketaid.Adapters.InjuryTabLayout;
 import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
@@ -88,17 +89,25 @@ public class InjuriesFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(position == 0) {
-                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
+//                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
+//                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+//                    fragmentTransaction.add(abrasionFragment, "Abrasion")
+//                            .replace(R.id.fragment_container, abrasionFragment)
+//                            .addToBackStack("Abrasion")
+//                            .commit();
+
+                    InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+
                     //To make fragments dynamic
                     Bundle args = new Bundle();
                     String injury = "Abrasion";
                     args.putString("injury", injury);
-                    abrasionFragment.setArguments(args);
+                    injuryTabLayout.setArguments(args);
 
-                    fragmentTransaction.add(abrasionFragment, "Abrasion")
-                            .replace(R.id.fragment_container, abrasionFragment)
-                            .addToBackStack("Abrasion")
+                    fragmentTransaction.add(injuryTabLayout, "injuryTabs")
+                            .replace(R.id.fragment_container, injuryTabLayout)
+                            .addToBackStack("injuryTab")
                             .commit();
 
                 } else if(position == 1) {

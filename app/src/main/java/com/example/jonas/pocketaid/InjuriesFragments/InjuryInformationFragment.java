@@ -45,7 +45,7 @@ public class InjuryInformationFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         String chosenInjury = getArguments().getString("injury");
-        if (chosenInjury == "Abrasion"){
+        if (chosenInjury.equals("Abrasion")){
             injuryType = "Abrasion";
         }else if (chosenInjury == "Bites"){
             injuryType = "Bites";
