@@ -47,19 +47,19 @@ public class InjuryInformationFragment extends Fragment {
         String chosenInjury = getArguments().getString("injury");
         if (chosenInjury.equals("Abrasion")){
             injuryType = "Abrasion";
-        }else if (chosenInjury == "Bites"){
+        }else if (chosenInjury.equals("Bites")){
             injuryType = "Bites";
-        }else if (chosenInjury == "Burns"){
+        }else if (chosenInjury.equals("Burns")){
             injuryType = "Burns";
-        }else if (chosenInjury == "Concussion"){
+        }else if (chosenInjury.equals("Concussion")){
             injuryType = "Concussion";
-        }else if (chosenInjury == "Contusion"){
+        }else if (chosenInjury.equals("Contusion")){
             injuryType = "Contusion";
-        }else if (chosenInjury == "Fracture"){
+        }else if (chosenInjury.equals("Fracture")){
             injuryType = "Fracture";
-        }else if (chosenInjury == "Laceration"){
+        }else if (chosenInjury.equals("Laceration")){
             injuryType = "Laceration";
-        }else if (chosenInjury == "Puncture"){
+        }else if (chosenInjury.equals("Puncture")){
             injuryType = "Puncture";
         }
 

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/fragment_abrasion"
+    android:id="@+id/fragment_injury_information"
     tools:context="com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment">
 
     <!-- TODO: Update blank fragment layout -->

@@ -76,7 +76,7 @@ public class InjuryTabLayout extends Fragment {
                 case 0:
                     return "OVERVIEW";
                 case 1:
-                    return "INJURY PAKIBAGO";
+                    return "FIRST AID";
             }
 
             return null;

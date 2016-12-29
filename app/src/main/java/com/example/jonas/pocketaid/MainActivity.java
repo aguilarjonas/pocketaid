@@ -24,6 +24,7 @@ import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.jonas.pocketaid.Fragments.AboutFragment;
+import com.example.jonas.pocketaid.Fragments.InjuriesFragment;
 import com.example.jonas.pocketaid.Fragments.NearbyFragment;
 import com.example.jonas.pocketaid.Fragments.PracticeFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment;
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity
 
         //nav bar items redirection
         if (id == R.id.nav_injuries) {
-            com.example.jonas.pocketaid.Fragments.InjuriesFragment injuriesFragment = new com.example.jonas.pocketaid.Fragments.InjuriesFragment();
+            InjuriesFragment injuriesFragment = new InjuriesFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             fragmentTransaction.add(injuriesFragment, "Injuries")
                     .replace(R.id.fragment_container, injuriesFragment)
