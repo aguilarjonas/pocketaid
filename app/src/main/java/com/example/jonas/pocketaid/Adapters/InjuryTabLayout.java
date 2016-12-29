@@ -23,6 +23,7 @@ public class InjuryTabLayout extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private int tab_numbers = 2;
+    private Bundle args;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,13 +51,19 @@ public class InjuryTabLayout extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
+            String chosenInjury = getArguments().getString("injury");
+
             switch (position) {
                 case 0:
-                    return new InjuryOverviewFragment();
+                    InjuryOverviewFragment injuryOverviewFragment = new InjuryOverviewFragment();
+                    args = new Bundle();
+                    args.putString("injury", chosenInjury);
+                    injuryOverviewFragment.setArguments(args);
+
+                    return injuryOverviewFragment;
                 case 1:
-                    String chosenInjury = getArguments().getString("injury");
                     InjuryInformationFragment injuryInformationFragment = new InjuryInformationFragment();
-                    Bundle args = new Bundle();
+                    args = new Bundle();
                     args.putString("injury", chosenInjury);
                     injuryInformationFragment.setArguments(args);
 
