@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.SearchView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +14,6 @@ import android.widget.ListView;
 import com.example.jonas.pocketaid.Adapters.Injury;
 import com.example.jonas.pocketaid.Adapters.InjuryListAdapter;
 import com.example.jonas.pocketaid.Adapters.InjuryTabLayout;
-import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 import java.util.ArrayList;
@@ -63,9 +63,13 @@ public class InjuriesFragment extends Fragment {
         // Inflate the layout for this fragment
         ((MainActivity)getActivity()).setActionBarTitle("Injuries");
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injuries, container, false);
+        rootView.requestFocus();
 
         listView = (ListView) rootView.findViewById(R.id.injuries_listview);
         searchView = (SearchView) rootView.findViewById(R.id.injuries_search);
+        searchView.setQueryHint("Search for an injury");
+        searchView.setIconified(false);
+        searchView.clearFocus();
 
         listAdapter = new InjuryListAdapter(getActivity(), getInjuries());
         listView.setAdapter(listAdapter);
