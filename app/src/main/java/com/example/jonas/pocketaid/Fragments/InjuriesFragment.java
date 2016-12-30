@@ -67,7 +67,6 @@ public class InjuriesFragment extends Fragment {
 
         listView = (ListView) rootView.findViewById(R.id.injuries_listview);
         searchView = (SearchView) rootView.findViewById(R.id.injuries_search);
-        searchView.setQueryHint("Search for an injury");
         searchView.setIconified(false);
         searchView.clearFocus();
 
