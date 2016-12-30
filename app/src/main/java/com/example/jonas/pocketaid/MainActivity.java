@@ -189,6 +189,12 @@ public class MainActivity extends AppCompatActivity
 
         if (myFile.exists()) {
             Toast.makeText(getApplicationContext(), "Merong File", Toast.LENGTH_SHORT).show();
+            videoView.setVideoPath(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() +
+                    "/" + injuryType + ".mp4");
+            MediaController vidControl = new MediaController(this);
+            videoView.setMediaController(mediaC);
+            mediaC.setAnchorView(videoView);
+            videoView.start();
         }
 
         else {
