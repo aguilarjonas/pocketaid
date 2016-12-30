@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -28,6 +29,8 @@ import com.example.jonas.pocketaid.Fragments.InjuriesFragment;
 import com.example.jonas.pocketaid.Fragments.NearbyFragment;
 import com.example.jonas.pocketaid.Fragments.PracticeFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment;
+
+import java.io.File;
 
 
 public class MainActivity extends AppCompatActivity
@@ -173,45 +176,33 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void downloadVideo(String fromFragment) {
-        Toast.makeText(getApplicationContext(), "Downloading", Toast.LENGTH_SHORT).show();
-//        if(fromFragment.equals("Abrasion")) {
-            InjuryInformationFragment injuriesFragment = (InjuryInformationFragment) getSupportFragmentManager().findFragmentByTag(fromFragment);
-            injuriesFragment.downloadTutorial();
-//        } else if(fromFragment.equals("Bites")) {
-//            BitesFragment bitesFragment = (BitesFragment) getSupportFragmentManager().findFragmentByTag("Bites");
-//            bitesFragment.downloadBites();
-//        } else if(fromFragment.equals("Burns")) {
-//            BurnsFragment burnsFragment = (BurnsFragment) getSupportFragmentManager().findFragmentByTag("Burns");
-//            burnsFragment.downloadBurns();
-//        } else if(fromFragment.equals("Concussion")) {
-//            ConcussionFragment concussionFragment = (ConcussionFragment) getSupportFragmentManager().findFragmentByTag("Concussion");
-//            concussionFragment.downloadConcussion();
-//        } else if(fromFragment.equals("Contusion")) {
-//            ContusionFragment contusionFragment = (ContusionFragment) getSupportFragmentManager().findFragmentByTag("Contusion");
-//            contusionFragment.downloadContusion();
-//        } else if(fromFragment.equals("Fracture")) {
-//            FractureFragment fractureFragment = (FractureFragment) getSupportFragmentManager().findFragmentByTag("Fracture");
-//            fractureFragment.downloadFracture();
-//        } else if(fromFragment.equals("Laceration")) {
-//            LacerationFragment lacerationFragment = (LacerationFragment) getSupportFragmentManager().findFragmentByTag("Laceration");
-//            lacerationFragment.downloadLaceration();
-//        } else if(fromFragment.equals("Puncture")) {
-//            PunctureFragment punctureFragment = (PunctureFragment) getSupportFragmentManager().findFragmentByTag("Puncture");
-//            punctureFragment.downloadPuncture();
-//        }
-    }
+//    public void downloadVideo(String injuryType) {
+//        Toast.makeText(getApplicationContext(), "Downloading", Toast.LENGTH_SHORT).show();
+//        InjuryInformationFragment injuriesFragment = (InjuryInformationFragment) getSupportFragmentManager().findFragmentByTag(injuryType);
+//        injuriesFragment.downloadTutorial();
+//    }
 
     //Added by Raeven
     public void streamVideo (String injuryType, VideoView videoView){
-        String vidAddress = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
-        Uri vidUri = Uri.parse(vidAddress);
+        File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        File myFile = new File(extStore.getAbsolutePath(), injuryType + ".mp4");
 
-        videoView.setVideoURI(vidUri);
-        MediaController vidControl = new MediaController(this);
-        videoView.setMediaController(mediaC);
-        mediaC.setAnchorView(videoView);
-        videoView.start();
+        if (myFile.exists()) {
+            Toast.makeText(getApplicationContext(), "Merong File", Toast.LENGTH_SHORT).show();
+        }
+
+        else {
+            Toast.makeText(getApplicationContext(), "Walang File", Toast.LENGTH_SHORT).show();
+
+            String vidAddress = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
+            Uri vidUri = Uri.parse(vidAddress);
+
+            videoView.setVideoURI(vidUri);
+            MediaController vidControl = new MediaController(this);
+            videoView.setMediaController(mediaC);
+            mediaC.setAnchorView(videoView);
+            videoView.start();
+        }
     }
 
     @Override

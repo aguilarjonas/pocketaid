@@ -33,7 +33,7 @@
             android:textSize="@dimen/textSize_injuriesFragment"/>
 
         <Button
-            android:id="@+id/abrasion_download"
+            android:id="@+id/video_download"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/downloadButton_height"
             android:background="@color/colorPrimary"

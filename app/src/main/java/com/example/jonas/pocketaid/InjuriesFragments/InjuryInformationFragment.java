@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.webkit.MimeTypeMap;
 import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.jonas.pocketaid.MainActivity;
@@ -68,7 +70,7 @@ public class InjuryInformationFragment extends Fragment {
 
         //initialization
         downloadNote = (TextView) rootView.findViewById(R.id.download_note);
-        downloadButton = (Button) rootView.findViewById(R.id.abrasion_download);
+        downloadButton = (Button) rootView.findViewById(R.id.video_download);
         streamButton = (Button) rootView.findViewById(R.id.stream_button);
         videoView = (VideoView) rootView.findViewById(R.id.abrasion_video);
 
@@ -88,7 +90,8 @@ public class InjuryInformationFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //access checkPermission method sa MainActivity, passes String to fromFragment variable
-                ((MainActivity)getActivity()).downloadVideo(injuryType);
+                Toast.makeText(getActivity(), "Downloading", Toast.LENGTH_SHORT).show();
+                downloadTutorial();
 
             }
         });
@@ -110,6 +113,7 @@ public class InjuryInformationFragment extends Fragment {
 
     public void downloadTutorial() {
         myURL = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
+
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(myURL));
         request.setTitle(injuryType + " Video");
         request.setDescription("File is being downloaded...");
