@@ -13,7 +13,7 @@
     <string name="action_settings">Settings</string>
 
     <!-- INJURIES -->
-    <string name="injury_search">Search for an injury</string>
+    <string name="injury_search"><font size="14">Search for an injury</font></string>
     <string name="fracture">Fracture</string>
     <string name="burns">Burns</string>
     <string name="concussion">Concussion</string>

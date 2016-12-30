@@ -26,6 +26,7 @@
         android:layout_marginStart="@dimen/ten_dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
         android:text="OVERVIEW"/>
 
     <View
@@ -57,6 +58,7 @@
         android:layout_marginStart="@dimen/ten_dp"
         android:layout_marginRight="@dimen/ten_dp"
         android:layout_marginEnd="@dimen/ten_dp"
+        android:textStyle="bold"
         android:text="POSSIBLE CAUSES"/>
 
     <View
