@@ -183,7 +183,7 @@ public class MainActivity extends AppCompatActivity
 //    }
 
     //Added by Raeven
-    public void streamVideo (String injuryType, VideoView videoView){
+    public boolean streamVideo (String injuryType, VideoView videoView){
         File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         File myFile = new File(extStore.getAbsolutePath(), injuryType + ".mp4");
 
@@ -195,6 +195,8 @@ public class MainActivity extends AppCompatActivity
             videoView.setMediaController(mediaC);
             mediaC.setAnchorView(videoView);
             videoView.start();
+
+            return true;
         }
 
         else {
@@ -208,7 +210,12 @@ public class MainActivity extends AppCompatActivity
             videoView.setMediaController(mediaC);
             mediaC.setAnchorView(videoView);
             videoView.start();
+
+            return false;
         }
+//        Intent intent = new Intent(getBaseContext(), VideoActivity.class);
+//        intent.putExtra("injuryType", injuryType);
+//        startActivity(intent);
     }
 
     @Override

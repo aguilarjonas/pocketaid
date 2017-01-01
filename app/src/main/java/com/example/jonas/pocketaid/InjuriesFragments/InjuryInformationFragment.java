@@ -10,17 +10,23 @@ import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.webkit.URLUtil;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
+
+import java.io.File;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,8 +37,12 @@ public class InjuryInformationFragment extends Fragment {
     private Button downloadButton;
     private Button streamButton;
     private VideoView videoView;
+    private Switch downloadSwitch;
+    private ImageView playVideoImage;
+
     private String myURL = "";
     private String injuryType = "";
+    private File videoFile;
     MediaPlayer mediaC;
 
 
@@ -69,10 +79,24 @@ public class InjuryInformationFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injury_information, container, false);
 
         //initialization
-        downloadNote = (TextView) rootView.findViewById(R.id.download_note);
-        downloadButton = (Button) rootView.findViewById(R.id.video_download);
-        streamButton = (Button) rootView.findViewById(R.id.stream_button);
+        //downloadNote = (TextView) rootView.findViewById(R.id.download_note);
+        playVideoImage = (ImageView) rootView.findViewById(R.id.imageView_play);
+        downloadSwitch = (Switch) rootView.findViewById(R.id.switch_download);
+        //downloadButton = (Button) rootView.findViewById(R.id.video_download);
+        //streamButton = (Button) rootView.findViewById(R.id.stream_button);
         videoView = (VideoView) rootView.findViewById(R.id.abrasion_video);
+
+        File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        videoFile = new File(extStore.getAbsolutePath(), injuryType + ".mp4");
+
+        if (videoFile.exists()){
+            downloadSwitch.setChecked(true);
+        }
+
+        else
+            downloadSwitch.setChecked(false);
+
+
 
         //Para pag click ang video mag play
 //        videoView.setOnTouchListener(new View.OnTouchListener() {
@@ -83,29 +107,57 @@ public class InjuryInformationFragment extends Fragment {
 //            }
 //        });
 
+        downloadSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // do something, the isChecked will be
+                // true if the switch is in the On position
+                if (isChecked == true){
+                    Toast.makeText(getActivity(), "Downloading", Toast.LENGTH_SHORT).show();
+                    downloadTutorial();
+                }
 
+                else if (isChecked == false){
+                    Toast.makeText(getActivity(), "NADELETE NA TANGA", Toast.LENGTH_SHORT).show();
+                    videoFile.delete();
 
-        //onClickListener ng Download
-        downloadButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //access checkPermission method sa MainActivity, passes String to fromFragment variable
-                Toast.makeText(getActivity(), "Downloading", Toast.LENGTH_SHORT).show();
-                downloadTutorial();
+                }
 
             }
         });
 
+
+
+        //onClickListener ng Download
+//        downloadButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //access checkPermission method sa MainActivity, passes String to fromFragment variable
+//                Toast.makeText(getActivity(), "Downloading", Toast.LENGTH_SHORT).show();
+//                downloadTutorial();
+//
+//            }
+//        });
+
         //Click listener ng Stream
-        streamButton.setOnClickListener(new View.OnClickListener() {
+        playVideoImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //access checkPermission method sa MainActivity, passes String to fromFragment variable
                 //((MainActivity)getActivity()).downloadVideo(injuryType);
                 ((MainActivity)getActivity()).streamVideo(injuryType, videoView);
+                playVideoImage.setVisibility(View.INVISIBLE);
 
             }
         });
+
+//        //Para pag click ang video mag play
+//        videoView.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                ((MainActivity)getActivity()).streamVideo(injuryType, videoView);
+//                 return true;
+//            }
+//        });
 
 
         return rootView;
