@@ -18,17 +18,14 @@
             android:id="@+id/abrasion_video"
             android:layout_width="wrap_content"
             android:layout_height="228dp"
-            android:layout_alignTop="@id/abrasion_video"
-            android:layout_alignBottom="@id/abrasion_video"
-            android:layout_alignLeft="@id/abrasion_video"
-            android:layout_alignRight="@id/abrasion_video"
             android:scaleType="fitXY"
             android:clickable="false" />
 
         <ImageView
-            android:layout_width="174dp"
-            android:layout_height="90dp"
-            app:srcCompat="@android:drawable/btn_star_big_on"
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/ic_play"
             android:id="@+id/imageView_play" />
     </FrameLayout>
 
@@ -42,7 +39,12 @@
             android:text="@string/Download"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:layout_marginStart="@dimen/ten_dp"
+            android:layout_marginRight="@dimen/ten_dp"
+            android:layout_marginEnd="@dimen/ten_dp"
             android:id="@+id/switch_download"
+            android:textStyle="bold"
             android:checked="false" />
     </LinearLayout>
 
