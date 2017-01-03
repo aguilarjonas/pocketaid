@@ -12,14 +12,24 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="231dp">
+        android:layout_height="230dp">
 
-        <VideoView
-            android:id="@+id/abrasion_video"
-            android:layout_width="wrap_content"
-            android:layout_height="228dp"
-            android:scaleType="fitXY"
-            android:clickable="false" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <VideoView
+                android:id="@+id/abrasion_video"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:clickable="false" />
+        </RelativeLayout>
 
         <ImageView
             android:layout_gravity="center"
@@ -30,6 +40,7 @@
     </FrameLayout>
 
     <LinearLayout
+        android:id="@+id/switch_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -39,6 +50,8 @@
             android:text="@string/Download"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/ten_dp"
+            android:layout_marginBottom="@dimen/ten_dp"
             android:layout_marginLeft="@dimen/ten_dp"
             android:layout_marginStart="@dimen/ten_dp"
             android:layout_marginRight="@dimen/ten_dp"
@@ -48,77 +61,9 @@
             android:checked="false" />
     </LinearLayout>
 
-    <ScrollView
+    <FrameLayout
+        android:id="@+id/fragment_steps"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="@dimen/marginRightLeft"
-                android:layout_marginStart="@dimen/marginRightLeft"
-                android:text="INSERT STEPS HERE"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="@dimen/marginRightLeft"
-                android:layout_marginStart="@dimen/marginRightLeft"
-                android:text="INSERT STEPS HERE"
-                android:id="@+id/textView7" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="@dimen/marginRightLeft"
-                android:layout_marginStart="@dimen/marginRightLeft"
-                android:text="INSERT STEPS HERE"
-                android:id="@+id/textView6" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="@dimen/marginRightLeft"
-                android:layout_marginStart="@dimen/marginRightLeft"
-                android:text="INSERT STEPS HERE"
-                android:id="@+id/textView5" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="@dimen/marginRightLeft"
-                android:layout_marginStart="@dimen/marginRightLeft"
-                android:text="INSERT STEPS HERE"
-                android:id="@+id/textView4" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="@dimen/marginRightLeft"
-                android:layout_marginStart="@dimen/marginRightLeft"
-                android:text="INSERT STEPS HERE"
-                android:id="@+id/textView3" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="@dimen/marginRightLeft"
-                android:layout_marginStart="@dimen/marginRightLeft"
-                android:text="INSERT STEPS HERE"
-                android:id="@+id/textView2" />
-        </LinearLayout>
-    </ScrollView>
-
+    </FrameLayout>
 </LinearLayout>

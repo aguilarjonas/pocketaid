@@ -114,11 +114,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
         //For listview
         hospitalView = (ListView)rootView.findViewById(R.id.listview_nearbyHospital);
-        hospitalNames = getResources().getStringArray(R.array.hospital_names);
-        hospitalContactNumber = getResources().getStringArray(R.array.hospital_contactNumber);
-
-
-
 
         return rootView;
     }

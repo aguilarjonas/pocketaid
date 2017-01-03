@@ -31,25 +31,6 @@
     <string name="hospitalName">Hospital Name</string>
     <string name="hospitalContactNumber">111111</string>
 
-    <string-array name="hospital_names">
-        <item>UST Hospital</item>
-        <item>Cardinal Santos Hospital</item>
-        <item>St Martin De Porres Hospital</item>
-        <item>St Martin De Porres Hospital</item>
-        <item>St Martin De Porres Hospital</item>
-        <item>St Martin De Porres Hospital</item>
-    </string-array>
-
-    <string-array name="hospital_contactNumber">
-        <item>74457090</item>
-        <item>91111111</item>
-        <item>87000000</item>
-        <item>87000000</item>
-        <item>87000000</item>
-        <item>87000000</item>
-        <item>87000000</item>
-    </string-array>
-
     <!-- DISCLAIMER -->
     <string name="disclaimer">
         Can this contain a lot of text? Can it contain \n a newline? Yes it can.
@@ -59,5 +40,26 @@
 
     <!-- GROUP NAME -->
     <string name="grp_name">- FUNtastic FOUR</string>
+
+    <!-- SWITCH TEXTS -->
     <string name="Download">Download</string>
+    <string name="Downloaded">Downloaded</string>
+
+    <!-- SPINNER OPTIONS -->
+    <string-array name="spinner_options">
+        <item>Recommended Procedure</item>
+        <item>Alternative Procedure</item>
+    </string-array>
+
+    <!-- RECOMMENDED & ALTERNATIVE STEPS: ABRASION -->
+    <string-array name="abrasion_recommended">
+        <item>Wash the affected area with water and anti-bacterial soap</item>
+        <item>Apply Betadine Solution or Spray</item>
+        <item>Cover the affected area with gauze or band-aid</item>
+        <item>Repeat daily until fully healed</item>
+    </string-array>
+    <string-array name="abrasion_alternative">
+        <item>Boil the guava leaves and run the warm water to the affected area to avoid bacteria.</item>
+    </string-array>
+
 </resources>

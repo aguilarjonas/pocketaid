@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -86,16 +87,24 @@ public class InjuryInformationFragment extends Fragment {
         //streamButton = (Button) rootView.findViewById(R.id.stream_button);
         videoView = (VideoView) rootView.findViewById(R.id.abrasion_video);
 
+        //"inflates" steps below the video
+        InjuryStepsFragment injuryStepsFragment = new InjuryStepsFragment();
+        Bundle args = new Bundle();
+        args.putString("injury", injuryType);
+        injuryStepsFragment.setArguments(args);
+        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_steps, injuryStepsFragment).commit();
+
         File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         videoFile = new File(extStore.getAbsolutePath(), injuryType + ".mp4");
 
+        //sets the switch and the text to whether downloaded or not
         if (videoFile.exists()){
             downloadSwitch.setChecked(true);
-        }
-
-        else
+            downloadSwitch.setText(getString(R.string.Downloaded));
+        } else {
             downloadSwitch.setChecked(false);
-
+        }
 
 
         //Para pag click ang video mag play
@@ -119,7 +128,6 @@ public class InjuryInformationFragment extends Fragment {
                 else if (isChecked == false){
                     Toast.makeText(getActivity(), "NADELETE NA TANGA", Toast.LENGTH_SHORT).show();
                     videoFile.delete();
-
                 }
 
             }
