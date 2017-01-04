@@ -1,6 +1,7 @@
 package com.example.jonas.pocketaid.Adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -50,6 +51,8 @@ public class HospitalListAdapter extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
+
         View row;
         row = convertView;
         DataHandler handler;
@@ -66,9 +69,21 @@ public class HospitalListAdapter extends ArrayAdapter {
 
         else {
             handler = (DataHandler)row.getTag();
+//            handler.hospitalName.setTextColor(Color.WHITE);
+//            handler.hospitalName.setBackgroundColor(Color.RED);
         }
         Hospital hospital;
+
         hospital = (Hospital)this.getItem(position);
+
+//        if (position % 2 == 1) {
+//            row.setBackgroundColor(Color.parseColor("#FFB6B546"));
+//        }
+//
+//        else
+//            row.setBackgroundColor(Color.parseColor(String.valueOf("#E0FFFF")));
+
+
         handler.hospitalName.setText(hospital.getHospitalName());
         handler.hospitalContactNumber.setText(hospital.getHospitalContactNumber());
 

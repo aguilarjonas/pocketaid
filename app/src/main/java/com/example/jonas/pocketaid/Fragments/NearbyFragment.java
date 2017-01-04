@@ -4,6 +4,7 @@ package com.example.jonas.pocketaid.Fragments;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -17,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -35,6 +37,7 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -59,6 +62,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import static android.support.v7.appcompat.R.attr.height;
+import static android.support.v7.appcompat.R.id.top;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -78,6 +84,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     private Button btnHospital;
 
     //For Listview
+    private FrameLayout frameLayout;
     private ListView hospitalView;
     String[] hospitalNames;
     String[] hospitalContactNumber;
@@ -93,7 +100,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         // Inflate the layout for this fragment
         ((MainActivity)getActivity()).setActionBarTitle("Nearby Hospitals");
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_nearby, container, false);
-        this.btnHospital = (Button) rootView.findViewById(R.id.btnHospital);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
@@ -114,9 +120,18 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
         //For listview
         hospitalView = (ListView)rootView.findViewById(R.id.listview_nearbyHospital);
+//        hospitalView.setBackgroundColor(Color.RED);
+        //hospitalView.setVisibility(View.INVISIBLE);
 
+//        ViewGroup.LayoutParams params = mapFragment.getView().getLayoutParams();
+
+
+//        params.height = 900;
+//        hospitalView.setLayoutParams(params);
         return rootView;
     }
+
+
 
     private boolean CheckGooglePlayServices() {
         GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
@@ -134,6 +149,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        automaticHospitalSearch();
+
+        //Click listener ng pointer dun sa marker.
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
 
             @Override
@@ -155,7 +173,11 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                         Toast.makeText(getActivity().getApplicationContext(), "Please install a Google Maps application", Toast.LENGTH_LONG).show();
                     }
                 }
+
+                Toast.makeText(getActivity().getApplicationContext(),"Ooops Nakiliti ako", Toast.LENGTH_LONG).show();
+
             }
+
         });
 
         //Initialize Google Play Services
@@ -165,34 +187,32 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                     == PackageManager.PERMISSION_GRANTED) {
                 buildGoogleApiClient();
                 mMap.setMyLocationEnabled(true);
+                //automaticHospitalSearch();
             }
         }
         else {
             buildGoogleApiClient();
             mMap.setMyLocationEnabled(true);
         }
+    }
 
-        btnHospital.setOnClickListener(new View.OnClickListener() {
-            String Hospital = "hospital";
-            @Override
-            public void onClick(View v) {
-                Log.d("onClick", "Button is Clicked");
-                mMap.clear();
-                ArrayList<String> url = new ArrayList<String>();
-                String urlHolder = getUrl(latitude, longitude, Hospital);
-                url.add(urlHolder);
-                Object[] DataTransfer = new Object[2];
-                DataTransfer[0] = mMap;
-                DataTransfer[1] = url.get(0);
-                //Log.d("onClick", url);
-                GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
-                getNearbyPlacesData.execute(DataTransfer);
-                Toast.makeText(getActivity().getApplicationContext(),"Nearby Hospitals", Toast.LENGTH_LONG).show();
+    public void automaticHospitalSearch() {
+        String Hospital = "hospital";
+            Log.d("onClick", "Button is Clicked");
+            mMap.clear();
+            ArrayList<String> url = new ArrayList<String>();
+            String urlHolder = getUrl(latitude, longitude, Hospital);
+            url.add(urlHolder);
+            Object[] DataTransfer = new Object[2];
+            DataTransfer[0] = mMap;
+            DataTransfer[1] = url.get(0);
+            //Log.d("onClick", url);
+            GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+            getNearbyPlacesData.execute(DataTransfer);
+            Toast.makeText(getActivity().getApplicationContext(),"Nearby Hospitals", Toast.LENGTH_LONG).show();
 
-                //new JSONTask().execute("http://jsonparsing.parseapp.com/jsonData/moviesDemoItem.txt");
-                new JSONTask().execute(url);
-            }
-        });
+            //new JSONTask().execute("http://jsonparsing.parseapp.com/jsonData/moviesDemoItem.txt");
+            new JSONTask().execute(url);
     }
 
 
@@ -204,6 +224,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 .addApi(LocationServices.API)
                 .build();
         mGoogleApiClient.connect();
+        //automaticHospitalSearch();
     }
 
     @Override
@@ -216,6 +237,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
             LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
+
         }
     }
 
@@ -258,9 +280,14 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
         //move map camera
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+        float zoomLevel = (float) 16.0; //This goes up to 21
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel));
+        //mMap.animateCamera(CameraUpdateFactory.zoomIn());
         Toast.makeText(getActivity().getApplicationContext(),"Your Current Location", Toast.LENGTH_LONG).show();
+
+        //Insert *Conditions pag di naka on yung mga Location and stuff* here.
+        automaticHospitalSearch();
 
         Log.d("onLocationChanged", String.format("latitude:%.3f longitude:%.3f",latitude,longitude));
 
