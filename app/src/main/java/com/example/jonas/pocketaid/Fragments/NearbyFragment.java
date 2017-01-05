@@ -373,6 +373,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
     public class JSONTask extends AsyncTask<ArrayList<String>, String, ArrayList<String>>{
         int counter = 0;
+        String hospitalName = "";
+        String hospitalVicinity = "";
+        Hospital hospitalClass = new Hospital(hospitalName, hospitalVicinity);
 
         @Override
         protected ArrayList<String> doInBackground(ArrayList<String>... params) {
@@ -395,7 +398,8 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 }
 
                 String finalJSON = buffer.toString();
-                ArrayList<String> hospitalNames = new ArrayList<>();
+                ArrayList<String> hospitalNamesList = new ArrayList<>();
+                ArrayList<String> hospitalVicinitiesList = new ArrayList<>();
 
                 JSONObject parentObject = new JSONObject(finalJSON);
                 JSONArray parentArray = parentObject.getJSONArray("results");
@@ -405,12 +409,16 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 while (i != counter){
                     JSONObject finalObject = parentArray.getJSONObject(i);
                     String hospitalName = finalObject.getString("name");
-                    hospitalNames.add(hospitalName);
+                    hospitalNamesList.add(hospitalName);
+
+                    String hospitalVicinity = finalObject.getString("vicinity");
+                    hospitalVicinitiesList.add(hospitalVicinity);
+
                     i++;
                 }
 
-
-                return hospitalNames;
+                hospitalClass.putHospitalInformationList(hospitalNamesList, hospitalVicinitiesList);
+                return null;
             }
             catch (MalformedURLException e){
                 e.printStackTrace();
@@ -433,22 +441,28 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                     e.printStackTrace();
                 }
             }
+            //return null;
             return null;
         }
 
-        protected void onPostExecute(ArrayList<String> result) {
+        protected void onPostExecute(ArrayList<String> testingArray) {
             //super.onPostExecute();
+            Log.d("DALIRI", "DALIRI MO");
 
             int i = 0;
             adapter = new HospitalListAdapter(getActivity(), R.layout.layout_google_maps );
             hospitalView.setAdapter(adapter);
+            ArrayList<String> hospitalNameList = hospitalClass.getHospitalNameList();
+            ArrayList<String> hospitalVicinityList = hospitalClass.getHospitalVicinityList();
 
             while (i != counter){
-                String hospitalName123 = result.get(i);
-                Hospital hospitalProvider = new Hospital(hospitalName123, hospitalName123);
-                adapter.add(hospitalProvider);
+
+                String hospitalName = hospitalNameList.get(i);
+                String hospitalVicinity = hospitalVicinityList.get(i);
+
+                Hospital nHospital = new Hospital(hospitalName, hospitalVicinity);
+                adapter.add(nHospital);
                 i++;
-                //Toast.makeText(getActivity().getApplicationContext(), "test", Toast.LENGTH_LONG).show();
             }
             //tvData.setText(result);
         }
