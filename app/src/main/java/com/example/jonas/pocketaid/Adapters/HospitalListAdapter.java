@@ -30,6 +30,7 @@ public class HospitalListAdapter extends ArrayAdapter {
     static class DataHandler{
         TextView hospitalName;
         TextView hospitalVicinity;
+        TextView hospitalPlaceID;
     }
     @Override
     public void add (Object object){
@@ -64,6 +65,7 @@ public class HospitalListAdapter extends ArrayAdapter {
             handler = new DataHandler();
             handler.hospitalName = (TextView)row.findViewById(R.id.textView_hospitalName);
             handler.hospitalVicinity = (TextView)row.findViewById(R.id.textView_vicinity);
+            handler.hospitalPlaceID = (TextView)row.findViewById(R.id.textview_placeid);
             row.setTag(handler);
         }
 
@@ -86,6 +88,7 @@ public class HospitalListAdapter extends ArrayAdapter {
 
         handler.hospitalName.setText(hospital.getHospitalName());
         handler.hospitalVicinity.setText(hospital.getHospitalVicinity());
+        handler.hospitalPlaceID.setText(hospital.getHospitalPlaceID());
 
         return row;
     }

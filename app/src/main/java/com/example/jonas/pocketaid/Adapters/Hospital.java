@@ -11,19 +11,24 @@ public class Hospital {
 
     private String hospitalName;
     private String hospitalVicinity;
+    private String hospitalPlaceID;
 
     private ArrayList<String> hospitalNameList;
     private ArrayList<String> hospitalVicinityList;
+    private ArrayList<String> hospitalPlaceIDList;
 
-    public Hospital(String hospitalName, String hospitalVicinity){
+
+    public Hospital(String hospitalName, String hospitalVicinity, String hospitalPlaceID){
         this.setHospitalName(hospitalName);
         this.setHospitalVicinity(hospitalVicinity);
-
+        this.setHospitalPlaceID(hospitalPlaceID);
     }
 
-    public void putHospitalInformationList(ArrayList<String> hospitalNameList, ArrayList<String> hospitalVicinityList){
+    public void putHospitalInformationList(ArrayList<String> hospitalNameList, ArrayList<String> hospitalVicinityList,
+                                           ArrayList<String> hospitalPlaceIDList){
         this.setHospitalNameList(hospitalNameList);
         this.setHospitalVicinityList(hospitalVicinityList);
+        this.setHospitalPlaceIDList(hospitalPlaceIDList);
     }
 
 //    public void putHospitalInformation(String hospitalName, String hospitalVicinity){
@@ -39,12 +44,20 @@ public class Hospital {
         this.hospitalVicinity = hospitalVicinity;
     }
 
+    public void setHospitalPlaceID(String hospitalPlaceID) {
+        this.hospitalPlaceID = hospitalPlaceID;
+    }
+
     public void setHospitalNameList(ArrayList<String> hospitalNameList) {
         this.hospitalNameList = hospitalNameList;
     }
 
     public void setHospitalVicinityList(ArrayList<String> hospitalVicinityList) {
         this.hospitalVicinityList = hospitalVicinityList;
+    }
+
+    public void setHospitalPlaceIDList(ArrayList<String> hospitalPlaceID) {
+        this.hospitalPlaceIDList = hospitalPlaceID;
     }
 
     public String getHospitalName() {
@@ -55,11 +68,19 @@ public class Hospital {
         return hospitalVicinity;
     }
 
+    public String getHospitalPlaceID() {
+        return hospitalPlaceID;
+    }
+
     public ArrayList<String> getHospitalNameList() {
         return hospitalNameList;
     }
 
     public ArrayList<String> getHospitalVicinityList() {
         return hospitalVicinityList;
+    }
+
+    public ArrayList<String> getHospitalPlaceIDList() {
+        return hospitalPlaceIDList;
     }
 }

@@ -4,7 +4,6 @@ package com.example.jonas.pocketaid.Fragments;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.location.Location;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -12,18 +11,19 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.amazonaws.http.HttpClient;
-import com.amazonaws.http.UrlHttpClient;
 import com.example.jonas.pocketaid.Adapters.Hospital;
 import com.example.jonas.pocketaid.Adapters.HospitalListAdapter;
 import com.example.jonas.pocketaid.MainActivity;
@@ -37,7 +37,6 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -49,21 +48,16 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONStringer;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
-
-import static android.support.v7.appcompat.R.attr.height;
-import static android.support.v7.appcompat.R.id.top;
 
 
 /**
@@ -85,7 +79,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
     //For Listview
     private FrameLayout frameLayout;
-    private ListView hospitalView;
+    private ListView hospitalListView;
     String[] hospitalNames;
     String[] hospitalContactNumber;
     HospitalListAdapter adapter;
@@ -119,7 +113,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         mapFragment.getMapAsync(this);
 
         //For listview
-        hospitalView = (ListView)rootView.findViewById(R.id.listview_nearbyHospital);
+        hospitalListView = (ListView)rootView.findViewById(R.id.listview_nearbyHospital);
 //        hospitalView.setBackgroundColor(Color.RED);
         //hospitalView.setVisibility(View.INVISIBLE);
 
@@ -128,10 +122,26 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
 //        params.height = 900;
 //        hospitalView.setLayoutParams(params);
+        hospitalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView parent, View v, int position, long id){
+                    //String item = ((TextView)v).getText().toString();
+                    String chosenHospital = ((TextView)v.findViewById(R.id.textView_hospitalName)).getText().toString();
+                    String chosenHospitalPlaceID = ((TextView)v.findViewById(R.id.textview_placeid)).getText().toString();
+                    //String data=(String)parent.getItemAtPosition(4);
+                    NearbyInformationFragment nearbyHospitalInformation = new NearbyInformationFragment();
+                    FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                    fragmentTransaction.add(nearbyHospitalInformation, "nearbyHospitalInformation")
+                            .replace(R.id.fragment_container, nearbyHospitalInformation)
+                            .addToBackStack("nearbyHospitalInformation")
+                            .commit();
+                    Toast.makeText(getActivity().getApplicationContext(), chosenHospitalPlaceID , Toast.LENGTH_LONG).show();
+                    //To get total number of items in a listview hospitalListView.getAdapter().getCount();
+
+            }
+        });
+
         return rootView;
     }
-
-
 
     private boolean CheckGooglePlayServices() {
         GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
@@ -375,7 +385,8 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         int counter = 0;
         String hospitalName = "";
         String hospitalVicinity = "";
-        Hospital hospitalClass = new Hospital(hospitalName, hospitalVicinity);
+        String hospitalPlaceID = "";
+        Hospital hospitalClass = new Hospital(hospitalName, hospitalVicinity, hospitalPlaceID);
 
         @Override
         protected ArrayList<String> doInBackground(ArrayList<String>... params) {
@@ -400,6 +411,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 String finalJSON = buffer.toString();
                 ArrayList<String> hospitalNamesList = new ArrayList<>();
                 ArrayList<String> hospitalVicinitiesList = new ArrayList<>();
+                ArrayList<String> hospitalPlaceIDList = new ArrayList<>();
 
                 JSONObject parentObject = new JSONObject(finalJSON);
                 JSONArray parentArray = parentObject.getJSONArray("results");
@@ -414,10 +426,13 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                     String hospitalVicinity = finalObject.getString("vicinity");
                     hospitalVicinitiesList.add(hospitalVicinity);
 
+                    String hospitalPlaceID = finalObject.getString("place_id");
+                    hospitalPlaceIDList.add(hospitalPlaceID);
+
                     i++;
                 }
 
-                hospitalClass.putHospitalInformationList(hospitalNamesList, hospitalVicinitiesList);
+                hospitalClass.putHospitalInformationList(hospitalNamesList, hospitalVicinitiesList, hospitalPlaceIDList);
                 return null;
             }
             catch (MalformedURLException e){
@@ -451,16 +466,18 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
             int i = 0;
             adapter = new HospitalListAdapter(getActivity(), R.layout.layout_google_maps );
-            hospitalView.setAdapter(adapter);
+            hospitalListView.setAdapter(adapter);
             ArrayList<String> hospitalNameList = hospitalClass.getHospitalNameList();
             ArrayList<String> hospitalVicinityList = hospitalClass.getHospitalVicinityList();
+            ArrayList<String> hospitalPlaceIDList = hospitalClass.getHospitalPlaceIDList();
 
             while (i != counter){
 
                 String hospitalName = hospitalNameList.get(i);
                 String hospitalVicinity = hospitalVicinityList.get(i);
+                String hospitalPlaceID = hospitalPlaceIDList.get(i);
 
-                Hospital nHospital = new Hospital(hospitalName, hospitalVicinity);
+                Hospital nHospital = new Hospital(hospitalName, hospitalVicinity, hospitalPlaceID);
                 adapter.add(nHospital);
                 i++;
             }
