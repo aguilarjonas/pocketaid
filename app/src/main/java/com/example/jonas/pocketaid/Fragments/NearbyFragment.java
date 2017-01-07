@@ -124,17 +124,22 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 //        hospitalView.setLayoutParams(params);
         hospitalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id){
-                    //String item = ((TextView)v).getText().toString();
                     String chosenHospital = ((TextView)v.findViewById(R.id.textView_hospitalName)).getText().toString();
                     String chosenHospitalPlaceID = ((TextView)v.findViewById(R.id.textview_placeid)).getText().toString();
-                    //String data=(String)parent.getItemAtPosition(4);
+
                     NearbyInformationFragment nearbyHospitalInformation = new NearbyInformationFragment();
                     FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                    Bundle args = new Bundle();
+                    args.putString("chosenHospital" , chosenHospital);
+                    args.putString("chosenHospitalPlaceID" , chosenHospitalPlaceID);
+                    nearbyHospitalInformation.setArguments(args);
+
                     fragmentTransaction.add(nearbyHospitalInformation, "nearbyHospitalInformation")
                             .replace(R.id.fragment_container, nearbyHospitalInformation)
                             .addToBackStack("nearbyHospitalInformation")
                             .commit();
-                    Toast.makeText(getActivity().getApplicationContext(), chosenHospitalPlaceID , Toast.LENGTH_LONG).show();
+
+
                     //To get total number of items in a listview hospitalListView.getAdapter().getCount();
 
             }

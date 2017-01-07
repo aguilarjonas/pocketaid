@@ -44,6 +44,7 @@
     <!-- SWITCH TEXTS -->
     <string name="Download">Download</string>
     <string name="Downloaded">Downloaded</string>
+    <string name="hospitalinfoName">Hospital Name:</string>
 
     <!-- SPINNER OPTIONS -->
     <string-array name="spinner_options">
