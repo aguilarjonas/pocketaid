@@ -52,7 +52,9 @@
         <item>Alternative Procedure</item>
     </string-array>
 
-    <!-- RECOMMENDED & ALTERNATIVE STEPS: ABRASION -->
+
+    <!-- RECOMMENDED & ALTERNATIVE FIRST AID STEPS -->
+    <!-- ABRASION -->
     <string-array name="abrasion_recommended">
         <item>Wash the affected area with water and anti-bacterial soap</item>
         <item>Apply Betadine Solution or Spray</item>
@@ -61,6 +63,44 @@
     </string-array>
     <string-array name="abrasion_alternative">
         <item>Boil the guava leaves and run the warm water to the affected area to avoid bacteria.</item>
+        <item>Apply Betadine Solution or Spray</item>
+        <item>Cover the affected area with gauze or band-aid</item>
+        <item>Repeat daily until fully healed</item>
     </string-array>
 
+    <!-- BITES -->
+    <string-array name="bites_animal_recommended">
+        <item>Control the bleeding by applying pressure on the bite with a clean and dry cloth or handkerchief</item>
+        <item>Do not clean serious wound. It will be cleaned at a medical facility.</item>
+        <item>Call 911 or use our Nearby Hospital feature.</item>
+    </string-array>
+    <string-array name="bites_insect_recommended">
+        <item>Check if the bite mark or stinger is swelling and/or bleeding.</item>
+        <item>If there is a stinger, carefully use tweezers, making sure to grab the base of the stinger to prevent squeezing the venom sac.</item>
+        <item>Wash the wound with soap and water.</item>
+        <item>Cover the area with clean bandage or gauze.</item>
+        <item>Apply a cold pack to the affected area to reduce pain and swelling.</item>
+        <item>Call 911 if the person has trouble in breathing or for any other signals of anaphylaxis (hypersensitivity). </item>
+    </string-array>
+    <string-array name="bites_insect_alternative">
+        <item>Check if the bite mark or stinger is swelling and/or bleeding.</item>
+        <item>If there is a stinger, scrape it away using a flat surface, such as a credit card.</item>
+        <item>Wash the wound with soap and water.</item>
+        <item>Cover the area with a clean handkerchief or cloth.</item>
+        <item>Apply ice cubes wrapped in a clean towel to the affected area to reduce pain and swelling.</item>
+        <item>Call 911 if the person has trouble in breathing or for any other signals of anaphylaxis (hypersensitivity). </item>
+    </string-array>
+
+    <!-- CONTUSION -->
+    <string-array name="contusion_recommended">
+        <item>Apply a cold pack, or ice wrapped in a clean towel, for up to 15 minutes on the bruise to help reduce swelling.</item>
+        <item>Keep the bruised area raised above the heart, if possible, to keep the blood from pooling in the bruised tissue.</item>
+        <item>Try to rest the bruised part by not overworking the certain area.</item>
+        <item>If needed, take acetaminophen (Tylenol) to help reduce the pain.</item>
+    </string-array>
+
+    <!-- LACERATION -->
+    <string-array name="laceration_minor_recommended">
+        <item></item>
+    </string-array>
 </resources>

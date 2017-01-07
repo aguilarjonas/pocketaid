@@ -3,37 +3,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_marginLeft="@dimen/ten_dp"
-    android:layout_marginStart="@dimen/ten_dp"
-    android:layout_marginRight="@dimen/ten_dp"
-    android:layout_marginEnd="@dimen/ten_dp"
     tools:context="com.example.jonas.pocketaid.InjuriesFragments.InjuryStepsFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ScrollView
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/spinner_options"
+        android:layout_gravity="start">
+    </Spinner>
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:entries="@array/spinner_options"
+        android:layout_gravity="start">
+    </Spinner>
+
+    <ListView
+        android:id="@+id/listview_firstaid_steps"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
         android:overScrollMode="never">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinner_options"
-                android:layout_gravity="start">
-            </Spinner>
-
-            <ListView
-                android:id="@+id/listview_firstaid_steps"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-            </ListView>
-        </LinearLayout>
-    </ScrollView>
+    </ListView>
 </LinearLayout>
