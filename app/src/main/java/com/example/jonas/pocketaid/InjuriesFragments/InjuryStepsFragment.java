@@ -24,10 +24,11 @@ import java.util.ArrayList;
 public class InjuryStepsFragment extends Fragment {
 
     private Spinner spinnerOptions;
-    private Spinner spinner2;
+    private Spinner spinnerSubCat;
     private ListView listView;
     private String[] steps;
     private int[] imgSteps;
+    private String subCat;
 
     public InjuryStepsFragment() {
         // Required empty public constructor
@@ -44,19 +45,25 @@ public class InjuryStepsFragment extends Fragment {
         final String injury = getArguments().getString("injury");
         spinnerOptions = (Spinner) rootView.findViewById(R.id.spinner);
         listView = (ListView) rootView.findViewById(R.id.listview_firstaid_steps);
-        spinner2 = (Spinner) rootView.findViewById(R.id.spinner2);
+        spinnerSubCat = (Spinner) rootView.findViewById(R.id.spinner2);
 
-        if(injury.toLowerCase().equals("burns")) {
-            spinner2.setVisibility(rootView.VISIBLE);
-            ArrayList<String> options = new ArrayList<String>();
-            options.add("1st and 2nd Degree Burns");
-            options.add("3rd Degree Burns");
+        addSpinnerSubCat(rootView, spinnerSubCat, injury);
 
-            ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_dropdown_item, options);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerSubCat.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(injury.toLowerCase().equals("laceration")) {
+                    if(position == 0) {
+                        setSubCat("laceration_major");
+                    } else if(position == 1) {
+                        setSubCat("laceration_minor");
+                    }
+                }
+            }
 
-            spinner2.setAdapter(adapter);
-        }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {/** DO NOTHING **/}
+        });
 
         //spinner options (recommended or alternative)
         spinnerOptions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -72,16 +79,8 @@ public class InjuryStepsFragment extends Fragment {
                         imgSteps = new int[] { R.drawable.ic_nearby, R.drawable.ic_bites, R.drawable.ic_concussion, R.drawable.ic_contusion};
                         setInjuryStepAdapter(steps, imgSteps);
                     }
-                } else if(injury.toLowerCase().equals("bites")) {
-                    if(position == 0) {
-                        steps = getResources().getStringArray(R.array.abrasion_recommended);
-                        imgSteps = new int[] { R.drawable.ic_about, R.drawable.ic_abrasion, 0, R.drawable.ic_nearby };
-                        setInjuryStepAdapter(steps, imgSteps);
-                    } else if(position == 1){
-                        steps = getResources().getStringArray(R.array.abrasion_alternative);
-                        imgSteps = new int[] { R.drawable.ic_nearby, R.drawable.ic_bites, R.drawable.ic_concussion, R.drawable.ic_contusion};
-                        setInjuryStepAdapter(steps, imgSteps);
-                    }
+                } else if(injury.toLowerCase().equals("laceration")) {
+
                 }
             }
 
@@ -95,5 +94,57 @@ public class InjuryStepsFragment extends Fragment {
     public void setInjuryStepAdapter(String[] step, int[] imgStep) {
         InjuryStepsAdapter adapter = new InjuryStepsAdapter(getActivity().getApplicationContext(), step, imgStep);
         listView.setAdapter(adapter);
+    }
+
+    public void addSpinnerSubCat(ViewGroup rootView, Spinner spinnerSubCat, String injury) {
+        if(injury.toLowerCase().equals("burns")) {
+            spinnerSubCat.setVisibility(rootView.VISIBLE);
+            ArrayList<String> options = new ArrayList<String>();
+            options.add("1st and 2nd Degree Burns");
+            options.add("3rd Degree Burns");
+
+            ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_dropdown_item, options);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            spinnerSubCat.setAdapter(adapter);
+        } else if(injury.toLowerCase().equals("bites")) {
+            spinnerSubCat.setVisibility(rootView.VISIBLE);
+            ArrayList<String> options = new ArrayList<String>();
+            options.add("Animal Bites");
+            options.add("Insect Bites");
+
+            ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_dropdown_item, options);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            spinnerSubCat.setAdapter(adapter);
+        } else if(injury.toLowerCase().equals("puncture")) {
+            spinnerSubCat.setVisibility(rootView.VISIBLE);
+            ArrayList<String> options = new ArrayList<String>();
+            options.add("Severe Bleeding");
+            options.add("Slight Bleeding");
+
+            ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_dropdown_item, options);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            spinnerSubCat.setAdapter(adapter);
+        } else if(injury.toLowerCase().equals("laceration")) {
+            spinnerSubCat.setVisibility(rootView.VISIBLE);
+            ArrayList<String> options = new ArrayList<String>();
+            options.add("Major Laceration Wound");
+            options.add("Minor Laceration Wound");
+
+            ArrayAdapter adapter = new ArrayAdapter(getActivity(), android.R.layout.simple_spinner_dropdown_item, options);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            spinnerSubCat.setAdapter(adapter);
+        }
+    }
+
+    public void setSubCat(String subCat) {
+        this.subCat = subCat;
+    }
+
+    public String getSubCat() {
+        return subCat;
     }
 }

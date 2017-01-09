@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -85,7 +87,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         //Added by Raeven
         mediaC = new MediaController(this);
-        videoView = (VideoView)findViewById(R.id.abrasion_video);
+        videoView = (VideoView)findViewById(R.id.injury_video);
 
 
     }
@@ -234,6 +236,7 @@ public class MainActivity extends AppCompatActivity
 
     //method to set title bar
     public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle("");
         getSupportActionBar().setTitle(title);
     }
 }
