@@ -189,7 +189,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                     }
                 }
 
-                Toast.makeText(getActivity().getApplicationContext(),"Ooops Nakiliti ako", Toast.LENGTH_LONG).show();
+               // Toast.makeText(getActivity().getApplicationContext(),"Ooops Nakiliti ako", Toast.LENGTH_LONG).show();
 
             }
 
@@ -224,7 +224,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             //Log.d("onClick", url);
             GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
             getNearbyPlacesData.execute(DataTransfer);
-            Toast.makeText(getActivity().getApplicationContext(),"Nearby Hospitals", Toast.LENGTH_LONG).show();
+           // Toast.makeText(getActivity().getApplicationContext(),"Nearby Hospitals", Toast.LENGTH_LONG).show();
 
             //new JSONTask().execute("http://jsonparsing.parseapp.com/jsonData/moviesDemoItem.txt");
             new JSONTask().execute(url);
@@ -467,7 +467,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
         protected void onPostExecute(ArrayList<String> testingArray) {
             //super.onPostExecute();
-            Log.d("DALIRI", "DALIRI MO");
+           // Log.d("DALIRI", "DALIRI MO");
 
             int i = 0;
             adapter = new HospitalListAdapter(getActivity(), R.layout.layout_google_maps );
