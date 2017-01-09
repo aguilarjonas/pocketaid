@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.InjuryOverviewFragment;
+import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 
 /**
@@ -27,6 +28,7 @@ public class InjuryTabLayout extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        ((MainActivity)getActivity()).setActionBarTitle(getArguments().getString("injury"));
         View rootView = inflater.inflate(R.layout.layout_injury_tabs, container, false);
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);

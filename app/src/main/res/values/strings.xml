@@ -91,6 +91,12 @@
         <item>Call 911 if the person has trouble in breathing or for any other signals of anaphylaxis (hypersensitivity). </item>
     </string-array>
 
+    <!-- CONCUSSION -->
+    <string-array name="concussion_recommended">
+        <item>Apply cold compress or cold pack to the injured area for 20 minutes every 3 hours.</item>
+        <item>Observe your child carefully for the next 24 hours. If there are any signs of internal injury, call 911 or use our Nearby Hospital feature.</item>
+    </string-array>
+
     <!-- CONTUSION -->
     <string-array name="contusion_recommended">
         <item>Apply a cold pack, or ice wrapped in a clean towel, for up to 15 minutes on the bruise to help reduce swelling.</item>
@@ -99,8 +105,52 @@
         <item>If needed, take acetaminophen (Tylenol) to help reduce the pain.</item>
     </string-array>
 
+    <!-- FRACTURE -->
+    <string-array name="fracture_recommended">
+        <item>In the case of an open wound, control the bleeding and cover the wound with a sterile dressing; if a bone is protruding,
+                use a ring pad then apply a bandage making sure it is not directly over the fracture.</item>
+        <item>Support the fractured limb in the most comfortable position. Raise and rest a fractured foot or ankle on pillows or folded blankets.</item>
+        <item>Immobilize the fractured limbs using a splint or sling. Do not attempt to straighten the fractured limb.</item>
+        <item>Check regularly that the bandages are not too tight, affecting circulation.</item>
+        <item>Watch for signs of shock.</item>
+        <item>Call 911 or use our Nearby Hospital feature.</item>
+    </string-array>
+
     <!-- LACERATION -->
     <string-array name="laceration_minor_recommended">
-        <item></item>
+        <item>LACERATION</item>
+        <item>MINOR</item>
+        <item>RECOMMENDED</item>
+    </string-array>
+    <string-array name="laceration_major_recommended">
+        <item>LACERATION</item>
+        <item>MAJOR</item>
+        <item>RECOMMENDED</item>
+    </string-array>
+    <string-array name="laceration_minor_alternative">
+        <item>LACERATION</item>
+        <item>MINOR</item>
+        <item>ALTERNATIVE</item>
+    </string-array>
+
+    <!-- PUNCTURE -->
+    <string-array name="puncture_severe_recommended">
+        <item>Wash your hands with soap and water then wear gloves.</item>
+        <item>Apply direct pressure to the affected area using a sterile gauze.</item>
+        <item>Clean and cover the wound with a sterile gauze.</item>
+        <item>Consult and refer to a physician immediately if the bleeding doesn\'t stop.</item>
+    </string-array>
+    <string-array name="puncture_severe_alternative">
+        <item>Wash your hands with soap and water. If gloves are note available, use any clean barrier between your hand and the wound.</item>
+        <item>Apply direct pressure and press firmly against the wound. If sterile gauze is not available, use your hand or a clean cloth or handkerchief to apply pressure.</item>
+        <item>Clean and cover the wound with a clean cloth or handkerchief.</item>
+        <item>If the cloth becomes soaked with blood, do not remove it. Apply addition clean cloth on top.</item>
+        <item>Consult and refer to a physician immediately if the bleeding doesn\'t stop.</item>
+    </string-array>
+    <string-array name="puncture_slight_recommended">
+        <item>Wash your hands with soap and water then wear gloves.</item>
+        <item>Clean the wound with soap and water.</item>
+        <item>Apply mild antiseptic or antibiotic cream.</item>
+        <item>Cover the wound loosely with sterile gauze or bandage.</item>
     </string-array>
 </resources>

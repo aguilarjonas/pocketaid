@@ -76,7 +76,6 @@ public class InjuryInformationFragment extends Fragment {
             injuryType = "Puncture";
         }
 
-        ((MainActivity)getActivity()).setActionBarTitle(injuryType);
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injury_information, container, false);
 
         //initialization
@@ -85,7 +84,7 @@ public class InjuryInformationFragment extends Fragment {
         downloadSwitch = (Switch) rootView.findViewById(R.id.switch_download);
         //downloadButton = (Button) rootView.findViewById(R.id.video_download);
         //streamButton = (Button) rootView.findViewById(R.id.stream_button);
-        videoView = (VideoView) rootView.findViewById(R.id.abrasion_video);
+        videoView = (VideoView) rootView.findViewById(R.id.injury_video);
 
         //"inflates" steps below the video
         InjuryStepsFragment injuryStepsFragment = new InjuryStepsFragment();
