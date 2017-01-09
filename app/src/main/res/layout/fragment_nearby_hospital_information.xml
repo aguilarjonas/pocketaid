@@ -55,4 +55,23 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
+    <TextView
+        android:text="Phone Number:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview_placeID"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="28dp"
+        android:id="@+id/textView_phoneNumber" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView_phoneNumber"
+        android:layout_alignLeft="@+id/textview_hospitalnameinfo"
+        android:layout_alignStart="@+id/textview_hospitalnameinfo"
+        android:id="@+id/textview_phonenumberinfo" />
+
 </RelativeLayout>
