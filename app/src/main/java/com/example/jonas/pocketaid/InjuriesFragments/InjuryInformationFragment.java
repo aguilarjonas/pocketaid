@@ -60,20 +60,36 @@ public class InjuryInformationFragment extends Fragment {
         String chosenInjury = getArguments().getString("injury");
         if (chosenInjury.equals("Abrasion")){
             injuryType = "Abrasion";
-        }else if (chosenInjury.equals("Bites")){
+        } else if (chosenInjury.equals("Bites")){
             injuryType = "Bites";
-        }else if (chosenInjury.equals("Burns")){
+        } else if (chosenInjury.equals("Burns")){
             injuryType = "Burns";
-        }else if (chosenInjury.equals("Concussion")){
+        } else if (chosenInjury.equals("Concussion")){
             injuryType = "Concussion";
-        }else if (chosenInjury.equals("Contusion")){
+        } else if (chosenInjury.equals("Contusion")){
             injuryType = "Contusion";
-        }else if (chosenInjury.equals("Fracture")){
+        } else if (chosenInjury.equals("Fracture")){
             injuryType = "Fracture";
-        }else if (chosenInjury.equals("Laceration")){
+        } else if (chosenInjury.equals("Laceration")){
             injuryType = "Laceration";
-        }else if (chosenInjury.equals("Puncture")){
+        } else if (chosenInjury.equals("Puncture")){
             injuryType = "Puncture";
+        } else if(chosenInjury.toLowerCase().equals("animal")){
+            injuryType = "Animal";
+        } else if(chosenInjury.toLowerCase().equals("insect")){
+            injuryType = "Insect";
+        } else if(chosenInjury.toLowerCase().equals("1st & 2nd degree")) {
+            injuryType = "First_Second_Degree";
+        } else if(chosenInjury.toLowerCase().equals("3rd degree")) {
+            injuryType = "Third_Degree";
+        } else if(chosenInjury.toLowerCase().equals("major")) {
+            injuryType = "Major";
+        } else if(chosenInjury.toLowerCase().equals("minor")) {
+            injuryType = "Minor";
+        } else if(chosenInjury.toLowerCase().equals("severe")) {
+            injuryType = "Severe";
+        } else if(chosenInjury.toLowerCase().equals("slight")) {
+            injuryType = "Slight";
         }
 
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injury_information, container, false);
@@ -125,7 +141,7 @@ public class InjuryInformationFragment extends Fragment {
                 }
 
                 else if (isChecked == false){
-                    Toast.makeText(getActivity(), "NADELETE NA TANGA", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "Video Deleted", Toast.LENGTH_SHORT).show();
                     videoFile.delete();
                 }
 
@@ -175,7 +191,7 @@ public class InjuryInformationFragment extends Fragment {
 
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(myURL));
         request.setTitle(injuryType + " Video");
-        request.setDescription("File is being downloaded...");
+        request.setDescription("Video is being downloaded...");
 
         request.allowScanningByMediaScanner();
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);

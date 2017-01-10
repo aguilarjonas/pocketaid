@@ -23,7 +23,7 @@ public class InjuryTabLayout extends Fragment {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private int tab_numbers = 2;
+    private int tab_numbers;
     private Bundle args;
 
     @Override
@@ -55,21 +55,49 @@ public class InjuryTabLayout extends Fragment {
         public Fragment getItem(int position) {
             String chosenInjury = getArguments().getString("injury");
 
-            switch (position) {
-                case 0:
-                    InjuryOverviewFragment injuryOverviewFragment = new InjuryOverviewFragment();
-                    args = new Bundle();
-                    args.putString("injury", chosenInjury);
-                    injuryOverviewFragment.setArguments(args);
-
-                    return injuryOverviewFragment;
-                case 1:
-                    InjuryInformationFragment injuryInformationFragment = new InjuryInformationFragment();
-                    args = new Bundle();
-                    args.putString("injury", chosenInjury);
-                    injuryInformationFragment.setArguments(args);
-
-                    return injuryInformationFragment;
+            if(chosenInjury.toLowerCase().equals("bites")) {
+                switch (position) {
+                    case 0:
+                        return setOverviewFragment(chosenInjury);
+                    case 1:
+                        return setInjuryInformationFragment("animal");
+                    case 2:
+                        return setInjuryInformationFragment("insect");
+                }
+            } else if(chosenInjury.toLowerCase().equals("burns")) {
+                switch (position) {
+                    case 0:
+                        return setOverviewFragment(chosenInjury);
+                    case 1:
+                        return setInjuryInformationFragment("first_second_degree");
+                    case 2:
+                        return setInjuryInformationFragment("third_degree");
+                }
+            } else if(chosenInjury.toLowerCase().equals("laceration")) {
+                switch (position) {
+                    case 0:
+                        return setOverviewFragment(chosenInjury);
+                    case 1:
+                        return setInjuryInformationFragment("major");
+                    case 2:
+                        return setInjuryInformationFragment("minor");
+                }
+            } else if(chosenInjury.toLowerCase().equals("puncture")) {
+                switch (position) {
+                    case 0:
+                        return setOverviewFragment(chosenInjury);
+                    case 1:
+                        return setInjuryInformationFragment("severe");
+                    case 2:
+                        return setInjuryInformationFragment("slight");
+                }
+            } else {
+                switch (position) {
+                    case 0:
+                        return setOverviewFragment(chosenInjury);
+                    case 1:
+                        return setInjuryInformationFragment(chosenInjury);
+                }
             }
 
             return null;
@@ -77,18 +105,85 @@ public class InjuryTabLayout extends Fragment {
 
         @Override
         public int getCount() {
+            String chosenInjury = getArguments().getString("injury");
+            if(chosenInjury.toLowerCase().equals("bites") ||
+                    chosenInjury.toLowerCase().equals("burns") ||
+                    chosenInjury.toLowerCase().equals("laceration") ||
+                    chosenInjury.toLowerCase().equals("puncture")) {
+                tab_numbers = 3;
+            } else {
+                tab_numbers = 2;
+            }
+
             return tab_numbers;
         }
 
         public CharSequence getPageTitle(int position) {
-            switch (position) {
-                case 0:
-                    return "OVERVIEW";
-                case 1:
-                    return "FIRST AID";
+            String chosenInjury = getArguments().getString("injury");
+            if(chosenInjury.toLowerCase().equals("burns")) {
+                switch (position) {
+                    case 0:
+                        return "OVERVIEW";
+                    case 1:
+                        return "1st & 2nd Degree";
+                    case 2:
+                        return "3rd Degree";
+                }
+            } else if(chosenInjury.toLowerCase().equals("laceration")){
+                switch (position) {
+                    case 0:
+                        return "OVERVIEW";
+                    case 1:
+                        return "MAJOR";
+                    case 2:
+                        return "MINOR";
+                }
+            } else if(chosenInjury.toLowerCase().equals("puncture")){
+                switch (position) {
+                    case 0:
+                        return "OVERVIEW";
+                    case 1:
+                        return "SEVERE";
+                    case 2:
+                        return "SLIGHT";
+                }
+            } else if(chosenInjury.toLowerCase().equals("bites")){
+                switch (position) {
+                    case 0:
+                        return "OVERVIEW";
+                    case 1:
+                        return "ANIMAL";
+                    case 2:
+                        return "INSECT";
+                }
+            } else {
+                switch (position) {
+                    case 0:
+                        return "OVERVIEW";
+                    case 1:
+                        return chosenInjury;
+                }
             }
 
             return null;
+        }
+
+        public Fragment setOverviewFragment(String chosenInjury) {
+            InjuryOverviewFragment injuryOverviewFragment = new InjuryOverviewFragment();
+            args = new Bundle();
+            args.putString("injury", chosenInjury);
+            injuryOverviewFragment.setArguments(args);
+
+            return injuryOverviewFragment;
+        }
+
+        public Fragment setInjuryInformationFragment(String chosenInjury) {
+            InjuryInformationFragment injuryInformationFragment = new InjuryInformationFragment();
+            args = new Bundle();
+            args.putString("injury", chosenInjury);
+            injuryInformationFragment.setArguments(args);
+
+            return injuryInformationFragment;
         }
     }
 }

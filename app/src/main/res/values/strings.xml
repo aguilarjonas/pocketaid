@@ -91,6 +91,28 @@
         <item>Call 911 if the person has trouble in breathing or for any other signals of anaphylaxis (hypersensitivity). </item>
     </string-array>
 
+    <!-- 1ST & 2ND DEGREE BURNS -->
+    <string-array name="burns_first_second_recommended">
+        <item>FIRST AND SECOND DEGREE BURN</item>
+    </string-array>
+    <string-array name="burns_third_recommended">
+        <item>Protect the burned person from further harm. If you can do so safely, make sure the person you\'re helping is not
+                in contact with smoldering materials or exposed to smoke or heat. But do not remove burned clothing stuck to the skin.</item>
+        <item>Remove jeweleries, belts, and other restrictive items, especially from around the burned areas and the neck. Burned areas swell rapidly.</item>
+        <item>Do not immerse large severe burns in cold water. Doing so could cause a serious loss of body heat (hypothermia) or a drop in blood pressure and
+                decreased blood flow (shock).</item>
+        <item>Elevate the burned area. Raise the wound above heart level, if possible.</item>
+        <item>Call 911 or use our Nearby Hospitals feature immediately.</item>
+    </string-array>
+    <string-array name="burns_third_alternative">
+        <item>Protect the burned person from further harm. If you can do so safely, make sure the person you\'re helping is not
+                in contact with smoldering materials or exposed to smoke or heat. But do not remove burned clothing stuck to the skin.</item>
+        <item>Remove jeweleries, belts, and other restrictive items, especially from around the burned areas and the neck. Burned areas swell rapidly.</item>
+        <item>Cover the burn with a dry, non-sticking, sterile dressing or a clean cloth.</item>
+        <item>Treat the victim for shock by elevating the legs and keeping the victim warm with a clean sheet or blanket.</item>
+        <item>Call 911 or use our Nearby Hospitals feature immediately.</item>
+    </string-array>
+
     <!-- CONCUSSION -->
     <string-array name="concussion_recommended">
         <item>Apply cold compress or cold pack to the injured area for 20 minutes every 3 hours.</item>
@@ -117,20 +139,29 @@
     </string-array>
 
     <!-- LACERATION -->
-    <string-array name="laceration_minor_recommended">
-        <item>LACERATION</item>
-        <item>MINOR</item>
-        <item>RECOMMENDED</item>
-    </string-array>
     <string-array name="laceration_major_recommended">
-        <item>LACERATION</item>
-        <item>MAJOR</item>
-        <item>RECOMMENDED</item>
+        <item>Put on disposable gloves. If you suspect that blood might splatter, you may need to wear eye and face protection.</item>
+        <item>Control the bleeding by: \(a\) covering the wound with a dressing and firmly pressing against the wound until the bleeding stops or
+                \(b\) applying a pressure bandage over the dressing to maintain pressure on the wound and to hold the dressing in place.
+                If blood soaks through the bandage, do not remove the blood-soaked bandages. Instead, add more dressings and bandages and apply additional
+            direct pressure.</item>
+        <item>Continue to monitor the person\'s condition. Observe the person closely for signals that may indicate that the person\'s condition is worsening
+            such as faster or slower breathing, changes in skin color and restlessness.</item>
+        <item>Care for shock. Keep the person from getting chilled or overheated.</item>
+        <item>Have the person rest comfortable and provide reassurance.</item>
+        <item>Wash your hands immediately after giving care, even if you wore gloves.</item>
+    </string-array>
+    <string-array name="laceration_minor_recommended">
+        <item>Use disposable gloves and place a sterile dressing on the wound</item>
+        <item>Apply direct pressure for a few minutes to control any bleeding.</item>
+        <item>Wash the wound thoroughly with soap and water. If possible, wash out an abrasion for about 5 minutes with clean, warm, running tap water.</item>
+        <item>Apply an antibiotic ointment to a minor wound if the person has no known allergies or sensitivities to the medication.</item>
+        <item>Cover the wound with a sterile dressing and a bandage or with an adhesive bandage to keep the wound moist and prevent drying.</item>
     </string-array>
     <string-array name="laceration_minor_alternative">
-        <item>LACERATION</item>
-        <item>MINOR</item>
-        <item>ALTERNATIVE</item>
+        <item>Wash your hands with soap and water. Use any clean barrier between your hand and the wound if gloves is not available.</item>
+        <item>Apply direct pressure and press firmly against the wound. Use a clean cloth or handkerchief to apply pressure.</item>
+        <item>Clean and cover the wound with a clean cloth or handkerchief.</item>
     </string-array>
 
     <!-- PUNCTURE -->

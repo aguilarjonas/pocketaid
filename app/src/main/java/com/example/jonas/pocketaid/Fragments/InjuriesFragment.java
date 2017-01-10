@@ -100,6 +100,8 @@ public class InjuriesFragment extends Fragment {
 //                            .commit();
                     InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -128,6 +130,8 @@ public class InjuriesFragment extends Fragment {
 
                     InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -154,6 +158,8 @@ public class InjuriesFragment extends Fragment {
 //                            .commit();
                     InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -180,6 +186,8 @@ public class InjuriesFragment extends Fragment {
 //                            .commit();
                     InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -206,6 +214,8 @@ public class InjuriesFragment extends Fragment {
 //                            .commit();
                     InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -232,6 +242,8 @@ public class InjuriesFragment extends Fragment {
 //                            .commit();
                     InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -258,6 +270,8 @@ public class InjuriesFragment extends Fragment {
 //                            .commit();
                     InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 
                     //To make fragments dynamic
                     Bundle args = new Bundle();
@@ -284,6 +298,8 @@ public class InjuriesFragment extends Fragment {
 //                            .commit();
                     InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
                     FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 
                     //To make fragments dynamic
                     Bundle args = new Bundle();

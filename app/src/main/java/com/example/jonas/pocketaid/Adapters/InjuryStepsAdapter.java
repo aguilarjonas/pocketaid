@@ -47,9 +47,9 @@ public class InjuryStepsAdapter extends ArrayAdapter<String> {
         holder.stepsIV = (ImageView) convertView.findViewById(R.id.step_image);
         holder.stepNumTV = (TextView) convertView.findViewById(R.id.step_number);
 
-        holder.stepNumTV.setText(Integer.toString(position+1));
         holder.stepsTV.setText(steps[position]);
         holder.stepsIV.setImageResource(images[position]);
+        holder.stepNumTV.setText(Integer.toString(position+1));
 
         return convertView;
     }
