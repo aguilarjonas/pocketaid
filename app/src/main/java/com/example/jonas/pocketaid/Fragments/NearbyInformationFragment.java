@@ -1,6 +1,7 @@
 package com.example.jonas.pocketaid.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +37,7 @@ public class NearbyInformationFragment extends Fragment {
     private TextView hospitalNameHolder;
     private TextView hospitalPlaceIDHolder;
     private TextView hospitalPhoneNumber;
+    private ImageButton hospitalCallButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,13 +49,21 @@ public class NearbyInformationFragment extends Fragment {
         hospitalNameHolder = (TextView)v.findViewById(R.id.textview_hospitalnameinfo);
         hospitalPlaceIDHolder = (TextView)v.findViewById(R.id.textview_placeidinfo);
         hospitalPhoneNumber = (TextView)v.findViewById(R.id.textview_phonenumberinfo);
+        hospitalCallButton = (ImageButton)v.findViewById(R.id.image_callhospital);
+
+
+
         String hospitalName = getArguments().getString("chosenHospital");
         String hospitalPlaceID = getArguments().getString("chosenHospitalPlaceID");
         getPhoneNumber(hospitalPlaceID);
         putTheText(hospitalName, hospitalPlaceID);
 
+
+
         return v;
     }
+
+
 
     public String getPhoneNumber (String placeID){
 
@@ -124,8 +135,34 @@ public class NearbyInformationFragment extends Fragment {
         }
 
         @Override
-        protected void onPostExecute(String s) {
-            hospitalPhoneNumber.setText(s);
+        protected void onPostExecute(final String s) {
+
+            if (s == null){
+                hospitalPhoneNumber.setText("No Phone number Available");
+                hospitalCallButton.setSaveEnabled(false);
+
+                hospitalCallButton. setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getActivity().getApplicationContext(),"No phone number available", Toast.LENGTH_LONG).show();
+
+                    }
+                });
+            }
+
+            else {
+                hospitalPhoneNumber.setText(s);
+                hospitalCallButton. setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent call = new Intent(Intent.ACTION_DIAL);
+                        call.setData(Uri.parse("tel:"+s));
+                        startActivity(call);
+                    }
+                });
+            }
+
+
         }
     }
 
