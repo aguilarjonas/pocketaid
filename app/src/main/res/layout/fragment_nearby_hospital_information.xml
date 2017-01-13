@@ -9,6 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="204dp">
 
+        <fragment android:id="@+id/map_hospitalOnly"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="201dp"
+            tools:context=".Fragments.NearbyFragment"/>
 
     </LinearLayout>
 

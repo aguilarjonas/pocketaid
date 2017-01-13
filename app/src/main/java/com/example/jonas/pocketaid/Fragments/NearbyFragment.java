@@ -126,12 +126,17 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             public void onItemClick(AdapterView parent, View v, int position, long id){
                     String chosenHospital = ((TextView)v.findViewById(R.id.textView_hospitalName)).getText().toString();
                     String chosenHospitalPlaceID = ((TextView)v.findViewById(R.id.textview_placeid)).getText().toString();
+                    String chosenHospitalLat = ((TextView)v.findViewById(R.id.textview_latitude)).getText().toString();
+                    String chosenHospitalLng = ((TextView)v.findViewById(R.id.textview_longitude)).getText().toString();
 
                     NearbyInformationFragment nearbyHospitalInformation = new NearbyInformationFragment();
                     FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
                     Bundle args = new Bundle();
                     args.putString("chosenHospital" , chosenHospital);
                     args.putString("chosenHospitalPlaceID" , chosenHospitalPlaceID);
+                    args.putString("chosenHospitalLat", chosenHospitalLat);
+                    args.putString("chosenHospitalLng", chosenHospitalLng);
+
                     nearbyHospitalInformation.setArguments(args);
 
                     fragmentTransaction.add(nearbyHospitalInformation, "nearbyHospitalInformation")
@@ -164,7 +169,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        automaticHospitalSearch();
+        //automaticHospitalSearch();
 
         //Click listener ng pointer dun sa marker.
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
@@ -391,7 +396,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         String hospitalName = "";
         String hospitalVicinity = "";
         String hospitalPlaceID = "";
-        Hospital hospitalClass = new Hospital(hospitalName, hospitalVicinity, hospitalPlaceID);
+        String hospitalLatitude = "";
+        String hospitalLongitude = "";
+        Hospital hospitalClass = new Hospital(hospitalName, hospitalVicinity, hospitalPlaceID, hospitalLatitude, hospitalLongitude);
 
         @Override
         protected ArrayList<String> doInBackground(ArrayList<String>... params) {
@@ -417,14 +424,27 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 ArrayList<String> hospitalNamesList = new ArrayList<>();
                 ArrayList<String> hospitalVicinitiesList = new ArrayList<>();
                 ArrayList<String> hospitalPlaceIDList = new ArrayList<>();
+                ArrayList<String> hospitalLatitudeList = new ArrayList<>();
+                ArrayList<String> hospitalLongitudeList = new ArrayList<>();
+
 
                 JSONObject parentObject = new JSONObject(finalJSON);
                 JSONArray parentArray = parentObject.getJSONArray("results");
+//                JSONArray parentArray2 = parentArray.getJSONArray(0);
+//                JSONArray parentArray3 = parentArray2.getJSONArray(0);
+//                JSONArray parentArray2 = parentArray.getJSONArray(2);
+//                JSONArray parentArray3 = parentArray2.getJSONArray(2);
+
+
+
+
                 int i = 0;
 
                 counter = parentArray.length();
                 while (i != counter){
                     JSONObject finalObject = parentArray.getJSONObject(i);
+//                    JSONObject finalObject2 = parentArray3.getJSONObject(i);
+
                     String hospitalName = finalObject.getString("name");
                     hospitalNamesList.add(hospitalName);
 
@@ -434,10 +454,21 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                     String hospitalPlaceID = finalObject.getString("place_id");
                     hospitalPlaceIDList.add(hospitalPlaceID);
 
+                        JSONObject hospitalLatitude1 = finalObject.getJSONObject("geometry");
+                        JSONObject hospitalLatitude2 = hospitalLatitude1.getJSONObject("location");
+                        hospitalLatitude = hospitalLatitude2.getString("lat");
+                        hospitalLatitudeList.add(hospitalLatitude);
+
+                    JSONObject hospitalLongitude1 = finalObject.getJSONObject("geometry");
+                    JSONObject hospitalLongitude2 = hospitalLongitude1.getJSONObject("location");
+                    hospitalLongitude = hospitalLatitude2.getString("lng");
+                    hospitalLongitudeList.add(hospitalLongitude);
+
                     i++;
                 }
 
-                hospitalClass.putHospitalInformationList(hospitalNamesList, hospitalVicinitiesList, hospitalPlaceIDList);
+                hospitalClass.putHospitalInformationList(hospitalNamesList, hospitalVicinitiesList, hospitalPlaceIDList,
+                        hospitalLatitudeList, hospitalLongitudeList);
                 return null;
             }
             catch (MalformedURLException e){
@@ -467,7 +498,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
         protected void onPostExecute(ArrayList<String> testingArray) {
             //super.onPostExecute();
-           // Log.d("DALIRI", "DALIRI MO");
+            //Log.d("DALIRI", "DALIRI MO");
 
             int i = 0;
             adapter = new HospitalListAdapter(getActivity(), R.layout.layout_google_maps );
@@ -475,14 +506,20 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             ArrayList<String> hospitalNameList = hospitalClass.getHospitalNameList();
             ArrayList<String> hospitalVicinityList = hospitalClass.getHospitalVicinityList();
             ArrayList<String> hospitalPlaceIDList = hospitalClass.getHospitalPlaceIDList();
+            ArrayList<String> hospitalLatitudeList = hospitalClass.getHospitalLatitudeList();
+            ArrayList<String> hospitalLongitudeList = hospitalClass.getHospitalLongitudeList();
 
             while (i != counter){
 
                 String hospitalName = hospitalNameList.get(i);
                 String hospitalVicinity = hospitalVicinityList.get(i);
                 String hospitalPlaceID = hospitalPlaceIDList.get(i);
+                String latitude = hospitalLatitudeList.get(i);
+                String longitude = hospitalLongitudeList.get(i);
 
-                Hospital nHospital = new Hospital(hospitalName, hospitalVicinity, hospitalPlaceID);
+                //Toast.makeText(getActivity().getApplicationContext(), latitude, Toast.LENGTH_LONG).show();
+
+                Hospital nHospital = new Hospital(hospitalName, hospitalVicinity, hospitalPlaceID, latitude, longitude);
                 adapter.add(nHospital);
                 i++;
             }
