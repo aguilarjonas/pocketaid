@@ -69,7 +69,7 @@ public class InjuryOverviewFragment extends Fragment {
 
     public void configure(String injury, ViewGroup rootView) {
         injury_logo = (ImageView) rootView.findViewById(R.id.injury_logo);
-        injury_logo.setImageResource(getResources().getIdentifier("ic_"+injury, "drawable", getActivity().getPackageName()));
+        injury_logo.setImageResource(getResources().getIdentifier("ic_" + injury, "drawable", getActivity().getPackageName()));
 
         overview_injury = (TextView) rootView.findViewById(R.id.overview_injury);
         overview_injury.setText(injury);

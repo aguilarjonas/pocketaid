@@ -52,6 +52,11 @@
         <item>Alternative Procedure</item>
     </string-array>
 
+    <!-- LABELS BURNS -->
+    <string name="thermal">THERMAL</string>
+    <string name="electrical">ELECTRICAL</string>
+    <string name="chemical">CHEMICAL</string>
+
 
     <!-- RECOMMENDED & ALTERNATIVE FIRST AID STEPS -->
     <!-- ABRASION -->
@@ -92,8 +97,27 @@
     </string-array>
 
     <!-- 1ST & 2ND DEGREE BURNS -->
-    <string-array name="burns_first_second_recommended">
-        <item>FIRST AND SECOND DEGREE BURN</item>
+    <string-array name="burns_thermal_recommended">
+        <item>Hold the burned area in running water for 5\-10 minutes or until pain is relieved.</item>
+        <item>Cover the burn with a dry, non\-sticking, sterile dressing or a clean cloth.</item>
+        <item>Keep the burned area clean by washing with a mild soap and water.</item>
+    </string-array>
+    <string-array name="burns_thermal_alternative">
+        <item>Apply a clean towel dampened with a cool tap water.</item>
+        <item>Cover any small blisters with a loose bandage, or gauze, and tape.</item>
+        <item>Keep the burned area clean by washing with a mild soap and water.</item>
+    </string-array>
+    <string-array name="burns_chemical_recommended">
+        <item>Immediately remove the chemical by flushing with water.</item>
+        <item>Remove the victim\'s contaminated clothing while flushing with water.</item>
+        <item>Flush for 20 minutes or longer. Let the victim wash with a mild soap before final rinse.</item>
+        <item>Cover the burned area with a dry dressing or, for large areas, a clean pillow case.</item>
+        <item>If the chemical is in the eye, flood it for at least 20 minutes using low-pressured water. Preferably running water.</item>
+        <item>Seek medical attention immediately for all chemical burns.</item>
+    </string-array>
+    <string-array name="burns_electrical_recommended">
+        <item>Unplug, disconnect, or turn off the power. If that is impossible, call the power company or ask for help.</item>
+        <item>Seek medical attention immediately. Electrical injuries are treated in burn center.</item>
     </string-array>
     <string-array name="burns_third_recommended">
         <item>Protect the burned person from further harm. If you can do so safely, make sure the person you\'re helping is not

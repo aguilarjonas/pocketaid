@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +26,6 @@ public class InjuryTabLayout extends Fragment {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private int tab_numbers;
-    private Bundle args;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class InjuryTabLayout extends Fragment {
         @Override
         public Fragment getItem(int position) {
             String chosenInjury = getArguments().getString("injury");
+            Bundle args;
 
             if(chosenInjury.toLowerCase().equals("bites")) {
                 switch (position) {
@@ -170,7 +172,7 @@ public class InjuryTabLayout extends Fragment {
 
         public Fragment setOverviewFragment(String chosenInjury) {
             InjuryOverviewFragment injuryOverviewFragment = new InjuryOverviewFragment();
-            args = new Bundle();
+            Bundle args = new Bundle();
             args.putString("injury", chosenInjury);
             injuryOverviewFragment.setArguments(args);
 
@@ -179,7 +181,7 @@ public class InjuryTabLayout extends Fragment {
 
         public Fragment setInjuryInformationFragment(String chosenInjury) {
             InjuryInformationFragment injuryInformationFragment = new InjuryInformationFragment();
-            args = new Bundle();
+            Bundle args = new Bundle();
             args.putString("injury", chosenInjury);
             injuryInformationFragment.setArguments(args);
 

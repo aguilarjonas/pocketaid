@@ -42,7 +42,7 @@ public class InjuryInformationFragment extends Fragment {
     private ImageView playVideoImage;
 
     private String myURL = "";
-    private String injuryType = "";
+    private String injuryType;
     private File videoFile;
     MediaPlayer mediaC;
 
@@ -57,6 +57,8 @@ public class InjuryInformationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injury_information, container, false);
+
         String chosenInjury = getArguments().getString("injury");
         if (chosenInjury.equals("Abrasion")){
             injuryType = "Abrasion";
@@ -74,14 +76,14 @@ public class InjuryInformationFragment extends Fragment {
             injuryType = "Laceration";
         } else if (chosenInjury.equals("Puncture")){
             injuryType = "Puncture";
-        } else if(chosenInjury.toLowerCase().equals("animal")){
+        } else if(chosenInjury.equals("animal")){
             injuryType = "Animal";
-        } else if(chosenInjury.toLowerCase().equals("insect")){
+        } else if(chosenInjury.equals("insect")){
             injuryType = "Insect";
-        } else if(chosenInjury.toLowerCase().equals("1st & 2nd degree")) {
-            injuryType = "First_Second_Degree";
-        } else if(chosenInjury.toLowerCase().equals("3rd degree")) {
-            injuryType = "Third_Degree";
+        } else if(chosenInjury.toLowerCase().equals("first_second_degree")) {
+            injuryType = "FirstSecondDegree";
+        } else if(chosenInjury.toLowerCase().equals("third_degree")) {
+            injuryType = "ThirdDegree";
         } else if(chosenInjury.toLowerCase().equals("major")) {
             injuryType = "Major";
         } else if(chosenInjury.toLowerCase().equals("minor")) {
@@ -91,8 +93,6 @@ public class InjuryInformationFragment extends Fragment {
         } else if(chosenInjury.toLowerCase().equals("slight")) {
             injuryType = "Slight";
         }
-
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injury_information, container, false);
 
         //initialization
         //downloadNote = (TextView) rootView.findViewById(R.id.download_note);
