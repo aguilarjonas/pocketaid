@@ -27,7 +27,11 @@ public class InjuryStepsFragment extends Fragment {
 
     private Spinner spinnerOptions;
     private ListView listView;
+    private ListView lv_electrical;
     private ListView lv_chemical;
+    private TextView tv_thermal;
+    private TextView tv_chemical;
+    private TextView tv_electrical;
     private String[] steps;
     private int[] imgSteps;
 
@@ -47,10 +51,34 @@ public class InjuryStepsFragment extends Fragment {
         spinnerOptions = (Spinner) rootView.findViewById(R.id.spinner);
         listView = (ListView) rootView.findViewById(R.id.listview_firstaid_steps);
         lv_chemical = (ListView) rootView.findViewById(R.id.listview_chemical);
+        lv_electrical = (ListView) rootView.findViewById(R.id.listview_electrical);
+        tv_thermal = (TextView) rootView.findViewById(R.id.textview_thermal);
+        tv_chemical = (TextView) rootView.findViewById(R.id.textview_chemical);
+        tv_electrical = (TextView) rootView.findViewById(R.id.textview_electrical);
 
         disableSpinner(spinnerOptions, injury);
+        setSpinnerOptions(spinnerOptions, injury);
 
         //spinner options (recommended or alternative)
+
+        return rootView;
+    }
+
+    public void setInjuryStepAdapter(String[] step, int[] imgStep, ListView listView) {
+        InjuryStepsAdapter adapter = new InjuryStepsAdapter(getActivity().getApplicationContext(), step, imgStep);
+        listView.setAdapter(adapter);
+
+        ListUtils.setDynamicHeight(listView);
+    }
+
+    public void disableSpinner(Spinner spinnerOptions, String injury) {
+        if(injury.toLowerCase().equals("animal") || injury.toLowerCase().equals("concussion") || injury.toLowerCase().equals("contusion") ||
+                injury.toLowerCase().equals("major") || injury.toLowerCase().equals("slight")) {
+            spinnerOptions.setEnabled(false);
+        }
+    }
+
+    public void setSpinnerOptions(Spinner spinnerOptions, final String injury) {
         spinnerOptions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -86,6 +114,19 @@ public class InjuryStepsFragment extends Fragment {
                         imgSteps = new int[] { 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, listView);
 
+                        steps = getResources().getStringArray(R.array.burns_chemical_recommended);
+                        imgSteps = new int[] { 0, 0, 0, 0, 0, 0 };
+                        setInjuryStepAdapter(steps, imgSteps, lv_chemical);
+
+                        steps = getResources().getStringArray(R.array.burns_electrical_recommended);
+                        imgSteps = new int[] { 0, 0 };
+                        setInjuryStepAdapter(steps, imgSteps, lv_electrical);
+
+                        tv_thermal.setVisibility(View.VISIBLE);
+                        tv_chemical.setVisibility(View.VISIBLE);
+                        tv_electrical.setVisibility(View.VISIBLE);
+                        lv_chemical.setVisibility(View.VISIBLE);
+                        lv_electrical.setVisibility(View.VISIBLE);
                     } else if(position == 1){
                         steps = getResources().getStringArray(R.array.burns_thermal_alternative);
                         imgSteps = new int[] { 0, 0, 0 };
@@ -157,22 +198,6 @@ public class InjuryStepsFragment extends Fragment {
             @Override
             public void onNothingSelected(AdapterView<?> parent) { /** DO NOTHING **/ }
         });
-
-        return rootView;
-    }
-
-    public void setInjuryStepAdapter(String[] step, int[] imgStep, ListView listView) {
-        InjuryStepsAdapter adapter = new InjuryStepsAdapter(getActivity().getApplicationContext(), step, imgStep);
-        listView.setAdapter(adapter);
-
-        ListUtils.setDynamicHeight(listView);
-    }
-
-    public void disableSpinner(Spinner spinnerOptions, String injury) {
-        if(injury.toLowerCase().equals("animal") || injury.toLowerCase().equals("concussion") || injury.toLowerCase().equals("contusion") ||
-                injury.toLowerCase().equals("major") || injury.toLowerCase().equals("slight")) {
-            spinnerOptions.setEnabled(false);
-        }
     }
 
     public static class ListUtils {

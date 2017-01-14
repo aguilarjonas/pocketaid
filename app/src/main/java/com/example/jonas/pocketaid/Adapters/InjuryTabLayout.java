@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment;
+import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationSecondTabFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.InjuryOverviewFragment;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
@@ -64,7 +65,7 @@ public class InjuryTabLayout extends Fragment {
                     case 1:
                         return setInjuryInformationFragment("animal");
                     case 2:
-                        return setInjuryInformationFragment("insect");
+                        return setInjuryInformationSecondTabFragment("insect");
                 }
             } else if(chosenInjury.toLowerCase().equals("burns")) {
                 switch (position) {
@@ -73,7 +74,7 @@ public class InjuryTabLayout extends Fragment {
                     case 1:
                         return setInjuryInformationFragment("first_second_degree");
                     case 2:
-                        return setInjuryInformationFragment("third_degree");
+                        return setInjuryInformationSecondTabFragment("third_degree");
                 }
             } else if(chosenInjury.toLowerCase().equals("laceration")) {
                 switch (position) {
@@ -82,7 +83,7 @@ public class InjuryTabLayout extends Fragment {
                     case 1:
                         return setInjuryInformationFragment("major");
                     case 2:
-                        return setInjuryInformationFragment("minor");
+                        return setInjuryInformationSecondTabFragment("minor");
                 }
             } else if(chosenInjury.toLowerCase().equals("puncture")) {
                 switch (position) {
@@ -91,7 +92,7 @@ public class InjuryTabLayout extends Fragment {
                     case 1:
                         return setInjuryInformationFragment("severe");
                     case 2:
-                        return setInjuryInformationFragment("slight");
+                        return setInjuryInformationSecondTabFragment("slight");
                 }
             } else {
                 switch (position) {
@@ -186,6 +187,15 @@ public class InjuryTabLayout extends Fragment {
             injuryInformationFragment.setArguments(args);
 
             return injuryInformationFragment;
+        }
+
+        public Fragment setInjuryInformationSecondTabFragment(String chosenInjury) {
+            InjuryInformationSecondTabFragment injuryInformationSecondTabFragment = new InjuryInformationSecondTabFragment();
+            Bundle args = new Bundle();
+            args.putString("injury", chosenInjury);
+            injuryInformationSecondTabFragment.setArguments(args);
+
+            return injuryInformationSecondTabFragment;
         }
     }
 }

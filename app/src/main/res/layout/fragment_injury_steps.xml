@@ -24,10 +24,13 @@
             </Spinner>
 
             <TextView
-                android:id="@+id/thermal_label"
+                android:id="@+id/textview_thermal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:layout_marginStart="@dimen/ten_dp"
+                android:layout_marginLeft="@dimen/ten_dp"
                 android:text="@string/thermal"
                 android:visibility="gone"/>
 
@@ -39,10 +42,13 @@
             </ListView>
 
             <TextView
-                android:id="@+id/chemical_label"
+                android:id="@+id/textview_chemical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:layout_marginStart="@dimen/ten_dp"
+                android:layout_marginLeft="@dimen/ten_dp"
                 android:text="@string/chemical"
                 android:visibility="gone"/>
 
@@ -50,6 +56,26 @@
                 android:id="@+id/listview_chemical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:visibility="gone"
+                android:overScrollMode="never">
+            </ListView>
+
+            <TextView
+                android:id="@+id/textview_electrical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:layout_marginStart="@dimen/ten_dp"
+                android:layout_marginLeft="@dimen/ten_dp"
+                android:text="@string/electrical"
+                android:visibility="gone"/>
+
+            <ListView
+                android:id="@+id/listview_electrical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
                 android:overScrollMode="never">
             </ListView>
         </LinearLayout>
