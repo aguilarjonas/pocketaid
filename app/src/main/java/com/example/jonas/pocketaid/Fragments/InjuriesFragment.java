@@ -2,6 +2,7 @@ package com.example.jonas.pocketaid.Fragments;
 
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.SearchView;
@@ -26,6 +27,7 @@ public class InjuriesFragment extends Fragment {
 
     private ListView listView;
     private SearchView searchView;
+    private FloatingActionButton fab;
     InjuryListAdapter listAdapter;
 
     //list of injuries
@@ -65,10 +67,12 @@ public class InjuriesFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injuries, container, false);
         rootView.requestFocus();
 
+        fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         listView = (ListView) rootView.findViewById(R.id.injuries_listview);
         searchView = (SearchView) rootView.findViewById(R.id.injuries_search);
         searchView.setIconified(false);
         searchView.clearFocus();
+        fab.show();
 
         listAdapter = new InjuryListAdapter(getActivity(), getInjuries());
         listView.setAdapter(listAdapter);

@@ -2,6 +2,7 @@ package com.example.jonas.pocketaid.InjuriesFragments;
 
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ public class InjuryOverviewFragment extends Fragment {
     private ImageView injury_logo;
     private TextView overview_injury;
     private TextView overview_causes;
+    private FloatingActionButton fab;
 
     public InjuryOverviewFragment() {
         // Required empty public constructor
@@ -32,6 +34,8 @@ public class InjuryOverviewFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injury_overview, container, false);
+        fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.hide();
 
         String chosenInjury = getArguments().getString("injury");
         determineInjury(chosenInjury, rootView);

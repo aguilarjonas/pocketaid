@@ -18,18 +18,21 @@ public class InjuryStepsAdapter extends ArrayAdapter<String> {
 
     int[] images;
     String[] steps;
+    String[] notes;
     Context ctx;
     LayoutInflater inflater;
 
-    public InjuryStepsAdapter(Context context, String[] steps, int[] images) {
+    public InjuryStepsAdapter(Context context, String[] steps, int[] images, String[] notes) {
         super(context, R.layout.layout_firstaid_steps, steps);
 
         this.ctx = context;
         this.steps = steps;
         this.images = images;
+        this.notes = notes;
     }
 
     public class ViewHolder {
+        TextView stepsNotes;
         TextView stepsTV;
         TextView stepNumTV;
         ImageView stepsIV;
@@ -43,11 +46,13 @@ public class InjuryStepsAdapter extends ArrayAdapter<String> {
         }
 
         final ViewHolder holder = new ViewHolder();
+        holder.stepsNotes = (TextView) convertView.findViewById(R.id.additional_note);
         holder.stepsTV = (TextView) convertView.findViewById(R.id.steps);
         holder.stepsIV = (ImageView) convertView.findViewById(R.id.step_image);
         holder.stepNumTV = (TextView) convertView.findViewById(R.id.step_number);
 
         holder.stepsTV.setText(steps[position]);
+        holder.stepsNotes.setText(notes[position]);
         holder.stepsIV.setImageResource(images[position]);
         holder.stepNumTV.setText(Integer.toString(position+1));
 
