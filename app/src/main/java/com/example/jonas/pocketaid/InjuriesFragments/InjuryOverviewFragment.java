@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +36,10 @@ public class InjuryOverviewFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injury_overview, container, false);
+
+        InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(getContext().INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(rootView.getWindowToken(), 0);
+
         fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         fab.hide();
 
@@ -81,4 +87,6 @@ public class InjuryOverviewFragment extends Fragment {
         overview_causes = (TextView) rootView.findViewById(R.id.overview_causes);
         overview_causes.setText("makulit");
     }
+
+
 }

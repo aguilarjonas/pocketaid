@@ -1,6 +1,7 @@
 package com.example.jonas.pocketaid.Fragments;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
@@ -10,8 +11,11 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import com.example.jonas.pocketaid.Adapters.Injury;
 import com.example.jonas.pocketaid.Adapters.InjuryListAdapter;
 import com.example.jonas.pocketaid.Adapters.InjuryTabLayout;
@@ -95,7 +99,9 @@ public class InjuriesFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0) {
+                TextView injuryName = (TextView) view.findViewById(R.id.injury_name);
+                String injuryInString = injuryName.getText().toString().toLowerCase();
+                if(injuryInString.equals("abrasion")) {
 //                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
 //                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 //                    fragmentTransaction.add(abrasionFragment, "Abrasion")
@@ -118,7 +124,8 @@ public class InjuriesFragment extends Fragment {
                             .addToBackStack("injuryTab")
                             .commit();
 
-                } else if(position == 1) {
+                    hideKeyboard();
+                } else if(injuryInString.equals("bites")) {
 //                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
 //                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 //                    //To make fragments dynamic
@@ -147,7 +154,9 @@ public class InjuriesFragment extends Fragment {
                             .replace(R.id.fragment_container, injuryTabLayout)
                             .addToBackStack("injuryTab")
                             .commit();
-                } else if(position == 2) {
+
+                    hideKeyboard();
+                } else if(injuryInString.equals("burns")) {
 //                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
 //                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 //                    //To make fragments dynamic
@@ -175,7 +184,9 @@ public class InjuriesFragment extends Fragment {
                             .replace(R.id.fragment_container, injuryTabLayout)
                             .addToBackStack("injuryTab")
                             .commit();
-                } else if(position == 3) {
+
+                    hideKeyboard();
+                } else if(injuryInString.equals("concussion")) {
 //                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
 //                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 //                    //To make fragments dynamic
@@ -203,7 +214,9 @@ public class InjuriesFragment extends Fragment {
                             .replace(R.id.fragment_container, injuryTabLayout)
                             .addToBackStack("injuryTab")
                             .commit();
-                } else if(position == 4) {
+
+                    hideKeyboard();
+                } else if(injuryInString.equals("contusion")) {
 //                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
 //                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 //                    //To make fragments dynamic
@@ -231,7 +244,9 @@ public class InjuriesFragment extends Fragment {
                             .replace(R.id.fragment_container, injuryTabLayout)
                             .addToBackStack("injuryTab")
                             .commit();
-                } else if(position == 5) {
+
+                    hideKeyboard();
+                } else if(injuryInString.equals("fracture")) {
 //                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
 //                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 //                    //To make fragments dynamic
@@ -259,7 +274,9 @@ public class InjuriesFragment extends Fragment {
                             .replace(R.id.fragment_container, injuryTabLayout)
                             .addToBackStack("injuryTab")
                             .commit();
-                } else if(position == 6) {
+
+                    hideKeyboard();
+                } else if(injuryInString.equals("laceration")) {
 //                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
 //                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 //                    //To make fragments dynamic
@@ -287,7 +304,9 @@ public class InjuriesFragment extends Fragment {
                             .replace(R.id.fragment_container, injuryTabLayout)
                             .addToBackStack("injuryTab")
                             .commit();
-                } else if(position == 7) {
+
+                    hideKeyboard();
+                } else if(injuryInString.equals("puncture")) {
 //                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
 //                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
 //                    //To make fragments dynamic
@@ -315,6 +334,8 @@ public class InjuriesFragment extends Fragment {
                             .replace(R.id.fragment_container, injuryTabLayout)
                             .addToBackStack("injuryTab")
                             .commit();
+
+                    hideKeyboard();
                 }
             }
         });
@@ -335,4 +356,16 @@ public class InjuriesFragment extends Fragment {
         return injuriesAL;
     }
 
+    public void hideKeyboard() {
+        try {
+            InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(getContext().INPUT_METHOD_SERVICE);
+            View view = ((Activity)getContext()).getCurrentFocus();
+
+            if (view != null) {
+                inputManager.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
