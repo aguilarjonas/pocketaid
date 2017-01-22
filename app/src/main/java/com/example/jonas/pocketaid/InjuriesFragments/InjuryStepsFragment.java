@@ -57,7 +57,6 @@ public class InjuryStepsFragment extends Fragment {
         //injury from InjuryInformationFragment
         final String injury = getArguments().getString("injury");
         spinnerOptions = (Spinner) rootView.findViewById(R.id.spinner);
-//        listView = (ListView) rootView.findViewById(R.id.listview_firstaid_steps);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.listview_firstaid_steps);
         lv_chemical = (RecyclerView) rootView.findViewById(R.id.listview_chemical);
         lv_electrical = (RecyclerView) rootView.findViewById(R.id.listview_electrical);
