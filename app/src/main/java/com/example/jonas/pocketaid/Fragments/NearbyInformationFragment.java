@@ -244,17 +244,7 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-//        MarkerOptions markerOptions = new MarkerOptions();
-//        LatLng latLng = new LatLng(lat, lng);
-//        Toast.makeText(getActivity().getApplicationContext(), "Coordinates" + lat + " " + lng, Toast.LENGTH_LONG).show();
-//
-//        markerOptions.position(latLng);
-//        markerOptions.title(hospitalName);
-//        mMap.addMarker(markerOptions);
-//        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
-//        mMap.addMarker(markerOptions);
-        //markerOptions.snippet(vicinity);
-        //automaticHospitalSearch();
+        mMap.getUiSettings().setMapToolbarEnabled(false);
 
         //Click listener ng pointer dun sa marker.
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
@@ -278,9 +268,6 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
                         Toast.makeText(getActivity().getApplicationContext(), "Please install a Google Maps application", Toast.LENGTH_LONG).show();
                     }
                 }
-
-                // Toast.makeText(getActivity().getApplicationContext(),"Ooops Nakiliti ako", Toast.LENGTH_LONG).show();
-
             }
 
         });

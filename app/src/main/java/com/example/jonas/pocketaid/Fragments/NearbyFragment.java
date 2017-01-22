@@ -169,6 +169,8 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mMap.getUiSettings().setMapToolbarEnabled(false);
+
         //automaticHospitalSearch();
 
         //Click listener ng pointer dun sa marker.
