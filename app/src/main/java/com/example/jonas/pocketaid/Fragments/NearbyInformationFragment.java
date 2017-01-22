@@ -1,7 +1,6 @@
 package com.example.jonas.pocketaid.Fragments;
 
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -11,11 +10,8 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,8 +22,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jonas.pocketaid.R;
-import com.example.jonas.pocketaid.SearchModules.DirectionsJSONParser;
-import com.example.jonas.pocketaid.SearchModules.GetNearbyPlacesData;
+import com.example.jonas.pocketaid.RouteModules.DirectionsJSONParser;
+import com.example.jonas.pocketaid.RouteModules.DownloadDirectionUrl;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -44,7 +40,6 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -91,38 +86,34 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
                              Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_nearby_hospital_information, container, false);
-//        rootView.requestFocus();
 
+        beforeStartFragment(v);
+        checkAndroidVersion();
+
+
+        return v;
+    }
+
+    /*
+        Function Name : beforeStartFragment
+        Function Description : This function will be called in the onCreateView.
+                               This function has been created to maintain readability of codes.
+        Function Developer : Raeven Bauto
+     */
+    private void beforeStartFragment(View v){
         hospitalNameHolder = (TextView)v.findViewById(R.id.textview_hospitalnameinfo);
         hospitalPlaceIDHolder = (TextView)v.findViewById(R.id.textview_placeidinfo);
         hospitalPhoneNumber = (TextView)v.findViewById(R.id.textview_phonenumberinfo);
         hospitalCallButton = (ImageButton)v.findViewById(R.id.image_callhospital);
         hospitalGoToButton = (ImageButton)v.findViewById(R.id.image_gotohospital);
 
-
         SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_hospitalOnly);
         mapFragment.getMapAsync(this);
-
 
         final String hospitalName = getArguments().getString("chosenHospital");
         String hospitalPlaceID = getArguments().getString("chosenHospitalPlaceID");
         lat = Double.parseDouble(getArguments().getString("chosenHospitalLat"));
         lng = Double.parseDouble(getArguments().getString("chosenHospitalLng"));
-        getPhoneNumber(hospitalPlaceID);
-        putTheText(hospitalName, hospitalPlaceID);
-
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            checkLocationPermission();
-        }
-
-        //Check if Google Play Services Available or not
-        if (!CheckGooglePlayServices()) {
-            //Log.d("onCreate", "Finishing test case since Google Play Services are not available");
-            getActivity().finish();
-        }
-        else {
-            //Log.d("onCreate","Google Play Services available.");
-        }
 
         hospitalGoToButton. setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,10 +127,17 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
                 startActivity(intent);
             }
         });
-        return v;
+        
+        getPhoneNumber(hospitalPlaceID);
+        putTheText(hospitalName, hospitalPlaceID);
     }
 
-
+     /*
+        Function Name : getPhoneNumber
+        Function Description : This function will get the phone number from
+                               the JSON returned by Google Maps.
+        Function Developer : Raeven Bauto
+     */
 
     public String getPhoneNumber (String placeID){
 
@@ -156,11 +154,71 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
         return (hospitalInfoURL.toString());
     }
 
+    /*
+        Function Name : putTheText
+        Function Description : This function will replace the textview in the XML
+                               with the hospital's phone number.
+        Function Developer : Raeven Bauto
+     */
 
-
-    public void putTheText(String hospitalName, String hospitalPlaceID){
+    private void putTheText(String hospitalName, String hospitalPlaceID){
         hospitalNameHolder.setText(hospitalName);
         hospitalPlaceIDHolder.setText(hospitalPlaceID);
+    }
+
+     /*
+        Function Name : onMapReady
+        Function Description : This function will run if the MapFragment is ready to be used.
+        Function Developer : Raeven Bauto
+     */
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mMap.getUiSettings().setMapToolbarEnabled(false);
+
+        //Click listener ng pointer dun sa marker.
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                marker.hideInfoWindow();
+                String markerTitle = marker.getTitle();
+                double dlat = marker.getPosition().latitude;
+                double dlong = marker.getPosition().longitude;
+                final String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?daddr=%f,%f (%s)", dlat, dlong, markerTitle);
+                final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                try {
+                    startActivity(intent);
+                } catch(ActivityNotFoundException ex) {
+                    try {
+                        Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                        startActivity(unrestrictedIntent);
+                    }
+                    catch(ActivityNotFoundException innerEx) {
+                        Toast.makeText(getActivity().getApplicationContext(), "Please install a Google Maps application", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+
+        });
+        initializeGooglePlay(mMap);
+    }
+
+    public void checkAndroidVersion(){
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            checkLocationPermission();
+        }
+
+        //Check if Google Play Services Available or not
+        if (!CheckGooglePlayServices()) {
+            Log.d("onCreate", "Finishing test case since Google Play Services are not available");
+            getActivity().finish();
+        }
+        else {
+            Log.d("onCreate","Google Play Services available.");
+        }
     }
 
     private boolean CheckGooglePlayServices() {
@@ -240,38 +298,7 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
         }
     }
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        mMap.getUiSettings().setMapToolbarEnabled(false);
-
-        //Click listener ng pointer dun sa marker.
-        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-
-            @Override
-            public void onInfoWindowClick(Marker marker) {
-                marker.hideInfoWindow();
-                String markerTitle = marker.getTitle();
-                double dlat = marker.getPosition().latitude;
-                double dlong = marker.getPosition().longitude;
-                final String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?daddr=%f,%f (%s)", dlat, dlong, markerTitle);
-                final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                try {
-                    startActivity(intent);
-                } catch(ActivityNotFoundException ex) {
-                    try {
-                        Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                        startActivity(unrestrictedIntent);
-                    }
-                    catch(ActivityNotFoundException innerEx) {
-                        Toast.makeText(getActivity().getApplicationContext(), "Please install a Google Maps application", Toast.LENGTH_LONG).show();
-                    }
-                }
-            }
-
-        });
-
+    private void initializeGooglePlay(GoogleMap mMap){
         //Initialize Google Play Services
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
@@ -319,11 +346,12 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
         LatLng destiPosition = new LatLng(lat, lng);
 
         // Getting URL to the Google Directions API
-        String url = getDirectionsUrl(currPosition, destiPosition);
+        DownloadDirectionUrl download = new DownloadDirectionUrl();
+        String url = download.getDirectionsUrl(currPosition, destiPosition);
 
+        // Start downloading json data from Google Directions API.
         DownloadTask downloadTask = new DownloadTask();
 
-        // Start downloading json data from Google Directions API
         downloadTask.execute(url);
 
 
@@ -335,69 +363,93 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
         Log.d("onLocationChanged", "Exit");
     }
 
-    private String getDirectionsUrl(LatLng origin,LatLng dest){
+    /*
+        Function Name : JSONTask
+        Function Description : This function will get the JSON from Google Maps without affecting
+                               the UI.
+        Function Developer : Raeven Bauto
+     */
 
-        // Origin of route
-        String str_origin = "origin="+origin.latitude+","+origin.longitude;
+    public class JSONTask extends AsyncTask<String, String, String> {
 
-        // Destination of route
-        String str_dest = "destination="+dest.latitude+","+dest.longitude;
+        HttpURLConnection connection = null;
+        JSONObject json;
+        BufferedReader reader = null;
 
-        // Sensor enabled
-        String sensor = "sensor=false";
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                Log.d("onClick", "ANDITO AKO YOOHOOO");
 
-        // Building the parameters to the web service
-        String parameters = str_origin+"&"+str_dest+"&"+sensor;
+                URL url2 = new URL(params[0]);
+                connection = (HttpURLConnection)
+                url2.openConnection();
+                connection.connect();
 
-        // Output format
-        String output = "json";
+                InputStream stream = connection.getInputStream();
+                reader = new BufferedReader(new InputStreamReader(stream));
 
-        // Building the url to the web service
-        String url = "https://maps.googleapis.com/maps/api/directions/"+output+"?"+parameters;
+                StringBuffer buffer = new StringBuffer();
+                String line = "";
+                while ((line = reader.readLine()) != null){
+                    buffer.append(line);
+                }
 
-        return url;
-    }
-    /** A method to download json data from url */
-    private String downloadUrl(String strUrl) throws IOException{
-        String data = "";
-        InputStream iStream = null;
-        HttpURLConnection urlConnection = null;
-        try{
-            URL url = new URL(strUrl);
+                String finalJSON = buffer.toString();
+                ArrayList<String> hospitalInformation = new ArrayList<>();
+                JSONObject parentObject = new JSONObject(finalJSON);
+                JSONObject parentArray = parentObject.getJSONObject("result");
+                //JSONArray  parsedevents = parentArray.getJSONArray("events");
+                //int i = 0;
 
-            // Creating an http connection to communicate with url
-            urlConnection = (HttpURLConnection) url.openConnection();
+                //JSONObject finalObject = parentArray.getJSONObject(0);
+                String phoneNumber = parentArray.getString("formatted_phone_number");
+                hospitalInformation.add(phoneNumber);
 
-            // Connecting to url
-            urlConnection.connect();
+                return phoneNumber;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
 
-            // Reading data from url
-            iStream = urlConnection.getInputStream();
+        @Override
+        protected void onPostExecute(final String s) {
 
-            BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
+            if (s == null){
+                hospitalPhoneNumber.setText("No Phone number Available");
+                hospitalCallButton.setSaveEnabled(false);
 
-            StringBuffer sb = new StringBuffer();
+                hospitalCallButton. setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getActivity().getApplicationContext(),"No phone number available", Toast.LENGTH_LONG).show();
 
-            String line = "";
-            while( ( line = br.readLine()) != null){
-                sb.append(line);
+                    }
+                });
             }
 
-            data = sb.toString();
-
-            br.close();
-
-        }catch(Exception e){
-            Log.d("Exception while downloading url", e.toString());
-        }finally{
-            iStream.close();
-            urlConnection.disconnect();
+            else {
+                hospitalPhoneNumber.setText(s);
+                hospitalCallButton. setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent call = new Intent(Intent.ACTION_DIAL);
+                        call.setData(Uri.parse("tel:"+s));
+                        startActivity(call);
+                    }
+                });
+            }
         }
-        return data;
     }
 
+
     // Fetches data from url passed
-    private class DownloadTask extends AsyncTask<String, Void, String>{
+    public class DownloadTask extends AsyncTask<String, Void, String> {
 
         // Downloading data in non-ui thread
         @Override
@@ -408,7 +460,8 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
 
             try{
                 // Fetching the data from web service
-                data = downloadUrl(url[0]);
+                DownloadDirectionUrl download = new DownloadDirectionUrl();
+                data = download.downloadUrl(url[0]);
             }catch(Exception e){
                 Log.d("Background Task",e.toString());
             }
@@ -487,89 +540,6 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
             mMap.addPolyline(lineOptions);
         }
     }
-
-
-    public class JSONTask extends AsyncTask<String, String, String> {
-
-        HttpURLConnection connection = null;
-        JSONObject json;
-        BufferedReader reader = null;
-
-        @Override
-        protected String doInBackground(String... params) {
-            try {
-                Log.d("onClick", "ANDITO AKO YOOHOOO");
-
-                URL url2 = new URL(params[0]);
-                connection = (HttpURLConnection)
-                url2.openConnection();
-                connection.connect();
-
-                InputStream stream = connection.getInputStream();
-                reader = new BufferedReader(new InputStreamReader(stream));
-
-                StringBuffer buffer = new StringBuffer();
-                String line = "";
-                while ((line = reader.readLine()) != null){
-                    buffer.append(line);
-                }
-
-                String finalJSON = buffer.toString();
-                ArrayList<String> hospitalInformation = new ArrayList<>();
-                JSONObject parentObject = new JSONObject(finalJSON);
-                JSONObject parentArray = parentObject.getJSONObject("result");
-                //JSONArray  parsedevents = parentArray.getJSONArray("events");
-                //int i = 0;
-
-                //JSONObject finalObject = parentArray.getJSONObject(0);
-                String phoneNumber = parentArray.getString("formatted_phone_number");
-                hospitalInformation.add(phoneNumber);
-
-                return phoneNumber;
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(final String s) {
-
-            if (s == null){
-                hospitalPhoneNumber.setText("No Phone number Available");
-                hospitalCallButton.setSaveEnabled(false);
-
-                hospitalCallButton. setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Toast.makeText(getActivity().getApplicationContext(),"No phone number available", Toast.LENGTH_LONG).show();
-
-                    }
-                });
-            }
-
-            else {
-                hospitalPhoneNumber.setText(s);
-                hospitalCallButton. setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent call = new Intent(Intent.ACTION_DIAL);
-                        call.setData(Uri.parse("tel:"+s));
-                        startActivity(call);
-                    }
-                });
-            }
-
-
-
-
-        }
-    }
-
 
 
 

@@ -432,13 +432,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
                 JSONObject parentObject = new JSONObject(finalJSON);
                 JSONArray parentArray = parentObject.getJSONArray("results");
-//                JSONArray parentArray2 = parentArray.getJSONArray(0);
-//                JSONArray parentArray3 = parentArray2.getJSONArray(0);
-//                JSONArray parentArray2 = parentArray.getJSONArray(2);
-//                JSONArray parentArray3 = parentArray2.getJSONArray(2);
-
-
-
 
                 int i = 0;
 
