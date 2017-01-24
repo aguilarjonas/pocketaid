@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    private FloatingActionButton fab;
     NavigationView navigationView = null;
     Toolbar toolbar = null;
 
@@ -89,8 +90,6 @@ public class MainActivity extends AppCompatActivity
         //Added by Raeven
         mediaC = new MediaController(this);
         videoView = (VideoView)findViewById(R.id.injury_video);
-
-
     }
 
     @Override
@@ -240,6 +239,16 @@ public class MainActivity extends AppCompatActivity
     public void setActionBarTitle(String title) {
         getSupportActionBar().setTitle("");
         getSupportActionBar().setTitle(title);
+    }
+
+    public void hideOrShowFAB(String hideOrShow) {
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+
+        if(hideOrShow.equals("hide")) {
+            fab.hide();
+        } else if(hideOrShow.equals("show")){
+            fab.show();
+        }
     }
 }
 

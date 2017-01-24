@@ -2,12 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.PracticeFragment"
-    android:orientation="vertical">
+    tools:context="com.example.jonas.pocketaid.PracticeFragments.InteractivePracticeFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/practice_injury_list"
+    <TextView
+        android:id="@+id/injury"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 </LinearLayout>

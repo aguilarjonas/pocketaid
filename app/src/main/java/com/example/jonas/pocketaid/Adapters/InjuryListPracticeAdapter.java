@@ -1,6 +1,8 @@
 package com.example.jonas.pocketaid.Adapters;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jonas.pocketaid.MainActivity;
+import com.example.jonas.pocketaid.PracticeFragments.InteractivePracticeFragment;
 import com.example.jonas.pocketaid.R;
 
 /**
@@ -20,9 +24,11 @@ public class InjuryListPracticeAdapter extends RecyclerView.Adapter<InjuryListPr
     private LayoutInflater inflater;
     private Integer[] injury_logos;
     private String[] injury_names;
+    private Context context;
 
     public InjuryListPracticeAdapter(Context context, String[] injury_names, Integer[] injury_logos) {
         inflater = LayoutInflater.from(context);
+        this.context = context;
         this.injury_names = injury_names;
         this.injury_logos = injury_logos;
     }
@@ -62,11 +68,18 @@ public class InjuryListPracticeAdapter extends RecyclerView.Adapter<InjuryListPr
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(injury_name.getText().toString().toLowerCase().equals("abrasion")) {
-                        Toast.makeText(itemView.getContext(), "ABRASION", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(itemView.getContext(), "ELSE", Toast.LENGTH_SHORT).show();
-                    }
+                    InteractivePracticeFragment interactivePracticeFragment = new InteractivePracticeFragment();
+                    Bundle args = new Bundle();
+                    args.putString("injury", injury_name.getText().toString());
+                    interactivePracticeFragment.setArguments(args);
+
+                    FragmentTransaction fragmentTransaction = ((MainActivity) context).getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                    fragmentTransaction.add(interactivePracticeFragment, "interactive")
+                            .replace(R.id.fragment_container, interactivePracticeFragment)
+                            .addToBackStack("interactive")
+                            .commit();
                 }
             });
         }
