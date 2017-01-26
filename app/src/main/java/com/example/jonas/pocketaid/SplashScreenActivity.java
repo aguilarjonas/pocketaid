@@ -2,11 +2,9 @@ package com.example.jonas.pocketaid;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class splash_screen extends Activity {
+public class SplashScreenActivity extends Activity {
     protected boolean _active = true;
     protected int _splashTime = 5000; //kung ilang seconds
 
@@ -30,7 +28,7 @@ public class splash_screen extends Activity {
 
                 } finally {
 
-                    startActivity(new Intent(splash_screen.this,
+                    startActivity(new Intent(SplashScreenActivity.this,
                             MainActivity.class));
                     finish();
                 }
