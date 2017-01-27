@@ -2,9 +2,13 @@ package com.example.jonas.pocketaid.Fragments;
 
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -115,8 +119,22 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mapView = (MapView) rootView.findViewById(R.id.map);
-        mapView.onCreate(savedInstanceState);
-        mapView.getMapAsync(this);
+            mapView.onCreate(savedInstanceState);
+            mapView.getMapAsync(this);
+
+
+
+//        if (isLocationServiceEnabled() == false && isConnectedToNetwork(getContext()) == false){
+//            Toast.makeText(getActivity().getApplicationContext(),"No Net and No Loc", Toast.LENGTH_LONG).show();
+//        }
+
+         if (isConnectedToNetwork(getContext()) == true) {
+
+            if (isLocationServiceEnabled() == false){
+                Toast.makeText(getActivity().getApplicationContext(),"No location", Toast.LENGTH_LONG).show();
+            }
+        }
+
 
 
         //For listview
@@ -253,7 +271,12 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     public void automaticHospitalSearch() {
         String Hospital = "hospital";
             Log.d("onClick", "Button is Clicked");
-            mMap.clear();
+            try {
+                mMap.clear();
+            }
+            catch (NullPointerException e){
+
+            }
             ArrayList<String> url = new ArrayList<String>();
             String urlHolder = getUrl(latitude, longitude, Hospital);
             url.add(urlHolder);
@@ -315,6 +338,39 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
     }
 
+    public static boolean isConnectedToNetwork(Context context)
+    {
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+        return networkInfo != null && networkInfo.isConnected();
+
+    }
+
+    public boolean isLocationServiceEnabled(){
+        try {
+            LocationManager locManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+
+            if (locManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+                //GPS enabled
+                return true;
+            }
+
+            else{
+                //GPS disabled
+                return false;
+            }
+        }
+
+        catch (NullPointerException e){
+
+        }
+        return false;
+    }
+
+    //Pupunta lang dito pag naka on yung location.
     @Override
     public void onLocationChanged(Location location) {
         Log.d("onLocationChanged", "entered");
@@ -339,10 +395,22 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel));
         //mMap.animateCamera(CameraUpdateFactory.zoomIn());
-        Toast.makeText(getActivity().getApplicationContext(),"Your Current Location", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity().getApplicationContext(),"Your Current Location", Toast.LENGTH_LONG).show();
 
         //Insert *Conditions pag di naka on yung mga Location and stuff* here.
-        automaticHospitalSearch();
+
+
+
+        if (isLocationServiceEnabled()){
+            //Toast.makeText(getActivity().getApplicationContext(),"No location services", Toast.LENGTH_LONG).show();
+
+           if (isConnectedToNetwork(getContext()) == false){
+                Toast.makeText(getActivity().getApplicationContext(),"No internetasda connection", Toast.LENGTH_LONG).show();
+            }
+
+            else
+               automaticHospitalSearch();
+        }
 
         Log.d("onLocationChanged", String.format("latitude:%.3f longitude:%.3f",latitude,longitude));
 
@@ -359,6 +427,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
     }
+
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     public boolean checkLocationPermission(){
@@ -508,6 +577,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             catch (JSONException e){
                 e.printStackTrace();
             }
+
             finally{
                 if (connection != null){
                     connection.disconnect();

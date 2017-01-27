@@ -3,6 +3,7 @@ package com.example.jonas.pocketaid.SearchModules;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.example.jonas.pocketaid.Fragments.NearbyFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -42,7 +43,16 @@ public class GetNearbyPlacesData extends AsyncTask<Object, String, String> {
         List<HashMap<String, String>> nearbyPlacesList = null;
         DataParser dataParser = new DataParser();
         nearbyPlacesList =  dataParser.parse(result);
-        ShowNearbyPlaces(nearbyPlacesList);
+        try {
+            ShowNearbyPlaces(nearbyPlacesList);
+        }
+        catch (NullPointerException e){
+            Log.d("GooglePlacesReadTask", "GetNearbyPlacesData-PostExecute NULL");
+//            NearbyFragment newF = new NearbyFragment();
+//            newF.automaticHospitalSearch();
+            //Toast.makeText(getActivity().getApplicationContext(), latitude, Toast.LENGTH_LONG).show();
+
+        }
         Log.d("GooglePlacesReadTask", "onPostExecute Exit");
     }
 

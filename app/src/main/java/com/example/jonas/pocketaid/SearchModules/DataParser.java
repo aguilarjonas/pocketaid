@@ -25,6 +25,10 @@ public class DataParser {
         } catch (JSONException e) {
             Log.d("Places", "parse error");
             e.printStackTrace();
+        } catch (NullPointerException e){
+            Log.d("Places", "parse null");
+            return null;
+            //e.printStackTrace();
         }
         return getPlaces(jsonArray);
     }
