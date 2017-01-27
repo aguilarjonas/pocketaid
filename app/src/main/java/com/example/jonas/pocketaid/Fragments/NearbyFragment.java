@@ -37,8 +37,8 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -84,6 +84,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     String[] hospitalContactNumber;
     HospitalListAdapter adapter;
 
+    ViewGroup rootView;
+    MapView mapView;
+
     public NearbyFragment() {
         // Required empty public constructor
     }
@@ -93,7 +96,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ((MainActivity)getActivity()).setActionBarTitle("Nearby Hospitals");
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_nearby, container, false);
+        rootView = (ViewGroup) inflater.inflate(R.layout.fragment_nearby, container, false);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
@@ -109,15 +112,16 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        mapView = (MapView) rootView.findViewById(R.id.map);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
 
         //For listview
         hospitalListView = (ListView)rootView.findViewById(R.id.listview_nearbyHospital);
 //        hospitalView.setBackgroundColor(Color.RED);
         //hospitalView.setVisibility(View.INVISIBLE);
 
-//        ViewGroup.LayoutParams params = mapFragment.getView().getLayoutParams();
+//        ViewGroup.LayoutParams params = mapView.getView().getLayoutParams();
 
 
 //        params.height = 900;
@@ -153,6 +157,8 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         return rootView;
     }
 
+
+
     private boolean CheckGooglePlayServices() {
         GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
         int result = googleAPI.isGooglePlayServicesAvailable(getActivity().getApplicationContext());
@@ -166,6 +172,26 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         return true;
     }
 
+    @Override
+    public void onResume() {
+        mapView.onResume();
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mapView.onDestroy();
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mapView.onLowMemory();
+    }
+
+
+    @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -522,6 +548,8 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             //tvData.setText(result);
         }
     }
+
+
 }
 
 

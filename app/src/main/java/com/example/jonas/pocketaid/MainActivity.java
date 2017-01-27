@@ -90,6 +90,8 @@ public class MainActivity extends AppCompatActivity
         //Added by Raeven
         mediaC = new MediaController(this);
         videoView = (VideoView)findViewById(R.id.injury_video);
+
+
     }
 
     @Override
