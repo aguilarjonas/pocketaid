@@ -36,6 +36,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -177,6 +178,8 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.getUiSettings().setMapToolbarEnabled(false);
+        mMap.setMapStyle(new MapStyleOptions(getResources()
+                .getString(R.string.custom_map)));
 
         //Click listener ng pointer dun sa marker.
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
@@ -332,7 +335,8 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
         markerOptions.position(latLng);
         String hospitalHolder2 = getArguments().getString("chosenHospital");
         markerOptions.title(hospitalHolder2);
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        //markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.doctor71));
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
         //move map camera

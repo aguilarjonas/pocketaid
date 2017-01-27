@@ -41,6 +41,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -86,6 +87,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
     ViewGroup rootView;
     MapView mapView;
+    MapStyleOptions style;
 
     public NearbyFragment() {
         // Required empty public constructor
@@ -115,6 +117,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         mapView = (MapView) rootView.findViewById(R.id.map);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
+
 
         //For listview
         hospitalListView = (ListView)rootView.findViewById(R.id.listview_nearbyHospital);
@@ -196,6 +199,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.getUiSettings().setMapToolbarEnabled(false);
+        mMap.setMapStyle(new MapStyleOptions(getResources()
+                .getString(R.string.custom_map)));
+
 
         //automaticHospitalSearch();
 
@@ -325,7 +331,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
         markerOptions.title("Current Position");
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+        //markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
         //move map camera
