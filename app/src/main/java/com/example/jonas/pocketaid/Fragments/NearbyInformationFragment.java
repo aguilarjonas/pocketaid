@@ -344,7 +344,7 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel));
         //mMap.animateCamera(CameraUpdateFactory.zoomIn());
-        Toast.makeText(getActivity().getApplicationContext(),"Your Current Location", Toast.LENGTH_LONG).show();
+        //Toast.makeText(getActivity().getApplicationContext(),"Your Current Location", Toast.LENGTH_LONG).show();
 
         LatLng currPosition = new LatLng(latitude, longitude);
         LatLng destiPosition = new LatLng(lat, lng);
@@ -514,34 +514,42 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
             PolylineOptions lineOptions = null;
             MarkerOptions markerOptions = new MarkerOptions();
 
-            // Traversing through all the routes
-            for(int i=0;i<result.size();i++){
-                points = new ArrayList<LatLng>();
-                lineOptions = new PolylineOptions();
+            try {
+                // Traversing through all the routes
+                for(int i=0;i<result.size();i++){
+                    points = new ArrayList<LatLng>();
+                    lineOptions = new PolylineOptions();
 
-                // Fetching i-th route
-                List<HashMap<String, String>> path = result.get(i);
+                    // Fetching i-th route
+                    List<HashMap<String, String>> path = result.get(i);
 
-                // Fetching all the points in i-th route
-                for(int j=0;j<path.size();j++){
-                    HashMap<String,String> point = path.get(j);
+                    // Fetching all the points in i-th route
+                    for(int j=0;j<path.size();j++){
+                        HashMap<String,String> point = path.get(j);
 
-                    double lat = Double.parseDouble(point.get("lat"));
-                    double lng = Double.parseDouble(point.get("lng"));
-                    LatLng position = new LatLng(lat, lng);
+                        double lat = Double.parseDouble(point.get("lat"));
+                        double lng = Double.parseDouble(point.get("lng"));
+                        LatLng position = new LatLng(lat, lng);
 
-                    points.add(position);
+                        points.add(position);
+                    }
+
+                    // Adding all the points in the route to LineOptions
+                    lineOptions.addAll(points);
+                    lineOptions.width(25);
+                    lineOptions.color(Color.RED);
+                    lineOptions.geodesic(true);
                 }
 
-                // Adding all the points in the route to LineOptions
-                lineOptions.addAll(points);
-                lineOptions.width(25);
-                lineOptions.color(Color.RED);
-                lineOptions.geodesic(true);
+                // Drawing polyline in the Google Map for the i-th route
+                mMap.addPolyline(lineOptions);
+            }
+            catch (NullPointerException e){
+                Toast.makeText(getActivity().getApplicationContext(), "No internet connection.", Toast.LENGTH_LONG).show();
             }
 
-            // Drawing polyline in the Google Map for the i-th route
-            mMap.addPolyline(lineOptions);
+
+
         }
     }
 
