@@ -45,7 +45,7 @@ public class DownloadDirectionUrl {
 
         // Building the url to the web service
         String url = "https://maps.googleapis.com/maps/api/directions/"+output+"?"+parameters;
-        //Log.d("JSON READER", url);
+        Log.d("JSON READER", url);
 
         return url;
     }

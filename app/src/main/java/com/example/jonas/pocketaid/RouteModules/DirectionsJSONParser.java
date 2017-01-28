@@ -26,7 +26,10 @@ public class DirectionsJSONParser {
         JSONArray jLegs = null;
         JSONArray jSteps = null;
         JSONObject jDistance = null;
-        String distance = "";
+        JSONObject distance = null;
+        JSONObject distance2 =  null;
+
+        String distance3 = "";
 
         try {
 
@@ -41,6 +44,7 @@ public class DirectionsJSONParser {
                 /** Traversing all legs */
                 for(int j=0;j<jLegs.length();j++){
                     jSteps = ( (JSONObject)jLegs.get(j)).getJSONArray("steps");
+                    jDistance = jLegs.getJSONObject(0);
                    // jDistance = jLegs.getJSONObject(0);
 
                    // String distance2 = jDistance.getString("text");
@@ -48,7 +52,10 @@ public class DirectionsJSONParser {
                     for(int k=0;k<jSteps.length();k++){
                         String polyline = "";
                         polyline = (String)((JSONObject)((JSONObject)jSteps.get(k)).get("polyline")).get("points");
-                        distance = (String)((JSONObject)((JSONObject)jSteps.get(0)).get("distance")).get("text");
+                       // distance = jDistance.getJSONObject(0);
+                        distance2 = jDistance.getJSONObject("distance");
+                        distance3 = distance2.getString("text");
+
 
                         List<LatLng> list = decodePoly(polyline);
 
@@ -57,7 +64,7 @@ public class DirectionsJSONParser {
                             HashMap<String, String> hm = new HashMap<String, String>();
                             hm.put("lat", Double.toString(((LatLng)list.get(l)).latitude) );
                             hm.put("lng", Double.toString(((LatLng)list.get(l)).longitude) );
-                            hm.put("distance", distance);
+                            hm.put("distance", distance3);
                            // Log.d("DISTANCEEEEEe", distance);
                             path.add(hm);
                         }
