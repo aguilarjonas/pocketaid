@@ -105,6 +105,10 @@
     <string name="thermal">THERMAL BURNS</string>
     <string name="electrical">ELECTRICAL BURNS</string>
     <string name="chemical">CHEMICAL BURNS</string>
+    <string name="Address">Address:</string>
+    <string name="phoneNumber">Phone Number:</string>
+    <string name="rating">Rating:</string>
+    <string name="distance">Distance:</string>
 
 
     <!-- *****************************************

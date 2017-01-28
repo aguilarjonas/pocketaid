@@ -149,28 +149,31 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 //        hospitalView.setLayoutParams(params);
         hospitalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id){
-                    String chosenHospital = ((TextView)v.findViewById(R.id.textView_hospitalName)).getText().toString();
-                    String chosenHospitalPlaceID = ((TextView)v.findViewById(R.id.textview_placeid)).getText().toString();
-                    String chosenHospitalLat = ((TextView)v.findViewById(R.id.textview_latitude)).getText().toString();
-                    String chosenHospitalLng = ((TextView)v.findViewById(R.id.textview_longitude)).getText().toString();
+                String chosenHospital = ((TextView)v.findViewById(R.id.textView_hospitalName)).getText().toString();
+                String chosenHospitalPlaceID = ((TextView)v.findViewById(R.id.textview_placeid)).getText().toString();
+                String chosenHospitalLat = ((TextView)v.findViewById(R.id.textview_latitude)).getText().toString();
+                String chosenHospitalLng = ((TextView)v.findViewById(R.id.textview_longitude)).getText().toString();
 
-                    NearbyInformationFragment nearbyHospitalInformation = new NearbyInformationFragment();
-                    FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
-                    Bundle args = new Bundle();
-                    args.putString("chosenHospital" , chosenHospital);
-                    args.putString("chosenHospitalPlaceID" , chosenHospitalPlaceID);
-                    args.putString("chosenHospitalLat", chosenHospitalLat);
-                    args.putString("chosenHospitalLng", chosenHospitalLng);
+                String chosenHospitalVicinity = ((TextView)v.findViewById(R.id.textView_vicinity)).getText().toString();
 
-                    nearbyHospitalInformation.setArguments(args);
+                NearbyInformationFragment nearbyHospitalInformation = new NearbyInformationFragment();
+                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                Bundle args = new Bundle();
+                args.putString("chosenHospital" , chosenHospital);
+                args.putString("chosenHospitalPlaceID" , chosenHospitalPlaceID);
+                args.putString("chosenHospitalLat", chosenHospitalLat);
+                args.putString("chosenHospitalLng", chosenHospitalLng);
+                args.putString("chosenHospitalVicinity", chosenHospitalVicinity);
 
-                    fragmentTransaction.add(nearbyHospitalInformation, "nearbyHospitalInformation")
-                            .replace(R.id.fragment_container, nearbyHospitalInformation)
-                            .addToBackStack("nearbyHospitalInformation")
-                            .commit();
+                nearbyHospitalInformation.setArguments(args);
+
+                fragmentTransaction.add(nearbyHospitalInformation, "nearbyHospitalInformation")
+                        .replace(R.id.fragment_container, nearbyHospitalInformation)
+                        .addToBackStack("nearbyHospitalInformation")
+                        .commit();
 
 
-                    //To get total number of items in a listview hospitalListView.getAdapter().getCount();
+                //To get total number of items in a listview hospitalListView.getAdapter().getCount();
 
             }
         });

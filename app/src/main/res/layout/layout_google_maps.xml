@@ -32,7 +32,8 @@
         android:id="@+id/textview_longitude"
         android:layout_below="@+id/textView_hospitalName"
         android:layout_toRightOf="@+id/textview_placeid"
-        android:layout_toEndOf="@+id/textview_placeid" />
+        android:layout_toEndOf="@+id/textview_placeid"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -42,7 +43,8 @@
         android:layout_alignBaseline="@+id/textview_longitude"
         android:layout_alignBottom="@+id/textview_longitude"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:visibility="invisible" />
 
     <TextView
         android:layout_width="wrap_content"

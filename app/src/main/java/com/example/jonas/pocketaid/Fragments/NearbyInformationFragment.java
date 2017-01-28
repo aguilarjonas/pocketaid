@@ -41,6 +41,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -61,8 +62,9 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
         LocationListener {
 
     private TextView hospitalNameHolder;
-    private TextView hospitalPlaceIDHolder;
+    private TextView hospitalVicinityHolder;
     private TextView hospitalPhoneNumber;
+    private TextView hospitalDistance;
     private ImageButton hospitalCallButton;
     private ImageButton hospitalGoToButton;
 
@@ -78,6 +80,7 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
     String hospitalName;
     double lat ;
     double lng;
+    String hospitalVicinity;
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
@@ -103,8 +106,10 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
      */
     private void beforeStartFragment(View v){
         hospitalNameHolder = (TextView)v.findViewById(R.id.textview_hospitalnameinfo);
-        hospitalPlaceIDHolder = (TextView)v.findViewById(R.id.textview_placeidinfo);
+        hospitalVicinityHolder = (TextView)v.findViewById(R.id.textview_hospitaladdress);
         hospitalPhoneNumber = (TextView)v.findViewById(R.id.textview_phonenumberinfo);
+        hospitalDistance = (TextView)v.findViewById(R.id.textView_distance);
+
         hospitalCallButton = (ImageButton)v.findViewById(R.id.image_callhospital);
         hospitalGoToButton = (ImageButton)v.findViewById(R.id.image_gotohospital);
 
@@ -115,6 +120,7 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
         String hospitalPlaceID = getArguments().getString("chosenHospitalPlaceID");
         lat = Double.parseDouble(getArguments().getString("chosenHospitalLat"));
         lng = Double.parseDouble(getArguments().getString("chosenHospitalLng"));
+        hospitalVicinity = getArguments().getString("chosenHospitalVicinity");
 
         hospitalGoToButton. setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,9 +134,9 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
                 startActivity(intent);
             }
         });
-        
+
         getPhoneNumber(hospitalPlaceID);
-        putTheText(hospitalName, hospitalPlaceID);
+        putTheText(hospitalName, hospitalVicinity);
     }
 
      /*
@@ -148,6 +154,8 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
 
         hospitalInfoURL.append("placeid=" + placeID);
         hospitalInfoURL.append("&key=" + angelKey );
+
+        Log.d("PLACEID JSON", String.valueOf(hospitalInfoURL));
         //Main Key = AIzaSyATuUiZUkEc_UgHuqsBJa1oqaODI-3mLs0 - Angel's key
         //Alternative Key = AIzaSyBRaI6vWSTL-W1cJm-SB60xNBjlbb8TMaU - Raeven's key
         new NearbyInformationFragment.JSONTask().execute(hospitalInfoURL.toString());
@@ -162,9 +170,9 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
         Function Developer : Raeven Bauto
      */
 
-    private void putTheText(String hospitalName, String hospitalPlaceID){
+    private void putTheText(String hospitalName, String hospitalVicinity){
         hospitalNameHolder.setText(hospitalName);
-        hospitalPlaceIDHolder.setText(hospitalPlaceID);
+        hospitalVicinityHolder.setText(hospitalVicinity);
     }
 
      /*
@@ -498,6 +506,10 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
             try{
                 jObject = new JSONObject(jsonData[0]);
                 DirectionsJSONParser parser = new DirectionsJSONParser();
+                JSONArray jRoutes = null;
+
+
+                jRoutes = jObject.getJSONArray("routes");
 
                 // Starts parsing data
                 routes = parser.parse(jObject);
@@ -513,6 +525,7 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
             ArrayList<LatLng> points = null;
             PolylineOptions lineOptions = null;
             MarkerOptions markerOptions = new MarkerOptions();
+            String distance = "";
 
             try {
                 // Traversing through all the routes
@@ -529,6 +542,9 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
 
                         double lat = Double.parseDouble(point.get("lat"));
                         double lng = Double.parseDouble(point.get("lng"));
+                        distance = point.get("distance");
+                        Log.d("DISTANCEEEEEe", distance);
+
                         LatLng position = new LatLng(lat, lng);
 
                         points.add(position);
@@ -540,6 +556,9 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
                     lineOptions.color(Color.RED);
                     lineOptions.geodesic(true);
                 }
+
+                hospitalDistance.setText(distance);
+
 
                 // Drawing polyline in the Google Map for the i-th route
                 mMap.addPolyline(lineOptions);

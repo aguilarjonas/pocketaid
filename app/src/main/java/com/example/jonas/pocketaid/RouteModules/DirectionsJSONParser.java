@@ -4,6 +4,8 @@ package com.example.jonas.pocketaid.RouteModules;
  * Created by Raeven on 22 Jan 2017.
  */
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +25,8 @@ public class DirectionsJSONParser {
         JSONArray jRoutes = null;
         JSONArray jLegs = null;
         JSONArray jSteps = null;
+        JSONObject jDistance = null;
+        String distance = "";
 
         try {
 
@@ -33,14 +37,19 @@ public class DirectionsJSONParser {
                 jLegs = ( (JSONObject)jRoutes.get(i)).getJSONArray("legs");
                 List path = new ArrayList<HashMap<String, String>>();
 
+
                 /** Traversing all legs */
                 for(int j=0;j<jLegs.length();j++){
                     jSteps = ( (JSONObject)jLegs.get(j)).getJSONArray("steps");
+                   // jDistance = jLegs.getJSONObject(0);
 
+                   // String distance2 = jDistance.getString("text");
                     /** Traversing all steps */
                     for(int k=0;k<jSteps.length();k++){
                         String polyline = "";
                         polyline = (String)((JSONObject)((JSONObject)jSteps.get(k)).get("polyline")).get("points");
+                        distance = (String)((JSONObject)((JSONObject)jSteps.get(0)).get("distance")).get("text");
+
                         List<LatLng> list = decodePoly(polyline);
 
                         /** Traversing all points */
@@ -48,6 +57,8 @@ public class DirectionsJSONParser {
                             HashMap<String, String> hm = new HashMap<String, String>();
                             hm.put("lat", Double.toString(((LatLng)list.get(l)).latitude) );
                             hm.put("lng", Double.toString(((LatLng)list.get(l)).longitude) );
+                            hm.put("distance", distance);
+                           // Log.d("DISTANCEEEEEe", distance);
                             path.add(hm);
                         }
                     }
