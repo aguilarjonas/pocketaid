@@ -8,16 +8,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.jonas.pocketaid.SplashScreenActivity"
     android:orientation="vertical"
-    android:gravity="center"
-    android:background="@drawable/ic_red_bg">
+    tools:context="com.example.jonas.pocketaid.SplashScreenActivity"
+    android:background="@drawable/ic_red_bg"
+    android:gravity="center">
 
     <ImageView
-        android:layout_width="60sp"
-        android:layout_height="60sp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:src="@drawable/ic_applogo"
-        android:id="@+id/image_applogo"/>
+        android:id="@+id/image_applogo" />
 
     <TextView
         android:id="@+id/splash_app_name"

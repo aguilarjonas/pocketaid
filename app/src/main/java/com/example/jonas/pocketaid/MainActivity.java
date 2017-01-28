@@ -126,6 +126,9 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        } else if(id == R.id.home) {
+            super.onBackPressed();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -252,6 +255,8 @@ public class MainActivity extends AppCompatActivity
             fab.show();
         }
     }
+
+
 }
 
 

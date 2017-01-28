@@ -36,7 +36,8 @@ public class InjuryOverviewFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injury_overview, container, false);
-
+        ((MainActivity)getActivity()).getSupportActionBar().setHomeButtonEnabled(false);
+        ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(getContext().INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(rootView.getWindowToken(), 0);
 
