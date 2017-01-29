@@ -7,4 +7,5 @@
     <color name="noteColor">#7f8c8d</color>
     <color name="white">#fff</color>
     <color name="gray">#BDBDCF</color>
+    <color name="list_item_background">#AACCCCCC</color>
 </resources>

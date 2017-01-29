@@ -1,7 +1,6 @@
 package com.example.jonas.pocketaid.Adapters;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,10 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.jonas.pocketaid.MainActivity;
-import com.example.jonas.pocketaid.PracticeFragments.InteractivePracticeFragment;
+import com.example.jonas.pocketaid.PracticeFragments.ListFragment;
 import com.example.jonas.pocketaid.R;
 
 /**
@@ -68,16 +66,17 @@ public class InjuryListPracticeAdapter extends RecyclerView.Adapter<InjuryListPr
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    InteractivePracticeFragment interactivePracticeFragment = new InteractivePracticeFragment();
+                    /**InteractivePracticeFragment interactivePracticeFragment = new InteractivePracticeFragment();
                     Bundle args = new Bundle();
                     args.putString("injury", injury_name.getText().toString());
-                    interactivePracticeFragment.setArguments(args);
+                    interactivePracticeFragment.setArguments(args);**/
+                    ListFragment interactiveListFragment = new ListFragment();
 
                     FragmentTransaction fragmentTransaction = ((MainActivity) context).getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
                             android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-                    fragmentTransaction.add(interactivePracticeFragment, "interactive")
-                            .replace(R.id.fragment_container, interactivePracticeFragment)
+                    fragmentTransaction.add(interactiveListFragment, "interactive")
+                            .replace(R.id.fragment_container, interactiveListFragment)
                             .addToBackStack("interactive")
                             .commit();
                 }
