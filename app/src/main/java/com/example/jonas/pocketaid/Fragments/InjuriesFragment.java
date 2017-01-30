@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -69,6 +70,7 @@ public class InjuriesFragment extends Fragment {
         // Inflate the layout for this fragment
         ((MainActivity)getActivity()).setActionBarTitle("Injuries");
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injuries, container, false);
+        ((MainActivity)getActivity()).resetActionBar(false, DrawerLayout.LOCK_MODE_UNLOCKED);
         rootView.requestFocus();
 
         fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);

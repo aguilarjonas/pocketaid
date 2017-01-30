@@ -39,7 +39,8 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    private ActionBarDrawerToggle toggle;
+    private DrawerLayout drawer;
     private FloatingActionButton fab;
     NavigationView navigationView = null;
     Toolbar toolbar = null;
@@ -79,8 +80,8 @@ public class MainActivity extends AppCompatActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -124,11 +125,17 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        } else if(id == R.id.home) {
-            super.onBackPressed();
-            return true;
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+
+        switch (id) {
+            case R.id.action_settings:
+                Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();
+                return true;
+            case android.R.id.home:
+                Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
@@ -256,7 +263,25 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    public void resetActionBar(boolean childAction, int drawerMode)
+    {
+        if (childAction) {
+            //sets icon to back button
+            toggle.setDrawerIndicatorEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+            toggle.setToolbarNavigationClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getSupportFragmentManager().popBackStack();
+                }
+            });
+        } else {
+            toggle.setDrawerIndicatorEnabled(true);
+        }
+
+        drawer.setDrawerLockMode(drawerMode);
+    }
 }
 
 
