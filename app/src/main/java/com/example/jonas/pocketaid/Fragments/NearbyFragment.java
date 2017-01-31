@@ -109,7 +109,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         ((MainActivity)getActivity()).resetActionBar(false, DrawerLayout.LOCK_MODE_UNLOCKED);
 
         //show FAB
-        ((MainActivity) getActivity()).hideOrShowFAB("show");
+        ((MainActivity) getActivity()).hideOrShowFAB("hide");
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_nearby, container, false);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -127,34 +127,41 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mapView = (MapView) rootView.findViewById(R.id.map);
-            mapView.onCreate(savedInstanceState);
-            mapView.getMapAsync(this);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
 
+        try {
+            if (isConnectedToNetwork(getContext()) == true) {
 
-
-//        if (isLocationServiceEnabled() == false && isConnectedToNetwork(getContext()) == false){
-//            Toast.makeText(getActivity().getApplicationContext(),"No Net and No Loc", Toast.LENGTH_LONG).show();
-//        }
-
-         if (isConnectedToNetwork(getContext()) == true) {
-
-            if (isLocationServiceEnabled() == false){
-                Toast.makeText(getActivity().getApplicationContext(),"No location", Toast.LENGTH_LONG).show();
+                if (isLocationServiceEnabled() == false){
+                    Toast.makeText(getActivity().getApplicationContext(),"No location", Toast.LENGTH_LONG).show();
+                    Snackbar.make(rootView, "No location service", Snackbar.LENGTH_INDEFINITE)
+                            .setAction("Retry", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Fragment nearbyFragment = getFragmentManager().findFragmentByTag("Nearby");
+                                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                                    fragmentTransaction.detach(nearbyFragment);
+                                    fragmentTransaction.attach(nearbyFragment);
+                                    fragmentTransaction.commit();
+                                }
+                            })
+                            .show();
+                }
             }
         }
+
+        catch (NullPointerException e){
+
+        }
+
+
 
 
 
         //For listview
         hospitalListView = (ListView)rootView.findViewById(R.id.listview_nearbyHospital);
-//        hospitalView.setBackgroundColor(Color.RED);
-        //hospitalView.setVisibility(View.INVISIBLE);
 
-//        ViewGroup.LayoutParams params = mapView.getView().getLayoutParams();
-
-
-//        params.height = 900;
-//        hospitalView.setLayoutParams(params);
         hospitalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id){
                 String chosenHospital = ((TextView)v.findViewById(R.id.textView_hospitalName)).getText().toString();
@@ -413,8 +420,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
 
         if (isLocationServiceEnabled()){
-            //Toast.makeText(getActivity().getApplicationContext(),"No location services", Toast.LENGTH_LONG).show();
-
            if (isConnectedToNetwork(getContext()) == false){
 //                Toast.makeText(getActivity().getApplicationContext(),"No internetasda connection", Toast.LENGTH_LONG).show();
                Snackbar.make(getView(), "No internet connection", Snackbar.LENGTH_INDEFINITE)
