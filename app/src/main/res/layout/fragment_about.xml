@@ -42,13 +42,12 @@
         android:id="@+id/about_disclaimer_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="17sp"
         android:layout_marginTop="@dimen/ten_dp"
         android:layout_marginLeft="@dimen/ten_dp"
         android:layout_marginStart="@dimen/ten_dp"
         android:layout_marginRight="@dimen/ten_dp"
-        android:layout_marginEnd="@dimen/ten_dp"
-        android:gravity="right|center_horizontal"
-        android:text="@string/disclaimer"/>
+        android:layout_marginEnd="@dimen/ten_dp"/>
 
     <TextView
         android:id="@+id/group_name"

@@ -13,6 +13,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -415,7 +416,19 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             //Toast.makeText(getActivity().getApplicationContext(),"No location services", Toast.LENGTH_LONG).show();
 
            if (isConnectedToNetwork(getContext()) == false){
-                Toast.makeText(getActivity().getApplicationContext(),"No internetasda connection", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getActivity().getApplicationContext(),"No internetasda connection", Toast.LENGTH_LONG).show();
+               Snackbar.make(getView(), "No internet connection", Snackbar.LENGTH_INDEFINITE)
+                       .setAction("Retry", new View.OnClickListener() {
+                           @Override
+                           public void onClick(View v) {
+                               Fragment nearbyFragment = getFragmentManager().findFragmentByTag("Nearby");
+                               FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                               fragmentTransaction.detach(nearbyFragment);
+                               fragmentTransaction.attach(nearbyFragment);
+                               fragmentTransaction.commit();
+                           }
+                       })
+                       .show();
             }
 
             else

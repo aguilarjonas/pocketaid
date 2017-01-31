@@ -48,8 +48,7 @@
         android:layout_marginLeft="@dimen/ten_dp"
         android:layout_marginStart="@dimen/ten_dp"
         android:layout_marginRight="@dimen/ten_dp"
-        android:layout_marginEnd="@dimen/ten_dp"
-        android:text="@string/disclaimer"/>
+        android:layout_marginEnd="@dimen/ten_dp"/>
 
     <TextView
         android:id="@+id/group_name"

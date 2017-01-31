@@ -263,8 +263,7 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void resetActionBar(boolean childAction, int drawerMode)
-    {
+    public void resetActionBar(boolean childAction, int drawerMode) {
         if (childAction) {
             //sets icon to back button
             toggle.setDrawerIndicatorEnabled(false);
