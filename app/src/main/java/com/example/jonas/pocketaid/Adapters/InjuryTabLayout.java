@@ -34,9 +34,11 @@ public class InjuryTabLayout extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ((MainActivity)getActivity()).setActionBarTitle(getArguments().getString("injury"));
         View rootView = inflater.inflate(R.layout.layout_injury_tabs, container, false);
-        ((MainActivity)getActivity()).resetActionBar(true,
-                DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+
+        //changes menu button to Up or Back button
+        ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
         tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
 

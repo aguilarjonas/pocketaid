@@ -13,6 +13,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +22,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 import com.example.jonas.pocketaid.RouteModules.DirectionsJSONParser;
 import com.example.jonas.pocketaid.RouteModules.DownloadDirectionUrl;
@@ -88,12 +90,18 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        ((MainActivity)getActivity()).setActionBarTitle(getArguments().getString("chosenHospital"));
         View v = inflater.inflate(R.layout.fragment_nearby_hospital_information, container, false);
+
+        //changes menu button to Up or back button
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+
+        //hide FAB
+        ((MainActivity) getActivity()).hideOrShowFAB("hide");
 
         beforeStartFragment(v);
         checkAndroidVersion();
-
 
         return v;
     }

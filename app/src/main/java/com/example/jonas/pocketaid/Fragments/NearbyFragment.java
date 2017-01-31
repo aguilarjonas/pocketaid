@@ -17,6 +17,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -102,6 +103,12 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ((MainActivity)getActivity()).setActionBarTitle("Nearby Hospitals");
+
+        //unlocks menu bar or drawer
+        ((MainActivity)getActivity()).resetActionBar(false, DrawerLayout.LOCK_MODE_UNLOCKED);
+
+        //show FAB
+        ((MainActivity) getActivity()).hideOrShowFAB("show");
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_nearby, container, false);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

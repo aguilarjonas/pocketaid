@@ -256,9 +256,9 @@ public class MainActivity extends AppCompatActivity
     public void hideOrShowFAB(String hideOrShow) {
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
-        if(hideOrShow.equals("hide")) {
+        if(hideOrShow.toLowerCase().equals("hide")) {
             fab.hide();
-        } else if(hideOrShow.equals("show")){
+        } else if(hideOrShow.toLowerCase().equals("show")){
             fab.show();
         }
     }
