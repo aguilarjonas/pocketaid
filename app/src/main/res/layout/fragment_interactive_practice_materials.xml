@@ -11,7 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/ic_abrasion"
-        android:id="@+id/imageView_pic1" />
+        android:id="@+id/imageView_pic1"
+        />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -21,7 +22,9 @@
         android:id="@+id/imageView_pic3"
         android:layout_below="@+id/imageView_pic1"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+         />
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -32,7 +35,9 @@
         android:layout_alignLeft="@+id/imageView_pic2"
         android:layout_alignStart="@+id/imageView_pic2"
         android:layout_marginLeft="19dp"
-        android:layout_marginStart="19dp" />
+        android:layout_marginStart="19dp"
+         />
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -43,7 +48,9 @@
         android:layout_marginEnd="15dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+         />
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -53,16 +60,20 @@
         android:id="@+id/imageView_pic5"
         android:layout_below="@+id/imageView_pic3"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+         />
+
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_dir_hospt_v1"
+        app:srcCompat="@drawable/ic_dir_hospt_v2"
         android:id="@+id/imageView_pic6"
         android:layout_alignTop="@+id/imageView_pic5"
         android:layout_alignLeft="@+id/imageView_pic4"
-        android:layout_alignStart="@+id/imageView_pic4" />
+        android:layout_alignStart="@+id/imageView_pic4"
+         />
+
 
     <Button
         android:text="Next"
@@ -74,4 +85,64 @@
         android:id="@+id/button_practice_next"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/checkmark"
+        android:id="@+id/imageView3_check"
+        tools:visibility="visible"
+        android:layout_above="@+id/imageView_pic6"
+        android:layout_alignRight="@+id/imageView_pic3"
+        android:layout_alignEnd="@+id/imageView_pic3" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/checkmark"
+        android:id="@+id/imageView4_check"
+        tools:visibility="visible"
+        android:layout_above="@+id/imageView_pic6"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/checkmark"
+        android:id="@+id/imageView2_check"
+        tools:visibility="visible"
+        android:layout_alignBottom="@+id/imageView_pic2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/checkmark"
+        android:id="@+id/imageView1_check"
+        tools:visibility="visible"
+        android:layout_above="@+id/imageView_pic3"
+        android:layout_alignRight="@+id/imageView_pic1"
+        android:layout_alignEnd="@+id/imageView_pic1" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/checkmark"
+        android:id="@+id/imageView6_check"
+        tools:visibility="visible"
+        android:layout_above="@+id/button_practice_next"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/checkmark"
+        android:id="@+id/imageView5_check"
+        tools:visibility="visible"
+        android:layout_above="@+id/button_practice_next"
+        android:layout_alignRight="@+id/imageView_pic5"
+        android:layout_alignEnd="@+id/imageView_pic5" />
 </RelativeLayout>
