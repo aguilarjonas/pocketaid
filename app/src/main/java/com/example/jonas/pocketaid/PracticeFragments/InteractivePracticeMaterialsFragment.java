@@ -3,6 +3,7 @@ package com.example.jonas.pocketaid.PracticeFragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,12 +51,23 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
     public View setImages(View rootView){
         imageView_1 = (ImageView) rootView.findViewById(R.id.imageView_pic1);
         imageView_2 = (ImageView) rootView.findViewById(R.id.imageView_pic2);
+        imageView_3 = (ImageView) rootView.findViewById(R.id.imageView_pic3);
+        imageView_4 = (ImageView) rootView.findViewById(R.id.imageView_pic4);
+        imageView_5 = (ImageView) rootView.findViewById(R.id.imageView_pic5);
+        imageView_6 = (ImageView) rootView.findViewById(R.id.imageView_pic6);
+
         nextButton =  (Button) rootView.findViewById(R.id.button_practice_next);
 
         nextButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
+                ListFragment listF = new ListFragment();
+                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                fragmentTransaction.add(listF, "listF")
+                        .replace(R.id.fragment_container, listF)
+                        .addToBackStack("listF")
+                        .commit();
 
             }
         });
@@ -133,6 +145,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
     public void abrasionPractice (){
         imageView_1.setImageResource(R.drawable.ic_laceration);
+
 
     }
 
