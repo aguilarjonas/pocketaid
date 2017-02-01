@@ -4,6 +4,8 @@ package com.example.jonas.pocketaid.InjuriesFragments;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.media.MediaPlayer;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -136,8 +138,14 @@ public class InjuryInformationFragment extends Fragment {
                 // do something, the isChecked will be
                 // true if the switch is in the On position
                 if (isChecked == true){
-                    Toast.makeText(getActivity(), "Downloading", Toast.LENGTH_SHORT).show();
-                    downloadTutorial();
+                    ConnectivityManager cm = (ConnectivityManager) getActivity().getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo ni = cm.getActiveNetworkInfo();
+                    if(ni != null && ni.isConnected()) {
+                        downloadTutorial();
+                        Toast.makeText(getActivity(), "Downloading", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getActivity(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
                 else if (isChecked == false){
@@ -165,11 +173,17 @@ public class InjuryInformationFragment extends Fragment {
         playVideoImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ConnectivityManager cm = (ConnectivityManager) getActivity().getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo ni = cm.getActiveNetworkInfo();
                 //access checkPermission method sa MainActivity, passes String to fromFragment variable
                 //((MainActivity)getActivity()).downloadVideo(injuryType);
-                ((MainActivity)getActivity()).streamVideo(injuryType, videoView);
-                playVideoImage.setVisibility(View.INVISIBLE);
-
+                if(ni != null && ni.isConnected()) {
+                    ((MainActivity)getActivity()).streamVideo(injuryType, videoView);
+                    playVideoImage.setVisibility(View.INVISIBLE);
+                } else {
+                    playVideoImage.setVisibility(View.VISIBLE);
+                    Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

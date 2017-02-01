@@ -149,13 +149,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                             .show();
                 }
             }
+        } catch (NullPointerException e){
+            e.printStackTrace();
         }
-
-        catch (NullPointerException e){
-
-        }
-
-
 
 
 
@@ -279,8 +275,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 mMap.setMyLocationEnabled(true);
                 //automaticHospitalSearch();
             }
-        }
-        else {
+        } else {
             buildGoogleApiClient();
             mMap.setMyLocationEnabled(true);
         }

@@ -14,8 +14,8 @@
 
         <ImageView
             android:id="@+id/about_logo"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
             android:src="@drawable/ic_aboutlogo"/>
     </RelativeLayout>
 
@@ -30,7 +30,6 @@
         android:text="DISCLAIMER"/>
 
     <View
-        android:layout_marginTop="@dimen/ten_dp"
         android:layout_marginLeft="@dimen/ten_dp"
         android:layout_marginStart="@dimen/ten_dp"
         android:layout_marginRight="@dimen/ten_dp"
@@ -43,18 +42,20 @@
         android:id="@+id/about_disclaimer_body"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="17sp"
+        android:textSize="18sp"
         android:layout_marginTop="@dimen/ten_dp"
         android:layout_marginLeft="@dimen/ten_dp"
         android:layout_marginStart="@dimen/ten_dp"
         android:layout_marginRight="@dimen/ten_dp"
-        android:layout_marginEnd="@dimen/ten_dp"/>
+        android:layout_marginEnd="@dimen/ten_dp"
+        android:text="@string/disclaimer"/>
 
     <TextView
         android:id="@+id/group_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/grp_name"
+        android:textSize="18sp"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="@dimen/ten_dp"
         android:layout_marginStart="@dimen/ten_dp"

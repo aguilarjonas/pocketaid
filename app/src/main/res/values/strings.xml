@@ -32,7 +32,7 @@
     <string name="hospitalContactNumber">111111</string>
 
     <!-- DISCLAIMER -->
-    <string name="disclaimer">" Can this contain a lot of text? Can it contain a newline? Yes it can. Adding a 2nd line like this should work. It should not cause parsing errors"</string>
+    <string name="disclaimer">"Can this contain a lot of text? Can it contain a newline? Yes it can. Adding a 2nd line like this should work. It should not cause parsing errors"</string>
 
     <!-- GROUP NAME -->
     <string name="grp_name">- FUNtastic FOUR</string>
