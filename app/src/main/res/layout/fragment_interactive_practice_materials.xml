@@ -1,0 +1,77 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jonas.pocketaid.PracticeFragments.InteractivePracticeMaterialsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_abrasion"
+        android:id="@+id/imageView_pic1" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_concussion"
+        android:layout_marginTop="12dp"
+        android:id="@+id/imageView_pic3"
+        android:layout_below="@+id/imageView_pic1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_fracture"
+        android:id="@+id/imageView_pic4"
+        android:layout_alignTop="@+id/imageView_pic3"
+        android:layout_alignLeft="@+id/imageView_pic2"
+        android:layout_alignStart="@+id/imageView_pic2"
+        android:layout_marginLeft="19dp"
+        android:layout_marginStart="19dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_bites"
+        android:id="@+id/imageView_pic2"
+        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_insect"
+        android:layout_marginTop="20dp"
+        android:id="@+id/imageView_pic5"
+        android:layout_below="@+id/imageView_pic3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_dir_hospt_v1"
+        android:id="@+id/imageView_pic6"
+        android:layout_alignTop="@+id/imageView_pic5"
+        android:layout_alignLeft="@+id/imageView_pic4"
+        android:layout_alignStart="@+id/imageView_pic4" />
+
+    <Button
+        android:text="Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView_pic6"
+        android:layout_alignLeft="@+id/imageView_pic6"
+        android:layout_alignStart="@+id/imageView_pic6"
+        android:id="@+id/button_practice_next"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

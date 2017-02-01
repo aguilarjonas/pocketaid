@@ -1,8 +1,10 @@
 package com.example.jonas.pocketaid.Adapters;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.jonas.pocketaid.MainActivity;
+import com.example.jonas.pocketaid.PracticeFragments.InteractivePracticeMaterialsFragment;
 import com.example.jonas.pocketaid.PracticeFragments.ListFragment;
 import com.example.jonas.pocketaid.R;
 
@@ -23,6 +26,8 @@ public class InjuryListPracticeAdapter extends RecyclerView.Adapter<InjuryListPr
     private Integer[] injury_logos;
     private String[] injury_names;
     private Context context;
+
+    private int position2 = 0;
 
     public InjuryListPracticeAdapter(Context context, String[] injury_names, Integer[] injury_logos) {
         inflater = LayoutInflater.from(context);
@@ -63,6 +68,7 @@ public class InjuryListPracticeAdapter extends RecyclerView.Adapter<InjuryListPr
             injury_logo = (ImageView) itemView.findViewById(R.id.practice_injury_logo);
             injury_name = (TextView) itemView.findViewById(R.id.practice_injury_name);
 
+
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -70,13 +76,22 @@ public class InjuryListPracticeAdapter extends RecyclerView.Adapter<InjuryListPr
                     Bundle args = new Bundle();
                     args.putString("injury", injury_name.getText().toString());
                     interactivePracticeFragment.setArguments(args);**/
-                    ListFragment interactiveListFragment = new ListFragment();
+                    InteractivePracticeMaterialsFragment interactiveMaterials = new InteractivePracticeMaterialsFragment();
+                    Bundle args = new Bundle();
+                    //Log.e("TESTING", injury_name.getText().toString());
+
+                    args.putString("chosenPractice", injury_name.getText().toString());
+                    interactiveMaterials.setArguments(args);
+
+                    //String injury_name2 = injury_name.getText().toString();
+
+                    //Log.e("TESTING", injury_name2);
 
                     FragmentTransaction fragmentTransaction = ((MainActivity) context).getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
                             android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-                    fragmentTransaction.add(interactiveListFragment, "interactive")
-                            .replace(R.id.fragment_container, interactiveListFragment)
+                    fragmentTransaction.add(interactiveMaterials, "interactive")
+                            .replace(R.id.fragment_container, interactiveMaterials)
                             .addToBackStack("interactive")
                             .commit();
                 }
