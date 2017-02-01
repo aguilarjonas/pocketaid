@@ -44,6 +44,21 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         setImages(rootView);
         chosenPracticeChooser(chosenPractice);
 
+        //Bundle mo na lang dito, Angel.
+        nextButton.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                ListFragment listF = new ListFragment();
+                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                fragmentTransaction.add(listF, "listF")
+                        .replace(R.id.fragment_container, listF)
+                        .addToBackStack("listF")
+                        .commit();
+
+            }
+        });
+
         return rootView;
 
     }
@@ -58,19 +73,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
         nextButton =  (Button) rootView.findViewById(R.id.button_practice_next);
 
-        nextButton.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                ListFragment listF = new ListFragment();
-                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
-                fragmentTransaction.add(listF, "listF")
-                        .replace(R.id.fragment_container, listF)
-                        .addToBackStack("listF")
-                        .commit();
 
-            }
-        });
 
         return rootView;
     }
