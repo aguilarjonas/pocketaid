@@ -26,14 +26,14 @@ public class PracticeFragment extends Fragment {
     private FloatingActionButton fab;
 
     //list of injuries
-    String[] injuries = { "Abrasion", "Bites (Animal)", "Bites (Insect)", "Burns (1st & 2nd Degree)",
+    String[] injuries = { "Abrasion", "Bites (Animal)", "Bites (Insect)", "Thermal Burns", "Chemical Burns", "Electrical Burns",
                             "Burns (3rd Degree)", "Concussion", "Contusion", "Fracture",
                             "Laceration (Major)", "Laceration (Minor)", "Puncture (Severe Bleeding)", "Puncture (Slightly Bleeding)"
     };
 
     //icons
-    Integer[] icon = { R.drawable.ic_abrasion, R.drawable.ic_bites, R.drawable.ic_insect, R.drawable.ic_burns,
-                        R.drawable.ic_burns, R.drawable.ic_concussion,
+    Integer[] icon = { R.drawable.ic_abrasion, R.drawable.ic_bites, R.drawable.ic_insect, R.drawable.ic_burns, R.drawable.ic_burns,
+                        R.drawable.ic_burns, R.drawable.ic_burns, R.drawable.ic_concussion,
                         R.drawable.ic_contusion, R.drawable.ic_fracture, R.drawable.ic_laceration,
                         R.drawable.ic_laceration, R.drawable.ic_puncture, R.drawable.ic_puncture
     };
