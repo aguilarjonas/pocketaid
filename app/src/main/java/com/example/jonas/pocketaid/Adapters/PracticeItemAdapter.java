@@ -64,7 +64,7 @@ public class PracticeItemAdapter extends DragItemAdapter<Pair<Long, String>, Pra
         public TextView mText;
 
         public ViewHolder(final View itemView) {
-            super(itemView, mGrabHandleId, mDragOnLongPress);
+            super(itemView, itemView.getId(), mDragOnLongPress);
             mText = (TextView) itemView.findViewById(R.id.text);
         }
     }
