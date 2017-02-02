@@ -18,12 +18,10 @@ package com.example.jonas.pocketaid.PracticeFragments;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.Pair;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,41 +43,140 @@ public class ListFragment extends Fragment {
     private ArrayList<Pair<Long, String>> mItemArray;
     private DragListView mDragListView;
     private MySwipeRefreshLayout mRefreshLayout;
-    String[] abrasionProceduresArray;
+    String[] abrasionProcedure, animalBitesProcedure, insectBitesProcedure, firstAndSecondDegreeBurnProcedure,
+             thirdDegreeBurnProcedure, concussionProcedure, contusionProcedure, fractureProcedure,
+             majorLacerationProcedure, minorLacerationProcedure, slightPunctureProcedure, severePunctureProcedure;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.list_layout, container, false);
         mRefreshLayout = (MySwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
         mDragListView = (DragListView) view.findViewById(R.id.drag_list_view);
         mDragListView.getRecyclerView().setVerticalScrollBarEnabled(true);
-        abrasionProceduresArray = getResources().getStringArray(R.array.abrasion_recommended);
+        abrasionProcedure = getResources().getStringArray(R.array.abrasion_recommended);
+        animalBitesProcedure = getResources().getStringArray(R.array.bites_animal_recommended);
+        insectBitesProcedure = getResources().getStringArray(R.array.bites_insect_recommended);
+        firstAndSecondDegreeBurnProcedure = getResources().getStringArray(R.array.burns_thermal_recommended);
+        thirdDegreeBurnProcedure = getResources().getStringArray(R.array.burns_third_recommended);
+        concussionProcedure = getResources().getStringArray(R.array.concussion_recommended);
+        contusionProcedure = getResources().getStringArray(R.array.contusion_recommended);
+        fractureProcedure = getResources().getStringArray(R.array.fracture_recommended);
+        majorLacerationProcedure = getResources().getStringArray(R.array.laceration_major_recommended);
+        minorLacerationProcedure = getResources().getStringArray(R.array.laceration_minor_recommended);
+        slightPunctureProcedure = getResources().getStringArray(R.array.puncture_slight_recommended);
+        severePunctureProcedure = getResources().getStringArray(R.array.puncture_severe_recommended);
+        String chosenInjury = getArguments().getString("chosenInjury");
+        selectedInjury(chosenInjury);
+        return view;
+    }
+
+    public void selectedInjury(String chosenInjury){
+
+        if (chosenInjury == "Abrasion"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < abrasionProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + abrasionProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Bites (Animal)"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < animalBitesProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + animalBitesProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Bites (Insect)"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < insectBitesProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + insectBitesProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Burns (1st & 2nd Degree)"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < firstAndSecondDegreeBurnProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + firstAndSecondDegreeBurnProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Burns (3rd Degree)"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < thirdDegreeBurnProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thirdDegreeBurnProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Concussion"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < concussionProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + concussionProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Contusion"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < contusionProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + contusionProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Fracture"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < fractureProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + fractureProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Laceration (Major)"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < majorLacerationProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + majorLacerationProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Laceration (Minor)"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < minorLacerationProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + minorLacerationProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Puncture (Severe Bleeding)"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < severePunctureProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + severePunctureProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Puncture (Slightly Bleeding)"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < slightPunctureProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + slightPunctureProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+        }
+    }
+
+    public void checkOrderOfProcedures(){
+        mItemArray = new ArrayList<>();
         mDragListView.setDragListListener(new DragListView.DragListListenerAdapter() {
             @Override
             public void onItemDragStarted(int position) {
                 mRefreshLayout.setEnabled(false);
-                Toast.makeText(mDragListView.getContext(), "Starting position: " + position, Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onItemDragEnded(int fromPosition, int toPosition) {
                 mRefreshLayout.setEnabled(true);
-                if (fromPosition != toPosition) {
-                    Toast.makeText(mDragListView.getContext(), "End position: " + toPosition, Toast.LENGTH_SHORT).show();
+                if (Long.valueOf(toPosition).equals((Long)(mItemArray.get(toPosition).first))) {
+                    // This is the correct position
+                    Toast.makeText(mDragListView.getContext(), "Correct position", Toast.LENGTH_SHORT).show();
+                } else {
+                    // This is not the correct position
+                    Toast.makeText(mDragListView.getContext(), "Incorrect position", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-        mItemArray = new ArrayList<>();
-        for (int counter = 0; counter < 10; counter++) {
-            mItemArray.add(new Pair<>(Long.valueOf(counter), "Procedure number " + counter));
-        }
-        Collections.shuffle(mItemArray);
 
         mRefreshLayout.setScrollingView(mDragListView.getRecyclerView());
         mRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getContext(), R.color.colorAccent));
@@ -94,17 +191,8 @@ public class ListFragment extends Fragment {
                 }, 2000);
             }
         });
-
         setupListRecyclerView();
-        return view;
     }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle("Interactive Practice");
-    }
-
 
     private void setupListRecyclerView() {
         mDragListView.setLayoutManager(new LinearLayoutManager(getContext()));

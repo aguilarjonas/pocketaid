@@ -33,40 +33,43 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
      ImageView imageView_5_check;
      ImageView imageView_6_check;
 
+    private String injuryType;
+
     Button nextButton;
-
-
 
     public InteractivePracticeMaterialsFragment() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        String chosenPractice = getArguments().getString("chosenPractice");
+        final String chosenPractice = getArguments().getString("chosenPractice");
         rootView = (View) inflater.inflate(R.layout.fragment_interactive_practice_materials, container, false);
 
         setImages(rootView);
         chosenPracticeChooser(chosenPractice);
 
         //Bundle mo na lang dito, Angel.
+
         nextButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                ListFragment listF = new ListFragment();
-                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
-                fragmentTransaction.add(listF, "listF")
-                        .replace(R.id.fragment_container, listF)
-                        .addToBackStack("listF")
-                        .commit();
+                chosenPracticeChooser(chosenPractice);
+                ListFragment listFrag = new ListFragment();
+                Bundle args = new Bundle();
+                args.putString("chosenInjury", injuryType);
+                listFrag.setArguments(args);
 
+                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                fragmentTransaction.add(listFrag, "listFrag")
+                        .replace(R.id.fragment_container, listFrag)
+                        .addToBackStack("listFrag")
+                        .commit();
             }
         });
-
         return rootView;
 
     }
@@ -88,13 +91,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
 
         nextButton =  (Button) rootView.findViewById(R.id.button_practice_next);
-
-
-
         return rootView;
     }
-
-
 
 
     public void chosenPracticeChooser(String chosenPractice){
@@ -102,64 +100,41 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         if (chosenPractice == "Abrasion"){
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
             abrasionPractice();
-        }
-
-        else if (chosenPractice == "Bites (Animal)"){
+            injuryType = "Abrasion";
+        } else if (chosenPractice == "Bites (Animal)"){
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
-
-        }
-
-        else if (chosenPractice == "Bites (Insect)"){
+            injuryType = "Bites (Animal)";
+        } else if (chosenPractice == "Bites (Insect)"){
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
-
-        }
-
-        else if (chosenPractice == "Burns (1st & 2nd Degree)"){
+            injuryType = "Bites (Insect)";
+        } else if (chosenPractice == "Burns (1st & 2nd Degree)"){
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
-
-        }
-
-        else if (chosenPractice == "Burns (3rd Degree)"){
+            injuryType = "Burns (1st & 2nd Degree)";
+        } else if (chosenPractice == "Burns (3rd Degree)"){
+            injuryType = "Burns (3rd Degree)";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
-
-        }
-
-        else if (chosenPractice == "Concussion"){
+        } else if (chosenPractice == "Concussion"){
+            injuryType = "Concussion";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
-
-        }
-
-        else if (chosenPractice == "Contusion"){
+        } else if (chosenPractice == "Contusion"){
+            injuryType = "Contusion";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
-
-        }
-
-        else if (chosenPractice == "Fracture"){
+        } else if (chosenPractice == "Fracture"){
+            injuryType = "Fracture";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
-
-        }
-
-        else if (chosenPractice == "Laceration (Major)"){
+        } else if (chosenPractice == "Laceration (Major)"){
+            injuryType = "Laceration (Major)";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
-
-        }
-
-        else if (chosenPractice == "Laceration (Minor)"){
+        } else if (chosenPractice == "Laceration (Minor)"){
+            injuryType = "Laceration (Minor)";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
-
-        }
-
-        else if (chosenPractice == "Puncture (Severe Bleeding)"){
+        } else if (chosenPractice == "Puncture (Severe Bleeding)"){
+            injuryType = "Puncture (Severe Bleeding)";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
-
-        }
-
-        else if (chosenPractice == "Puncture (Slightly Bleeding)"){
+        } else if (chosenPractice == "Puncture (Slightly Bleeding)"){
+            injuryType = "Puncture (Slightly Bleeding)";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
-
         }
-
-        //return rootView;
     }
 
     public void abrasionPractice (){
