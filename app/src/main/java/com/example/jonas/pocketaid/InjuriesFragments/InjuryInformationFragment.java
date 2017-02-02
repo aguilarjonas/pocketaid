@@ -97,7 +97,7 @@ public class InjuryInformationFragment extends Fragment {
         }
 
         //initialization
-        //downloadNote = (TextView) rootView.findViewById(R.id.download_note);
+        downloadNote = (TextView) rootView.findViewById(R.id.tv_switch_download);
         playVideoImage = (ImageView) rootView.findViewById(R.id.imageView_play);
         downloadSwitch = (Switch) rootView.findViewById(R.id.switch_download);
         //downloadButton = (Button) rootView.findViewById(R.id.video_download);
@@ -118,7 +118,7 @@ public class InjuryInformationFragment extends Fragment {
         //sets the switch and the text to whether downloaded or not
         if (videoFile.exists()){
             downloadSwitch.setChecked(true);
-            downloadSwitch.setText(getString(R.string.Downloaded));
+            downloadNote.setText(getString(R.string.Downloaded));
         } else {
             downloadSwitch.setChecked(false);
         }
@@ -146,9 +146,7 @@ public class InjuryInformationFragment extends Fragment {
                     } else {
                         Toast.makeText(getActivity(), "No Internet Connection", Toast.LENGTH_SHORT).show();
                     }
-                }
-
-                else if (isChecked == false){
+                } else if (isChecked == false){
                     Toast.makeText(getActivity(), "Video Deleted", Toast.LENGTH_SHORT).show();
                     videoFile.delete();
                 }

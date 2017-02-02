@@ -31,6 +31,7 @@ import com.example.jonas.pocketaid.Fragments.AboutFragment;
 import com.example.jonas.pocketaid.Fragments.InjuriesFragment;
 import com.example.jonas.pocketaid.Fragments.NearbyFragment;
 import com.example.jonas.pocketaid.Fragments.PracticeFragment;
+import com.example.jonas.pocketaid.Fragments.SettingsFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment;
 
 import java.io.File;
@@ -131,7 +132,14 @@ public class MainActivity extends AppCompatActivity
 
         switch (id) {
             case R.id.action_settings:
-                Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();
+                SettingsFragment settingsFragment = new SettingsFragment();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.add(settingsFragment, "Settings")
+                        .replace(R.id.fragment_container, settingsFragment)
+                        .addToBackStack("Settings")
+                        .commit();
+
                 return true;
             case android.R.id.home:
                 Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();

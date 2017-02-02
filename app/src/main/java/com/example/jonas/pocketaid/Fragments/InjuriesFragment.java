@@ -33,19 +33,20 @@ public class InjuriesFragment extends Fragment {
     private ListView listView;
     private SearchView searchView;
     private FloatingActionButton fab;
+    private String[] injuries;
     InjuryListAdapter listAdapter;
 
     //list of injuries
-    String[] injuries = {
-            "Abrasion",
-            "Bites",
-            "Burns",
-            "Concussion",
-            "Contusion",
-            "Fracture",
-            "Laceration",
-            "Puncture"
-    };
+//    String[] injuries = {
+//            "Abrasion",
+//            "Bites",
+//            "Burns",
+//            "Concussion",
+//            "Contusion",
+//            "Fracture",
+//            "Laceration",
+//            "Puncture"
+//    };
 
     //icons
     Integer[] icon = {
@@ -71,16 +72,16 @@ public class InjuriesFragment extends Fragment {
         ((MainActivity)getActivity()).setActionBarTitle("Injuries");
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injuries, container, false);
         ((MainActivity)getActivity()).resetActionBar(false, DrawerLayout.LOCK_MODE_UNLOCKED);
+        ((MainActivity) getActivity()).hideOrShowFAB("show");
         rootView.requestFocus();
 
-        fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        injuries = getResources().getStringArray(R.array.injuries);
         listView = (ListView) rootView.findViewById(R.id.injuries_listview);
         searchView = (SearchView) rootView.findViewById(R.id.injuries_search);
         searchView.setIconified(false);
         searchView.clearFocus();
-        fab.show();
 
-        listAdapter = new InjuryListAdapter(getActivity(), getInjuries());
+        listAdapter = new InjuryListAdapter(getActivity(), getInjuries(injuries));
         listView.setAdapter(listAdapter);
 
         //searching for an injury
@@ -346,7 +347,7 @@ public class InjuriesFragment extends Fragment {
     }
 
     //adding of injuries to adapter
-    private ArrayList<Injury> getInjuries() {
+    private ArrayList<Injury> getInjuries(String[] injuries) {
         ArrayList<Injury> injuriesAL = new ArrayList<Injury>();
         Injury injury;
 

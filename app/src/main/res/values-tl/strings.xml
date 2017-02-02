@@ -22,14 +22,14 @@
     <string name="bites">Bites</string>
 
     <string-array name="injuries">
-        <item>Abrasion</item>
-        <item>Bites</item>
-        <item>Burns</item>
-        <item>Concussion</item>
-        <item>Contusion</item>
-        <item>Fracture</item>
-        <item>Laceration</item>
-        <item>Puncture</item>
+        <item>Gasgas</item>
+        <item>Kagat</item>
+        <item>Lapnos</item>
+        <item>Untog</item>
+        <item>Pasa</item>
+        <item>Baling buto</item>
+        <item>Hiwa</item>
+        <item>Tusok</item>
     </string-array>
 
     <!-- DOWNLOAD BUTTON -->
@@ -109,8 +109,8 @@
 
     <!-- SPINNER OPTIONS -->
     <string-array name="spinner_options">
-        <item>Recommended Procedure</item>
-        <item>Alternative Procedure</item>
+        <item>Recommended Paraan</item>
+        <item>Alternatibong Paraan</item>
     </string-array>
 
     <!-- LABELS BURNS -->
@@ -239,7 +239,7 @@
         <item>"Apply a cold pack, or ice wrapped in a clean towel, for up to 15 minutes on the bruise to help reduce swelling."</item>
         <item>"Keep the bruised area raised above the heart, if possible, to keep the blood from pooling in the bruised tissue."</item>
         <item>"Try to rest the bruised part by not overworking the certain area."</item>
-        <item>"If needed, take pain reliever medicine to help reduce the pain."</item>
+        <item>"If needed, take acetaminophen (Tylenol) to help reduce the pain."</item>
     </string-array>
 
 

@@ -43,20 +43,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginTop="@dimen/ten_dp"
+        android:layout_marginBottom="@dimen/ten_dp"
+        android:layout_marginLeft="@dimen/ten_dp"
+        android:layout_marginStart="@dimen/ten_dp"
+        android:layout_marginRight="@dimen/ten_dp"
+        android:layout_marginEnd="@dimen/ten_dp"
         android:gravity="center_horizontal|center_vertical">
 
-        <Switch
+        <TextView
+            android:id="@+id/tv_switch_download"
             android:text="@string/Download"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/ten_dp"
-            android:layout_marginBottom="@dimen/ten_dp"
-            android:layout_marginLeft="@dimen/ten_dp"
-            android:layout_marginStart="@dimen/ten_dp"
-            android:layout_marginRight="@dimen/ten_dp"
-            android:layout_marginEnd="@dimen/ten_dp"
-            android:id="@+id/switch_download"
             android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColor"
+            android:gravity="start"
+            android:layout_weight="1"/>
+
+        <Switch
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/switch_download"
+            android:gravity="end"
             android:checked="false" />
     </LinearLayout>
 
