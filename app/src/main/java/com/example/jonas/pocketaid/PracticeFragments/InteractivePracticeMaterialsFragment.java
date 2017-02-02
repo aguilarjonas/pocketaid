@@ -99,6 +99,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                             .replace(R.id.fragment_container, listFrag)
                             .addToBackStack("listFrag")
                             .commit();
+
+                    answersUser.clear();
                 }
 
             }
