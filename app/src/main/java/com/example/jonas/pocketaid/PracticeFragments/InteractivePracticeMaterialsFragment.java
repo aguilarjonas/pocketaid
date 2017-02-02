@@ -4,6 +4,7 @@ package com.example.jonas.pocketaid.PracticeFragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.jonas.pocketaid.R;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +38,15 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
     private String injuryType;
 
+    ArrayList<String> answersUser = new ArrayList<String>();
+    final ArrayList<String> answerAbrasion = new ArrayList<String>(){{
+        add("1");
+        add("3");
+        add("5");
+        add("2");
+    }};
+
+    final ArrayList<ArrayList<String>> categoryAnswer = new ArrayList<ArrayList<String>>();
     Button nextButton;
 
     public InteractivePracticeMaterialsFragment() {
@@ -48,28 +60,51 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         final String chosenPractice = getArguments().getString("chosenPractice");
         rootView = (View) inflater.inflate(R.layout.fragment_interactive_practice_materials, container, false);
 
+        //Bundle mo na lang dito, Angel.
+        //Add if else here if the user came back from the arrange fragments.
+        //answersUser[0] - determines if the user came back from the arrange fragments.
+        //answersUser.add("0");
         setImages(rootView);
         chosenPracticeChooser(chosenPractice);
 
-        //Bundle mo na lang dito, Angel.
+
 
         nextButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-                chosenPracticeChooser(chosenPractice);
-                ListFragment listFrag = new ListFragment();
-                Bundle args = new Bundle();
-                args.putString("chosenInjury", injuryType);
-                listFrag.setArguments(args);
 
-                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
-                fragmentTransaction.add(listFrag, "listFrag")
-                        .replace(R.id.fragment_container, listFrag)
-                        .addToBackStack("listFrag")
-                        .commit();
+//                for(int i = 0; i < answersUser.size(); i++){
+//                    Log.e("HELLOOOOO", answersUser.get(i));
+//                }
+
+                if (checkAnswers(checkAnswerSheet()) == false){
+                    Toast.makeText(getActivity().getApplicationContext(), "Wrong Answer! Try Again", Toast.LENGTH_SHORT).show();
+                }
+
+                else {
+                    // TODO Auto-generated method stub
+                    chosenPracticeChooser(chosenPractice);
+                    ListFragment listFrag = new ListFragment();
+                    Bundle args = new Bundle();
+                    args.putString("chosenInjury", injuryType);
+                    listFrag.setArguments(args);
+
+                    for (int i = 0; i < answersUser.size(); i++){
+//                        Log.e("ARRAYLIST ANSWER", answersUser.get(i));
+                    }
+
+
+                    FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                    fragmentTransaction.add(listFrag, "listFrag")
+                            .replace(R.id.fragment_container, listFrag)
+                            .addToBackStack("listFrag")
+                            .commit();
+                }
+
             }
         });
+
+
         return rootView;
 
     }
@@ -94,6 +129,49 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         return rootView;
     }
 
+    public ArrayList<String> checkAnswerSheet(){
+
+        ArrayList<String> answerSheetDefault = new ArrayList<String>();
+
+        if (injuryType == "Abrasion"){
+            return answerAbrasion;
+        }
+
+        return answerSheetDefault;
+    }
+
+    public boolean checkAnswers(ArrayList<String> answerSheet){
+
+        boolean isAllCorrect = true;
+        int numberOfCorrect = 0;
+
+        for (int i = 0; i < answerSheet.size() - 1; i++) {
+            for (int j = 0; j < answersUser.size() - 1; j++) {
+
+                if (answerSheet.get(i) == answersUser.get(j)){
+                    numberOfCorrect++;
+                }
+
+                else{
+
+                }
+            }
+        }//End of 1st For Loop
+
+        int testHolder = answerSheet.size()-1;
+
+        Log.e("Correct/Item", numberOfCorrect + "/" + testHolder);
+
+        if (numberOfCorrect == answerSheet.size() - 1){
+            isAllCorrect = true;
+        }
+
+        else
+            isAllCorrect = false;
+
+        return isAllCorrect;
+
+    }
 
     public void chosenPracticeChooser(String chosenPractice){
 
@@ -180,10 +258,13 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
                 if (imageView_1_check.getVisibility() == View.VISIBLE){
                     imageView_1_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove("1");
+
                 }
 
                 else if (imageView_1_check.getVisibility() == View.INVISIBLE){
                     imageView_1_check.setVisibility(View.VISIBLE);
+                    answersUser.add("1");
                 }
 
             }
@@ -196,10 +277,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
                 if (imageView_2_check.getVisibility() == View.VISIBLE){
                     imageView_2_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove("2");
                 }
 
                 else if (imageView_2_check.getVisibility() == View.INVISIBLE){
                     imageView_2_check.setVisibility(View.VISIBLE);
+                    answersUser.add("2");
                 }
 
             }
@@ -212,10 +295,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
                 if (imageView_3_check.getVisibility() == View.VISIBLE){
                     imageView_3_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove("3");
                 }
 
                 else if (imageView_3_check.getVisibility() == View.INVISIBLE){
                     imageView_3_check.setVisibility(View.VISIBLE);
+                    answersUser.add("3");
                 }
 
             }
@@ -228,10 +313,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
                 if (imageView_4_check.getVisibility() == View.VISIBLE){
                     imageView_4_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove("4");
                 }
 
                 else if (imageView_4_check.getVisibility() == View.INVISIBLE){
                     imageView_4_check.setVisibility(View.VISIBLE);
+                    answersUser.add("4");
                 }
             }
         });
@@ -243,10 +330,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
                 if (imageView_5_check.getVisibility() == View.VISIBLE){
                     imageView_5_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove("5");
                 }
 
                 else if (imageView_5_check.getVisibility() == View.INVISIBLE){
                     imageView_5_check.setVisibility(View.VISIBLE);
+                    answersUser.add("5");
                 }
             }
         });
@@ -258,8 +347,10 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
                 if (imageView_6_check.getVisibility() == View.VISIBLE) {
                     imageView_6_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove("6");
                 } else if (imageView_6_check.getVisibility() == View.INVISIBLE) {
                     imageView_6_check.setVisibility(View.VISIBLE);
+                    answersUser.add("6");
                 }
             }
         });
