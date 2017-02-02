@@ -18,20 +18,20 @@ import com.example.jonas.pocketaid.R;
  */
 public class InteractivePracticeMaterialsFragment extends Fragment {
 
-     View rootView;
-     ImageView imageView_1 ;
-     ImageView imageView_2 ;
-     ImageView imageView_3 ;
-     ImageView imageView_4 ;
-     ImageView imageView_5 ;
-     ImageView imageView_6 ;
+    View rootView;
+    ImageView imageView_1 ;
+    ImageView imageView_2 ;
+    ImageView imageView_3 ;
+    ImageView imageView_4 ;
+    ImageView imageView_5 ;
+    ImageView imageView_6 ;
 
-     ImageView imageView_1_check;
-     ImageView imageView_2_check;
-     ImageView imageView_3_check;
-     ImageView imageView_4_check;
-     ImageView imageView_5_check;
-     ImageView imageView_6_check;
+    ImageView imageView_1_check;
+    ImageView imageView_2_check;
+    ImageView imageView_3_check;
+    ImageView imageView_4_check;
+    ImageView imageView_5_check;
+    ImageView imageView_6_check;
 
     private String injuryType;
 
@@ -98,42 +98,61 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
     public void chosenPracticeChooser(String chosenPractice){
 
         if (chosenPractice == "Abrasion"){
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             abrasionPractice();
             injuryType = "Abrasion";
+
         } else if (chosenPractice == "Bites (Animal)"){
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             injuryType = "Bites (Animal)";
+
         } else if (chosenPractice == "Bites (Insect)"){
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             injuryType = "Bites (Insect)";
-        } else if (chosenPractice == "Burns (1st & 2nd Degree)"){
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
-            injuryType = "Burns (1st & 2nd Degree)";
+
+        } else if (chosenPractice == "Thermal Burns"){
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+            injuryType = "Thermal Burns";
+
+        } else if (chosenPractice == "Chemical Burns"){
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+            injuryType = "Chemical Burns";
+
+        } else if (chosenPractice == "Electrical Burns"){
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+            injuryType = "Electrical Burns";
+
         } else if (chosenPractice == "Burns (3rd Degree)"){
             injuryType = "Burns (3rd Degree)";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+
         } else if (chosenPractice == "Concussion"){
             injuryType = "Concussion";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+
         } else if (chosenPractice == "Contusion"){
             injuryType = "Contusion";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+
         } else if (chosenPractice == "Fracture"){
             injuryType = "Fracture";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+
         } else if (chosenPractice == "Laceration (Major)"){
             injuryType = "Laceration (Major)";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+
         } else if (chosenPractice == "Laceration (Minor)"){
             injuryType = "Laceration (Minor)";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+
         } else if (chosenPractice == "Puncture (Severe Bleeding)"){
             injuryType = "Puncture (Severe Bleeding)";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+
         } else if (chosenPractice == "Puncture (Slightly Bleeding)"){
             injuryType = "Puncture (Slightly Bleeding)";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -157,7 +176,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 1", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 1", Toast.LENGTH_SHORT).show();
 
                 if (imageView_1_check.getVisibility() == View.VISIBLE){
                     imageView_1_check.setVisibility(View.INVISIBLE);
@@ -173,7 +192,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 2", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 2", Toast.LENGTH_SHORT).show();
 
                 if (imageView_2_check.getVisibility() == View.VISIBLE){
                     imageView_2_check.setVisibility(View.INVISIBLE);
@@ -189,7 +208,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 3", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 3", Toast.LENGTH_SHORT).show();
 
                 if (imageView_3_check.getVisibility() == View.VISIBLE){
                     imageView_3_check.setVisibility(View.INVISIBLE);
@@ -205,7 +224,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 4", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 4", Toast.LENGTH_SHORT).show();
 
                 if (imageView_4_check.getVisibility() == View.VISIBLE){
                     imageView_4_check.setVisibility(View.INVISIBLE);
@@ -214,14 +233,13 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                 else if (imageView_4_check.getVisibility() == View.INVISIBLE){
                     imageView_4_check.setVisibility(View.VISIBLE);
                 }
-
             }
         });
 
         imageView_5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 5", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 5", Toast.LENGTH_SHORT).show();
 
                 if (imageView_5_check.getVisibility() == View.VISIBLE){
                     imageView_5_check.setVisibility(View.INVISIBLE);
@@ -230,33 +248,20 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                 else if (imageView_5_check.getVisibility() == View.INVISIBLE){
                     imageView_5_check.setVisibility(View.VISIBLE);
                 }
-
             }
         });
 
         imageView_6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 6", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 6", Toast.LENGTH_SHORT).show();
 
-                if (imageView_6_check.getVisibility() == View.VISIBLE){
+                if (imageView_6_check.getVisibility() == View.VISIBLE) {
                     imageView_6_check.setVisibility(View.INVISIBLE);
-                }
-
-                else if (imageView_6_check.getVisibility() == View.INVISIBLE){
+                } else if (imageView_6_check.getVisibility() == View.INVISIBLE) {
                     imageView_6_check.setVisibility(View.VISIBLE);
                 }
-
             }
         });
-
-
-
-
     }
-
-
-
-
-
 }

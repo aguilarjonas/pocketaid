@@ -43,9 +43,10 @@ public class ListFragment extends Fragment {
     private ArrayList<Pair<Long, String>> mItemArray;
     private DragListView mDragListView;
     private MySwipeRefreshLayout mRefreshLayout;
-    String[] abrasionProcedure, animalBitesProcedure, insectBitesProcedure, firstAndSecondDegreeBurnProcedure,
+    String[] abrasionProcedure, animalBitesProcedure, insectBitesProcedure, thermalBurnProcedure,
              thirdDegreeBurnProcedure, concussionProcedure, contusionProcedure, fractureProcedure,
-             majorLacerationProcedure, minorLacerationProcedure, slightPunctureProcedure, severePunctureProcedure;
+             majorLacerationProcedure, minorLacerationProcedure, slightPunctureProcedure, severePunctureProcedure,
+             chemicalBurnProcedure, electricalBurnProcedure;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -56,7 +57,9 @@ public class ListFragment extends Fragment {
         abrasionProcedure = getResources().getStringArray(R.array.abrasion_recommended);
         animalBitesProcedure = getResources().getStringArray(R.array.bites_animal_recommended);
         insectBitesProcedure = getResources().getStringArray(R.array.bites_insect_recommended);
-        firstAndSecondDegreeBurnProcedure = getResources().getStringArray(R.array.burns_thermal_recommended);
+        thermalBurnProcedure = getResources().getStringArray(R.array.burns_thermal_recommended);
+        chemicalBurnProcedure = getResources().getStringArray(R.array.burns_chemical_recommended);
+        electricalBurnProcedure = getResources().getStringArray(R.array.burns_electrical_recommended);
         thirdDegreeBurnProcedure = getResources().getStringArray(R.array.burns_third_recommended);
         concussionProcedure = getResources().getStringArray(R.array.concussion_recommended);
         contusionProcedure = getResources().getStringArray(R.array.contusion_recommended);
@@ -93,10 +96,24 @@ public class ListFragment extends Fragment {
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Burns (1st & 2nd Degree)"){
+        } else if (chosenInjury == "Thermal Burns"){
             checkOrderOfProcedures();
-            for (int counter = 0; counter < firstAndSecondDegreeBurnProcedure.length; ++counter) {
-                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + firstAndSecondDegreeBurnProcedure[counter]));
+            for (int counter = 0; counter < thermalBurnProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thermalBurnProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Electrical Burns"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < electricalBurnProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + electricalBurnProcedure[counter]));
+            }
+            Collections.shuffle(mItemArray);
+
+        } else if (chosenInjury == "Chemical Burns"){
+            checkOrderOfProcedures();
+            for (int counter = 0; counter < chemicalBurnProcedure.length; ++counter) {
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + chemicalBurnProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
