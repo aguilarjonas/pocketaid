@@ -2,7 +2,6 @@ package com.example.jonas.pocketaid.Fragments;
 
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
@@ -25,13 +24,13 @@ public class PracticeFragment extends Fragment {
     private InjuryListPracticeAdapter adapter;
 
     //list of injuries
-    String[] injuries = { "Abrasion", "Animal Bites", "Insect Bites", "Thermal Burns", "Chemical Burns", "Electrical Burns",
+    String[] injuries = {"Abrasion", "Animal Bites", "Insect Bites", "Thermal Burns", "Chemical Burns", "Electrical Burns",
                             "3rd Degree Burns", "Concussion", "Contusion", "Fracture",
                             "Major Laceration", "Minor Laceration", "Puncture (Severe Bleeding)", "Puncture (Slightly Bleeding)"
     };
 
     //icons
-    Integer[] icon = { R.drawable.ic_abrasion, R.drawable.ic_bites, R.drawable.ic_insect, R.drawable.ic_burns, R.drawable.ic_chemical,
+    Integer[] icon = {R.drawable.ic_abrasion, R.drawable.ic_bites, R.drawable.ic_insect, R.drawable.ic_burns, R.drawable.ic_chemical,
                         R.drawable.ic_electrical, R.drawable.ic_burns, R.drawable.ic_concussion,
                         R.drawable.ic_contusion, R.drawable.ic_fracture, R.drawable.ic_laceration,
                         R.drawable.ic_laceration, R.drawable.ic_puncture, R.drawable.ic_puncture
@@ -56,7 +55,6 @@ public class PracticeFragment extends Fragment {
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
-
 
         return rootView;
     }

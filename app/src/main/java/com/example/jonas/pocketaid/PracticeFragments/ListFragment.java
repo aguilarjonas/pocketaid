@@ -73,100 +73,102 @@ public class ListFragment extends Fragment {
         return view;
     }
 
+
+
     public void selectedInjury(String chosenInjury){
 
-        if (chosenInjury == "Abrasion"){
+        if (chosenInjury.equals("Abrasion")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < abrasionProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + abrasionProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Bites (Animal)"){
+        } else if (chosenInjury.equals("Animal Bites")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < animalBitesProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + animalBitesProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Bites (Insect)"){
+        } else if (chosenInjury.equals("Insect Bites")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < insectBitesProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + insectBitesProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Thermal Burns"){
+        } else if (chosenInjury.equals("Thermal Burns")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < thermalBurnProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thermalBurnProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Electrical Burns"){
+        } else if (chosenInjury.equals("Electrical Burns")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < electricalBurnProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + electricalBurnProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Chemical Burns"){
+        } else if (chosenInjury.equals("Chemical Burns")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < chemicalBurnProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + chemicalBurnProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Burns (3rd Degree)"){
+        } else if (chosenInjury.equals("3rd Degree Burns")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < thirdDegreeBurnProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thirdDegreeBurnProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Concussion"){
+        } else if (chosenInjury.equals("Concussion")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < concussionProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + concussionProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Contusion"){
+        } else if (chosenInjury.equals("Contusion")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < contusionProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + contusionProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Fracture"){
+        } else if (chosenInjury.equals("Fracture")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < fractureProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + fractureProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Laceration (Major)"){
+        } else if (chosenInjury.equals("Major Laceration")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < majorLacerationProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + majorLacerationProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Laceration (Minor)"){
+        } else if (chosenInjury.equals("Minor Laceration")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < minorLacerationProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + minorLacerationProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Puncture (Severe Bleeding)"){
+        } else if (chosenInjury.equals("Puncture (Severe Bleeding)")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < severePunctureProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + severePunctureProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
-        } else if (chosenInjury == "Puncture (Slightly Bleeding)"){
+        } else if (chosenInjury.equals("Puncture (Slightly Bleeding)")){
             checkOrderOfProcedures();
             for (int counter = 0; counter < slightPunctureProcedure.length; ++counter) {
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + slightPunctureProcedure[counter]));

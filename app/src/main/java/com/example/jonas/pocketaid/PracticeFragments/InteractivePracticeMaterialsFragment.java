@@ -97,60 +97,60 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
     public void chosenPracticeChooser(String chosenPractice){
 
-        if (chosenPractice == "Abrasion"){
+        if (chosenPractice.equals("Abrasion")){
+            injuryType = "Abrasion";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             abrasionPractice();
-            injuryType = "Abrasion";
 
-        } else if (chosenPractice == "Bites (Animal)"){
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+        } else if (chosenPractice.equals("Animal Bites")){
             injuryType = "Bites (Animal)";
-
-        } else if (chosenPractice == "Bites (Insect)"){
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+
+        } else if (chosenPractice.equals("Insect Bites")){
             injuryType = "Bites (Insect)";
-
-        } else if (chosenPractice == "Thermal Burns"){
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+
+        } else if (chosenPractice.equals("Thermal Burns")){
             injuryType = "Thermal Burns";
-
-        } else if (chosenPractice == "Chemical Burns"){
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+
+        } else if (chosenPractice.equals("Chemical Burns")){
             injuryType = "Chemical Burns";
-
-        } else if (chosenPractice == "Electrical Burns"){
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+
+        } else if (chosenPractice.equals("Electrical Burns")){
             injuryType = "Electrical Burns";
-
-        } else if (chosenPractice == "Burns (3rd Degree)"){
-            injuryType = "Burns (3rd Degree)";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
 
-        } else if (chosenPractice == "Concussion"){
+        } else if (chosenPractice.equals("3rd Degree Burns")){
+            injuryType = "3rd Degree Burns";
+            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
+
+        } else if (chosenPractice.equals("Concussion")){
             injuryType = "Concussion";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
 
-        } else if (chosenPractice == "Contusion"){
+        } else if (chosenPractice.equals("Contusion")){
             injuryType = "Contusion";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
 
-        } else if (chosenPractice == "Fracture"){
+        } else if (chosenPractice.equals("Fracture")){
             injuryType = "Fracture";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
 
-        } else if (chosenPractice == "Laceration (Major)"){
-            injuryType = "Laceration (Major)";
+        } else if (chosenPractice.equals("Major Laceration")){
+            injuryType = "Major Laceration";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
 
-        } else if (chosenPractice == "Laceration (Minor)"){
-            injuryType = "Laceration (Minor)";
+        } else if (chosenPractice.equals("Minor Laceration")){
+            injuryType = "Minor Laceration";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
 
-        } else if (chosenPractice == "Puncture (Severe Bleeding)"){
+        } else if (chosenPractice.equals("Puncture (Severe Bleeding)")){
             injuryType = "Puncture (Severe Bleeding)";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
 
-        } else if (chosenPractice == "Puncture (Slightly Bleeding)"){
+        } else if (chosenPractice.equals("Puncture (Slightly Bleeding)")){
             injuryType = "Puncture (Slightly Bleeding)";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
         }
