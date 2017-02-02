@@ -72,7 +72,7 @@ public class ListFragment extends Fragment {
         selectedInjury(chosenInjury);
         return view;
     }
-    
+
     public void selectedInjury(String chosenInjury){
 
         if (chosenInjury.equals("Abrasion")){

@@ -103,11 +103,11 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
             abrasionPractice();
 
         } else if (chosenPractice.equals("Animal Bites")){
-            injuryType = "Bites (Animal)";
+            injuryType = "Animal Bites";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
 
         } else if (chosenPractice.equals("Insect Bites")){
-            injuryType = "Bites (Insect)";
+            injuryType = "Insect Bites";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
 
         } else if (chosenPractice.equals("Thermal Burns")){
