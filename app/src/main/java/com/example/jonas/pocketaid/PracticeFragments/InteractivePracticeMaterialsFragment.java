@@ -65,17 +65,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         //answersUser[0] - determines if the user came back from the arrange fragments.
         //answersUser.add("0");
         setImages(rootView);
+        setImageOnClicks();
         chosenPracticeChooser(chosenPractice);
-
-
 
         nextButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                for(int i = 0; i < answersUser.size(); i++){
-//                    Log.e("HELLOOOOO", answersUser.get(i));
-//                }
 
                 if (checkAnswers(checkAnswerSheet()) == false){
                     Toast.makeText(getActivity().getApplicationContext(), "Wrong Answer! Try Again", Toast.LENGTH_SHORT).show();
@@ -129,6 +124,112 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
         nextButton =  (Button) rootView.findViewById(R.id.button_practice_next);
         return rootView;
+    }
+
+    public void setImageOnClicks(){
+        imageView_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 1", Toast.LENGTH_SHORT).show();
+
+                if (imageView_1_check.getVisibility() == View.VISIBLE){
+                    imageView_1_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove("1");
+
+                }
+
+                else if (imageView_1_check.getVisibility() == View.INVISIBLE){
+                    imageView_1_check.setVisibility(View.VISIBLE);
+                    answersUser.add("1");
+                }
+
+            }
+        });
+
+        imageView_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 2", Toast.LENGTH_SHORT).show();
+
+                if (imageView_2_check.getVisibility() == View.VISIBLE){
+                    imageView_2_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove("2");
+                }
+
+                else if (imageView_2_check.getVisibility() == View.INVISIBLE){
+                    imageView_2_check.setVisibility(View.VISIBLE);
+                    answersUser.add("2");
+                }
+
+            }
+        });
+
+        imageView_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 3", Toast.LENGTH_SHORT).show();
+
+                if (imageView_3_check.getVisibility() == View.VISIBLE){
+                    imageView_3_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove("3");
+                }
+
+                else if (imageView_3_check.getVisibility() == View.INVISIBLE){
+                    imageView_3_check.setVisibility(View.VISIBLE);
+                    answersUser.add("3");
+                }
+
+            }
+        });
+
+        imageView_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 4", Toast.LENGTH_SHORT).show();
+
+                if (imageView_4_check.getVisibility() == View.VISIBLE){
+                    imageView_4_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove("4");
+                }
+
+                else if (imageView_4_check.getVisibility() == View.INVISIBLE){
+                    imageView_4_check.setVisibility(View.VISIBLE);
+                    answersUser.add("4");
+                }
+            }
+        });
+
+        imageView_5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 5", Toast.LENGTH_SHORT).show();
+
+                if (imageView_5_check.getVisibility() == View.VISIBLE){
+                    imageView_5_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove("5");
+                }
+
+                else if (imageView_5_check.getVisibility() == View.INVISIBLE){
+                    imageView_5_check.setVisibility(View.VISIBLE);
+                    answersUser.add("5");
+                }
+            }
+        });
+
+        imageView_6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 6", Toast.LENGTH_SHORT).show();
+
+                if (imageView_6_check.getVisibility() == View.VISIBLE) {
+                    imageView_6_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove("6");
+                } else if (imageView_6_check.getVisibility() == View.INVISIBLE) {
+                    imageView_6_check.setVisibility(View.VISIBLE);
+                    answersUser.add("6");
+                }
+            }
+        });
     }
 
     public ArrayList<String> checkAnswerSheet(){
@@ -236,9 +337,23 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         }
     }
 
-    public void abrasionPractice (){
+    public void setChecksAsInvisible(){
+        imageView_1_check.setVisibility(View.INVISIBLE);
+        imageView_2_check.setVisibility(View.INVISIBLE);
+        imageView_3_check.setVisibility(View.INVISIBLE);
+        imageView_4_check.setVisibility(View.INVISIBLE);
+        imageView_5_check.setVisibility(View.INVISIBLE);
+        imageView_6_check.setVisibility(View.INVISIBLE);
+    }
 
+    public void abrasionPractice (){
         //Set the materials Image here.
+
+        setChecksAsInvisible();
+
+        /*
+            Set the materials image here.
+         */
         imageView_1.setImageResource(R.drawable.ic_laceration);
         imageView_2.setImageResource(R.drawable.ic_concussion);
         imageView_3.setImageResource(R.drawable.ic_bites);
@@ -246,115 +361,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        imageView_1_check.setVisibility(View.INVISIBLE);
-        imageView_2_check.setVisibility(View.INVISIBLE);
-        imageView_3_check.setVisibility(View.INVISIBLE);
-        imageView_4_check.setVisibility(View.INVISIBLE);
-        imageView_5_check.setVisibility(View.INVISIBLE);
-        imageView_6_check.setVisibility(View.INVISIBLE);
 
-        imageView_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 1", Toast.LENGTH_SHORT).show();
 
-                if (imageView_1_check.getVisibility() == View.VISIBLE){
-                    imageView_1_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove("1");
-
-                }
-
-                else if (imageView_1_check.getVisibility() == View.INVISIBLE){
-                    imageView_1_check.setVisibility(View.VISIBLE);
-                    answersUser.add("1");
-                }
-
-            }
-        });
-
-        imageView_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 2", Toast.LENGTH_SHORT).show();
-
-                if (imageView_2_check.getVisibility() == View.VISIBLE){
-                    imageView_2_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove("2");
-                }
-
-                else if (imageView_2_check.getVisibility() == View.INVISIBLE){
-                    imageView_2_check.setVisibility(View.VISIBLE);
-                    answersUser.add("2");
-                }
-
-            }
-        });
-
-        imageView_3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 3", Toast.LENGTH_SHORT).show();
-
-                if (imageView_3_check.getVisibility() == View.VISIBLE){
-                    imageView_3_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove("3");
-                }
-
-                else if (imageView_3_check.getVisibility() == View.INVISIBLE){
-                    imageView_3_check.setVisibility(View.VISIBLE);
-                    answersUser.add("3");
-                }
-
-            }
-        });
-
-        imageView_4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 4", Toast.LENGTH_SHORT).show();
-
-                if (imageView_4_check.getVisibility() == View.VISIBLE){
-                    imageView_4_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove("4");
-                }
-
-                else if (imageView_4_check.getVisibility() == View.INVISIBLE){
-                    imageView_4_check.setVisibility(View.VISIBLE);
-                    answersUser.add("4");
-                }
-            }
-        });
-
-        imageView_5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 5", Toast.LENGTH_SHORT).show();
-
-                if (imageView_5_check.getVisibility() == View.VISIBLE){
-                    imageView_5_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove("5");
-                }
-
-                else if (imageView_5_check.getVisibility() == View.INVISIBLE){
-                    imageView_5_check.setVisibility(View.VISIBLE);
-                    answersUser.add("5");
-                }
-            }
-        });
-
-        imageView_6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 6", Toast.LENGTH_SHORT).show();
-
-                if (imageView_6_check.getVisibility() == View.VISIBLE) {
-                    imageView_6_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove("6");
-                } else if (imageView_6_check.getVisibility() == View.INVISIBLE) {
-                    imageView_6_check.setVisibility(View.VISIBLE);
-                    answersUser.add("6");
-                }
-            }
-        });
     }
 }
