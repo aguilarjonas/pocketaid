@@ -114,7 +114,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
@@ -131,18 +130,8 @@ public class MainActivity extends AppCompatActivity
 //        }
 
         switch (id) {
-            case R.id.action_settings:
-//                Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();
-                SettingsFragment settingsFragment = new SettingsFragment();
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.add(settingsFragment, "Settings")
-                        .replace(R.id.fragment_container, settingsFragment)
-                        .addToBackStack("Settings")
-                        .commit();
-
-                return true;
             case android.R.id.home:
-                Toast.makeText(getApplicationContext(), "Pressed", Toast.LENGTH_SHORT).show();
+
                 return true;
         }
 
@@ -183,6 +172,13 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.add(aboutFragment, "About")
                     .replace(R.id.fragment_container, aboutFragment)
                     .addToBackStack("About")
+                    .commit();
+        } else if (id == R.id.nav_settings) {
+            SettingsFragment settingsFragment = new SettingsFragment();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.add(settingsFragment, "Settings")
+                    .replace(R.id.fragment_container, settingsFragment)
+                    .addToBackStack("Settings")
                     .commit();
         }
 
