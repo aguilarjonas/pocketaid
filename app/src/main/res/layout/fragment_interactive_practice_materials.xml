@@ -94,7 +94,7 @@
         tools:visibility="visible"
         android:layout_above="@+id/imageView_pic6"
         android:layout_alignRight="@+id/imageView_pic3"
-        android:layout_alignEnd="@+id/imageView_pic3" />
+        android:layout_alignEnd="@+id/imageView_pic3"/>
 
     <ImageView
         android:layout_width="50dp"

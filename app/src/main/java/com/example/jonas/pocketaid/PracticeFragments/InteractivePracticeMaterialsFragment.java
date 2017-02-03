@@ -21,13 +21,12 @@ import java.util.ArrayList;
  */
 public class InteractivePracticeMaterialsFragment extends Fragment {
 
-    View rootView;
-    ImageView imageView_1 ;
-    ImageView imageView_2 ;
-    ImageView imageView_3 ;
-    ImageView imageView_4 ;
-    ImageView imageView_5 ;
-    ImageView imageView_6 ;
+    ImageView imageView_1;
+    ImageView imageView_2;
+    ImageView imageView_3;
+    ImageView imageView_4;
+    ImageView imageView_5;
+    ImageView imageView_6;
 
     ImageView imageView_1_check;
     ImageView imageView_2_check;
@@ -58,7 +57,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final String chosenPractice = getArguments().getString("chosenPractice");
-        rootView = (View) inflater.inflate(R.layout.fragment_interactive_practice_materials, container, false);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_interactive_practice_materials, container, false);
 
         //Bundle mo na lang dito, Angel.
         //Add if else here if the user came back from the arrange fragments.
@@ -106,7 +105,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
     }
 
-    public View setImages(View rootView){
+    public void setImages(ViewGroup rootView){
         imageView_1 = (ImageView) rootView.findViewById(R.id.imageView_pic1);
         imageView_2 = (ImageView) rootView.findViewById(R.id.imageView_pic2);
         imageView_3 = (ImageView) rootView.findViewById(R.id.imageView_pic3);
@@ -123,7 +122,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
 
         nextButton =  (Button) rootView.findViewById(R.id.button_practice_next);
-        return rootView;
     }
 
     public void setImageOnClicks(){

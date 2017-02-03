@@ -50,9 +50,9 @@ public class ListFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.list_layout, container, false);
-        mRefreshLayout = (MySwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_layout);
-        mDragListView = (DragListView) view.findViewById(R.id.drag_list_view);
+        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.list_layout, container, false);
+        mRefreshLayout = (MySwipeRefreshLayout) rootView.findViewById(R.id.swipe_refresh_layout);
+        mDragListView = (DragListView) rootView.findViewById(R.id.drag_list_view);
         mDragListView.getRecyclerView().setVerticalScrollBarEnabled(true);
         abrasionProcedure = getResources().getStringArray(R.array.abrasion_recommended);
         animalBitesProcedure = getResources().getStringArray(R.array.bites_animal_recommended);
@@ -70,7 +70,7 @@ public class ListFragment extends Fragment {
         severePunctureProcedure = getResources().getStringArray(R.array.puncture_severe_recommended);
         String chosenInjury = getArguments().getString("chosenInjury");
         selectedInjury(chosenInjury);
-        return view;
+        return rootView;
     }
 
     public void selectedInjury(String chosenInjury){
