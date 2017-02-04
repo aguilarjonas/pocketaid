@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
-        sothree:umanoPanelHeight="68dp"
+        sothree:umanoPanelHeight="25dp"
         sothree:umanoShadowHeight="4dp"
         sothree:umanoDragView="@+id/dragView"
         sothree:umanoScrollableView="@+id/recyclerView_nearby"
@@ -30,10 +30,12 @@
             android:id="@+id/dragView">
 
             <ImageView
+                android:id="@+id/nearby_anchor"
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:src="@drawable/doctor71"
-                android:layout_marginBottom="5dp" />
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="15dp"
+                android:src="@drawable/ic_up"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView_nearby"

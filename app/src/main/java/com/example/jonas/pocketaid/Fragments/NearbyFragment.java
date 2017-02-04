@@ -29,6 +29,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -101,7 +102,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     MapStyleOptions style;
 
     private SlidingUpPanelLayout mLayout;
-
+    private ImageView ivAnchor;
 
     public NearbyFragment() {
         // Required empty public constructor
@@ -196,9 +197,24 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 //
 //            }
 //        });
+        ivAnchor = (ImageView) rootView.findViewById(R.id.nearby_anchor);
         mLayout = (SlidingUpPanelLayout) rootView.findViewById(R.id.sliding_layout);
         mLayout.setAnchorPoint(0.5f);
         mLayout.setPanelState(SlidingUpPanelLayout.PanelState.ANCHORED);
+
+        mLayout.addPanelSlideListener(new SlidingUpPanelLayout.PanelSlideListener() {
+            @Override
+            public void onPanelSlide(View panel, float slideOffset) { /** DO NOTHING **/ }
+
+            @Override
+            public void onPanelStateChanged(View panel, SlidingUpPanelLayout.PanelState previousState, SlidingUpPanelLayout.PanelState newState) {
+                if(newState == SlidingUpPanelLayout.PanelState.EXPANDED) {
+                    ivAnchor.setImageResource(R.drawable.ic_down);
+                } else if(newState == SlidingUpPanelLayout.PanelState.COLLAPSED || newState == SlidingUpPanelLayout.PanelState.ANCHORED) {
+                    ivAnchor.setImageResource(R.drawable.ic_up);
+                }
+            }
+        });
 
         return rootView;
     }
