@@ -12,4 +12,3 @@ import com.example.jonas.pocketaid.R;
  */
 
 
-}

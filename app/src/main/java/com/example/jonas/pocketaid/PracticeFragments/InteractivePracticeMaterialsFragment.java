@@ -40,9 +40,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
     ArrayList<String> answersUser = new ArrayList<String>();
     final ArrayList<String> answerAbrasion = new ArrayList<String>(){{
         add("1");
-        add("3");
-        add("5");
         add("2");
+        add("3");
     }};
 
     final ArrayList<ArrayList<String>> categoryAnswer = new ArrayList<ArrayList<String>>();
@@ -67,6 +66,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         setImageOnClicks();
         chosenPracticeChooser(chosenPractice);
 
+
         nextButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +76,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                 }
 
                 else {
+                    answersUser.clear();
+
                     // TODO Auto-generated method stub
                     chosenPracticeChooser(chosenPractice);
                     ListFragment listFrag = new ListFragment();
@@ -94,7 +96,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                             .addToBackStack("listFrag")
                             .commit();
 
-                    answersUser.clear();
                 }
 
             }
@@ -243,32 +244,43 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
     public boolean checkAnswers(ArrayList<String> answerSheet){
 
-        boolean isAllCorrect = true;
+        boolean isAllCorrect = false;
         int numberOfCorrect = 0;
+        int numberOfIncorrect = 0;
 
-        for (int i = 0; i < answerSheet.size() - 1; i++) {
-            for (int j = 0; j < answersUser.size() - 1; j++) {
-
-                if (answerSheet.get(i) == answersUser.get(j)){
-                    numberOfCorrect++;
-                }
-
-                else{
-
-                }
-            }
-        }//End of 1st For Loop
-
-        int testHolder = answerSheet.size()-1;
-
-        Log.e("Correct/Item", numberOfCorrect + "/" + testHolder);
-
-        if (numberOfCorrect == answerSheet.size() - 1){
-            isAllCorrect = true;
+        if (answersUser.size() != answerSheet.size()){
+            isAllCorrect = false;
         }
 
-        else
-            isAllCorrect = false;
+        else {
+            for (int i = 0; i < answerSheet.size(); i++) {
+                for (int j = 0; j < answersUser.size(); j++) {
+
+                    if (answerSheet.get(i) == answersUser.get(j)){
+                        numberOfCorrect++;
+                    }
+
+                    else{
+                        numberOfIncorrect++;
+                    }
+                }
+            }//End of 1st For Loop
+
+            int testHolder = answerSheet.size();
+
+            Log.e("Correct/Item", numberOfCorrect + "/" + testHolder);
+            Log.e("Incorrect", numberOfIncorrect + "");
+
+
+            if (numberOfCorrect == answerSheet.size() ){
+                isAllCorrect = true;
+            }
+
+            else
+                isAllCorrect = false;
+
+        }
+
 
         return isAllCorrect;
 
