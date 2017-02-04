@@ -89,21 +89,15 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 //                        Log.e("ARRAYLIST ANSWER", answersUser.get(i));
                     }
 
-
                     FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
                     fragmentTransaction.add(listFrag, "listFrag")
                             .replace(R.id.fragment_container, listFrag)
                             .addToBackStack("listFrag")
                             .commit();
-
                 }
-
             }
         });
-
-
         return rootView;
-
     }
 
     public void setImages(ViewGroup rootView){
@@ -134,7 +128,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                 if (imageView_1_check.getVisibility() == View.VISIBLE){
                     imageView_1_check.setVisibility(View.INVISIBLE);
                     answersUser.remove("1");
-
                 }
 
                 else if (imageView_1_check.getVisibility() == View.INVISIBLE){
@@ -267,23 +260,15 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
             }//End of 1st For Loop
 
             int testHolder = answerSheet.size();
-
             Log.e("Correct/Item", numberOfCorrect + "/" + testHolder);
             Log.e("Incorrect", numberOfIncorrect + "");
 
-
             if (numberOfCorrect == answerSheet.size() ){
                 isAllCorrect = true;
-            }
-
-            else
+            } else
                 isAllCorrect = false;
-
         }
-
-
         return isAllCorrect;
-
     }
 
     public void chosenPracticeChooser(String chosenPractice){

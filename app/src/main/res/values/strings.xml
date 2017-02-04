@@ -122,6 +122,83 @@
     <string name="rating">Rating:</string>
     <string name="distance">Distance:</string>
 
+    <!-- *****************************************
+         FIRST AID STEPS FOR INTERACTIVE PRACTICE
+         ***************************************** -->
+
+    <!-- ANIMAL BITES -->
+    <string-array name="animal_bites_practice">
+        <item>"Control the bleeding by applying pressure on the bite."</item>
+        <item>"Do not clean serious wound. It will be cleaned at a medical facility."</item>
+        <item>"Call 911 or use our Nearby Hospital feature."</item>
+    </string-array>
+
+    <!-- INSECT BITES -->
+    <string-array name="insect_bites_practice">
+        <item>"Check if the bite mark or stinger is swelling and/or bleeding."</item>
+        <item>"Carefully remove the stinger using tweezers."</item>
+        <item>"Wash the wound with soap and water."</item>
+        <item>"Cover the area with clean bandage or gauze."</item>
+        <item>"Apply a cold pack to the affected area."</item>
+        <item>"Call 911 if the person has trouble in breathing."</item>
+    </string-array>
+
+    <!-- CHEMICAL BURNS -->
+    <string-array name="chemical_burns_practice">
+        <item>"Remove the victim's contaminated clothing while flushing with water."</item>
+        <item>"Place the affected area under running water."</item>
+        <item>"Wash the affected area using mild soap before final rinse."</item>
+        <item>"Cover the burned area with a dry dressing."</item>
+        <item>"Seek medical attention immediately."</item>
+    </string-array>
+    <string-array name="third_deg_burns_practice">
+        <item>"Protect the burned person from further harm."</item>
+        <item>"Remove jeweleries, belts, and other restrictive items around the burned areas and the neck."</item>
+        <item>"Do not immerse large severe burns in cold water."</item>
+        <item>"If possible, raise the burned area above heart level"</item>
+        <item>"Call 911 or use our Nearby Hospitals feature immediately."</item>
+    </string-array>
+    <string-array name="concussion_practice">
+        <item>"Apply cold compress or cold pack to the injured area for 20 minutes every 3 hours."</item>
+        <item>"Observe your child carefully for the next 24 hours.</item>
+        <item>If there are any signs of internal injury, call 911 or use our Nearby Hospital feature."</item>
+    </string-array>
+    <string-array name="contusion_practice">
+        <item>"Apply a cold pack, or ice wrapped in a clean towel, for up to 15 minutes on the bruise to help reduce swelling."</item>
+        <item>"If possible, keep the bruised area raised above the heart."</item>
+        <item>"Rest the bruised part by not overworking the certain area."</item>
+        <item>"If needed, take pain reliever medicine to help reduce the pain."</item>
+    </string-array>
+    <string-array name="fracture_practice">
+        <item>"In the case of an open wound, control the bleeding and cover the wound with a sterile dressing."</item>
+        <item>"If a bone is protruding, use a ring pad then apply a bandage making sure it is not directly over the fracture."</item>
+        <item>"Support the fractured limb in the most comfortable position."</item>
+        <item>"Raise and rest a fractured foot or ankle on pillows or folded blankets."</item>
+        <item>"Immobilize the fractured limbs using a splint or sling. Do not attempt to straighten the fractured limb."</item>
+        <item>"Check regularly that the bandages are not too tight."</item>
+        <item>"Watch for signs of shock."</item>
+        <item>"Call 911 or use our Nearby Hospital feature."</item>
+    </string-array>
+
+    <!-- LACERATION -->
+    <!-- MAJOR LACERATION: RECOMMENDED -->
+    <string-array name="laceration_major_practice">
+        <item>"Put on disposable gloves."</item>
+        <item>"Control the bleeding by covering the wound with a dressing and firmly pressing against the wound until the bleeding stops"</item>
+        <item>"Continue to monitor the person's condition."</item>
+        <item>"Care for shock. Keep the person from getting chilled or overheated."</item>
+        <item>"Have the person rest comfortable and provide reassurance."</item>
+        <item>"Wash your hands immediately after giving care, even if you wore gloves."</item>
+    </string-array>
+    <!-- MINOR LACERATION: RECOMMENDED -->
+    <string-array name="laceration_minor_practice">
+        <item>"Use disposable gloves and place a sterile dressing on the wound."</item>
+        <item>"Apply direct pressure for a few minutes to control any bleeding."</item>
+        <item>"Wash the wound thoroughly with soap and water. If possible, wash out an abrasion for about 5 minutes with clean, warm, running tap water."</item>
+        <item>"Apply an antibiotic ointment to a minor wound if the person has no known allergies or sensitivities to the medication."</item>
+        <item>"Cover the wound with a sterile dressing."</item>
+    </string-array>
+
 
     <!-- *****************************************
          RECOMMENDED & ALTERNATIVE FIRST AID STEPS
@@ -198,7 +275,7 @@
     <!-- 3RD DEGREE BURNS: RECOMMENDED -->
     <string-array name="burns_third_recommended">
         <item>"Protect the burned person from further harm."</item>
-        <item>"Remove jeweleries, belts, and other restrictive items especially from around the burned areas and the neck."</item>
+        <item>"Remove jeweleries, belts, and other restrictive items around the burned areas and the neck."</item>
         <item>"Do not immerse large severe burns in cold water."</item>
         <item>"Elevate the burned area. Raise the wound above heart level, if possible."</item>
         <item>"Call 911 or use our Nearby Hospitals feature immediately."</item>
@@ -229,7 +306,8 @@
     <!-- CONCUSSION: RECOMMENDED -->
     <string-array name="concussion_recommended">
         <item>"Apply cold compress or cold pack to the injured area for 20 minutes every 3 hours."</item>
-        <item>"Observe your child carefully for the next 24 hours. If there are any signs of internal injury, call 911 or use our Nearby Hospital feature."</item>
+        <item>"Observe your child carefully for the next 24 hours.</item>
+        <item>If there are any signs of internal injury, call 911 or use our Nearby Hospital feature."</item>
     </string-array>
 
 
@@ -246,10 +324,12 @@
     <!-- FRACTURE -->
     <!-- FRACTURE: RECOMMENDED -->
     <string-array name="fracture_recommended">
-        <item>"In the case of an open wound, control the bleeding and cover the wound with a sterile dressing; if a bone is protruding, use a ring pad then apply a bandage making sure it is not directly over the fracture."</item>
-        <item>"Support the fractured limb in the most comfortable position. Raise and rest a fractured foot or ankle on pillows or folded blankets."</item>
+        <item>"In the case of an open wound, control the bleeding and cover the wound with a sterile dressing."</item>
+        <item>"If a bone is protruding, use a ring pad then apply a bandage making sure it is not directly over the fracture."</item>
+        <item>"Support the fractured limb in the most comfortable position."</item>
+        <item>"Raise and rest a fractured foot or ankle on pillows or folded blankets."</item>
         <item>"Immobilize the fractured limbs using a splint or sling. Do not attempt to straighten the fractured limb."</item>
-        <item>"Check regularly that the bandages are not too tight, affecting circulation."</item>
+        <item>"Check regularly that the bandages are not too tight."</item>
         <item>"Watch for signs of shock."</item>
         <item>"Call 911 or use our Nearby Hospital feature."</item>
     </string-array>
@@ -264,7 +344,7 @@
             (b) applying a pressure bandage over the dressing to maintain pressure on the wound and to hold the dressing in place.
 
             If blood soaks through the bandage, do not remove the blood-soaked bandages. Instead, add more dressings and bandages and apply additional direct pressure."</item>
-        <item>"Continue to monitor the person\'s condition. Observe the person closely for signals that may indicate that the person's condition is worsening such as faster or slower breathing, changes in skin color and restlessness."</item>
+        <item>"Continue to monitor the person's condition. Observe the person closely for signals that may indicate that the person's condition is worsening such as faster or slower breathing, changes in skin color and restlessness."</item>
         <item>"Care for shock. Keep the person from getting chilled or overheated."</item>
         <item>"Have the person rest comfortable and provide reassurance."</item>
         <item>"Wash your hands immediately after giving care, even if you wore gloves."</item>
