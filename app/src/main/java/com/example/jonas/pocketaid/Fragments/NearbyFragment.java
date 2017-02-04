@@ -196,6 +196,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 //
 //            }
 //        });
+        mLayout = (SlidingUpPanelLayout) rootView.findViewById(R.id.sliding_layout);
+        mLayout.setAnchorPoint(0.5f);
+        mLayout.setPanelState(SlidingUpPanelLayout.PanelState.ANCHORED);
 
         return rootView;
     }
