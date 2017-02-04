@@ -259,13 +259,12 @@
     <!-- MAJOR LACERATION: RECOMMENDED -->
     <string-array name="laceration_major_recommended">
         <item>"Put on disposable gloves. If you suspect that blood might splatter, you may need to wear eye and face protection."</item>
-                <item>"Control the bleeding by:
-                    (a) covering the wound with a dressing and firmly pressing against the wound until the bleeding stops or
-                    (b) applying a pressure bandage over the dressing to maintain pressure on the wound and to hold the dressing in place.
+        <item>"Control the bleeding by:
+            (a) covering the wound with a dressing and firmly pressing against the wound until the bleeding stops or
+            (b) applying a pressure bandage over the dressing to maintain pressure on the wound and to hold the dressing in place.
 
-                    If blood soaks through the bandage, do not remove the blood-soaked bandages. Instead, add more dressings and bandages and apply additional direct pressure."</item>
-                <item>"Continue to monitor the person\'s condition. Observe the person closely for signals that may indicate that the person\'s condition is worsening
-                    such as faster or slower breathing, changes in skin color and restlessness."</item>
+            If blood soaks through the bandage, do not remove the blood-soaked bandages. Instead, add more dressings and bandages and apply additional direct pressure."</item>
+        <item>"Continue to monitor the person\'s condition. Observe the person closely for signals that may indicate that the person's condition is worsening such as faster or slower breathing, changes in skin color and restlessness."</item>
         <item>"Care for shock. Keep the person from getting chilled or overheated."</item>
         <item>"Have the person rest comfortable and provide reassurance."</item>
         <item>"Wash your hands immediately after giving care, even if you wore gloves."</item>
