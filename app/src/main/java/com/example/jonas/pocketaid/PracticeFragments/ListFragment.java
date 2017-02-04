@@ -19,6 +19,7 @@ package com.example.jonas.pocketaid.PracticeFragments;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.util.Pair;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -26,6 +27,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +40,7 @@ import com.woxthebox.draglistview.DragItem;
 import com.woxthebox.draglistview.DragListView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class ListFragment extends Fragment {
@@ -47,6 +52,9 @@ public class ListFragment extends Fragment {
              thirdDegreeBurnProcedure, concussionProcedure, contusionProcedure, fractureProcedure,
              majorLacerationProcedure, minorLacerationProcedure, slightPunctureProcedure, severePunctureProcedure,
              chemicalBurnProcedure, electricalBurnProcedure;
+    ListView lvStepNumber;
+    private ArrayAdapter<Integer> stepNumberAdapter ;
+    Button checkAnswerBT;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -55,21 +63,24 @@ public class ListFragment extends Fragment {
         mDragListView = (DragListView) rootView.findViewById(R.id.drag_list_view);
         mDragListView.getRecyclerView().setVerticalScrollBarEnabled(true);
         abrasionProcedure = getResources().getStringArray(R.array.abrasion_recommended);
-        animalBitesProcedure = getResources().getStringArray(R.array.bites_animal_recommended);
-        insectBitesProcedure = getResources().getStringArray(R.array.bites_insect_recommended);
+        animalBitesProcedure = getResources().getStringArray(R.array.animal_bites_practice);
+        insectBitesProcedure = getResources().getStringArray(R.array.insect_bites_practice);
         thermalBurnProcedure = getResources().getStringArray(R.array.burns_thermal_recommended);
-        chemicalBurnProcedure = getResources().getStringArray(R.array.burns_chemical_recommended);
+        chemicalBurnProcedure = getResources().getStringArray(R.array.chemical_burns_practice);
         electricalBurnProcedure = getResources().getStringArray(R.array.burns_electrical_recommended);
-        thirdDegreeBurnProcedure = getResources().getStringArray(R.array.burns_third_recommended);
-        concussionProcedure = getResources().getStringArray(R.array.concussion_recommended);
-        contusionProcedure = getResources().getStringArray(R.array.contusion_recommended);
-        fractureProcedure = getResources().getStringArray(R.array.fracture_recommended);
-        majorLacerationProcedure = getResources().getStringArray(R.array.laceration_major_recommended);
-        minorLacerationProcedure = getResources().getStringArray(R.array.laceration_minor_recommended);
+        thirdDegreeBurnProcedure = getResources().getStringArray(R.array.third_deg_burns_practice);
+        concussionProcedure = getResources().getStringArray(R.array.concussion_practice);
+        contusionProcedure = getResources().getStringArray(R.array.contusion_practice);
+        fractureProcedure = getResources().getStringArray(R.array.fracture_practice);
+        majorLacerationProcedure = getResources().getStringArray(R.array.laceration_major_practice);
+        minorLacerationProcedure = getResources().getStringArray(R.array.laceration_minor_practice);
         slightPunctureProcedure = getResources().getStringArray(R.array.puncture_slight_recommended);
         severePunctureProcedure = getResources().getStringArray(R.array.puncture_severe_recommended);
+        lvStepNumber = (ListView) rootView.findViewById(R.id.lv_step_numberPrac);
+        checkAnswerBT = (Button) rootView.findViewById(R.id.btCheckAnswersPrac);
         String chosenInjury = getArguments().getString("chosenInjury");
         selectedInjury(chosenInjury);
+
         return rootView;
     }
 
@@ -77,98 +88,168 @@ public class ListFragment extends Fragment {
 
         if (chosenInjury.equals("Abrasion")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < abrasionProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + abrasionProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("Animal Bites")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < animalBitesProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + animalBitesProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("Insect Bites")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < insectBitesProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + insectBitesProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("Thermal Burns")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < thermalBurnProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thermalBurnProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("Electrical Burns")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < electricalBurnProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + electricalBurnProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("Chemical Burns")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < chemicalBurnProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + chemicalBurnProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("3rd Degree Burns")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < thirdDegreeBurnProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thirdDegreeBurnProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("Concussion")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < concussionProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + concussionProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("Contusion")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < contusionProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + contusionProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("Fracture")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < fractureProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + fractureProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("Major Laceration")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < majorLacerationProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + majorLacerationProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("Minor Laceration")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < minorLacerationProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + minorLacerationProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("Puncture (Severe Bleeding)")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < severePunctureProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + severePunctureProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
 
         } else if (chosenInjury.equals("Puncture (Slightly Bleeding)")){
             checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < slightPunctureProcedure.length; ++counter) {
+                int stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
+                lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + slightPunctureProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
@@ -185,15 +266,35 @@ public class ListFragment extends Fragment {
             @Override
             public void onItemDragEnded(int fromPosition, int toPosition) {
                 mRefreshLayout.setEnabled(true);
-                if (Long.valueOf(toPosition).equals((Long)(mItemArray.get(toPosition).first))) {
-                    // This is the correct position
-                    Toast.makeText(mDragListView.getContext(), "Correct position", Toast.LENGTH_SHORT).show();
-                } else {
-                    // This is not the correct position
-                    Toast.makeText(mDragListView.getContext(), "Incorrect position", Toast.LENGTH_SHORT).show();
-                }
+                boolean checkAnswer = false;
+
+                    if (Long.valueOf(toPosition).equals((Long)(mItemArray.get(toPosition).first))) {
+                        // This is the correct position
+                        checkAnswerBT.setClickable(true);
+                        checkAnswer = true;
+                        Toast.makeText(mDragListView.getContext(), "Correct position", Toast.LENGTH_SHORT).show();
+
+                        checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                                fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                        .replace(R.id.fragment_container, displayScoreFragment)
+                                        .addToBackStack("displayScoreFragment")
+                                        .commit();
+                            }
+                        });
+                    } else {
+                        // This is not the correct position
+                        checkAnswerBT.setClickable(false);
+                        checkAnswer = false;
+                        Toast.makeText(mDragListView.getContext(), "Incorrect position", Toast.LENGTH_SHORT).show();
+                    }
             }
         });
+
+
 
         mRefreshLayout.setScrollingView(mDragListView.getRecyclerView());
         mRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getContext(), R.color.colorAccent));
@@ -210,6 +311,7 @@ public class ListFragment extends Fragment {
         });
         setupListRecyclerView();
     }
+
 
     private void setupListRecyclerView() {
         mDragListView.setLayoutManager(new LinearLayoutManager(getContext()));
