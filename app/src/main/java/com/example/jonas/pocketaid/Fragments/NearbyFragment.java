@@ -249,33 +249,33 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         //automaticHospitalSearch();
 
         //Click listener ng pointer dun sa marker.
-        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
-
-            @Override
-            public void onInfoWindowClick(Marker marker) {
-                marker.hideInfoWindow();
-                String markerTitle = marker.getTitle();
-                double dlat = marker.getPosition().latitude;
-                double dlong = marker.getPosition().longitude;
-                final String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?daddr=%f,%f (%s)", dlat, dlong, markerTitle);
-                final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                try {
-                    startActivity(intent);
-                } catch(ActivityNotFoundException ex) {
-                    try {
-                        Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                        startActivity(unrestrictedIntent);
-                    }
-                    catch(ActivityNotFoundException innerEx) {
-                        Toast.makeText(getActivity().getApplicationContext(), "Please install a Google Maps application", Toast.LENGTH_LONG).show();
-                    }
-                }
-
-               // Toast.makeText(getActivity().getApplicationContext(),"Ooops Nakiliti ako", Toast.LENGTH_LONG).show();
-
-            }
-
-        });
+//        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+//
+//            @Override
+//            public void onInfoWindowClick(Marker marker) {
+//                marker.hideInfoWindow();
+//                String markerTitle = marker.getTitle();
+//                double dlat = marker.getPosition().latitude;
+//                double dlong = marker.getPosition().longitude;
+//                final String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?daddr=%f,%f (%s)", dlat, dlong, markerTitle);
+//                final Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+//                try {
+//                    startActivity(intent);
+//                } catch(ActivityNotFoundException ex) {
+//                    try {
+//                        Intent unrestrictedIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+//                        startActivity(unrestrictedIntent);
+//                    }
+//                    catch(ActivityNotFoundException innerEx) {
+//                        Toast.makeText(getActivity().getApplicationContext(), "Please install a Google Maps application", Toast.LENGTH_LONG).show();
+//                    }
+//                }
+//
+//               // Toast.makeText(getActivity().getApplicationContext(),"Ooops Nakiliti ako", Toast.LENGTH_LONG).show();
+//
+//            }
+//
+//        });
 
         //Initialize Google Play Services
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
