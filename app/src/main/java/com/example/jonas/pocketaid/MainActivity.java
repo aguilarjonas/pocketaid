@@ -33,6 +33,7 @@ import com.example.jonas.pocketaid.Fragments.NearbyFragment;
 import com.example.jonas.pocketaid.Fragments.PracticeFragment;
 import com.example.jonas.pocketaid.Fragments.SettingsFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.io.File;
 
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity
     //Added by Raeven
     MediaController mediaC;
     private VideoView videoView;
+    private SlidingUpPanelLayout mLayout;
 
 
 
@@ -92,6 +94,8 @@ public class MainActivity extends AppCompatActivity
         //Added by Raeven
         mediaC = new MediaController(this);
         videoView = (VideoView)findViewById(R.id.injury_video);
+        mLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
+
 
 
     }
@@ -101,9 +105,14 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else if(getSupportFragmentManager().getBackStackEntryCount() != 0) { //to avoid app getting closed (fragments)
+        }
+        else if(getSupportFragmentManager().getBackStackEntryCount() != 0) { //to avoid app getting closed (fragments)
             getSupportFragmentManager().popBackStack();
-        } else {
+        }
+        else if (mLayout != null &&
+                (mLayout.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED || mLayout.getPanelState() == SlidingUpPanelLayout.PanelState.ANCHORED)) {
+            mLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
+        }else {
             super.onBackPressed();
         }
     }
