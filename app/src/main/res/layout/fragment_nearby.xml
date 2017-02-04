@@ -12,7 +12,8 @@
         android:layout_height="match_parent"
         android:gravity="bottom"
         sothree:umanoPanelHeight="68dp"
-        sothree:umanoShadowHeight="4dp">
+        sothree:umanoShadowHeight="4dp"
+        sothree:umanoScrollableView="@+id/recyclerView_nearby">
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/map"

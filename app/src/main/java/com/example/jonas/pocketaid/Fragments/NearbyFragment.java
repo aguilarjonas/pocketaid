@@ -53,6 +53,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 
 import org.json.JSONArray;
@@ -98,6 +99,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     ViewGroup rootView;
     MapView mapView;
     MapStyleOptions style;
+
+    private SlidingUpPanelLayout mLayout;
+
 
     public NearbyFragment() {
         // Required empty public constructor
