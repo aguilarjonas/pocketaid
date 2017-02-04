@@ -25,7 +25,6 @@ public class InjuryListPracticeAdapter extends RecyclerView.Adapter<InjuryListPr
     private String[] injury_names;
     private Context context;
 
-    private int position2 = 0;
 
     public InjuryListPracticeAdapter(Context context, String[] injury_names, Integer[] injury_logos) {
         inflater = LayoutInflater.from(context);

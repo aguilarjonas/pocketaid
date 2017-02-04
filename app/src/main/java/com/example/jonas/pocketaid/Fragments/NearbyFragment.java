@@ -19,6 +19,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,6 +67,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 
@@ -86,10 +90,10 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
     //For Listview
     private FrameLayout frameLayout;
-    private ListView hospitalListView;
+    private RecyclerView recyclerViewNearby;
     String[] hospitalNames;
     String[] hospitalContactNumber;
-    HospitalListAdapter adapter;
+    private HospitalListAdapter adapter;
 
     ViewGroup rootView;
     MapView mapView;
@@ -156,38 +160,38 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
 
         //For listview
-        hospitalListView = (ListView)rootView.findViewById(R.id.listview_nearbyHospital);
+        recyclerViewNearby = (RecyclerView)rootView.findViewById(R.id.recyclerView_nearby);
 
-        hospitalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView parent, View v, int position, long id){
-                String chosenHospital = ((TextView)v.findViewById(R.id.textView_hospitalName)).getText().toString();
-                String chosenHospitalPlaceID = ((TextView)v.findViewById(R.id.textview_placeid)).getText().toString();
-                String chosenHospitalLat = ((TextView)v.findViewById(R.id.textview_latitude)).getText().toString();
-                String chosenHospitalLng = ((TextView)v.findViewById(R.id.textview_longitude)).getText().toString();
-
-                String chosenHospitalVicinity = ((TextView)v.findViewById(R.id.textView_vicinity)).getText().toString();
-
-                NearbyInformationFragment nearbyHospitalInformation = new NearbyInformationFragment();
-                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
-                Bundle args = new Bundle();
-                args.putString("chosenHospital" , chosenHospital);
-                args.putString("chosenHospitalPlaceID" , chosenHospitalPlaceID);
-                args.putString("chosenHospitalLat", chosenHospitalLat);
-                args.putString("chosenHospitalLng", chosenHospitalLng);
-                args.putString("chosenHospitalVicinity", chosenHospitalVicinity);
-
-                nearbyHospitalInformation.setArguments(args);
-
-                fragmentTransaction.add(nearbyHospitalInformation, "nearbyHospitalInformation")
-                        .replace(R.id.fragment_container, nearbyHospitalInformation)
-                        .addToBackStack("nearbyHospitalInformation")
-                        .commit();
-
-
-                //To get total number of items in a listview hospitalListView.getAdapter().getCount();
-
-            }
-        });
+//        hospitalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView parent, View v, int position, long id){
+//                String chosenHospital = ((TextView)v.findViewById(R.id.textView_hospitalName)).getText().toString();
+//                String chosenHospitalPlaceID = ((TextView)v.findViewById(R.id.textview_placeid)).getText().toString();
+//                String chosenHospitalLat = ((TextView)v.findViewById(R.id.textview_latitude)).getText().toString();
+//                String chosenHospitalLng = ((TextView)v.findViewById(R.id.textview_longitude)).getText().toString();
+//
+//                String chosenHospitalVicinity = ((TextView)v.findViewById(R.id.textView_vicinity)).getText().toString();
+//
+//                NearbyInformationFragment nearbyHospitalInformation = new NearbyInformationFragment();
+//                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+//                Bundle args = new Bundle();
+//                args.putString("chosenHospital" , chosenHospital);
+//                args.putString("chosenHospitalPlaceID" , chosenHospitalPlaceID);
+//                args.putString("chosenHospitalLat", chosenHospitalLat);
+//                args.putString("chosenHospitalLng", chosenHospitalLng);
+//                args.putString("chosenHospitalVicinity", chosenHospitalVicinity);
+//
+//                nearbyHospitalInformation.setArguments(args);
+//
+//                fragmentTransaction.add(nearbyHospitalInformation, "nearbyHospitalInformation")
+//                        .replace(R.id.fragment_container, nearbyHospitalInformation)
+//                        .addToBackStack("nearbyHospitalInformation")
+//                        .commit();
+//
+//
+//                //To get total number of items in a listview hospitalListView.getAdapter().getCount();
+//
+//            }
+//        });
 
         return rootView;
     }
@@ -621,9 +625,8 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             //super.onPostExecute();
             //Log.d("DALIRI", "DALIRI MO");
 
+            List<Hospital> data = new ArrayList<>();
             int i = 0;
-            adapter = new HospitalListAdapter(getActivity(), R.layout.layout_google_maps );
-            hospitalListView.setAdapter(adapter);
             ArrayList<String> hospitalNameList = hospitalClass.getHospitalNameList();
             ArrayList<String> hospitalVicinityList = hospitalClass.getHospitalVicinityList();
             ArrayList<String> hospitalPlaceIDList = hospitalClass.getHospitalPlaceIDList();
@@ -641,9 +644,15 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 //Toast.makeText(getActivity().getApplicationContext(), latitude, Toast.LENGTH_LONG).show();
 
                 Hospital nHospital = new Hospital(hospitalName, hospitalVicinity, hospitalPlaceID, latitude, longitude);
-                adapter.add(nHospital);
+                data.add(nHospital);
+
                 i++;
             }
+
+            adapter = new HospitalListAdapter(getActivity(), data);
+            recyclerViewNearby.setLayoutManager(new GridLayoutManager(getActivity(), 1));
+            recyclerViewNearby.setItemAnimator(new DefaultItemAnimator());
+            recyclerViewNearby.setAdapter(adapter);
             //tvData.setText(result);
         }
     }
