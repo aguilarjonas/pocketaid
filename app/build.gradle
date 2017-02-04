@@ -38,7 +38,5 @@ dependencies {
     compile 'com.google.android.gms:play-services-nearby:10.0.1'
     compile 'com.google.android.gms:play-services-places:10.0.1'
     compile 'com.google.android.gms:play-services-location:10.0.1'
-    compile 'com.android.support:cardview-v7:24.0.+'
-    compile 'com.android.support:recyclerview-v7:24.0.+'
     testCompile 'junit:junit:4.12'
 }
