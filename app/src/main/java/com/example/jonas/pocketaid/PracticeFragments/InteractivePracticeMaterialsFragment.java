@@ -123,7 +123,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 1", Toast.LENGTH_SHORT).show();
 
                 if (imageView_1_check.getVisibility() == View.VISIBLE){
                     imageView_1_check.setVisibility(View.INVISIBLE);
@@ -141,7 +140,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 2", Toast.LENGTH_SHORT).show();
 
                 if (imageView_2_check.getVisibility() == View.VISIBLE){
                     imageView_2_check.setVisibility(View.INVISIBLE);
@@ -159,7 +157,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 3", Toast.LENGTH_SHORT).show();
 
                 if (imageView_3_check.getVisibility() == View.VISIBLE){
                     imageView_3_check.setVisibility(View.INVISIBLE);
@@ -177,7 +174,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 4", Toast.LENGTH_SHORT).show();
 
                 if (imageView_4_check.getVisibility() == View.VISIBLE){
                     imageView_4_check.setVisibility(View.INVISIBLE);
@@ -194,7 +190,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 5", Toast.LENGTH_SHORT).show();
 
                 if (imageView_5_check.getVisibility() == View.VISIBLE){
                     imageView_5_check.setVisibility(View.INVISIBLE);
@@ -211,7 +206,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity().getApplicationContext(), "Tickled Image 6", Toast.LENGTH_SHORT).show();
 
                 if (imageView_6_check.getVisibility() == View.VISIBLE) {
                     imageView_6_check.setVisibility(View.INVISIBLE);

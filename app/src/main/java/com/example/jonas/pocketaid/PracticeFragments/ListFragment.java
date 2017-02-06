@@ -251,6 +251,7 @@ public class ListFragment extends Fragment {
                 stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + slightPunctureProcedure[counter]));
+                mItemArray.get(Integer.parseInt(slightPunctureProcedure[counter]));
             }
             Collections.shuffle(mItemArray);
         }
@@ -266,35 +267,35 @@ public class ListFragment extends Fragment {
             @Override
             public void onItemDragEnded(int fromPosition, int toPosition) {
                 mRefreshLayout.setEnabled(true);
-                boolean checkAnswer = false;
 
                     if (Long.valueOf(toPosition).equals((Long)(mItemArray.get(toPosition).first))) {
                         // This is the correct position
-                        checkAnswerBT.setClickable(true);
-                        checkAnswer = true;
                         Toast.makeText(mDragListView.getContext(), "Correct position", Toast.LENGTH_SHORT).show();
-
-                        checkAnswerBT.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
-                                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
-                                fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
-                                        .replace(R.id.fragment_container, displayScoreFragment)
-                                        .addToBackStack("displayScoreFragment")
-                                        .commit();
-                            }
-                        });
                     } else {
                         // This is not the correct position
-                        checkAnswerBT.setClickable(false);
-                        checkAnswer = false;
                         Toast.makeText(mDragListView.getContext(), "Incorrect position", Toast.LENGTH_SHORT).show();
-                    }
+
+                }
             }
         });
 
+        checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                if(mItemArray.get(0).second.contains("Wash") && mItemArray.get(1).second.contains("Apply") &&
+                        mItemArray.get(2).second.contains("Cover") && mItemArray.get(3).second.contains("Repeat")){
+                    DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                    FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                    fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                            .replace(R.id.fragment_container, displayScoreFragment)
+                            .addToBackStack("displayScoreFragment")
+                            .commit();
+                } else{
+                    Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         mRefreshLayout.setScrollingView(mDragListView.getRecyclerView());
         mRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getContext(), R.color.colorAccent));
