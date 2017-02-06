@@ -14,17 +14,6 @@
         android:id="@+id/imageView_pic1"
         />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_concussion"
-        android:layout_marginTop="12dp"
-        android:id="@+id/imageView_pic3"
-        android:layout_below="@+id/imageView_pic1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-         />
-
 
     <ImageView
         android:layout_width="wrap_content"
@@ -74,17 +63,6 @@
         android:layout_alignStart="@+id/imageView_pic4"
          />
 
-
-    <Button
-        android:text="Next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView_pic6"
-        android:layout_alignLeft="@+id/imageView_pic6"
-        android:layout_alignStart="@+id/imageView_pic6"
-        android:id="@+id/button_practice_next"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:layout_width="50dp"
@@ -145,4 +123,77 @@
         android:layout_above="@+id/button_practice_next"
         android:layout_alignRight="@+id/imageView_pic5"
         android:layout_alignEnd="@+id/imageView_pic5" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView_pic4"
+        android:layout_alignRight="@+id/imageView_pic1"
+        android:layout_alignEnd="@+id/imageView_pic1"
+        android:layout_marginRight="36dp"
+        android:layout_marginEnd="36dp"
+        android:id="@+id/textView_materials1" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView_pic4"
+        android:layout_toLeftOf="@+id/imageView2_check"
+        android:layout_toStartOf="@+id/imageView2_check"
+        android:id="@+id/textView_materials2" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView_materials1"
+        android:layout_alignStart="@+id/textView_materials1"
+        android:id="@+id/textView_materials3"
+        android:layout_below="@+id/imageView_pic3" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_concussion"
+        android:id="@+id/imageView_pic3"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView_materials3"
+        android:layout_toLeftOf="@+id/imageView4_check"
+        android:layout_toStartOf="@+id/imageView4_check"
+        android:id="@+id/textView_materials4" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_materials5"
+        android:layout_alignBottom="@+id/imageView_pic5"
+        android:layout_alignLeft="@+id/textView_materials3"
+        android:layout_alignStart="@+id/textView_materials3" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView_pic6"
+        android:layout_alignLeft="@+id/textView_materials4"
+        android:layout_alignStart="@+id/textView_materials4"
+        android:id="@+id/textView_materials6" />
+
+    <Button
+        android:text="Next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_practice_next"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -140,28 +140,10 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
 
-        try {
-            if (isConnectedToNetwork(getContext()) == true) {
 
-                if (isLocationServiceEnabled() == false){
-                    Toast.makeText(getActivity().getApplicationContext(),"No location", Toast.LENGTH_LONG).show();
-                    Snackbar.make(rootView, "No location service", Snackbar.LENGTH_INDEFINITE)
-                            .setAction("Retry", new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Fragment nearbyFragment = getFragmentManager().findFragmentByTag("Nearby");
-                                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                                    fragmentTransaction.detach(nearbyFragment);
-                                    fragmentTransaction.attach(nearbyFragment);
-                                    fragmentTransaction.commit();
-                                }
-                            })
-                            .show();
-                }
-            }
-        } catch (NullPointerException e){
-            e.printStackTrace();
-        }
+
+
+
 
 
 
@@ -220,7 +202,39 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         return rootView;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        boolean isLocationEnabled = false;
+        try {
+            if (isConnectedToNetwork(getContext()) == true) {
 
+                if (isLocationServiceEnabled() == false){
+                    //Toast.makeText(getActivity().getApplicationContext(),"No location", Toast.LENGTH_LONG).show();
+                    Snackbar.make(getView(), "No location service", Snackbar.LENGTH_INDEFINITE)
+                            .setAction("Retry", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Fragment nearbyFragment = getFragmentManager().findFragmentByTag("Nearby");
+                                    FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                                    fragmentTransaction.detach(nearbyFragment);
+                                    fragmentTransaction.attach(nearbyFragment);
+                                    fragmentTransaction.commit();
+                                }
+                            })
+                            .show();
+                }
+
+                else
+                    isLocationEnabled = true;
+
+            }
+        } catch (NullPointerException e){
+            Toast.makeText(getActivity().getApplicationContext(),"No location211", Toast.LENGTH_LONG).show();
+
+        }
+        
+    }
 
     private boolean CheckGooglePlayServices() {
         GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
