@@ -1,6 +1,7 @@
 package com.example.jonas.pocketaid.Fragments;
 
 
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -319,6 +320,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             }
             ArrayList<String> url = new ArrayList<String>();
             String urlHolder = getUrl(latitude, longitude, Hospital);
+
             url.add(urlHolder);
             Object[] DataTransfer = new Object[2];
             DataTransfer[0] = mMap;
@@ -553,12 +555,14 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         String hospitalLatitude = "";
         String hospitalLongitude = "";
         Hospital hospitalClass = new Hospital(hospitalName, hospitalVicinity, hospitalPlaceID, hospitalLatitude, hospitalLongitude);
+        ProgressDialog progressDialog = new ProgressDialog(getActivity());
 
         @Override
         protected ArrayList<String> doInBackground(ArrayList<String>... params) {
             HttpURLConnection connection = null;
             JSONObject json;
             BufferedReader reader = null;
+
 
             try{
                 URL url2 = new URL(params[0].get(0));
@@ -644,6 +648,13 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             return null;
         }
 
+        @Override
+        public void onPreExecute() {
+            super.onPreExecute();
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
+        }
+
         protected void onPostExecute(ArrayList<String> testingArray) {
             //super.onPostExecute();
             //Log.d("DALIRI", "DALIRI MO");
@@ -672,11 +683,13 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 i++;
             }
 
+
             adapter = new HospitalListAdapter(getActivity(), data);
             recyclerViewNearby.setLayoutManager(new GridLayoutManager(getActivity(), 1));
             recyclerViewNearby.setItemAnimator(new DefaultItemAnimator());
             recyclerViewNearby.setAdapter(adapter);
             //tvData.setText(result);
+            progressDialog.dismiss();
         }
     }
 

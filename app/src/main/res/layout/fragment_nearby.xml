@@ -27,15 +27,18 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/dragView">
+            android:id="@+id/dragView"
+            android:background="@color/background">
 
             <ImageView
                 android:id="@+id/nearby_anchor"
-                android:layout_width="match_parent"
+                android:layout_width="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_height="15dp"
-                android:src="@drawable/ic_up"/>
+                android:src="@drawable/ic_up"
+                android:layout_gravity="center"
+                android:background="@color/background"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView_nearby"
