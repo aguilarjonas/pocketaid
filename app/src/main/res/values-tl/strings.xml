@@ -109,7 +109,7 @@
 
     <!-- SPINNER OPTIONS -->
     <string-array name="spinner_options">
-        <item>Recommended Paraan</item>
+        <item>Inirerekomendang Paraan</item>
         <item>Alternatibong Paraan</item>
     </string-array>
 
@@ -118,9 +118,9 @@
     <string name="electrical">ELECTRICAL BURNS</string>
     <string name="chemical">CHEMICAL BURNS</string>
     <string name="Address">Address:</string>
-    <string name="phoneNumber">Phone Number:</string>
+    <string name="phoneNumber">Telepono:</string>
     <string name="rating">Rating:</string>
-    <string name="distance">Distance:</string>
+    <string name="distance">Distansya:</string>
 
 
     <!-- *****************************************
@@ -130,128 +130,125 @@
     <!-- ABRASION -->
     <!-- ABRASION: RECOMMENDED -->
     <string-array name="abrasion_recommended">
-        <item>"Wash the affected area with water and anti-bacterial soap."</item>
-        <item>"Apply Betadine Solution or Spray."</item>
-        <item>"Cover the affected area with gauze or band-aid."</item>
-        <item>"Repeat daily until fully healed."</item>
+        <item>"Hugasan ang apektadong lugar na may tubig at anti-bacterial na sabon."</item>
+        <item>"Lapatan ng Betadine Solution o Spray ang apektadong lugar."</item>
+        <item>"Takpan ang apektadong lugar na may gasa o band-aid."</item>
+        <item>"Ulitin araw-araw hanggang sa ganap ng magaling ang apektadong lugar."</item>
     </string-array>
     <!-- ABRASION: ALTERNATIVE -->
     <string-array name="abrasion_alternative">
-        <item>"Boil the guava leaves and run the warm water to the affected area to avoid bacteria."</item>
-        <item>"Apply Betadine Solution or Spray."</item>
-        <item>"Cover the affected area with gauze or band-aid."</item>
-        <item>"Repeat daily until fully healed."</item>
+        <item>"Pakuluin ang dahon ng bayabas at ipahid ang maligamgam na tubig sa mga apektadong lugar upang maiwasan ang bakterya."</item>
+        <item>"Lapatan ng Betadine Solution o Spray ang apektadong lugar."</item>
+        <item>"Takpan ang apektadong lugar na may gasa o band-aid."</item>
+        <item>"Ulitin araw-araw hanggang sa ganap ng magaling ang apektadong lugar."</item>
     </string-array>
 
     <!-- BITES -->
     <!-- ANIMAL BITES: RECOMMENDED -->
     <string-array name="bites_animal_recommended">
-        <item>"Control the bleeding by applying pressure on the bite with a clean and dry cloth or handkerchief."</item>
-        <item>"Do not clean serious wound. It will be cleaned at a medical facility."</item>
-        <item>"Call 911 or use our Nearby Hospital feature."</item>
+        <item>"Kontrolin ang pagdurugo sa pamamagitan ng paglalapat ng presyon sa kagat na may malinis at tuyong tela o panyo."</item>
+        <item>"Huwag linisin ang malubhang sugat. Ito ay mas magandang linisin sa isang medikal na pasilidad."</item>
+        <item>"Tumawag sa 911 o gamitin ang Nearby Hospital feature."</item>
     </string-array>
     <!-- INSECT BITES: RECOMMENDED -->
     <string-array name="bites_insect_recommended">
-        <item>"Check if the bite mark or stinger is swelling and/or bleeding."</item>
-        <item>"If there is a stinger, carefully use tweezers, making sure to grab the base of the stinger to prevent squeezing the venom sac."</item>
-        <item>"Wash the wound with soap and water."</item>
-        <item>"Cover the area with clean bandage or gauze."</item>
-        <item>"Apply a cold pack to the affected area to reduce pain and swelling."</item>
-        <item>"Call 911 if the person has trouble in breathing or for any other signals of Anaphylaxis (hypersensitivity)."</item>
+        <item>"Suriin kung ang kagat o tibo ay namamaga at/o nagdurugo."</item>
+        <item>"Kung mayroong makikitang tibo, maingat na gumamit ng tiyani, siguraduhin na ang ugat o pinanggalingan ng tibo ang tatanggalin upang maiwasan ang pag putok ng tibo."</item>
+        <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
+        <item>"Takpan ang apekatadong lugar na may malinis na benda o gasa."</item>
+        <item>"Lapatan ng malamig na yelo ang apektadong lugar upang mabawasan ang sakit at pamamaga."</item>
+        <item>"Tumawag sa 911 kung ang tao ay may problema sa paghinga o para sa anumang iba pang mga senyales ng Anaphylaxis (hypersensitivity)."</item>
     </string-array>
     <!-- INSECT BITES: ALTERNATIVE -->
     <string-array name="bites_insect_alternative">
-        <item>"Check if the bite mark or stinger is swelling and/or bleeding."</item>
-        <item>"If there is a stinger, scrape it away using a flat surface, such as a credit card."</item>
-        <item>"Wash the wound with soap and water."</item>
-        <item>"Cover the area with a clean handkerchief or cloth."</item>
-        <item>"Apply ice cubes wrapped in a clean towel to the affected area to reduce pain and swelling."</item>
-        <item>"Call 911 if the person has trouble in breathing or for any other signals of anaphylaxis (hypersensitivity)."</item>
+        <item>"Suriin kung ang kagat o tibo ay namamaga at/o nagdurugo."</item>
+        <item>"Kung mayroong mkikitang tibo, gumamit ng patag na gamit katulad ng credit card at kayurin ito dahan-dahan."</item>
+        <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
+        <item>"Takpan ang apekatadong lugar na may malinis na benda o gasa."</item>
+        <item>"Lapatan ng malamig na yelo ang apektadong lugar upang mabawasan ang sakit at pamamaga."</item>
+        <item>"Tumawag sa 911 kung ang tao ay may problema sa paghinga o para sa anumang iba pang mga senyales ng Anaphylaxis (hypersensitivity)."</item>
     </string-array>
 
 
     <!-- BURNS -->
     <!-- 1ST & 2ND DEGREE BURNS: RECOMMENDED -->
     <string-array name="burns_thermal_recommended">
-        <item>"Hold the burned area in running water for 5 to 10 minutes or until pain is relieved."</item>
-        <item>"Cover the burn with a dry, non-sticking, sterile dressing or a clean cloth."</item>
-        <item>"Keep the burned area clean by washing with a mild soap and water."</item>
+        <item>"Panatilihing nakatapat sa tubig ang napasong balat sa tagal na 5 hanggang 10 minuto o hanggang sa mawala ang nararamdamang sakit."</item>
+        <item>"Takpan ang napasong balat ng tuyo at malinis na gasa o tela."</item>
+        <item>"Panatilihing malinis ang napasong balat sa pamamagitan ng pag gamit ng malinis na tubig at sabon na hindi matapang."</item>
     </string-array>
     <string-array name="burns_chemical_recommended">
-        <item>"Immediately remove the chemical by flushing with water."</item>
-        <item>"Remove the victim's contaminated clothing while flushing with water."</item>
-        <item>"Flush for 20 minutes or longer. Let the victim wash with a mild soap before final rinse."</item>
-        <item>"Cover the burned area with a dry dressing or, for large areas, a clean pillow case."</item>
-        <item>"If the chemical is in the eye, flood it for at least 20 minutes using low-pressured water. Preferably running water."</item>
-        <item>"Seek medical attention immediately for all chemical burns."</item>
+        <item>"Agad na alisin ang kemikal sa pamamagitan ng pagtapat nito sa dumadaloy na tubig."</item>
+        <item>"Tanggalin ang kontaminadong damit ng biktima habang nakatapat ito sa dumadaloy na tubig."</item>
+        <item>"Panatilihing nakatapat sa dumadaloy na tubig sa tagal na 20 minuto o higit pa. Hayaan ang biktima na mag hugas gamit ang malinis na tubig at sabon na hindi matapang bago mag huling banlaw."</item>
+        <item>"Takpan ang napasong balat ng tuyo at malinis na gasa o tela."</item>
+        <item>"Kung ang kemikal ay nasa mata, linisin ito gamit ang malinis na tubig sa tagal na 20 minuto. Inirerekomendang linisin ito sa dumadaloy na tubig."</item>
+        <item>"Humingi agad ng medikal na atensiyon para sa lahat ng kemikal burns."</item>
     </string-array>
     <string-array name="burns_electrical_recommended">
-        <item>"Unplug, disconnect, or turn off the power. If that is impossible, call the power company or ask for help."</item>
-        <item>"Seek medical attention immediately. Electrical injuries are treated in burn center."</item>
+        <item>"Hugutin o patayin ang kuryente. Kung ito ay imposible, tawagan ang kumpanya ng kuryente o humingi ng tulong."</item>
+        <item>"Humingi ng medikal na atensiyon agad. Ang electrical injuries ay ginagamot sa burn center."</item>
     </string-array>
     <!-- 1ST & 2ND DEGREE BURNS: ALTERNATIVE -->
     <string-array name="burns_thermal_alternative">
         <item>"Apply a clean towel dampened with a cool tap water."</item>
-        <item>"Cover any small blisters with a loose bandage, or gauze, and tape."</item>
-        <item>"Keep the burned area clean by washing with a mild soap and water."</item>
+        <item>"Takpan ang kahit anong blisters na makikita gamit ang maluwag na gasa at teyp."</item>
+        <item>"Panatilihing malinis ang napasong balat sa pamamagitan ng pag gamit ng malinis na tubig at sabon na hindi matapang."</item>
     </string-array>
     <!-- 3RD DEGREE BURNS: RECOMMENDED -->
     <string-array name="burns_third_recommended">
-        <item>"Protect the burned person from further harm."</item>
-        <item>"Remove jeweleries, belts, and other restrictive items especially from around the burned areas and the neck."</item>
-        <item>"Do not immerse large severe burns in cold water."</item>
-        <item>"Elevate the burned area. Raise the wound above heart level, if possible."</item>
-        <item>"Call 911 or use our Nearby Hospitals feature immediately."</item>
+        <item>"Protektahan o alalayan ang taong nagtamo ng sunog mula sa karagdagang pinsala."</item>
+        <item>"Tanggalin ang mga alahas, sinturon, at iba pang bagay lalo na sa sunog o apektadong lugar at leeg."</item>
+        <item>"Huwag isawsaw ang malubhang apektadong lugar sa malamig na tubig."</item>
+        <item>"Itaas at ilagay sa komportableng posisyon ang nasunog na parte ng katawan. Kung maaari, itaas ito ng mas mataas ng bahagya sa dibdib."</item>
+        <item>"Tumawag sa 911 o gamitin ang Nearby Hospital feature."</item>
     </string-array>
 
     <!-- NOTES -->
     <string-array name="burns_third_notes">
-                    <item>"If you can do so safely, make sure the person you\'re helping is not
-                            in contact with smoldering materials or exposed to smoke or heat. But do not remove burned clothing stuck to the skin."</item>
+        <item>"If you can do so safely, make sure the person you\'re helping is not in contact with smoldering materials or exposed to smoke or heat. But do not remove burned clothing stuck to the skin."</item>
         <item>"Burned areas swell rapidly."</item>
-                    <item>"Doing so could cause a serious loss of body heat (hypothermia) or a drop in blood pressure and
-                            decreased blood flow (shock)."</item>
+        <item>"Doing so could cause a serious loss of body heat (hypothermia) or a drop in blood pressure and decreased blood flow (shock)."</item>
         <item>""</item>
         <item>""</item>
     </string-array>
     <!-- 3RD DEGREE BURNS: ALTERNATIVE -->
     <string-array name="burns_third_alternative">
-                <item>"Protect the burned person from further harm. If you can do so safely, make sure the person you\'re helping is not
-                        in contact with smoldering materials or exposed to smoke or heat. But do not remove burned clothing stuck to the skin."</item>
-        <item>"Remove jeweleries, belts, and other restrictive items, especially from around the burned areas and the neck. Burned areas swell rapidly."</item>
+        <item>"Protect the burned person from further harm. If you can do so safely, make sure the person you\'re helping is not in contact with smoldering materials or exposed to smoke or heat. But do not remove burned clothing stuck to the skin."</item>
+        <item>"Tanggalin ang mga alahas, sinturon, at iba pang bagay lalo na sa sunog o apektadong lugar at leeg. Mas mabilis mamaga ang paso sa ganitong katinding sunog."</item>
         <item>"Cover the burn with a dry, non-sticking, sterile dressing or a clean cloth."</item>
         <item>"Treat the victim for shock by elevating the legs and keeping the victim warm with a clean sheet or blanket."</item>
-        <item>"Call 911 or use our Nearby Hospitals feature immediately."</item>
+        <item>"Tumawag sa 911 o gamitin ang Nearby Hospital feature."</item>
     </string-array>
 
 
     <!-- CONCUSSION -->
     <!-- CONCUSSION: RECOMMENDED -->
     <string-array name="concussion_recommended">
-        <item>"Apply cold compress or cold pack to the injured area for 20 minutes every 3 hours."</item>
-        <item>"Observe your child carefully for the next 24 hours. If there are any signs of internal injury, call 911 or use our Nearby Hospital feature."</item>
+        <item>"Mag-aplay ng yelo sa apekatadong lugar sa tagal na 20 minuto bawat 3 oras."</item>
+        <item>"Obserbahan ang biktima sa loob ng 24 oras. Kung may mararamdamang sintomas, tumawag sa 911 o gamitin ang Nearby Hospital feature."</item>
     </string-array>
 
 
     <!-- CONTUSION -->
     <!-- CONTUSION: RECOMMENDED -->
     <string-array name="contusion_recommended">
-        <item>"Apply a cold pack, or ice wrapped in a clean towel, for up to 15 minutes on the bruise to help reduce swelling."</item>
-        <item>"Keep the bruised area raised above the heart, if possible, to keep the blood from pooling in the bruised tissue."</item>
-        <item>"Try to rest the bruised part by not overworking the certain area."</item>
-        <item>"If needed, take acetaminophen (Tylenol) to help reduce the pain."</item>
+        <item>"Ilapat ang yelo pasa sa tagal na 15 minuto upang maibsan ang pamamaga."</item>
+        <item>"Kung maaari,itaas ang apektadong lugar na may pasa ng mas mataas ng bahagya sa dibdib upang maiwasan ang pamumuo ng dugo sa kalamnan."</item>
+        <item>"Ipahinga ang bugbog na bahagi ng katawan sa pamamagitan ng hindi pag gamit dito ng labis."</item>
+        <item>"Kung kinakailangan, uminom ng gamot na pampawala ng sakit upang makatulong na mabawasan ang sakit."</item>
     </string-array>
 
 
     <!-- FRACTURE -->
     <!-- FRACTURE: RECOMMENDED -->
     <string-array name="fracture_recommended">
-        <item>"In the case of an open wound, control the bleeding and cover the wound with a sterile dressing; if a bone is protruding, use a ring pad then apply a bandage making sure it is not directly over the fracture."</item>
-        <item>"Support the fractured limb in the most comfortable position. Raise and rest a fractured foot or ankle on pillows or folded blankets."</item>
-        <item>"Immobilize the fractured limbs using a splint or sling. Do not attempt to straighten the fractured limb."</item>
-        <item>"Check regularly that the bandages are not too tight, affecting circulation."</item>
-        <item>"Watch for signs of shock."</item>
-        <item>"Call 911 or use our Nearby Hospital feature."</item>
+        <item>"Sa kaso ng isang open wound, kontrolin ang dumudugo at takpan ang sugat ng malinis na gasa; kung ang isang buto ay nakausli, gumamit ng isang ring pad pagkatapos ay ilapat ang isang benda siguraduhin na ito ay hindi direkta sa ibabaw ng bali."</item>
+        <item>"Suportahan ang bali sa pinaka komportableng posisyon. Ipahinga at itaas o ipatong ang bali sa unan."</item>
+        <item>"Gumamit ng saklay para hindi mapwersa ang bali. Huwag tatantangkaing ituwid ang bali."</item>
+        <item>"Regular na tiyakin na ang benda ay hindi masyadong masikip, na nakakaapekto sa sirkulasyon."</item>
+        <item>"Obserbahan kung may mga sintomas na mararamdaman."</item>
+        <item>"Tumawag sa 911 o gamitin ang Nearby Hospital feature."</item>
     </string-array>
 
 
@@ -280,32 +277,32 @@
     </string-array>
     <!-- MINOR LACERATION: ALTERNATIVE -->
     <string-array name="laceration_minor_alternative">
-        <item>"Wash your hands with soap and water. Use any clean barrier between your hand and the wound if gloves is not available."</item>
-        <item>"Apply direct pressure and press firmly against the wound. Use a clean cloth or handkerchief to apply pressure."</item>
-        <item>"Clean and cover the wound with a clean cloth or handkerchief."</item>
+        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig. Kung guwantes ay hindi magagamit, gumamit ng anumang malinis na tela sa pagitan ng iyong mga kamay at ang sugat."</item>
+        <item>"Apply direct pressure and press firmly against the wound. Gumamit ng isang malinis na tela o panyo na mag-aaplay ng presyur."</item>
+        <item>"Linisin at takpan ang sugat ng malinis na tela o panyo."</item>
     </string-array>
 
 
     <!-- PUNCTURE -->
     <!-- SEVERE PUNCTURE: RECOMMENDED -->
     <string-array name="puncture_severe_recommended">
-        <item>"Wash your hands with soap and water then wear gloves."</item>
+        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig pagkatapos ay magsuot ng guwantes."</item>
         <item>"Apply direct pressure to the affected area using a sterile gauze."</item>
         <item>"Clean and cover the wound with a sterile gauze."</item>
-        <item>"Consult and refer to a physician immediately if the bleeding doesn't stop."</item>
+        <item>"Kumonsulta at sumangguni sa isang doktor kaagad kung ang pagdurugo ay hindi humihinto."</item>
     </string-array>
     <!-- SEVERE PUNCTURE: ALTERNATIVE -->
     <string-array name="puncture_severe_alternative">
-        <item>"Wash your hands with soap and water. If gloves are note available, use any clean barrier between your hand and the wound."</item>
+        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig. Kung guwantes ay hindi magagamit, gumamit ng anumang malinis na tela sa pagitan ng iyong mga kamay at ang sugat."</item>
         <item>"Apply direct pressure and press firmly against the wound. If sterile gauze is not available, use your hand or a clean cloth or handkerchief to apply pressure."</item>
-        <item>"Clean and cover the wound with a clean cloth or handkerchief."</item>
+        <item>"Linisin at takpan ang sugat ng malinis na tela o panyo."</item>
         <item>"If the cloth becomes soaked with blood, do not remove it. Apply addition clean cloth on top."</item>
-        <item>"Consult and refer to a physician immediately if the bleeding doesn't stop."</item>
+        <item>"Kumonsulta at sumangguni sa isang doktor kaagad kung ang pagdurugo ay hindi humihinto."</item>
     </string-array>
     <!-- SLIGHT PUNCTURE: RECOMMENDED -->
     <string-array name="puncture_slight_recommended">
-        <item>"Wash your hands with soap and water then wear gloves."</item>
-        <item>"Clean the wound with soap and water."</item>
+        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig pagkatapos ay magsuot ng guwantes."</item>
+        <item>"Linisin ang sugat gamit ang sabon at tubig."</item>
         <item>"Apply mild antiseptic or antibiotic cream."</item>
         <item>"Cover the wound loosely with sterile gauze or bandage."</item>
     </string-array>
