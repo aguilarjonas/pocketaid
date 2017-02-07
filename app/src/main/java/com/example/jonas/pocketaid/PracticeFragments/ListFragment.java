@@ -56,6 +56,7 @@ public class ListFragment extends Fragment {
     private ArrayAdapter<Integer> stepNumberAdapter ;
     Button checkAnswerBT;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.list_layout, container, false);
@@ -80,7 +81,6 @@ public class ListFragment extends Fragment {
         checkAnswerBT = (Button) rootView.findViewById(R.id.btCheckAnswersPrac);
         String chosenInjury = getArguments().getString("chosenInjury");
         selectedInjury(chosenInjury);
-
         return rootView;
     }
 
@@ -96,7 +96,25 @@ public class ListFragment extends Fragment {
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + abrasionProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
+
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    if(mItemArray.get(0).second.startsWith("Wash") && mItemArray.get(1).second.startsWith("Apply") &&
+                            mItemArray.get(2).second.startsWith("Cover") && mItemArray.get(3).second.startsWith("Repeat")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         } else if (chosenInjury.equals("Animal Bites")){
             checkOrderOfProcedures();
@@ -108,7 +126,25 @@ public class ListFragment extends Fragment {
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + animalBitesProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
+
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    if(mItemArray.get(0).second.startsWith("Control") && mItemArray.get(1).second.startsWith("Do") &&
+                            mItemArray.get(2).second.startsWith("Call")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         } else if (chosenInjury.equals("Insect Bites")){
             checkOrderOfProcedures();
@@ -120,7 +156,26 @@ public class ListFragment extends Fragment {
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + insectBitesProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
+
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    if(mItemArray.get(0).second.startsWith("Check") && mItemArray.get(1).second.startsWith("Carefully") &&
+                            mItemArray.get(2).second.startsWith("Wash") && mItemArray.get(3).second.startsWith("Cover")
+                            && mItemArray.get(4).second.startsWith("Apply") && mItemArray.get(5).second.startsWith("Call")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         } else if (chosenInjury.equals("Thermal Burns")){
             checkOrderOfProcedures();
@@ -132,19 +187,25 @@ public class ListFragment extends Fragment {
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thermalBurnProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
 
-        } else if (chosenInjury.equals("Electrical Burns")){
-            checkOrderOfProcedures();
-            ArrayList<Integer> numberingProcedure = new ArrayList<>();
-            for (int counter = 0; counter < electricalBurnProcedure.length; ++counter) {
-                int stepNumberHolder = counter + 1;
-                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
-                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + electricalBurnProcedure[counter]));
-            }
-            Collections.shuffle(mItemArray);
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    if(mItemArray.get(0).second.startsWith("Hold") && mItemArray.get(1).second.startsWith("Cover") &&
+                            mItemArray.get(2).second.startsWith("Keep")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         } else if (chosenInjury.equals("Chemical Burns")){
             checkOrderOfProcedures();
@@ -156,7 +217,26 @@ public class ListFragment extends Fragment {
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + chemicalBurnProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
+
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    if(mItemArray.get(0).second.startsWith("Remove") && mItemArray.get(1).second.startsWith("Place") &&
+                            mItemArray.get(2).second.startsWith("Wash") && mItemArray.get(3).second.startsWith("Cover")
+                            && mItemArray.get(4).second.startsWith("Seek")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         } else if (chosenInjury.equals("3rd Degree Burns")){
             checkOrderOfProcedures();
@@ -168,7 +248,26 @@ public class ListFragment extends Fragment {
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thirdDegreeBurnProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
+
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(mItemArray.get(0).second.startsWith("Protect") && mItemArray.get(1).second.startsWith("Remove")
+                            && mItemArray.get(2).second.startsWith("Do") && mItemArray.get(3).second.startsWith("If")
+                            && mItemArray.get(4).second.startsWith("Call")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         } else if (chosenInjury.equals("Concussion")){
             checkOrderOfProcedures();
@@ -180,7 +279,25 @@ public class ListFragment extends Fragment {
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + concussionProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
+
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(mItemArray.get(0).second.startsWith("Apply") && mItemArray.get(1).second.startsWith("Observe")
+                            && mItemArray.get(2).second.startsWith("If")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         } else if (chosenInjury.equals("Contusion")){
             checkOrderOfProcedures();
@@ -192,7 +309,25 @@ public class ListFragment extends Fragment {
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + contusionProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
+
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(mItemArray.get(0).second.startsWith("Apply") && mItemArray.get(1).second.startsWith("If")
+                            && mItemArray.get(2).second.startsWith("Rest") && mItemArray.get(3).second.contains("If needed")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         } else if (chosenInjury.equals("Fracture")){
             checkOrderOfProcedures();
@@ -204,7 +339,27 @@ public class ListFragment extends Fragment {
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + fractureProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
+
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(mItemArray.get(0).second.startsWith("In") && mItemArray.get(1).second.startsWith("If")
+                            && mItemArray.get(2).second.startsWith("Support") && mItemArray.get(3).second.startsWith("Raise")
+                            && mItemArray.get(4).second.startsWith("Immobilize") && mItemArray.get(5).second.startsWith("Check")
+                            && mItemArray.get(6).second.startsWith("Watch") && mItemArray.get(7).second.startsWith("Call")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         } else if (chosenInjury.equals("Major Laceration")){
             checkOrderOfProcedures();
@@ -216,7 +371,26 @@ public class ListFragment extends Fragment {
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + majorLacerationProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
+
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(mItemArray.get(0).second.startsWith("Put") && mItemArray.get(1).second.startsWith("Control")
+                            && mItemArray.get(2).second.startsWith("Continue") && mItemArray.get(3).second.startsWith("Care")
+                            && mItemArray.get(4).second.startsWith("Have") && mItemArray.get(5).second.startsWith("Wash")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         } else if (chosenInjury.equals("Minor Laceration")){
             checkOrderOfProcedures();
@@ -228,7 +402,26 @@ public class ListFragment extends Fragment {
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + minorLacerationProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
+
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(mItemArray.get(0).second.startsWith("Use") && mItemArray.get(1).second.startsWith("Apply")
+                            && mItemArray.get(2).second.startsWith("Wash") && mItemArray.get(3).second.contains("Apply an")
+                            && mItemArray.get(4).second.startsWith("Cover")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         } else if (chosenInjury.equals("Puncture (Severe Bleeding)")){
             checkOrderOfProcedures();
@@ -240,7 +433,25 @@ public class ListFragment extends Fragment {
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + severePunctureProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
+
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(mItemArray.get(0).second.startsWith("Wash") && mItemArray.get(1).second.startsWith("Apply")
+                            && mItemArray.get(2).second.startsWith("Clean") && mItemArray.get(3).second.startsWith("Consult")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
 
         } else if (chosenInjury.equals("Puncture (Slightly Bleeding)")){
             checkOrderOfProcedures();
@@ -251,10 +462,29 @@ public class ListFragment extends Fragment {
                 stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, numberingProcedure);
                 lvStepNumber.setAdapter(stepNumberAdapter);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + slightPunctureProcedure[counter]));
-                mItemArray.get(Integer.parseInt(slightPunctureProcedure[counter]));
             }
-            Collections.shuffle(mItemArray);
+            shuffleArray();
+            checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(mItemArray.get(0).second.startsWith("Wash") && mItemArray.get(1).second.startsWith("Clean")
+                            && mItemArray.get(2).second.startsWith("Apply") && mItemArray.get(3).second.startsWith("Cover")){
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+
+                    } else{
+                        Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
         }
+    }
+    public void shuffleArray(){
+        Collections.shuffle(mItemArray);
     }
 
     public void checkOrderOfProcedures(){
@@ -275,24 +505,6 @@ public class ListFragment extends Fragment {
                         // This is not the correct position
                         Toast.makeText(mDragListView.getContext(), "Incorrect position", Toast.LENGTH_SHORT).show();
 
-                }
-            }
-        });
-
-        checkAnswerBT.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if(mItemArray.get(0).second.contains("Wash") && mItemArray.get(1).second.contains("Apply") &&
-                        mItemArray.get(2).second.contains("Cover") && mItemArray.get(3).second.contains("Repeat")){
-                    DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
-                    FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
-                    fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
-                            .replace(R.id.fragment_container, displayScoreFragment)
-                            .addToBackStack("displayScoreFragment")
-                            .commit();
-                } else{
-                    Toast.makeText(mDragListView.getContext(), "Mali order ng steps bobo!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
