@@ -58,7 +58,7 @@ public class HospitalListAdapter extends RecyclerView.Adapter<HospitalListAdapte
 
         holder.hospitalName.setText(current.getHospitalName());
         holder.hospitalVicinity.setText(current.getHospitalVicinity());
-//        holder.hospitalPlaceID.setText(current.getHospitalPlaceID());
+        holder.hospitalPlaceID.setText(current.getHospitalPlaceID());
         holder.hospitalLatitude.setText(current.getHospitalLatitude());
         holder.hospitalLongitude.setText(current.getHospitalLongitude());
     }
@@ -78,7 +78,7 @@ public class HospitalListAdapter extends RecyclerView.Adapter<HospitalListAdapte
 
             hospitalName = (TextView) view.findViewById(R.id.textView_hospitalName);
             hospitalVicinity = (TextView) view.findViewById(R.id.textView_vicinity);
-            hospitalPlaceID = (TextView) view.findViewById(R.id.textview_placeID);
+            hospitalPlaceID = (TextView) view.findViewById(R.id.textview_placeid);
             hospitalLatitude = (TextView) view.findViewById(R.id.textview_latitude);
             hospitalLongitude = (TextView) view.findViewById(R.id.textview_longitude);
 

@@ -1,5 +1,6 @@
 package com.example.jonas.pocketaid.Fragments;
 
+import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -503,7 +504,7 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
 
     /** A class to parse the Google Places in JSON format */
     private class ParserTask extends AsyncTask<String, Integer, List<List<HashMap<String,String>>> >{
-
+        ProgressDialog progressDialog = new ProgressDialog(getActivity());
         // Parsing the data in non-ui thread
         @Override
         protected List<List<HashMap<String, String>>> doInBackground(String... jsonData) {
@@ -525,6 +526,13 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
                 e.printStackTrace();
             }
             return routes;
+        }
+
+        @Override
+        public void onPreExecute() {
+            super.onPreExecute();
+            progressDialog.setMessage("Loading...");
+            progressDialog.show();
         }
 
         // Executes in UI thread, after the parsing process
@@ -579,8 +587,7 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
                 Toast.makeText(getActivity().getApplicationContext(), "No internet connection.", Toast.LENGTH_LONG).show();
             }
 
-
-
+            progressDialog.dismiss();
         }
     }
 

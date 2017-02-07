@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
-    <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout
+        xmlns:sothree="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/sliding_layout"
         android:layout_width="match_parent"
@@ -14,8 +15,7 @@
         sothree:umanoPanelHeight="25dp"
         sothree:umanoShadowHeight="4dp"
         sothree:umanoDragView="@+id/dragView"
-        sothree:umanoScrollableView="@+id/recyclerView_nearby"
-        >
+        sothree:umanoScrollableView="@+id/recyclerView_nearby">
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/map"
