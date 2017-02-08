@@ -375,7 +375,7 @@
     </string-array>
     <!-- SEVERE PUNCTURE: ALTERNATIVE -->
     <string-array name="puncture_severe_alternative">
-        <item>"Wash your hands with soap and water. If gloves are note available, use any clean barrier between your hand and the wound."</item>
+        <item>"Wash your hands with soap and water. If gloves are not available, use any clean barrier between your hand and the wound."</item>
         <item>"Apply direct pressure and press firmly against the wound. If sterile gauze is not available, use your hand or a clean cloth or handkerchief to apply pressure."</item>
         <item>"Clean and cover the wound with a clean cloth or handkerchief."</item>
         <item>"If the cloth becomes soaked with blood, do not remove it. Apply addition clean cloth on top."</item>
