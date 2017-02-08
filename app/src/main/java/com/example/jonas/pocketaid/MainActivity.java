@@ -21,6 +21,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.MediaController;
@@ -120,7 +121,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        return true;
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -129,14 +132,17 @@ public class MainActivity extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-
+        
         switch (id) {
             case android.R.id.home:
+                return true;
+            case R.id.settings:
+                SettingsFragment settingsFragment = new SettingsFragment();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.add(settingsFragment, "Settings")
+                        .replace(R.id.fragment_container, settingsFragment)
+                        .addToBackStack("Settings")
+                        .commit();
 
                 return true;
         }
@@ -178,13 +184,6 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.add(aboutFragment, "About")
                     .replace(R.id.fragment_container, aboutFragment)
                     .addToBackStack("About")
-                    .commit();
-        } else if (id == R.id.nav_settings) {
-            SettingsFragment settingsFragment = new SettingsFragment();
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.add(settingsFragment, "Settings")
-                    .replace(R.id.fragment_container, settingsFragment)
-                    .addToBackStack("Settings")
                     .commit();
         }
 
