@@ -41,9 +41,6 @@ public class InjuryOverviewFragment extends Fragment {
         InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(getContext().INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(rootView.getWindowToken(), 0);
 
-        fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
-        fab.hide();
-
         String chosenInjury = getArguments().getString("injury");
         determineInjury(chosenInjury, rootView);
 

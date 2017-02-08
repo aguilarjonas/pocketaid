@@ -33,9 +33,6 @@ public class InjuryStepsFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView lv_electrical;
     private RecyclerView lv_chemical;
-//    private ListView listView;
-//    private ListView lv_electrical;
-//    private ListView lv_chemical;
     private TextView tv_thermal;
     private TextView tv_chemical;
     private TextView tv_electrical;
@@ -43,9 +40,7 @@ public class InjuryStepsFragment extends Fragment {
     private String[] notes;
     private int[] imgSteps;
 
-    public InjuryStepsFragment() {
-        // Required empty public constructor
-    }
+    public InjuryStepsFragment() { /** Required empty public constructor **/ }
 
 
     @Override
@@ -56,6 +51,17 @@ public class InjuryStepsFragment extends Fragment {
 
         //injury from InjuryInformationFragment
         final String injury = getArguments().getString("injury");
+        initializeViews(rootView);
+
+        disableSpinner(spinnerOptions, injury);
+        setSpinnerOptions(spinnerOptions, injury);
+
+        setRecyclerViewAsNotScrollable();
+
+        return rootView;
+    }
+
+    public void initializeViews(ViewGroup rootView) {
         spinnerOptions = (Spinner) rootView.findViewById(R.id.spinner);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.listview_firstaid_steps);
         lv_chemical = (RecyclerView) rootView.findViewById(R.id.listview_chemical);
@@ -63,30 +69,6 @@ public class InjuryStepsFragment extends Fragment {
         tv_thermal = (TextView) rootView.findViewById(R.id.textview_thermal);
         tv_chemical = (TextView) rootView.findViewById(R.id.textview_chemical);
         tv_electrical = (TextView) rootView.findViewById(R.id.textview_electrical);
-
-        disableSpinner(spinnerOptions, injury);
-        setSpinnerOptions(spinnerOptions, injury);
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()) {
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        });
-        lv_chemical.setLayoutManager(new LinearLayoutManager(getActivity()) {
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        });
-        lv_electrical.setLayoutManager(new LinearLayoutManager(getActivity()) {
-            @Override
-            public boolean canScrollVertically() {
-                return false;
-            }
-        });
-
-        return rootView;
     }
 
     public void disableSpinner(Spinner spinnerOptions, String injury) {
@@ -243,29 +225,29 @@ public class InjuryStepsFragment extends Fragment {
         recyclerView.setAdapter(adapter);
     }
 
+    public void setRecyclerViewAsNotScrollable() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        });
+        lv_chemical.setLayoutManager(new LinearLayoutManager(getActivity()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        });
+        lv_electrical.setLayoutManager(new LinearLayoutManager(getActivity()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        });
+    }
+
     public void setEmptyArrayString(int number) {
         notes = new String[number];
         Arrays.fill(notes, "");
-    }
-
-    public static class ListUtils {
-        public static void setDynamicHeight(ListView mListView) {
-            ListAdapter mListAdapter = mListView.getAdapter();
-            if (mListAdapter == null) {
-                // when adapter is null
-                return;
-            }
-            int height = 0;
-            int desiredWidth = View.MeasureSpec.makeMeasureSpec(mListView.getWidth(), View.MeasureSpec.UNSPECIFIED);
-            for (int i = 0; i < mListAdapter.getCount(); i++) {
-                View listItem = mListAdapter.getView(i, null, mListView);
-                listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
-                height += listItem.getMeasuredHeight();
-            }
-            ViewGroup.LayoutParams params = mListView.getLayoutParams();
-            params.height = height + (mListView.getDividerHeight() * (mListAdapter.getCount() - 1));
-            mListView.setLayoutParams(params);
-            mListView.requestLayout();
-        }
     }
 }

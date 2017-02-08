@@ -4,6 +4,8 @@ package com.example.jonas.pocketaid.InjuriesFragments;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.media.MediaPlayer;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -35,15 +37,11 @@ public class InjuryInformationSecondTabFragment extends Fragment {
     private VideoView videoView;
     private Switch downloadSwitch;
     private ImageView playVideoImage;
-
     private String myURL = "";
     private String injuryType;
     private File videoFile;
 
-    public InjuryInformationSecondTabFragment() {
-        // Required empty public constructor
-    }
-
+    public InjuryInformationSecondTabFragment() { /** Required empty public constructor **/ }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,6 +50,16 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injury_information_second_tab, container, false);
 
         String chosenInjury = getArguments().getString("injury");
+        determineInjuryType(chosenInjury);
+        initializeViews(rootView);
+        inflateStepsFragment();
+        downloadSwitchListener();
+        videoStreamListener();
+
+        return rootView;
+    }
+
+    public void determineInjuryType(String chosenInjury) {
         if (chosenInjury.equals("Abrasion")){
             injuryType = "Abrasion";
         } else if (chosenInjury.equals("Bites")){
@@ -85,20 +93,24 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         } else if(chosenInjury.toLowerCase().equals("slight")) {
             injuryType = "Slight";
         }
+    }
 
-        //initialization
+    public void initializeViews(ViewGroup rootView) {
         playVideoImage = (ImageView) rootView.findViewById(R.id.imageView_play);
         downloadSwitch = (Switch) rootView.findViewById(R.id.switch_download);
         videoView = (VideoView) rootView.findViewById(R.id.injury_video);
+    }
 
-        //"inflates" steps below the video
+    public void inflateStepsFragment(){
         InjuryStepsFragment injuryStepsFragment = new InjuryStepsFragment();
         Bundle args = new Bundle();
         args.putString("injury", injuryType);
         injuryStepsFragment.setArguments(args);
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_steps_second, injuryStepsFragment).commit();
+    }
 
+    public void downloadSwitchListener() {
         File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         videoFile = new File(extStore.getAbsolutePath(), injuryType + ".mp4");
 
@@ -114,32 +126,43 @@ public class InjuryInformationSecondTabFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // do something, the isChecked will be
                 // true if the switch is in the On position
-                if (isChecked == true){
-                    Toast.makeText(getActivity(), "Downloading", Toast.LENGTH_SHORT).show();
-                    downloadTutorial();
-                }
+                if (isChecked){
+                    ConnectivityManager cm = (ConnectivityManager) getActivity().getApplicationContext()
+                            .getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo ni = cm.getActiveNetworkInfo();
 
-                else if (isChecked == false){
+                    if(ni != null && ni.isConnected()) {
+                        Toast.makeText(getActivity(), "Downloading", Toast.LENGTH_SHORT).show();
+                        downloadTutorial();
+                    } else {
+                        Toast.makeText(getActivity(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
                     Toast.makeText(getActivity(), "Video Deleted", Toast.LENGTH_SHORT).show();
                     videoFile.delete();
                 }
-
             }
         });
+    }
 
-        //Click listener ng Stream
+    public void videoStreamListener() {
         playVideoImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //access checkPermission method sa MainActivity, passes String to fromFragment variable
                 //((MainActivity)getActivity()).downloadVideo(injuryType);
-                ((MainActivity)getActivity()).streamVideo(injuryType, videoView);
-                playVideoImage.setVisibility(View.INVISIBLE);
+                ConnectivityManager cm = (ConnectivityManager) getActivity().getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                NetworkInfo ni = cm.getActiveNetworkInfo();
 
+                if(ni != null && ni.isConnected()) {
+                    ((MainActivity)getActivity()).streamVideo(injuryType, videoView);
+                    playVideoImage.setVisibility(View.INVISIBLE);
+                } else {
+                    playVideoImage.setVisibility(View.VISIBLE);
+                    Toast.makeText(getContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-
-        return rootView;
     }
 
     public void downloadTutorial() {

@@ -36,24 +36,14 @@ import java.io.File;
  */
 public class InjuryInformationFragment extends Fragment {
 
-    private TextView downloadNote;
-    private Button downloadButton;
-    private Button streamButton;
-    private VideoView videoView;
-    private Switch downloadSwitch;
+    private File videoFile;
     private ImageView playVideoImage;
-
+    private Switch downloadSwitch;
     private String myURL = "";
     private String injuryType;
-    private File videoFile;
-    MediaPlayer mediaC;
+    private VideoView videoView;
 
-
-
-    public InjuryInformationFragment() {
-        // Required empty public constructor
-    }
-
+    public InjuryInformationFragment() { /** Required empty public constructor **/ }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,6 +52,16 @@ public class InjuryInformationFragment extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injury_information, container, false);
 
         String chosenInjury = getArguments().getString("injury");
+        determineInjuryType(chosenInjury);
+        initializeView(rootView);
+        inflateStepsFragment();
+        downloadSwitchListener();
+        videoStreamListener();
+
+        return rootView;
+    }
+
+    public void determineInjuryType(String chosenInjury) {
         if (chosenInjury.equals("Abrasion")){
             injuryType = "Abrasion";
         } else if (chosenInjury.equals("Bites")){
@@ -95,86 +95,67 @@ public class InjuryInformationFragment extends Fragment {
         } else if(chosenInjury.toLowerCase().equals("slight")) {
             injuryType = "Slight";
         }
+    }
 
-        //initialization
-        downloadNote = (TextView) rootView.findViewById(R.id.tv_switch_download);
+    public void initializeView(ViewGroup rootView) {
         playVideoImage = (ImageView) rootView.findViewById(R.id.imageView_play);
         downloadSwitch = (Switch) rootView.findViewById(R.id.switch_download);
-        //downloadButton = (Button) rootView.findViewById(R.id.video_download);
-        //streamButton = (Button) rootView.findViewById(R.id.stream_button);
         videoView = (VideoView) rootView.findViewById(R.id.injury_video);
+    }
 
-        //"inflates" steps below the video
+    public void inflateStepsFragment() {
         InjuryStepsFragment injuryStepsFragment = new InjuryStepsFragment();
         Bundle args = new Bundle();
         args.putString("injury", injuryType);
         injuryStepsFragment.setArguments(args);
         FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_steps, injuryStepsFragment).commit();
+    }
 
+    public void downloadSwitchListener() {
         File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         videoFile = new File(extStore.getAbsolutePath(), injuryType + ".mp4");
 
         //sets the switch and the text to whether downloaded or not
         if (videoFile.exists()){
             downloadSwitch.setChecked(true);
-            downloadNote.setText(getString(R.string.Downloaded));
+            downloadSwitch.setText(getString(R.string.Downloaded));
         } else {
             downloadSwitch.setChecked(false);
         }
-
-
-        //Para pag click ang video mag play
-//        videoView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                ((MainActivity)getActivity()).streamVideo(injuryType, videoView);
-//                 return true;
-//            }
-//        });
 
         downloadSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // do something, the isChecked will be
                 // true if the switch is in the On position
-                if (isChecked == true){
-                    ConnectivityManager cm = (ConnectivityManager) getActivity().getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                if (isChecked){
+                    ConnectivityManager cm = (ConnectivityManager) getActivity().getApplicationContext()
+                            .getSystemService(Context.CONNECTIVITY_SERVICE);
                     NetworkInfo ni = cm.getActiveNetworkInfo();
+
+                    // check internet connection
                     if(ni != null && ni.isConnected()) {
                         downloadTutorial();
                         Toast.makeText(getActivity(), "Downloading", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(getActivity(), "No Internet Connection", Toast.LENGTH_SHORT).show();
                     }
-                } else if (isChecked == false){
+                } else {
                     Toast.makeText(getActivity(), "Video Deleted", Toast.LENGTH_SHORT).show();
                     videoFile.delete();
                 }
-
             }
         });
+    }
 
-
-
-        //onClickListener ng Download
-//        downloadButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                //access checkPermission method sa MainActivity, passes String to fromFragment variable
-//                Toast.makeText(getActivity(), "Downloading", Toast.LENGTH_SHORT).show();
-//                downloadTutorial();
-//
-//            }
-//        });
-
-        //Click listener ng Stream
+    public void videoStreamListener() {
         playVideoImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ConnectivityManager cm = (ConnectivityManager) getActivity().getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
                 NetworkInfo ni = cm.getActiveNetworkInfo();
+
                 //access checkPermission method sa MainActivity, passes String to fromFragment variable
-                //((MainActivity)getActivity()).downloadVideo(injuryType);
                 if(ni != null && ni.isConnected()) {
                     ((MainActivity)getActivity()).streamVideo(injuryType, videoView);
                     playVideoImage.setVisibility(View.INVISIBLE);
@@ -184,18 +165,6 @@ public class InjuryInformationFragment extends Fragment {
                 }
             }
         });
-
-//        //Para pag click ang video mag play
-//        videoView.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                ((MainActivity)getActivity()).streamVideo(injuryType, videoView);
-//                 return true;
-//            }
-//        });
-
-
-        return rootView;
     }
 
     public void downloadTutorial() {
