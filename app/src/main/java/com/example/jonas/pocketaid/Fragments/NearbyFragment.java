@@ -81,29 +81,19 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
 
-    private GoogleMap mMap;
-    double latitude;
-    double longitude;
-    private int PROXIMITY_RADIUS = 10000;
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
-    private Button btnHospital;
-
-    //For Listview
-    private FrameLayout frameLayout;
-    private RecyclerView recyclerViewNearby;
-    String[] hospitalNames;
-    String[] hospitalContactNumber;
-    private HospitalListAdapter adapter;
-
     ViewGroup rootView;
     MapView mapView;
-    MapStyleOptions style;
-
+    double latitude;
+    double longitude;
+    private RecyclerView recyclerViewNearby;
+    private HospitalListAdapter adapter;
     private SlidingUpPanelLayout mLayout;
     private ImageView ivAnchor;
+    private GoogleMap mMap;
 
     public NearbyFragment() {
         // Required empty public constructor
@@ -118,70 +108,31 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         //unlocks menu bar or drawer
         ((MainActivity)getActivity()).resetActionBar(false, DrawerLayout.LOCK_MODE_UNLOCKED);
 
-        //show FAB
+        //hide FAB
         ((MainActivity) getActivity()).hideOrShowFAB("hide");
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_nearby, container, false);
 
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            checkLocationPermission();
-        }
+        checkVersionAndGooglePlayServices();
+        initializeViews(rootView);
+        configureMap(savedInstanceState);
+        configureSlidingPanel();
 
-        //Check if Google Play Services Available or not
-        if (!CheckGooglePlayServices()) {
-            Log.d("onCreate", "Finishing test case since Google Play Services are not available");
-            getActivity().finish();
-        }
-        else {
-            Log.d("onCreate","Google Play Services available.");
-        }
+        return rootView;
+    }
 
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+    public void initializeViews(ViewGroup rootView) {
         mapView = (MapView) rootView.findViewById(R.id.map);
-        mapView.onCreate(savedInstanceState);
-        mapView.getMapAsync(this);
-
-
-
-
-
-
-
-
-        //For listview
         recyclerViewNearby = (RecyclerView)rootView.findViewById(R.id.recyclerView_nearby);
-
-//        hospitalListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            public void onItemClick(AdapterView parent, View v, int position, long id){
-//                String chosenHospital = ((TextView)v.findViewById(R.id.textView_hospitalName)).getText().toString();
-//                String chosenHospitalPlaceID = ((TextView)v.findViewById(R.id.textview_placeid)).getText().toString();
-//                String chosenHospitalLat = ((TextView)v.findViewById(R.id.textview_latitude)).getText().toString();
-//                String chosenHospitalLng = ((TextView)v.findViewById(R.id.textview_longitude)).getText().toString();
-//
-//                String chosenHospitalVicinity = ((TextView)v.findViewById(R.id.textView_vicinity)).getText().toString();
-//
-//                NearbyInformationFragment nearbyHospitalInformation = new NearbyInformationFragment();
-//                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
-//                Bundle args = new Bundle();
-//                args.putString("chosenHospital" , chosenHospital);
-//                args.putString("chosenHospitalPlaceID" , chosenHospitalPlaceID);
-//                args.putString("chosenHospitalLat", chosenHospitalLat);
-//                args.putString("chosenHospitalLng", chosenHospitalLng);
-//                args.putString("chosenHospitalVicinity", chosenHospitalVicinity);
-//
-//                nearbyHospitalInformation.setArguments(args);
-//
-//                fragmentTransaction.add(nearbyHospitalInformation, "nearbyHospitalInformation")
-//                        .replace(R.id.fragment_container, nearbyHospitalInformation)
-//                        .addToBackStack("nearbyHospitalInformation")
-//                        .commit();
-//
-//
-//                //To get total number of items in a listview hospitalListView.getAdapter().getCount();
-//
-//            }
-//        });
         ivAnchor = (ImageView) rootView.findViewById(R.id.nearby_anchor);
         mLayout = (SlidingUpPanelLayout) rootView.findViewById(R.id.sliding_layout);
+    }
+
+    public void configureMap(Bundle savedInstanceState) {
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
+    }
+
+    public void configureSlidingPanel() {
         mLayout.setAnchorPoint(0.5f);
         mLayout.setPanelState(SlidingUpPanelLayout.PanelState.ANCHORED);
 
@@ -198,8 +149,21 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 }
             }
         });
+    }
 
-        return rootView;
+    public void checkVersionAndGooglePlayServices() {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            checkLocationPermission();
+        }
+
+        //Check if Google Play Services Available or not
+        if (!CheckGooglePlayServices()) {
+            Log.d("onCreate", "Finishing test case since Google Play Services are not available");
+            getActivity().finish();
+        }
+        else {
+            Log.d("onCreate","Google Play Services available.");
+        }
     }
 
     @Override
@@ -666,6 +630,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         public void onPreExecute() {
             super.onPreExecute();
             progressDialog.setMessage("Loading...");
+            progressDialog.setCancelable(false);
             progressDialog.show();
         }
 
