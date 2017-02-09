@@ -84,6 +84,10 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     private ImageView ivAnchor;
     private GoogleMap mMap;
 
+    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
+    String bufferCatcher = "";
+
+
     public NearbyFragment() {
         // Required empty public constructor
     }
@@ -170,8 +174,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                                 public void onClick(View v) {
                                     Fragment nearbyFragment = getFragmentManager().findFragmentByTag("Nearby");
                                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                                    fragmentTransaction.detach(nearbyFragment);
-                                    fragmentTransaction.attach(nearbyFragment);
+                                    fragmentTransaction.replace(R.id.fragment_container, nearbyFragment);
                                     fragmentTransaction.commit();
                                 }
                             })
@@ -201,6 +204,122 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         }
         return true;
     }
+
+    public void automaticHospitalSearch() {
+        String Hospital = "hospital";
+        //Log.d("onClick", "Button is Clicked");
+        try {
+            mMap.clear();
+        }
+        catch (NullPointerException e){
+
+        }
+        ArrayList<String> url = new ArrayList<String>();
+
+        String urlHolder = getUrl(latitude, longitude, Hospital);
+
+        url.add(urlHolder);
+
+
+
+        new JSONTask().execute(url);
+
+
+    }
+
+    public void catchBufferString(String holder){
+        bufferCatcher = holder;
+        //Log.e("HELLO", bufferCatcher);
+    }
+
+    protected synchronized void buildGoogleApiClient() {
+        mGoogleApiClient = new GoogleApiClient.Builder(getActivity().getApplicationContext())
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API)
+                .build();
+        mGoogleApiClient.connect();
+        //automaticHospitalSearch();
+    }
+
+    private String getUrl(double latitude, double longitude, String nearbyPlace) {
+        StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        googlePlacesUrl.append("location=" + latitude + "," + longitude);
+        //googlePlacesUrl.append("&radius=8000");
+        googlePlacesUrl.append("&rankby=distance");
+        googlePlacesUrl.append("&name=hospital|center|medical");
+        googlePlacesUrl.append("&type=" + nearbyPlace);
+        googlePlacesUrl.append("&sensor=true");
+        googlePlacesUrl.append("&key=" + "AIzaSyDaHKjPR-NLen5OL_UfGTr53d0oP6S0tzM"); //dito yung api key nasa sticky note
+        //Main Key = AIzaSyCwWyLYaWT48CXkNBE7Le0naOl-A5VUVUE - Angel's key
+        //Alternative Key = AIzaSyBRaI6vWSTL-W1cJm-SB60xNBjlbb8TMaU - Raeven's key
+        Log.d("getUrl", googlePlacesUrl.toString());
+        return (googlePlacesUrl.toString());
+    }
+
+    public static boolean isConnectedToNetwork(Context context)
+    {
+        ConnectivityManager connectivityManager =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+        return networkInfo != null && networkInfo.isConnected();
+
+    }
+
+    public boolean isLocationServiceEnabled(){
+        try {
+            LocationManager locManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+
+            if (locManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+                //GPS enabled
+                return true;
+            }
+
+            else{
+                //GPS disabled
+                return false;
+            }
+        }
+
+        catch (NullPointerException e){
+
+        }
+        return false;
+    }
+
+    public boolean checkLocationPermission(){
+        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Asking user if explanation is needed
+            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                    android.Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+
+                //Prompt the user once explanation has been shown
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_LOCATION);
+
+
+            } else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_LOCATION);
+            }
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 
     @Override
     public void onResume() {
@@ -276,42 +395,10 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         }
     }
 
-    public void automaticHospitalSearch() {
-        String Hospital = "hospital";
-            Log.d("onClick", "Button is Clicked");
-            try {
-                mMap.clear();
-            }
-            catch (NullPointerException e){
-
-            }
-            ArrayList<String> url = new ArrayList<String>();
-            String urlHolder = getUrl(latitude, longitude, Hospital);
-
-            url.add(urlHolder);
-            Object[] DataTransfer = new Object[2];
-            DataTransfer[0] = mMap;
-            DataTransfer[1] = url.get(0);
-            //Log.d("onClick", url);
-            GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
-            getNearbyPlacesData.execute(DataTransfer);
-           // Toast.makeText(getActivity().getApplicationContext(),"Nearby Hospitals", Toast.LENGTH_LONG).show();
-
-            //new JSONTask().execute("http://jsonparsing.parseapp.com/jsonData/moviesDemoItem.txt");
-            new JSONTask().execute(url);
-    }
 
 
 
-    protected synchronized void buildGoogleApiClient() {
-        mGoogleApiClient = new GoogleApiClient.Builder(getActivity().getApplicationContext())
-                .addConnectionCallbacks(this)
-                .addOnConnectionFailedListener(this)
-                .addApi(LocationServices.API)
-                .build();
-        mGoogleApiClient.connect();
-        //automaticHospitalSearch();
-    }
+
 
     @Override
     public void onConnected(Bundle bundle) {
@@ -327,57 +414,14 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         }
     }
 
-    private String getUrl(double latitude, double longitude, String nearbyPlace) {
-        StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-        googlePlacesUrl.append("location=" + latitude + "," + longitude);
-        //googlePlacesUrl.append("&radius=8000");
-        googlePlacesUrl.append("&rankby=distance");
-        googlePlacesUrl.append("&name=hospital|center|medical");
-        googlePlacesUrl.append("&type=" + nearbyPlace);
-        googlePlacesUrl.append("&sensor=true");
-        googlePlacesUrl.append("&key=" + "AIzaSyCwWyLYaWT48CXkNBE7Le0naOl-A5VUVUE"); //dito yung api key nasa sticky note
-        //Main Key = AIzaSyCwWyLYaWT48CXkNBE7Le0naOl-A5VUVUE - Angel's key
-        //Alternative Key = AIzaSyBRaI6vWSTL-W1cJm-SB60xNBjlbb8TMaU - Raeven's key
-        Log.d("getUrl", googlePlacesUrl.toString());
-        return (googlePlacesUrl.toString());
-    }
+
 
     @Override
     public void onConnectionSuspended(int i) {
 
     }
 
-    public static boolean isConnectedToNetwork(Context context)
-    {
-        ConnectivityManager connectivityManager =
-                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-
-        return networkInfo != null && networkInfo.isConnected();
-
-    }
-
-    public boolean isLocationServiceEnabled(){
-        try {
-            LocationManager locManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-
-            if (locManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
-                //GPS enabled
-                return true;
-            }
-
-            else{
-                //GPS disabled
-                return false;
-            }
-        }
-
-        catch (NullPointerException e){
-
-        }
-        return false;
-    }
 
     //Pupunta lang dito pag naka on yung location.
     @Override
@@ -448,37 +492,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     }
 
 
-    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
-    public boolean checkLocationPermission(){
-        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
-                android.Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
 
-            // Asking user if explanation is needed
-            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
-                    android.Manifest.permission.ACCESS_FINE_LOCATION)) {
-
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
-
-                //Prompt the user once explanation has been shown
-                ActivityCompat.requestPermissions(getActivity(),
-                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                        MY_PERMISSIONS_REQUEST_LOCATION);
-
-
-            } else {
-                // No explanation needed, we can request the permission.
-                ActivityCompat.requestPermissions(getActivity(),
-                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                        MY_PERMISSIONS_REQUEST_LOCATION);
-            }
-            return false;
-        } else {
-            return true;
-        }
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -530,7 +544,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             JSONObject json;
             BufferedReader reader = null;
 
-
             try{
                 URL url2 = new URL(params[0].get(0));
                 connection = (HttpURLConnection) url2.openConnection();
@@ -546,6 +559,8 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 }
 
                 String finalJSON = buffer.toString();
+                ArrayList<String> JSONList = new ArrayList<>();
+                JSONList.add(finalJSON);
                 ArrayList<String> hospitalNamesList = new ArrayList<>();
                 ArrayList<String> hospitalVicinitiesList = new ArrayList<>();
                 ArrayList<String> hospitalPlaceIDList = new ArrayList<>();
@@ -572,10 +587,10 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                     String hospitalPlaceID = finalObject.getString("place_id");
                     hospitalPlaceIDList.add(hospitalPlaceID);
 
-                        JSONObject hospitalLatitude1 = finalObject.getJSONObject("geometry");
-                        JSONObject hospitalLatitude2 = hospitalLatitude1.getJSONObject("location");
-                        hospitalLatitude = hospitalLatitude2.getString("lat");
-                        hospitalLatitudeList.add(hospitalLatitude);
+                    JSONObject hospitalLatitude1 = finalObject.getJSONObject("geometry");
+                    JSONObject hospitalLatitude2 = hospitalLatitude1.getJSONObject("location");
+                    hospitalLatitude = hospitalLatitude2.getString("lat");
+                    hospitalLatitudeList.add(hospitalLatitude);
 
                     JSONObject hospitalLongitude1 = finalObject.getJSONObject("geometry");
                     JSONObject hospitalLongitude2 = hospitalLongitude1.getJSONObject("location");
@@ -587,7 +602,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
                 hospitalClass.putHospitalInformationList(hospitalNamesList, hospitalVicinitiesList, hospitalPlaceIDList,
                         hospitalLatitudeList, hospitalLongitudeList);
-                return null;
+                return JSONList;
             }
             catch (MalformedURLException e){
                 e.printStackTrace();
@@ -626,6 +641,12 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         protected void onPostExecute(ArrayList<String> testingArray) {
             //super.onPostExecute();
             //Log.d("DALIRI", "DALIRI MO");
+            Object[] DataTransfer = new Object[2];
+            DataTransfer[0] = mMap;
+            DataTransfer[1] = testingArray.get(0).toString();
+            //Log.d("onClick", url);
+            GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+            getNearbyPlacesData.execute(DataTransfer);
 
             List<Hospital> data = new ArrayList<>();
             int i = 0;
@@ -660,7 +681,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             progressDialog.dismiss();
         }
     }
-
 
 }
 

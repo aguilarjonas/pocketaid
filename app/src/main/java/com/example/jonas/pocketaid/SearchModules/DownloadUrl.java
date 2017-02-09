@@ -18,6 +18,7 @@ public class DownloadUrl {
         String data = "";
         InputStream iStream = null;
         HttpURLConnection urlConnection = null;
+        BufferedReader br = null;
         try {
             URL url = new URL(strUrl);
 
@@ -30,7 +31,7 @@ public class DownloadUrl {
             // Reading data from url
             iStream = urlConnection.getInputStream();
 
-            BufferedReader br = new BufferedReader(new InputStreamReader(iStream));
+            br = new BufferedReader(new InputStreamReader(iStream));
 
             StringBuffer sb = new StringBuffer();
 
@@ -40,14 +41,22 @@ public class DownloadUrl {
             }
 
             data = sb.toString();
-            Log.d("downloadUrl", data.toString());
+            //Log.d("downloadUrl", data.toString());
             br.close();
 
         } catch (Exception e) {
             Log.d("Exception", e.toString());
-        } finally {
-            iStream.close();
-            urlConnection.disconnect();
+        }  finally{
+            if (urlConnection != null){
+                urlConnection.disconnect();
+            }
+            try {
+                if (br != null){
+                    br.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return data;
     }

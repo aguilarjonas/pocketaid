@@ -61,7 +61,7 @@ public class DataParser {
         String longitude = "";
         String reference = "";
 
-        Log.d("getPlace", "Entered");
+        //Log.d("getPlace", "Entered");
 
         try {
             if (!googlePlaceJson.isNull("name")) {
@@ -78,7 +78,7 @@ public class DataParser {
             googlePlaceMap.put("lat", latitude);
             googlePlaceMap.put("lng", longitude);
             googlePlaceMap.put("reference", reference);
-            Log.d("getPlace", "Putting Places");
+            //Log.d("getPlace", "Putting Places");
         } catch (JSONException e) {
             Log.d("getPlace", "Error");
             e.printStackTrace();
