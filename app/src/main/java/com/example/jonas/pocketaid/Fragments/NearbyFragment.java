@@ -83,6 +83,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     private SlidingUpPanelLayout mLayout;
     private ImageView ivAnchor;
     private GoogleMap mMap;
+    private Snackbar snackbar;
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     String bufferCatcher = "";
@@ -168,14 +169,17 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
                 if (isLocationServiceEnabled() == false){
                     //Toast.makeText(getActivity().getApplicationContext(),"No location", Toast.LENGTH_LONG).show();
-                    Snackbar.make(getView(), "No location service", Snackbar.LENGTH_INDEFINITE)
-                            .setAction("Retry", new View.OnClickListener() {
+                    snackbar = Snackbar.make(getView(), "No location service", Snackbar.LENGTH_INDEFINITE);
+                    snackbar.setAction("Retry", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Fragment nearbyFragment = getFragmentManager().findFragmentByTag("Nearby");
+                                    getActivity().getSupportFragmentManager().popBackStack();
+                                    NearbyFragment nearbyFragment = new NearbyFragment();
                                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                                    fragmentTransaction.replace(R.id.fragment_container, nearbyFragment);
-                                    fragmentTransaction.commit();
+                                    fragmentTransaction.add(nearbyFragment, "Nearby")
+                                            .replace(R.id.fragment_container, nearbyFragment)
+                                            .addToBackStack("Nearby")
+                                            .commit();
                                 }
                             })
                             .show();
@@ -250,7 +254,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         googlePlacesUrl.append("&name=hospital|center|medical");
         googlePlacesUrl.append("&type=" + nearbyPlace);
         googlePlacesUrl.append("&sensor=true");
-        googlePlacesUrl.append("&key=" + "AIzaSyDaHKjPR-NLen5OL_UfGTr53d0oP6S0tzM"); //dito yung api key nasa sticky note
+        googlePlacesUrl.append("&key=" + "AIzaSyBRaI6vWSTL-W1cJm-SB60xNBjlbb8TMaU"); //dito yung api key nasa sticky note
         //Main Key = AIzaSyCwWyLYaWT48CXkNBE7Le0naOl-A5VUVUE - Angel's key
         //Alternative Key = AIzaSyBRaI6vWSTL-W1cJm-SB60xNBjlbb8TMaU - Raeven's key
         Log.d("getUrl", googlePlacesUrl.toString());
@@ -331,6 +335,15 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     public void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mapView.onPause();
+        if(snackbar != null && snackbar.isShown()) {
+            snackbar.dismiss();
+        }
     }
 
     @Override
