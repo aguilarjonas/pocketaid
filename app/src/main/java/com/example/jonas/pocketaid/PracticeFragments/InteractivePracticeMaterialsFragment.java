@@ -74,9 +74,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         nextButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
                 if (checkAnswers(interactiveSheet.checkAnswerSheet(CHOSEN_PRACTICE)) == false){
                     Toast.makeText(getActivity().getApplicationContext(), "Wrong Answer! Try Again", Toast.LENGTH_SHORT).show();
                 }
