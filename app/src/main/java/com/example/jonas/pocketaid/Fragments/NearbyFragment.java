@@ -114,6 +114,12 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         return rootView;
     }
 
+     /*
+        Function Name : initializeViews
+        Function Description : This function will be called in the onCreateView.
+                               This function will initialize the following elements from the XML.
+        Function Developer : Raeven Bauto
+     */
     public void initializeViews(ViewGroup rootView) {
         mapView = (MapView) rootView.findViewById(R.id.map);
         recyclerViewNearby = (RecyclerView)rootView.findViewById(R.id.recyclerView_nearby);
@@ -121,11 +127,25 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         mLayout = (SlidingUpPanelLayout) rootView.findViewById(R.id.sliding_layout);
     }
 
+     /*
+        Function Name : configureMap
+        Function Description : This function will be called in the onCreateView.
+                               This function will initialize the map and check the map
+                               to the server of Google if it is ready for use.
+        Function Developer : Raeven Bauto
+     */
     public void configureMap(Bundle savedInstanceState) {
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
     }
 
+     /*
+        Function Name : configureSlidingPanel
+        Function Description : This function will be called in the onCreateView.
+                               This function will initialize and customize the sliding panel
+                               in the Nearby Hospitals.
+        Function Developer : Raeven Bauto
+     */
     public void configureSlidingPanel() {
         mLayout.setAnchorPoint(0.5f);
         mLayout.setPanelState(SlidingUpPanelLayout.PanelState.ANCHORED);
@@ -145,6 +165,11 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         });
     }
 
+    /*
+       Function Name : checkVersionAndGooglePlayServices
+       Function Description : This function will check the phone's OS version.
+       Function Developer : Angel Montoya
+    */
     public void checkVersionAndGooglePlayServices() {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
@@ -195,6 +220,13 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         }
         
     }
+
+     /*
+        Function Name : CheckGooglePlayServices
+        Function Description : This function will be called in the onCreateView.
+                               This function has been created to maintain readability of codes.
+        Function Developer : Angel Montoya
+     */
 
     private boolean CheckGooglePlayServices() {
         GoogleApiAvailability googleAPI = GoogleApiAvailability.getInstance();
