@@ -160,9 +160,10 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
         StringBuilder hospitalInfoURL = new StringBuilder("https://maps.googleapis.com/maps/api/place/details/json?");
         String angelKey = "AIzaSyATuUiZUkEc_UgHuqsBJa1oqaODI-3mLs0";
         String raevenKey = "AIzaSyBRaI6vWSTL-W1cJm-SB60xNBjlbb8TMaU";
+        String testKey = "AIzaSyDaHKjPR-NLen5OL_UfGTr53d0oP6S0tzM";
 
         hospitalInfoURL.append("placeid=" + placeID);
-        hospitalInfoURL.append("&key=" + angelKey );
+        hospitalInfoURL.append("&key=" + testKey );
 
         Log.d("PLACEID JSON", String.valueOf(hospitalInfoURL));
         //Main Key = AIzaSyATuUiZUkEc_UgHuqsBJa1oqaODI-3mLs0 - Angel's key

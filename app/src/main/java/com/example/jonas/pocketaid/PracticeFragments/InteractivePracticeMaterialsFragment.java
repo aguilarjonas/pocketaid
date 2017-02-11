@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jonas.pocketaid.InteractiveModules.InteractiveAnswerSheet;
 import com.example.jonas.pocketaid.R;
 
 import java.util.ArrayList;
@@ -47,83 +48,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
     private String injuryType;
 
     ArrayList<String> answersUser = new ArrayList<String>();
-    final ArrayList<String> ANSWER_ABRASION = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
+    InteractiveAnswerSheet interactiveSheet = new InteractiveAnswerSheet();
 
-    final ArrayList<String> ANSWER_ANIMAL_BITES = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_INSECT_BITES = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_THERMAL = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_CHEMICAL = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_THERMAL2 = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_CONCUSSION = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_CONTUSION = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_FRACTURE = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_MAJOR_LACERATION = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_MINOR_LACERATION = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_PUNCTURE_SEVERE = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_PUNCTURE_SLIGHT = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
 
 
     final ArrayList<ArrayList<String>> categoryAnswer = new ArrayList<ArrayList<String>>();
@@ -137,19 +63,21 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final String chosenPractice = getArguments().getString("chosenPractice");
+        final String CHOSEN_PRACTICE = getArguments().getString("chosenPractice");
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_interactive_practice_materials, container, false);
 
         setImages(rootView);
         setImageOnClicks();
-        chosenPracticeChooser(chosenPractice);
+        chosenPracticeChooser(CHOSEN_PRACTICE);
 
 
         nextButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (checkAnswers(checkAnswerSheet()) == false){
+
+
+                if (checkAnswers(interactiveSheet.checkAnswerSheet(CHOSEN_PRACTICE)) == false){
                     Toast.makeText(getActivity().getApplicationContext(), "Wrong Answer! Try Again", Toast.LENGTH_SHORT).show();
                 }
 
@@ -157,7 +85,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                     answersUser.clear();
 
                     // TODO Auto-generated method stub
-                    chosenPracticeChooser(chosenPractice);
+                    chosenPracticeChooser(CHOSEN_PRACTICE);
                     ListFragment listFrag = new ListFragment();
                     Bundle args = new Bundle();
                     args.putString("chosenInjury", injuryType);
@@ -299,52 +227,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         });
     }
 
-    public ArrayList<String> checkAnswerSheet(){
-
-        ArrayList<String> answerSheetDefault = new ArrayList<String>();
-
-        if (injuryType == "Abrasion"){
-            return ANSWER_ABRASION;
-        }
-        else if (injuryType == "Animal Bites"){
-            return ANSWER_ANIMAL_BITES;
-
-        } else if ((injuryType == "Insect Bites")){
-            return ANSWER_INSECT_BITES;
-
-        } else if ((injuryType == "Thermal Burns")){
-            return ANSWER_THERMAL;
-
-        } else if ((injuryType == "Chemical Burns")){
-            return ANSWER_CHEMICAL;
-
-        } else if ((injuryType == "3rd Degree Burns")){
-            return ANSWER_THERMAL2;
-
-        } else if ((injuryType == "Concussion")){
-            return ANSWER_CONCUSSION;
-
-        } else if ((injuryType == "Contusion")){
-            return ANSWER_CONTUSION;
-
-        } else if ((injuryType == "Fracture")){
-            return ANSWER_FRACTURE;
-
-        } else if ((injuryType == "Major Laceration")){
-            return ANSWER_MAJOR_LACERATION;
-
-        } else if ((injuryType == "Minor Laceration")){
-            return ANSWER_MINOR_LACERATION;
-
-        } else if ((injuryType == "Puncture (Severe Bleeding)")){
-            return ANSWER_PUNCTURE_SEVERE;
-
-        } else if ((injuryType == "Puncture (Slightly Bleeding)")){
-            return ANSWER_PUNCTURE_SLIGHT;
-        }
-
-        return answerSheetDefault;
-    }
 
     public boolean checkAnswers(ArrayList<String> answerSheet){
 
@@ -387,7 +269,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         if (chosenPractice.equals("Abrasion")){
             injuryType = "Abrasion";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            abrasionPractice();
+            abrasionPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Animal Bites")){
             injuryType = "Animal Bites";
@@ -460,7 +342,18 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_6_check.setVisibility(View.INVISIBLE);
     }
 
-    public void abrasionPractice (){
+    public void setTheChosenText(ArrayList<String> textHolder){
+
+        textView_1.setText(textHolder.get(0));
+        textView_2.setText(textHolder.get(1));
+        textView_3.setText(textHolder.get(2));
+        textView_4.setText(textHolder.get(3));
+        textView_5.setText(textHolder.get(4));
+        textView_6.setText(textHolder.get(5));
+
+    }
+
+    public void abrasionPractice (String injuryType){
         //Set the materials Image here.
         setChecksAsInvisible();
         imageView_1.setImageResource(R.drawable.ic_laceration);
@@ -470,13 +363,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG ABRASION");
-
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void animalBitesPractice (){
@@ -489,13 +376,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG ANIMAL BITES");
-
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void insectBitesPractice (){
@@ -508,13 +389,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG INSECT BITES");
-
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void thermalPractice (){
@@ -527,13 +402,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG THERMAL");
-
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void thermalPractice2 (){
@@ -546,13 +415,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG THERMAL2");
-
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
 
@@ -567,13 +430,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG CHEMICAL");
-
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void concussionPractice (){
@@ -586,12 +443,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG CONCUSSION");
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void contussionPractice (){
@@ -604,14 +456,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG CONTUSION");
-
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
+
     public void fracturePractice (){
         //Set the materials Image here.
         setChecksAsInvisible();
@@ -622,13 +469,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG FRACTURE");
-
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void majorLacerationPractice (){
@@ -641,13 +482,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG MAJOR LACERATION");
-
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void minorLacerationPractice (){
@@ -660,13 +495,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG MINOR LACERATION");
-
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void punctureSeverePractice (){
@@ -679,13 +508,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG SEVERE PUNCTURE");
-
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void punctureSlightPractice (){
@@ -698,13 +521,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         imageView_5.setImageResource(R.drawable.ic_fracture);
         imageView_6.setImageResource(R.drawable.ic_insect);
 
-        textView_1.setText("I");
-        textView_2.setText("HATE");
-        textView_3.setText("THESIS");
-        textView_4.setText("AYOKO");
-        textView_5.setText("NA");
-        textView_6.setText("MAG SlIGHT PUNCTURE");
-
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
 }
