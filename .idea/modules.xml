@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Pocketaid.iml" filepath="$PROJECT_DIR$/Pocketaid.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pocketaid.iml" filepath="$PROJECT_DIR$/pocketaid.iml" />
     </modules>
   </component>
 </project>
