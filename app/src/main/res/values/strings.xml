@@ -307,7 +307,7 @@
     <string-array name="concussion_recommended">
         <item>"Apply cold compress or cold pack to the injured area for 20 minutes every 3 hours."</item>
         <item>"Observe your child carefully for the next 24 hours.</item>
-        <item>If there are any signs of internal injury, call 911 or use our Nearby Hospital feature."</item>
+        <item>"If there are any signs of internal injury, call 911 or use our Nearby Hospital feature."</item>
     </string-array>
 
 
