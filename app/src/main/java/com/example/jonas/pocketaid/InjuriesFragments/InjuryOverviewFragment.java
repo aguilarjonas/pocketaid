@@ -47,35 +47,47 @@ public class InjuryOverviewFragment extends Fragment {
         return rootView;
     }
 
+    /*
+        Function Name : determineInjuryType
+        Function Description :  This function will be called in the onCreateView
+                                This function determines what type of injury was passed by InjuryTabLayout
+        Function Developer : Jonas Aguilar
+     */
     public void determineInjury(String injuryChosen, ViewGroup rootView) {
         if(injuryChosen.toLowerCase().equals("abrasion")) {
             injuryType = "abrasion";
-            configure(injuryType, rootView);
+            initializeView(injuryType, rootView);
         } else if(injuryChosen.toLowerCase().equals("bites")) {
             injuryType = "bites";
-            configure(injuryType, rootView);
+            initializeView(injuryType, rootView);
         } else if(injuryChosen.toLowerCase().equals("burns")) {
             injuryType = "burns";
-            configure(injuryType, rootView);
+            initializeView(injuryType, rootView);
         } else if(injuryChosen.toLowerCase().equals("concussion")) {
             injuryType = "concussion";
-            configure(injuryType, rootView);
+            initializeView(injuryType, rootView);
         } else if(injuryChosen.toLowerCase().equals("contusion")) {
             injuryType = "contusion";
-            configure(injuryType, rootView);
+            initializeView(injuryType, rootView);
         } else if(injuryChosen.toLowerCase().equals("fracture")) {
             injuryType = "fracture";
-            configure(injuryType, rootView);
+            initializeView(injuryType, rootView);
         } else if(injuryChosen.toLowerCase().equals("laceration")) {
             injuryType = "laceration";
-            configure(injuryType, rootView);
+            initializeView(injuryType, rootView);
         } else if(injuryChosen.toLowerCase().equals("puncture")) {
             injuryType = "puncture";
-            configure(injuryType, rootView);
+            initializeView(injuryType, rootView);
         }
     }
 
-    public void configure(String injury, ViewGroup rootView) {
+    /*
+        Function Name : initializeView
+        Function Description :  This function will be called in the onCreateView
+                                This function determines what type of injury was passed by InjuryTabLayout
+        Function Developer : Jonas Aguilar
+     */
+    public void initializeView(String injury, ViewGroup rootView) {
         injury_logo = (ImageView) rootView.findViewById(R.id.injury_logo);
         injury_logo.setImageResource(getResources().getIdentifier("ic_" + injury, "drawable", getActivity().getPackageName()));
 

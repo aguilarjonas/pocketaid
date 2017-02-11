@@ -32,21 +32,8 @@ public class InjuriesFragment extends Fragment {
 
     private ListView listView;
     private SearchView searchView;
-    private FloatingActionButton fab;
     private String[] injuries;
     InjuryListAdapter listAdapter;
-
-    //list of injuries
-//    String[] injuries = {
-//            "Abrasion",
-//            "Bites",
-//            "Burns",
-//            "Concussion",
-//            "Contusion",
-//            "Fracture",
-//            "Laceration",
-//            "Puncture"
-//    };
 
     //icons
     Integer[] icon = {
@@ -61,9 +48,7 @@ public class InjuriesFragment extends Fragment {
     };
 
 
-    public InjuriesFragment() {
-        // Required empty public constructor
-    }
+    public InjuriesFragment() { /** Required empty public constructor **/ }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -75,15 +60,40 @@ public class InjuriesFragment extends Fragment {
         ((MainActivity) getActivity()).hideOrShowFAB("show");
         rootView.requestFocus();
 
+        initializeViewsAndConfigure(rootView);
+        searchViewListener();
+        listViewOnItemClick();
+
+        return rootView;
+    }
+
+    /*
+        Function Name : initializeViewsAndConfigure
+        Function Description :  This function will be called in the onCreateView
+                                This function initializes the views needed in the fragment
+                                This function sets the attributes of the SearchView
+                                This function creates and sets an adapter in the ListView
+        Function Developer : Jonas Aguilar
+     */
+    public void initializeViewsAndConfigure(ViewGroup rootView) {
         injuries = getResources().getStringArray(R.array.injuries);
         listView = (ListView) rootView.findViewById(R.id.injuries_listview);
         searchView = (SearchView) rootView.findViewById(R.id.injuries_search);
+
         searchView.setIconified(false);
         searchView.clearFocus();
 
-        listAdapter = new InjuryListAdapter(getActivity(), getInjuries(injuries));
+        listAdapter = new InjuryListAdapter(getActivity(), setAndGetInjuries(injuries));
         listView.setAdapter(listAdapter);
+    }
 
+    /*
+        Function Name : searchViewListener
+        Function Description :  This function will be called in the onCreateView
+                                This function listens for any changes in the text when using the SearchView
+        Function Developer : Jonas Aguilar
+     */
+    public void searchViewListener() {
         //searching for an injury
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -97,7 +107,15 @@ public class InjuriesFragment extends Fragment {
                 return false;
             }
         });
+    }
 
+    /*
+        Function Name : listViewOnItemClick
+        Function Description :  This function will be called in the onCreateView
+                                This function observes if an item in the list is clicked
+        Function Developer : Jonas Aguilar
+     */
+    public void listViewOnItemClick() {
         //clicking an item on list
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -105,249 +123,58 @@ public class InjuriesFragment extends Fragment {
                 TextView injuryName = (TextView) view.findViewById(R.id.injury_name);
                 String injuryInString = injuryName.getText().toString().toLowerCase();
                 if(injuryInString.equals("abrasion")) {
-//                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
-//                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                    fragmentTransaction.add(abrasionFragment, "Abrasion")
-//                            .replace(R.id.fragment_container, abrasionFragment)
-//                            .addToBackStack("Abrasion")
-//                            .commit();
-                    InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
-                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-
-                    //To make fragments dynamic
-                    Bundle args = new Bundle();
-                    String injury = "Abrasion";
-                    args.putString("injury", injury);
-                    injuryTabLayout.setArguments(args);
-
-                    fragmentTransaction.add(injuryTabLayout, "injuryTabs")
-                            .replace(R.id.fragment_container, injuryTabLayout)
-                            .addToBackStack("injuryTab")
-                            .commit();
-
-                    hideKeyboard();
+                    setInjuryTabLayout("Abrasion");
                 } else if(injuryInString.equals("bites")) {
-//                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
-//                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                    //To make fragments dynamic
-//                    Bundle args = new Bundle();
-//                    String injury = "Bites";
-//                    args.putString("injury", injury);
-//                    abrasionFragment.setArguments(args);
-//
-//                    fragmentTransaction.add(abrasionFragment, "Bites")
-//                            .replace(R.id.fragment_container, abrasionFragment)
-//                            .addToBackStack("Bites")
-//                            .commit();
-
-                    InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
-                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-
-                    //To make fragments dynamic
-                    Bundle args = new Bundle();
-                    String injury = "Bites";
-                    args.putString("injury", injury);
-                    injuryTabLayout.setArguments(args);
-
-                    fragmentTransaction.add(injuryTabLayout, "injuryTabs")
-                            .replace(R.id.fragment_container, injuryTabLayout)
-                            .addToBackStack("injuryTab")
-                            .commit();
-
-                    hideKeyboard();
+                    setInjuryTabLayout("Bites");
                 } else if(injuryInString.equals("burns")) {
-//                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
-//                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                    //To make fragments dynamic
-//                    Bundle args = new Bundle();
-//                    String injury = "Burns";
-//                    args.putString("injury", injury);
-//                    abrasionFragment.setArguments(args);
-//
-//                    fragmentTransaction.add(abrasionFragment, "Burns")
-//                            .replace(R.id.fragment_container, abrasionFragment)
-//                            .addToBackStack("Burns")
-//                            .commit();
-                    InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
-                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-
-                    //To make fragments dynamic
-                    Bundle args = new Bundle();
-                    String injury = "Burns";
-                    args.putString("injury", injury);
-                    injuryTabLayout.setArguments(args);
-
-                    fragmentTransaction.add(injuryTabLayout, "injuryTabs")
-                            .replace(R.id.fragment_container, injuryTabLayout)
-                            .addToBackStack("injuryTab")
-                            .commit();
-
-                    hideKeyboard();
+                    setInjuryTabLayout("Burns");
                 } else if(injuryInString.equals("concussion")) {
-//                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
-//                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                    //To make fragments dynamic
-//                    Bundle args = new Bundle();
-//                    String injury = "Concussion";
-//                    args.putString("injury", injury);
-//                    abrasionFragment.setArguments(args);
-//
-//                    fragmentTransaction.add(abrasionFragment, "Concussion")
-//                            .replace(R.id.fragment_container, abrasionFragment)
-//                            .addToBackStack("Concussion")
-//                            .commit();
-                    InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
-                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-
-                    //To make fragments dynamic
-                    Bundle args = new Bundle();
-                    String injury = "Concussion";
-                    args.putString("injury", injury);
-                    injuryTabLayout.setArguments(args);
-
-                    fragmentTransaction.add(injuryTabLayout, "injuryTabs")
-                            .replace(R.id.fragment_container, injuryTabLayout)
-                            .addToBackStack("injuryTab")
-                            .commit();
-
-                    hideKeyboard();
+                    setInjuryTabLayout("Concussion");
                 } else if(injuryInString.equals("contusion")) {
-//                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
-//                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                    //To make fragments dynamic
-//                    Bundle args = new Bundle();
-//                    String injury = "Contusion";
-//                    args.putString("injury", injury);
-//                    abrasionFragment.setArguments(args);
-//
-//                    fragmentTransaction.add(abrasionFragment, "Contusion")
-//                            .replace(R.id.fragment_container, abrasionFragment)
-//                            .addToBackStack("Contusion")
-//                            .commit();
-                    InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
-                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-
-                    //To make fragments dynamic
-                    Bundle args = new Bundle();
-                    String injury = "Contusion";
-                    args.putString("injury", injury);
-                    injuryTabLayout.setArguments(args);
-
-                    fragmentTransaction.add(injuryTabLayout, "injuryTabs")
-                            .replace(R.id.fragment_container, injuryTabLayout)
-                            .addToBackStack("injuryTab")
-                            .commit();
-
-                    hideKeyboard();
+                    setInjuryTabLayout("Contusion");
                 } else if(injuryInString.equals("fracture")) {
-//                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
-//                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                    //To make fragments dynamic
-//                    Bundle args = new Bundle();
-//                    String injury = "Fracture";
-//                    args.putString("injury", injury);
-//                    abrasionFragment.setArguments(args);
-//
-//                    fragmentTransaction.add(abrasionFragment, "Fracture")
-//                            .replace(R.id.fragment_container, abrasionFragment)
-//                            .addToBackStack("Fracture")
-//                            .commit();
-                    InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
-                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-
-                    //To make fragments dynamic
-                    Bundle args = new Bundle();
-                    String injury = "Fracture";
-                    args.putString("injury", injury);
-                    injuryTabLayout.setArguments(args);
-
-                    fragmentTransaction.add(injuryTabLayout, "injuryTabs")
-                            .replace(R.id.fragment_container, injuryTabLayout)
-                            .addToBackStack("injuryTab")
-                            .commit();
-
-                    hideKeyboard();
+                    setInjuryTabLayout("Fracture");
                 } else if(injuryInString.equals("laceration")) {
-//                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
-//                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                    //To make fragments dynamic
-//                    Bundle args = new Bundle();
-//                    String injury = "Laceration";
-//                    args.putString("injury", injury);
-//                    abrasionFragment.setArguments(args);
-//
-//                    fragmentTransaction.add(abrasionFragment, "Laceration")
-//                            .replace(R.id.fragment_container, abrasionFragment)
-//                            .addToBackStack("Laceration")
-//                            .commit();
-                    InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
-                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-
-                    //To make fragments dynamic
-                    Bundle args = new Bundle();
-                    String injury = "Laceration";
-                    args.putString("injury", injury);
-                    injuryTabLayout.setArguments(args);
-
-                    fragmentTransaction.add(injuryTabLayout, "injuryTabs")
-                            .replace(R.id.fragment_container, injuryTabLayout)
-                            .addToBackStack("injuryTab")
-                            .commit();
-
-                    hideKeyboard();
+                    setInjuryTabLayout("Laceration");
                 } else if(injuryInString.equals("puncture")) {
-//                    InjuryInformationFragment abrasionFragment = new InjuryInformationFragment();
-//                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                    //To make fragments dynamic
-//                    Bundle args = new Bundle();
-//                    String injury = "Puncture";
-//                    args.putString("injury", injury);
-//                    abrasionFragment.setArguments(args);
-//
-//                    fragmentTransaction.add(abrasionFragment, "Puncture")
-//                            .replace(R.id.fragment_container, abrasionFragment)
-//                            .addToBackStack("Puncture")
-//                            .commit();
-                    InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
-                    FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
-                            android.R.anim.slide_in_left, android.R.anim.slide_out_right);
-
-                    //To make fragments dynamic
-                    Bundle args = new Bundle();
-                    String injury = "Puncture";
-                    args.putString("injury", injury);
-                    injuryTabLayout.setArguments(args);
-
-                    fragmentTransaction.add(injuryTabLayout, "injuryTabs")
-                            .replace(R.id.fragment_container, injuryTabLayout)
-                            .addToBackStack("injuryTab")
-                            .commit();
-
-                    hideKeyboard();
+                    setInjuryTabLayout("Puncture");
                 }
             }
         });
-
-        return rootView;
     }
 
-    //adding of injuries to adapter
-    private ArrayList<Injury> getInjuries(String[] injuries) {
+    /*
+        Function Name : setInjuryTabLayout
+        Function Description :  This function will be called in the listViewOnItemClick
+                                This function puts an argument and passes it to InjuryTabLayout
+        Function Developer : Jonas Aguilar
+     */
+    public void setInjuryTabLayout(String injury) {
+        InjuryTabLayout injuryTabLayout = new InjuryTabLayout();
+        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+
+        //To make fragments dynamic
+        Bundle args = new Bundle();
+        args.putString("injury", injury);
+        injuryTabLayout.setArguments(args);
+
+        fragmentTransaction.add(injuryTabLayout, "injuryTabs")
+                .replace(R.id.fragment_container, injuryTabLayout)
+                .addToBackStack("injuryTab")
+                .commit();
+
+        hideKeyboard();
+    }
+
+    /*
+        Function Name : setAndGetInjuries
+        Function Description :  This function will be called in the initializeViewsAndConfigure
+                                This function adds and returns the list of injuries
+        Function Developer : Jonas Aguilar
+     */
+    private ArrayList<Injury> setAndGetInjuries(String[] injuries) {
         ArrayList<Injury> injuriesAL = new ArrayList<Injury>();
         Injury injury;
 
@@ -359,6 +186,12 @@ public class InjuriesFragment extends Fragment {
         return injuriesAL;
     }
 
+    /*
+        Function Name : hideKeyboard
+        Function Description :  This function will be called in the setInjuryTabLayout
+                                This function hides the keyboard after moving from the InjuriesFragment to InjuryTabLayout
+        Function Developer : Jonas Aguilar
+     */
     public void hideKeyboard() {
         try {
             InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(getContext().INPUT_METHOD_SERVICE);

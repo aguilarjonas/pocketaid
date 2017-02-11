@@ -51,16 +51,21 @@ public class InjuryStepsFragment extends Fragment {
 
         //injury from InjuryInformationFragment
         final String injury = getArguments().getString("injury");
+
         initializeViews(rootView);
-
         disableSpinner(spinnerOptions, injury);
-        setSpinnerOptions(spinnerOptions, injury);
-
+        setStepsAndImages(spinnerOptions, injury);
         setRecyclerViewAsNotScrollable();
 
         return rootView;
     }
 
+    /*
+        Function Name : initializeView
+        Function Description :  This function will be called in the onCreateView
+                                This function initializes the different views/controls used by the fragment
+        Function Developer : Jonas Aguilar
+     */
     public void initializeViews(ViewGroup rootView) {
         spinnerOptions = (Spinner) rootView.findViewById(R.id.spinner);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.listview_firstaid_steps);
@@ -71,14 +76,27 @@ public class InjuryStepsFragment extends Fragment {
         tv_electrical = (TextView) rootView.findViewById(R.id.textview_electrical);
     }
 
+    /*
+        Function Name : disableSpinner
+        Function Description :  This function will be called in the onCreateView
+                                This function disables the spinner for some injuries
+        Function Developer : Jonas Aguilar
+     */
     public void disableSpinner(Spinner spinnerOptions, String injury) {
-        if(injury.toLowerCase().equals("animal") || injury.toLowerCase().equals("concussion") || injury.toLowerCase().equals("contusion") ||
-                injury.toLowerCase().equals("major") || injury.toLowerCase().equals("slight")) {
+        if(injury.toLowerCase().equals("animal") || injury.toLowerCase().equals("concussion")
+                || injury.toLowerCase().equals("contusion") || injury.toLowerCase().equals("major")
+                || injury.toLowerCase().equals("slight")) {
             spinnerOptions.setEnabled(false);
         }
     }
 
-    public void setSpinnerOptions(Spinner spinnerOptions, final String injury) {
+    /*
+        Function Name : setStepsAndImages
+        Function Description :  This function will be called in the onCreateView
+                                This function sets the different steps and images of the injury
+        Function Developer : Jonas Aguilar
+     */
+    public void setStepsAndImages(Spinner spinnerOptions, final String injury) {
         spinnerOptions.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -155,9 +173,9 @@ public class InjuryStepsFragment extends Fragment {
                     }
                 } else if(injury.toLowerCase().equals("concussion")) {
                     if(position == 0) {
-                        setEmptyArrayString(2);
+                        setEmptyArrayString(3);
                         steps = getResources().getStringArray(R.array.concussion_recommended);
-                        imgSteps = new int[] { 0, 0 };
+                        imgSteps = new int[] { 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("contusion")) {
@@ -169,9 +187,9 @@ public class InjuryStepsFragment extends Fragment {
                     }
                 } else if(injury.toLowerCase().equals("fracture")) {
                     if(position == 0) {
-                        setEmptyArrayString(6);
+                        setEmptyArrayString(8);
                         steps = getResources().getStringArray(R.array.fracture_recommended);
-                        imgSteps = new int[] { 0, 0, 0, 0, 0, 0 };
+                        imgSteps = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("major")) {
@@ -220,11 +238,23 @@ public class InjuryStepsFragment extends Fragment {
         });
     }
 
+    /*
+        Function Name : setInjuryStepAdapter
+        Function Description :  This function will be called in the setStepsAndImages
+                                This function sets the adapter, passing the steps, images, and notes if available
+        Function Developer : Jonas Aguilar
+     */
     public void setInjuryStepAdapter(String[] step, int[] imgStep, String[] notes, RecyclerView recyclerView) {
         RecyclerStepsAdapter adapter = new RecyclerStepsAdapter(getActivity().getApplicationContext(), step, imgStep, notes);
         recyclerView.setAdapter(adapter);
     }
 
+    /*
+        Function Name : setRecyclerViewAsNotScrollable
+        Function Description :  This function will be called in the onCreateView
+                                This function disables the scrollable function of the RecyclerView
+        Function Developer : Jonas Aguilar
+     */
     public void setRecyclerViewAsNotScrollable() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()) {
             @Override
@@ -246,6 +276,12 @@ public class InjuryStepsFragment extends Fragment {
         });
     }
 
+    /*
+        Function Name : setEmptyArrayString
+        Function Description :  This function will be called in the setStepsAndImages
+                                This function sets the notes to empty strings
+        Function Developer : Jonas Aguilar
+     */
     public void setEmptyArrayString(int number) {
         notes = new String[number];
         Arrays.fill(notes, "");

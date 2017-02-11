@@ -59,6 +59,12 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         return rootView;
     }
 
+    /*
+        Function Name : determineInjuryType
+        Function Description :  This function will be called in the onCreateView
+                                This function determines what type of injury was passed by InjuryTabLayout
+        Function Developer : Jonas Aguilar
+     */
     public void determineInjuryType(String chosenInjury) {
         if (chosenInjury.equals("Abrasion")){
             injuryType = "Abrasion";
@@ -95,12 +101,24 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         }
     }
 
+    /*
+        Function Name : initializeView
+        Function Description :  This function will be called in the onCreateView
+                                This function initializes the different views/controls used by the fragment
+        Function Developer : Jonas Aguilar
+     */
     public void initializeViews(ViewGroup rootView) {
         playVideoImage = (ImageView) rootView.findViewById(R.id.imageView_play);
         downloadSwitch = (Switch) rootView.findViewById(R.id.switch_download);
         videoView = (VideoView) rootView.findViewById(R.id.injury_video);
     }
 
+    /*
+        Function Name : inflateStepsFragment
+        Function Description :  This function will be called in the onCreateView
+                                This function inflates the steps fragment below the video
+        Function Developer : Jonas Aguilar
+     */
     public void inflateStepsFragment(){
         InjuryStepsFragment injuryStepsFragment = new InjuryStepsFragment();
         Bundle args = new Bundle();
@@ -110,6 +128,14 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         fragmentTransaction.replace(R.id.fragment_steps_second, injuryStepsFragment).commit();
     }
 
+    /*
+        Function Name : downloadSwitchListener
+        Function Description :  This function will be called in the onCreateView
+                                This function observes the Switch behavior (onClick)
+                                This function checks if the file was downloaded and changes the textview
+                                    from Download to Downloaded or vice versa
+        Function Developer : Jonas Aguilar
+     */
     public void downloadSwitchListener() {
         File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         videoFile = new File(extStore.getAbsolutePath(), injuryType + ".mp4");
@@ -145,6 +171,12 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         });
     }
 
+    /*
+        Function Name : videoStreamListener
+        Function Description :  This function will be called in the onCreateView
+                                This function observes the behavior of the Play Button
+        Function Developer : Jonas Aguilar
+     */
     public void videoStreamListener() {
         playVideoImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,6 +197,12 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         });
     }
 
+    /*
+        Function Name : downloadTutorial
+        Function Description :  This function will be called in the downloadSwitchListener
+                                This function downloads the injury video when the switch is clicked
+        Function Developer : Jonas Aguilar
+     */
     public void downloadTutorial() {
         myURL = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
 
