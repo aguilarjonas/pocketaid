@@ -34,10 +34,6 @@
     android:layout_marginLeft="40dp"
     android:layout_height="match_parent">
 
-    <com.example.jonas.pocketaid.InteractivePracticeSwipeRefreshLayout.MySwipeRefreshLayout
-        android:id="@+id/swipe_refresh_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -48,7 +44,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
         </FrameLayout>
-    </com.example.jonas.pocketaid.InteractivePracticeSwipeRefreshLayout.MySwipeRefreshLayout>
 </FrameLayout>
 <FrameLayout
     android:layout_width="match_parent"

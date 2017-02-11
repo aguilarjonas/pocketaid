@@ -20,9 +20,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.util.Pair;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +32,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jonas.pocketaid.Adapters.PracticeItemAdapter;
-import com.example.jonas.pocketaid.InteractivePracticeSwipeRefreshLayout.MySwipeRefreshLayout;
 import com.example.jonas.pocketaid.R;
 import com.woxthebox.draglistview.DragItem;
 import com.woxthebox.draglistview.DragListView;
@@ -47,7 +44,6 @@ public class ListFragment extends Fragment {
 
     private ArrayList<Pair<Long, String>> mItemArray;
     private DragListView mDragListView;
-    private MySwipeRefreshLayout mRefreshLayout;
     private ArrayAdapter<Integer> stepNumberAdapter;
     String[] abrasionProcedure, animalBitesProcedure, insectBitesProcedure, thermalBurnProcedure, thirdDegreeBurnProcedure, concussionProcedure, contusionProcedure, fractureProcedure,
              majorLacerationProcedure, minorLacerationProcedure, slightPunctureProcedure, severePunctureProcedure, chemicalBurnProcedure, electricalBurnProcedure;
@@ -57,7 +53,6 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.list_layout, container, false);
-        mRefreshLayout = (MySwipeRefreshLayout) rootView.findViewById(R.id.swipe_refresh_layout);
         mDragListView = (DragListView) rootView.findViewById(R.id.drag_list_view);
         mDragListView.getRecyclerView().setVerticalScrollBarEnabled(true);
         abrasionProcedure = getResources().getStringArray(R.array.abrasion_recommended);
@@ -379,30 +374,15 @@ public class ListFragment extends Fragment {
         mDragListView.setDragListListener(new DragListView.DragListListenerAdapter() {
             @Override
             public void onItemDragStarted(int position) {
-                mRefreshLayout.setEnabled(false);
+
             }
             @Override
             public void onItemDragEnded(int fromPosition, int toPosition) {
-                mRefreshLayout.setEnabled(true);
                     if (Long.valueOf(toPosition).equals((Long)(mItemArray.get(toPosition).first))) {
                         Toast.makeText(mDragListView.getContext(), "Correct position", Toast.LENGTH_SHORT).show();
                     } else {
                         Toast.makeText(mDragListView.getContext(), "Incorrect position", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
-
-        mRefreshLayout.setScrollingView(mDragListView.getRecyclerView());
-        mRefreshLayout.setColorSchemeColors(ContextCompat.getColor(getContext(), R.color.colorAccent));
-        mRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                mRefreshLayout.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mRefreshLayout.setRefreshing(false);
-                    }
-                }, 2000);
             }
         });
         setupListRecyclerView();
