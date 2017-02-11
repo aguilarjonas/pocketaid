@@ -223,8 +223,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
      /*
         Function Name : CheckGooglePlayServices
-        Function Description : This function will be called in the onCreateView.
-                               This function has been created to maintain readability of codes.
+        Function Description : This function has will check the Google Play Services
         Function Developer : Angel Montoya
      */
 
@@ -241,6 +240,12 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         return true;
     }
 
+      /*
+        Function Name : automaticHospitalSearch
+        Function Description : This function will trigger functions that will retrieve the
+                                nearby hospitals
+        Function Developer : Raeven Bauto
+     */
     public void automaticHospitalSearch() {
         String Hospital = "hospital";
         //Log.d("onClick", "Button is Clicked");
@@ -263,11 +268,21 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
     }
 
+     /*
+        Function Name : catchBufferString
+        Function Description : This function will catch the JSON from DataParser.java.
+        Function Developer : Raeven Bauto
+     */
     public void catchBufferString(String holder){
         bufferCatcher = holder;
         //Log.e("HELLO", bufferCatcher);
     }
 
+    /*
+        Function Name : buildgoogleApiClient
+        Function Description : This function will build the Google API client.
+        Function Developer : Angel Montoya
+     */
     protected synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity().getApplicationContext())
                 .addConnectionCallbacks(this)
@@ -278,6 +293,12 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         //automaticHospitalSearch();
     }
 
+
+     /*
+        Function Name : getUrl
+        Function Description : This function will build the URL in getting the JSON.
+        Function Developer : Raeven Bauto
+     */
     private String getUrl(double latitude, double longitude, String nearbyPlace) {
         StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
         googlePlacesUrl.append("location=" + latitude + "," + longitude);
@@ -293,6 +314,12 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         return (googlePlacesUrl.toString());
     }
 
+     /*
+        Function Name : isConnectedToNetwork
+        Function Description : This function will check if the phone is connected to the internet.
+        Function Developer : Raeven Bauto
+     */
+
     public static boolean isConnectedToNetwork(Context context)
     {
         ConnectivityManager connectivityManager =
@@ -303,6 +330,12 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         return networkInfo != null && networkInfo.isConnected();
 
     }
+
+     /*
+        Function Name : isLocationServiceEnabled
+        Function Description : This function will check if the location is turned on.
+        Function Developer : Raeven Bauto
+     */
 
     public boolean isLocationServiceEnabled(){
         try {
