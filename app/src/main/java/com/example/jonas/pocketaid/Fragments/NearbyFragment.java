@@ -214,6 +214,23 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                     isLocationEnabled = true;
 
             }
+
+            if (isConnectedToNetwork(getContext()) == false && isLocationServiceEnabled() == false) {
+                snackbar = Snackbar.make(getView(), "No internet connection and location service.", Snackbar.LENGTH_INDEFINITE);
+                snackbar.setAction("Retry", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getActivity().getSupportFragmentManager().popBackStack();
+                        NearbyFragment nearbyFragment = new NearbyFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.add(nearbyFragment, "Nearby")
+                                .replace(R.id.fragment_container, nearbyFragment)
+                                .addToBackStack("Nearby")
+                                .commit();
+                    }
+                })
+                        .show();
+            }
         } catch (NullPointerException e){
             Toast.makeText(getActivity().getApplicationContext(),"No location211", Toast.LENGTH_LONG).show();
 
