@@ -359,11 +359,11 @@ public class ListFragment extends Fragment {
     }
 
     public void goToScoreFragment(){
-        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+        InteractivePracticeApplication interactiveApplication = new InteractivePracticeApplication();
         FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
-        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
-                .replace(R.id.fragment_container, displayScoreFragment)
-                .addToBackStack("displayScoreFragment")
+        fragmentTransaction.add(interactiveApplication, "interactiveApplication")
+                .replace(R.id.fragment_container, interactiveApplication)
+                .addToBackStack("interactiveApplication")
                 .commit();
     }
 
