@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_injuries) {
             InjuriesFragment injuriesFragment = new InjuriesFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            getSupportFragmentManager().popBackStack(null, android.support.v4.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);
             fragmentTransaction.add(injuriesFragment, "Injuries")
                     .replace(R.id.fragment_container, injuriesFragment)
                     .addToBackStack("Injuries")
@@ -167,6 +168,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_nearby) {
             NearbyFragment nearbyFragment = new NearbyFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            getSupportFragmentManager().popBackStack(null, android.support.v4.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);
             fragmentTransaction.add(nearbyFragment, "Nearby")
                     .replace(R.id.fragment_container, nearbyFragment)
                     .addToBackStack("Nearby")
@@ -174,6 +176,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_practice) {
             PracticeFragment practiceFragment = new PracticeFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            getSupportFragmentManager().popBackStack(null, android.support.v4.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);
             fragmentTransaction.add(practiceFragment, "Practice")
                     .replace(R.id.fragment_container, practiceFragment)
                     .addToBackStack("Practice")
@@ -181,6 +184,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_about) {
             AboutFragment aboutFragment = new AboutFragment();
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            getSupportFragmentManager().popBackStack(null, android.support.v4.app.FragmentManager.POP_BACK_STACK_INCLUSIVE);
             fragmentTransaction.add(aboutFragment, "About")
                     .replace(R.id.fragment_container, aboutFragment)
                     .addToBackStack("About")

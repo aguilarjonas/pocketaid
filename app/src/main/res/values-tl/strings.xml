@@ -14,17 +14,19 @@
 
     <!-- INJURIES -->
     <string name="injury_search"><font size="14">Search for an injury</font></string>
-    <string name="fracture">Fracture</string>
-    <string name="burns">Burns</string>
-    <string name="concussion">Concussion</string>
-    <string name="laceration">Laceration</string>
-    <string name="contusion">Contusion</string>
-    <string name="bites">Bites</string>
+    <string name="abrasion">Gasgas</string>
+    <string name="bites">Kagat</string>
+    <string name="burns">Paso</string>
+    <string name="concussion">Untog</string>
+    <string name="contusion">Pasa</string>
+    <string name="fracture">Baling Buto</string>
+    <string name="laceration">Hiwa</string>
+    <string name="puncture">Tusok</string>
 
     <string-array name="injuries">
         <item>Gasgas</item>
         <item>Kagat</item>
-        <item>Lapnos</item>
+        <item>Paso</item>
         <item>Untog</item>
         <item>Pasa</item>
         <item>Baling buto</item>

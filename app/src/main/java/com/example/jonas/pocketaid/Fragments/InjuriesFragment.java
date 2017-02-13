@@ -122,21 +122,21 @@ public class InjuriesFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView injuryName = (TextView) view.findViewById(R.id.injury_name);
                 String injuryInString = injuryName.getText().toString().toLowerCase();
-                if(injuryInString.equals("abrasion")) {
+                if(injuryInString.equals(getResources().getString(R.string.abrasion).toLowerCase())) {
                     setInjuryTabLayout("Abrasion");
-                } else if(injuryInString.equals("bites")) {
+                } else if(injuryInString.equals(getResources().getString(R.string.bites).toLowerCase())) {
                     setInjuryTabLayout("Bites");
-                } else if(injuryInString.equals("burns")) {
+                } else if(injuryInString.equals(getResources().getString(R.string.burns).toLowerCase())) {
                     setInjuryTabLayout("Burns");
-                } else if(injuryInString.equals("concussion")) {
+                } else if(injuryInString.equals(getResources().getString(R.string.concussion).toLowerCase())) {
                     setInjuryTabLayout("Concussion");
-                } else if(injuryInString.equals("contusion")) {
+                } else if(injuryInString.equals(getResources().getString(R.string.contusion).toLowerCase())) {
                     setInjuryTabLayout("Contusion");
-                } else if(injuryInString.equals("fracture")) {
+                } else if(injuryInString.equals(getResources().getString(R.string.fracture).toLowerCase())) {
                     setInjuryTabLayout("Fracture");
-                } else if(injuryInString.equals("laceration")) {
+                } else if(injuryInString.equals(getResources().getString(R.string.laceration).toLowerCase())) {
                     setInjuryTabLayout("Laceration");
-                } else if(injuryInString.equals("puncture")) {
+                } else if(injuryInString.equals(getResources().getString(R.string.puncture).toLowerCase())) {
                     setInjuryTabLayout("Puncture");
                 }
             }
