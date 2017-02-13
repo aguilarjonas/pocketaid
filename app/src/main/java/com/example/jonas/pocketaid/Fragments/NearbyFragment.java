@@ -358,6 +358,12 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         return false;
     }
 
+     /*
+        Function Name : checkLocationPermission
+        Function Description : This function will check if location is allowed to be used
+                                by the application.
+        Function Developer : Angel Montoya
+     */
     public boolean checkLocationPermission(){
         if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
@@ -418,6 +424,12 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     }
 
 
+     /*
+        Function Name : onMapReady
+        Function Description : This function will be called if the map has been synced with
+                               Google API
+        Function Developer : Raeven Bauto
+     */
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -501,7 +513,13 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
 
 
-    //Pupunta lang dito pag naka on yung location.
+    /*
+        Function Name : onLocationChanged
+        Function Description : This function will be called if location is enabled as well
+                               as if location is enabled.
+        Function Developer : Raeven Bauto
+     */
+
     @Override
     public void onLocationChanged(Location location) {
         Log.d("onLocationChanged", "entered");
@@ -605,6 +623,18 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             // You can add here other case statements according to your requirement.
         }
     }
+
+
+     /*
+        Function Name : JSONTask
+        Function Description : This function will be called by automaticHospitalSearch
+                               to get the JSON from GoogleMaps and get the required
+                               information to be displayed in the Nearby Hospitals.
+                               In addition this function will mark the hospitals in the
+                               map.
+        Function Developer : Raeven Bauto
+     */
+
 
     public class JSONTask extends AsyncTask<ArrayList<String>, String, ArrayList<String>>{
         int counter = 0;
