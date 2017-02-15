@@ -128,11 +128,10 @@
          FIRST AID STEPS FOR INTERACTIVE PRACTICE
          ***************************************** -->
 
-    <!-- ANIMAL BITES -->
     <string-array name="animal_bites_practice">
         <item>"Control the bleeding by applying pressure on the bite."</item>
         <item>"Do not clean serious wound. It will be cleaned at a medical facility."</item>
-        <item>"Call 911 or use our Nearby Hospital feature."</item>
+        <item>"Call 911 or seek medical attention immediately."</item>
     </string-array>
 
     <!-- INSECT BITES -->
@@ -142,15 +141,16 @@
         <item>"Wash the wound with soap and water."</item>
         <item>"Cover the area with clean bandage or gauze."</item>
         <item>"Apply a cold pack to the affected area."</item>
-        <item>"Call 911 if the person has trouble in breathing."</item>
+        <item>"Call 911 or seek medical attention if the person has trouble in breathing."</item>
     </string-array>
 
     <!-- CHEMICAL BURNS -->
     <string-array name="chemical_burns_practice">
-        <item>"Remove the victim's contaminated clothing while flushing with water."</item>
+        <item>"Remove the victim's contaminated clothing while flushing it with water."</item>
         <item>"Place the affected area under running water."</item>
         <item>"Wash the affected area using mild soap before final rinse."</item>
         <item>"Cover the burned area with a dry dressing."</item>
+        <item>"If the chemical is in the eye, flush it for at least 20 minutes using low-pressured water."</item>
         <item>"Seek medical attention immediately."</item>
     </string-array>
     <string-array name="third_deg_burns_practice">
@@ -158,46 +158,47 @@
         <item>"Remove jeweleries, belts, and other restrictive items around the burned areas and the neck."</item>
         <item>"Do not immerse large severe burns in cold water."</item>
         <item>"If possible, raise the burned area above heart level"</item>
-        <item>"Call 911 or use our Nearby Hospitals feature immediately."</item>
+        <item>"Call 911 or seek medical attention immediately."</item>
     </string-array>
     <string-array name="concussion_practice">
         <item>"Apply cold compress or cold pack to the injured area for 20 minutes every 3 hours."</item>
         <item>"Observe your child carefully for the next 24 hours.</item>
-        <item>If there are any signs of internal injury, call 911 or use our Nearby Hospital feature."</item>
+        <item>If there are any signs of internal injury, seek medical attention immediately."</item>
     </string-array>
     <string-array name="contusion_practice">
-        <item>"Apply a cold pack, or ice wrapped in a clean towel, for up to 15 minutes on the bruise to help reduce swelling."</item>
+        <item>"Apply a cold pack, or ice wrapped in a clean towel, for up to 15 minutes on the bruise."</item>
         <item>"If possible, keep the bruised area raised above the heart."</item>
-        <item>"Rest the bruised part by not overworking the certain area."</item>
+        <item>"Rest the bruised area."</item>
         <item>"If needed, take pain reliever medicine to help reduce the pain."</item>
     </string-array>
     <string-array name="fracture_practice">
-        <item>"In the case of an open wound, control the bleeding and cover the wound with a sterile dressing."</item>
-        <item>"If a bone is protruding, use a ring pad then apply a bandage making sure it is not directly over the fracture."</item>
+        <item>"In case of an open wound, control the bleeding and cover the wound with a sterile dressing."</item>
+        <item>"If a bone is protruding, use a ring pad then apply a bandage to immobilize the fractured part."</item>
+        <item>"Make sure that the bandage is not too tight."</item>
         <item>"Support the fractured limb in the most comfortable position."</item>
         <item>"Raise and rest a fractured foot or ankle on pillows or folded blankets."</item>
-        <item>"Immobilize the fractured limbs using a splint or sling. Do not attempt to straighten the fractured limb."</item>
+        <item>"Immobilize the fractured part using a splint or sling. Do not try to straighten the fractured limb."</item>
         <item>"Check regularly that the bandages are not too tight."</item>
-        <item>"Watch for signs of shock."</item>
-        <item>"Call 911 or use our Nearby Hospital feature."</item>
+        <item>"Call 911 or seek medical attention immediately in case of an open fracture or severe bleeding."</item>
     </string-array>
 
     <!-- LACERATION -->
     <!-- MAJOR LACERATION: RECOMMENDED -->
     <string-array name="laceration_major_practice">
         <item>"Put on disposable gloves."</item>
-        <item>"Control the bleeding by covering the wound with a dressing and firmly pressing against the wound until the bleeding stops"</item>
+        <item>"Stop the bleeding by firmly pressing the wound covered with gauze."</item>
         <item>"Continue to monitor the person's condition."</item>
         <item>"Care for shock. Keep the person from getting chilled or overheated."</item>
         <item>"Have the person rest comfortable and provide reassurance."</item>
         <item>"Wash your hands immediately after giving care, even if you wore gloves."</item>
+        <item>"Call 911 or seek medical attention immediately if the bleeding doesn't stop."</item>
     </string-array>
     <!-- MINOR LACERATION: RECOMMENDED -->
     <string-array name="laceration_minor_practice">
         <item>"Use disposable gloves and place a sterile dressing on the wound."</item>
         <item>"Apply direct pressure for a few minutes to control any bleeding."</item>
-        <item>"Wash the wound thoroughly with soap and water. If possible, wash out an abrasion for about 5 minutes with clean, warm, running tap water."</item>
-        <item>"Apply an antibiotic ointment to a minor wound if the person has no known allergies or sensitivities to the medication."</item>
+        <item>"Wash the wound thoroughly with soap and water."</item>
+        <item>"Apply an antibiotic ointment to a minor wound if the person has no allergies to the medication."</item>
         <item>"Cover the wound with a sterile dressing."</item>
     </string-array>
 
@@ -210,13 +211,13 @@
     <!-- ABRASION: RECOMMENDED -->
     <string-array name="abrasion_recommended">
         <item>"Wash the affected area with water and anti-bacterial soap."</item>
-        <item>"Apply Betadine Solution or Spray."</item>
+        <item>"Apply Betadine Solution or Spray on the wound."</item>
         <item>"Cover the affected area with gauze or band-aid."</item>
         <item>"Repeat daily until fully healed."</item>
     </string-array>
     <!-- ABRASION: ALTERNATIVE -->
     <string-array name="abrasion_alternative">
-        <item>"Boil the guava leaves and run the warm water to the affected area to avoid bacteria."</item>
+        <item>"Boil the guava leaves in water and use it as a rinse to the affected area."</item>
         <item>"Apply Betadine Solution or Spray."</item>
         <item>"Cover the affected area with gauze or band-aid."</item>
         <item>"Repeat daily until fully healed."</item>
@@ -227,16 +228,16 @@
     <string-array name="bites_animal_recommended">
         <item>"Control the bleeding by applying pressure on the bite with a clean and dry cloth or handkerchief."</item>
         <item>"Do not clean serious wound. It will be cleaned at a medical facility."</item>
-        <item>"Call 911 or use our Nearby Hospital feature."</item>
+        <item>"Call 911 or seek medical attention immediately."</item>
     </string-array>
     <!-- INSECT BITES: RECOMMENDED -->
     <string-array name="bites_insect_recommended">
         <item>"Check if the bite mark or stinger is swelling and/or bleeding."</item>
-        <item>"If there is a stinger, carefully use tweezers, making sure to grab the base of the stinger to prevent squeezing the venom sac."</item>
+        <item>"Carefully remove the stinger using tweezers."</item>
         <item>"Wash the wound with soap and water."</item>
         <item>"Cover the area with clean bandage or gauze."</item>
-        <item>"Apply a cold pack to the affected area to reduce pain and swelling."</item>
-        <item>"Call 911 if the person has trouble in breathing or for any other signals of Anaphylaxis (hypersensitivity)."</item>
+        <item>"Apply a cold pack to the affected area."</item>
+        <item>"Call 911 or seek medical attention if the person has trouble in breathing."</item>
     </string-array>
     <!-- INSECT BITES: ALTERNATIVE -->
     <string-array name="bites_insect_alternative">
@@ -245,7 +246,7 @@
         <item>"Wash the wound with soap and water."</item>
         <item>"Cover the area with a clean handkerchief or cloth."</item>
         <item>"Apply ice cubes wrapped in a clean towel to the affected area to reduce pain and swelling."</item>
-        <item>"Call 911 if the person has trouble in breathing or for any other signals of anaphylaxis (hypersensitivity)."</item>
+        <item>"Call 911 or seek medical attention if the person has trouble in breathing."</item>
     </string-array>
 
 
@@ -254,15 +255,15 @@
     <string-array name="burns_thermal_recommended">
         <item>"Hold the burned area in running water for 5 to 10 minutes or until pain is relieved."</item>
         <item>"Cover the burn with a dry, non-sticking, sterile dressing or a clean cloth."</item>
-        <item>"Keep the burned area clean by washing with a mild soap and water."</item>
+        <item>"Keep the burned area clean by washing it with mild soap and water."</item>
     </string-array>
     <string-array name="burns_chemical_recommended">
-        <item>"Immediately remove the chemical by flushing with water."</item>
-        <item>"Remove the victim's contaminated clothing while flushing with water."</item>
-        <item>"Flush for 20 minutes or longer. Let the victim wash with a mild soap before final rinse."</item>
-        <item>"Cover the burned area with a dry dressing or, for large areas, a clean pillow case."</item>
-        <item>"If the chemical is in the eye, flood it for at least 20 minutes using low-pressured water. Preferably running water."</item>
-        <item>"Seek medical attention immediately for all chemical burns."</item>
+        <item>"Remove the victim's contaminated clothing while flushing it with water."</item>
+        <item>"Place the burned area under running water."</item>
+        <item>"Wash the affected area using mild soap before final rinse."</item>
+        <item>"Cover the burned area with a dry dressing."</item>
+        <item>"If the chemical is in the eye, flush it for at least 20 minutes using low-pressured water."</item>
+        <item>"Seek medical attention immediately."</item>
     </string-array>
     <string-array name="burns_electrical_recommended">
         <item>"Unplug, disconnect, or turn off the power. If that is impossible, call the power company or ask for help."</item>
@@ -270,9 +271,9 @@
     </string-array>
     <!-- 1ST & 2ND DEGREE BURNS: ALTERNATIVE -->
     <string-array name="burns_thermal_alternative">
-        <item>"Apply a clean towel dampened with a cool tap water."</item>
+        <item>"Apply a clean towel dampened with a cool tap water to the burned area."</item>
         <item>"Cover any small blisters with a loose bandage, or gauze, and tape."</item>
-        <item>"Keep the burned area clean by washing with a mild soap and water."</item>
+        <item>"Keep the burned area clean by washing with mild soap and water."</item>
     </string-array>
     <!-- 3RD DEGREE BURNS: RECOMMENDED -->
     <string-array name="burns_third_recommended">
@@ -280,13 +281,13 @@
         <item>"Remove jeweleries, belts, and other restrictive items around the burned areas and the neck."</item>
         <item>"Do not immerse large severe burns in cold water."</item>
         <item>"Elevate the burned area. Raise the wound above heart level, if possible."</item>
-        <item>"Call 911 or use our Nearby Hospitals feature immediately."</item>
+        <item>"Call 911 or seek medical attention immediately."</item>
     </string-array>
 
     <!-- NOTES -->
     <string-array name="burns_third_notes">
                     <item>"If you can do so safely, make sure the person you\'re helping is not
-                            in contact with smoldering materials or exposed to smoke or heat. But do not remove burned clothing stuck to the skin."</item>
+                            in contact or exposed to smoke or heat. Do not remove burned clothing stuck to the skin."</item>
         <item>"Burned areas swell rapidly."</item>
                     <item>"Doing so could cause a serious loss of body heat (hypothermia) or a drop in blood pressure and
                             decreased blood flow (shock)."</item>
@@ -296,11 +297,11 @@
     <!-- 3RD DEGREE BURNS: ALTERNATIVE -->
     <string-array name="burns_third_alternative">
                 <item>"Protect the burned person from further harm. If you can do so safely, make sure the person you\'re helping is not
-                        in contact with smoldering materials or exposed to smoke or heat. But do not remove burned clothing stuck to the skin."</item>
-        <item>"Remove jeweleries, belts, and other restrictive items, especially from around the burned areas and the neck. Burned areas swell rapidly."</item>
+                        in contact or exposed to smoke or heat. Do not remove burned clothing stuck to the skin."</item>
+        <item>"Remove jeweleries, belts, and other restrictive items, especially from around the burned areas and the neck."</item>
         <item>"Cover the burn with a dry, non-sticking, sterile dressing or a clean cloth."</item>
         <item>"Treat the victim for shock by elevating the legs and keeping the victim warm with a clean sheet or blanket."</item>
-        <item>"Call 911 or use our Nearby Hospitals feature immediately."</item>
+        <item>"Call 911 or seek medical attention immediately."</item>
     </string-array>
 
 
@@ -308,8 +309,8 @@
     <!-- CONCUSSION: RECOMMENDED -->
     <string-array name="concussion_recommended">
         <item>"Apply cold compress or cold pack to the injured area for 20 minutes every 3 hours."</item>
-        <item>"Observe your child carefully for the next 24 hours.</item>
-        <item>"If there are any signs of internal injury, call 911 or use our Nearby Hospital feature."</item>
+        <item>"Observe the victim for any signs of internal injury.</item>
+        <item>Call 911 or seek medical attention immediately if the victim is feeling nauseous or is vomiting."</item>
     </string-array>
 
 
@@ -318,7 +319,7 @@
     <string-array name="contusion_recommended">
         <item>"Apply a cold pack, or ice wrapped in a clean towel, for up to 15 minutes on the bruise to help reduce swelling."</item>
         <item>"Keep the bruised area raised above the heart, if possible, to keep the blood from pooling in the bruised tissue."</item>
-        <item>"Try to rest the bruised part by not overworking the certain area."</item>
+        <item>"Try to rest the bruised part by not overworking the affected area."</item>
         <item>"If needed, take pain reliever medicine to help reduce the pain."</item>
     </string-array>
 
@@ -326,14 +327,13 @@
     <!-- FRACTURE -->
     <!-- FRACTURE: RECOMMENDED -->
     <string-array name="fracture_recommended">
-        <item>"In the case of an open wound, control the bleeding and cover the wound with a sterile dressing."</item>
+        <item>"In the case of an open wound, control the bleeding by covering the wound with a sterile dressing."</item>
         <item>"If a bone is protruding, use a ring pad then apply a bandage making sure it is not directly over the fracture."</item>
         <item>"Support the fractured limb in the most comfortable position."</item>
-        <item>"Raise and rest a fractured foot or ankle on pillows or folded blankets."</item>
+        <item>"If applicable, raise and rest a fractured foot or ankle on pillows or folded blankets."</item>
         <item>"Immobilize the fractured limbs using a splint or sling. Do not attempt to straighten the fractured limb."</item>
         <item>"Check regularly that the bandages are not too tight."</item>
-        <item>"Watch for signs of shock."</item>
-        <item>"Call 911 or use our Nearby Hospital feature."</item>
+        <item>"Call 911 or seek medical attention immediately in case of an open fracture or severe bleeding."</item>
     </string-array>
 
 
@@ -348,14 +348,15 @@
             If blood soaks through the bandage, do not remove the blood-soaked bandages. Instead, add more dressings and bandages and apply additional direct pressure."</item>
         <item>"Continue to monitor the person's condition. Observe the person closely for signals that may indicate that the person's condition is worsening such as faster or slower breathing, changes in skin color and restlessness."</item>
         <item>"Care for shock. Keep the person from getting chilled or overheated."</item>
-        <item>"Have the person rest comfortable and provide reassurance."</item>
+        <item>"Have the person rest comfortably."</item>
         <item>"Wash your hands immediately after giving care, even if you wore gloves."</item>
+        <item>"Call 911 or seek medical attention immediately if the bleeding doesn't stop."</item>
     </string-array>
     <!-- MINOR LACERATION: RECOMMENDED -->
     <string-array name="laceration_minor_recommended">
         <item>"Use disposable gloves and place a sterile dressing on the wound."</item>
         <item>"Apply direct pressure for a few minutes to control any bleeding."</item>
-        <item>"Wash the wound thoroughly with soap and water. If possible, wash out an abrasion for about 5 minutes with clean, warm, running tap water."</item>
+        <item>"Wash the wound thoroughly with soap and water."</item>
         <item>"Apply an antibiotic ointment to a minor wound if the person has no known allergies or sensitivities to the medication."</item>
         <item>"Cover the wound with a sterile dressing and a bandage or with an adhesive bandage to keep the wound moist and prevent drying."</item>
     </string-array>
@@ -371,8 +372,9 @@
     <!-- SEVERE PUNCTURE: RECOMMENDED -->
     <string-array name="puncture_severe_recommended">
         <item>"Wash your hands with soap and water then wear gloves."</item>
-        <item>"Apply direct pressure to the affected area using a sterile gauze."</item>
+        <item>"Apply direct pressure to the affected area using a sterile gauze to control bleeding."</item>
         <item>"Clean and cover the wound with a sterile gauze."</item>
+        <item>"Do not remove gauze if it's soaked with blood. Instead, apply additional gauze on top."</item>
         <item>"Consult and refer to a physician immediately if the bleeding doesn't stop."</item>
     </string-array>
     <!-- SEVERE PUNCTURE: ALTERNATIVE -->
@@ -387,7 +389,7 @@
     <string-array name="puncture_slight_recommended">
         <item>"Wash your hands with soap and water then wear gloves."</item>
         <item>"Clean the wound with soap and water."</item>
-        <item>"Apply mild antiseptic or antibiotic cream."</item>
+        <item>"Apply mild antiseptic or antibiotic cream on the wound."</item>
         <item>"Cover the wound loosely with sterile gauze or bandage."</item>
     </string-array>
 

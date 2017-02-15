@@ -132,111 +132,113 @@
     <!-- ABRASION -->
     <!-- ABRASION: RECOMMENDED -->
     <string-array name="abrasion_recommended">
-        <item>"Hugasan ang apektadong lugar na may tubig at anti-bacterial na sabon."</item>
-        <item>"Lapatan ng Betadine Solution o Spray ang apektadong lugar."</item>
-        <item>"Takpan ang apektadong lugar na may gasa o band-aid."</item>
-        <item>"Ulitin araw-araw hanggang sa ganap ng magaling ang apektadong lugar."</item>
+        <item>"Hugasan ang sugat gamit ang tubig at anti-bacterial na sabon."</item>
+        <item>"Lagyan ng Betadine Solution o Spray ang sugat."</item>
+        <item>"Takpan ang sugat ng gasa o band-aid."</item>
+        <item>"Ulitin araw-araw hanggang sa ganap gumagaling ang sugat."</item>
     </string-array>
     <!-- ABRASION: ALTERNATIVE -->
     <string-array name="abrasion_alternative">
-        <item>"Pakuluin ang dahon ng bayabas at ipahid ang maligamgam na tubig sa mga apektadong lugar upang maiwasan ang bakterya."</item>
-        <item>"Lapatan ng Betadine Solution o Spray ang apektadong lugar."</item>
-        <item>"Takpan ang apektadong lugar na may gasa o band-aid."</item>
-        <item>"Ulitin araw-araw hanggang sa ganap ng magaling ang apektadong lugar."</item>
+        <item>"Magpakulo ng dahon ng bayabas sa tubig at ibanlaw ito sa sugat."</item>
+        <item>"Lagyan ng Betadine Solution o Spray ang sugat."</item>
+        <item>"Takpan ang sugat ng gasa o band-aid."</item>
+        <item>"Ulitin araw-araw hanggang sa ganap na gumagaling ang sugat."</item>
     </string-array>
 
     <!-- BITES -->
     <!-- ANIMAL BITES: RECOMMENDED -->
     <string-array name="bites_animal_recommended">
-        <item>"Kontrolin ang pagdurugo sa pamamagitan ng paglalapat ng may presyur sa kagat na may malinis at tuyong tela o panyo."</item>
+        <item>"Kontrolin ang pagdurugo sa pamamagitan ng pagdiin sa kagat gamit ang malinis at tuyong tela o panyo."</item>
         <item>"Huwag linisin ang malubhang sugat. Ito ay mas magandang linisin sa isang medikal na pasilidad."</item>
-        <item>"Tumawag sa 911 o gamitin ang Nearby Hospital feature."</item>
+        <item>"Tumawag sa 911 o pumunta kaagad sa pinakamalapit na ospital upang maturukan ng anti-rabies."</item>
     </string-array>
     <!-- INSECT BITES: RECOMMENDED -->
     <string-array name="bites_insect_recommended">
-        <item>"Suriin kung ang kagat o tibo ay namamaga at/o nagdurugo."</item>
-        <item>"Kung mayroong makikitang tibo, maingat na gumamit ng tiyani, siguraduhin na ang ugat o pinanggalingan ng tibo ang tatanggalin upang maiwasan ang pag putok ng tibo."</item>
+        <item>"Suriin kung ang pinagkagatan ng insekto ay namamaga at/o nagdurugo."</item>
+        <item>"Kung mayroong makikitang pangtusok ng insekto, maingat na gumamit ng tiyani upang alisin ito."</item>
         <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
-        <item>"Takpan ang apekatadong lugar na may malinis na benda o gasa."</item>
-        <item>"Lapatan ng malamig na yelo ang apektadong lugar upang mabawasan ang sakit at pamamaga."</item>
-        <item>"Tumawag sa 911 kung ang tao ay may problema sa paghinga o para sa anumang iba pang mga senyales ng Anaphylaxis (hypersensitivity)."</item>
+        <item>"Takpan ang pinagkagatan ng insekto gamit ang malinis na benda o gasa."</item>
+        <item>"Lapatan ng yelo ang apektadong lugar upang mabawasan ang sakit at pamamaga."</item>
+        <item>"Tumawag sa 911 o pumunta sa pinakamalapit na ospital kung ang tao ay nakararanas ng problema sa paghinga."</item>
     </string-array>
     <!-- INSECT BITES: ALTERNATIVE -->
     <string-array name="bites_insect_alternative">
-        <item>"Suriin kung ang kagat o tibo ay namamaga at/o nagdurugo."</item>
-        <item>"Kung mayroong makikitang tibo, gumamit ng patag na gamit katulad ng credit card at tanggalin ito dahan-dahan."</item>
+        <item>"Suriin kung ang pinagkagatan ng insekto ay namamaga at/o nagdurugo."</item>
+        <item>"Kung mayroong makikitang pangtusok ng insekto, gumamit ng patag na gamit katulad ng credit card at tanggalin ito dahan-dahan."</item>
         <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
-        <item>"Takpan ang apekatadong lugar na may malinis na benda o gasa."</item>
+        <item>"Takpan ang pinagkagatan ng insekto gamit ang malinis na panyo."</item>
         <item>"Lapatan ng malamig na yelo ang apektadong lugar upang mabawasan ang sakit at pamamaga."</item>
-        <item>"Tumawag sa 911 kung ang tao ay may problema sa paghinga o para sa anumang iba pang mga senyales ng Anaphylaxis (hypersensitivity)."</item>
+        <item>"Tumawag sa 911 o pumunta sa pinakamalapit na ospital kung ang biktima ay nakararanas ng problema sa paghinga."</item>
     </string-array>
 
 
     <!-- BURNS -->
     <!-- 1ST & 2ND DEGREE BURNS: RECOMMENDED -->
     <string-array name="burns_thermal_recommended">
-        <item>"Panatilihing nakatapat sa tubig ang napasong parte ng katawan sa tagal na 5 hanggang 10 minuto o hanggang sa mawala ang nararamdamang sakit."</item>
+        <item>"Banlawan ng tubig ang napasong parte ng katawan sa loob ng 5 hanggang 10 minuto o hanggang sa mawala ang nararamdamang sakit."</item>
+        <item>"Hugasan ang napasong parte ng katawan gamit ang malinis na tubig at sabon."</item>
         <item>"Takpan ang napasong parte ng katawan ng tuyo at malinis na gasa o tela."</item>
-        <item>"Panatilihing malinis ang napasong parte ng katawan sa pamamagitan ng pag gamit ng malinis na tubig at sabon na hindi matapang."</item>
     </string-array>
     <string-array name="burns_chemical_recommended">
-        <item>"Agad na alisin ang kemikal sa pamamagitan ng pagtapat nito sa dumadaloy na tubig."</item>
-        <item>"Tanggalin ang kontaminadong damit ng biktima habang nakatapat ito sa dumadaloy na tubig."</item>
-        <item>"Panatilihing nakatapat sa dumadaloy na tubig ang napasong parte ng katawan sa tagal na 20 minuto o higit pa. Hayaan ang biktima na mag hugas gamit ang malinis na tubig at sabon na hindi matapang bago ang huling banlaw."</item>
+        <item>"Kung mayroon man, alisin ang kontaminadong damit ng biktima habang binabanlawan ito ng tubig."</item>
+        <item>"Panatilihing nakatapat sa dumadaloy na tubig ang napasong parte ng katawan sa loob ng 20 minuto o higit pa."</item>
+        <item>"Hugasan ang napasong parte ng katawan gamit ang sabon at tubig."</item>
         <item>"Takpan ang napasong parte ng katawan ng tuyo at malinis na gasa o tela."</item>
-        <item>"Kung ang kemikal ay nasa mata, linisin ito gamit ang malinis na tubig sa tagal na 20 minuto. Inirerekomendang linisin ito sa dumadaloy na tubig."</item>
-        <item>"Humingi agad ng medikal na atensiyon para sa lahat ng chemical burns."</item>
+        <item>"Kung ang kemikal ay nasa mata, banlawan ito ng tubig sa loob ng 20 minuto."</item>
+        <item>"Magpasuri kaagad sa isang doktor o magpunta sa pinakamalapit na ospital."</item>
     </string-array>
     <string-array name="burns_electrical_recommended">
         <item>"Hugutin o patayin ang kuryente. Kung ito ay imposible, tawagan ang kumpanya ng kuryente o humingi ng tulong."</item>
-        <item>"Humingi ng medikal na atensiyon agad. Ang electrical injuries ay ginagamot sa burn center."</item>
+        <item>"Magpunta kaagad sa pinakamalapit na ospital."</item>
     </string-array>
     <!-- 1ST & 2ND DEGREE BURNS: ALTERNATIVE -->
     <string-array name="burns_thermal_alternative">
-        <item>"Ilapat ang malinis na tuwalya na ibinabad sa tubig sa napasong parte ng katawan."</item>
-        <item>"Takpan ang kahit anong blisters na makikita gamit ang maluwag na gasa at teyp."</item>
-        <item>"Panatilihing malinis ang napasong parte ng katawan sa pamamagitan ng pag gamit ng malinis na tubig at sabon na hindi matapang."</item>
+    	<item>"Basain ang isang malinis na tuwalya at ilapat sa napasong parte ng katawan"</item>
+        <item>"Takpan ang napasong parte gamit ang maluwag na damit o gasa at teyp."</item>
+        <item>"Hugasan ng marahan ang napasong parte gamit ang tubig at sabon."</item>
     </string-array>
     <!-- 3RD DEGREE BURNS: RECOMMENDED -->
     <string-array name="burns_third_recommended">
-        <item>"Protektahan o alalayan ang taong nagtamo ng sunog mula sa karagdagang pinsala."</item>
-        <item>"Tanggalin ang mga alahas, sinturon, at iba pang bagay lalo na sa sunog o apektadong lugar at leeg."</item>
-        <item>"Huwag ilublob ang malubhang apektadong lugar sa malamig na tubig."</item>
-        <item>"Itaas at ilagay sa komportableng posisyon ang nasunog na parte ng katawan. Kung maaari, itaas ito ng mas mataas ng bahagya sa dibdib."</item>
-        <item>"Tumawag sa 911 o gamitin ang Nearby Hospital feature."</item>
+        <item>"Protektahan ang biktima sa pagtamo ng karagdagang pinsala."</item>
+        <item>"Tanggalin ang mga alahas, sinturon, at iba pang bagay na nakaharang sa nasunog na parte o maaaring makasagabal sa paghinga ng biktima."</item>
+        <item>"Huwag ilublob sa malamig na tubig ang malubhang nasunog na parte ng katawan."</item>
+        <item>"Ilagay sa komportableng posisyon ang nasunog na parte ng katawan. Kung maaari, itaas ito ng mas mataas ng bahagya sa dibdib."</item>
+        <item>"Tumawag sa 911 o magpunta kaagad sa pinakamalapit na ospital."</item>
     </string-array>
 
     <!-- NOTES -->
     <string-array name="burns_third_notes">
-        <item>"Kung ito ay iyong magagawa ng ligtas, siguraduhin na ang taong iyong tinutulungan ay malayo sa anumang mainit na bagay at usok. Huwag tanggalin ang nasunog na damit na nakadikit sa balat."</item>
-        <item>"Kapag ang apektadong parte ng katawan ay nasunog, ito ay mas mabilis mamaga."</item>
+        <item>"Siguraduhin na ang biktima ay malayo sa init at usok. Huwag tanggalin ang nasunog na damit na nakadikit sa balat."</item>
+        <item>"Mabilis mamaga ang mga parte ng katawan na nasunog."</item>
         <item>"Ang paggawa nito ay maaaring maging sanhi ng malubhang pagkawala ng init ng katawan (hypothermia) o pagkabagsak ng dugo at bawas sa daloy ng dugo (shock)."</item>
         <item>""</item>
         <item>""</item>
     </string-array>
     <!-- 3RD DEGREE BURNS: ALTERNATIVE -->
     <string-array name="burns_third_alternative">
-        <item>Protektahan o alalayan ang taong nagtamo ng sunog mula sa karagdagang pinsala. Kung ito ay iyong magagawa ng ligtas, siguraduhin na ang taong iyong tinutulungan ay malayo sa anumang mainit na bagay at usok. Huwag tanggalin ang nasunog na damit na nakadikit sa balat."</item>
-        <item>"Takpan ang napasong parte ng katawan ng tuyo at malinis na gasa o tela."</item>
-        <item>"Panatilihing komportable ang biktima sa pamamagitan ng pag-angat ng binti nito at pagpapanatiling maayos ang pakiramdam."</item>
-        <item>"Tumawag sa 911 o gamitin ang Nearby Hospital feature."</item>
+    	<item>"Protektahan ang biktima sa pagtamo ng karagdagang pinsala."</item>
+    	<item>"Siguraduhin na ang biktima ay malayo sa init at usok. Huwag tanggalin ang nasunog na damit na nakadikit sa balat."</item>
+        <item>"Takpan ang napasong parte ng katawan gamit ang tuyo at malinis na gasa o tela."</item>
+        <item>"Panatilihing nasa komportableng posisyon ang biktima."</item>
+        <item>"Tumawag sa 911 o magpunta kaagad sa pinakamalapit na ospital."</item>
     </string-array>
 
 
     <!-- CONCUSSION -->
     <!-- CONCUSSION: RECOMMENDED -->
     <string-array name="concussion_recommended">
-        <item>"Mag-aplay ng yelo sa apekatadong lugar sa tagal na 20 minuto bawat 3 oras."</item>
-        <item>"Obserbahan ang biktima sa loob ng 24 oras. Kung may mararamdamang sintomas, tumawag sa 911 o gamitin ang Nearby Hospital feature."</item>
+        <item>"Lapatan ng yelo ang apektadong lugar sa loob ng 20 minuto kada 3 oras."</item>
+        <item>"Obserbahan ang tao kung ito ay nakararanas ng sintomas ng internal injuri gaya ng pananakit ng ulo o pagsuka."</item>
+        <item>"Tumawag sa 911 o magpunta kaagad sa pinakamalapit na ospital sa sandaling makaranas ang tao ng nasabing mga sintomas."</item>
     </string-array>
 
 
     <!-- CONTUSION -->
     <!-- CONTUSION: RECOMMENDED -->
     <string-array name="contusion_recommended">
-        <item>"Ilapat ang yelo pasa sa tagal na 15 minuto upang maibsan ang pamamaga."</item>
-        <item>"Kung maaari,itaas ang apektadong lugar na may pasa ng mas mataas ng bahagya sa dibdib upang maiwasan ang pamumuo ng dugo sa kalamnan."</item>
-        <item>"Ipahinga ang bugbog na bahagi ng katawan sa pamamagitan ng hindi pag gamit dito ng labis."</item>
+    	<item>"Ilapat ang yelo sa apektadong parte ng katawan sa loob ng 15 minuto upang mawala ang pasa o pamamaga."</item>
+        <item>"Kung maaari,itaas ang parte ng katawan na may pasa nang mas mataas ng bahagya sa dibdib."</item>
+        <item>"Ipahinga at huwag masyadong galawin ang nabugbog na parte."</item>
         <item>"Kung kinakailangan, uminom ng gamot na pampawala ng sakit upang makatulong na mabawasan ang sakit."</item>
     </string-array>
 
@@ -244,41 +246,56 @@
     <!-- FRACTURE -->
     <!-- FRACTURE: RECOMMENDED -->
     <string-array name="fracture_recommended">
-        <item>"Sa kaso ng isang open wound, kontrolin ang dumudugo at takpan ang sugat ng malinis na gasa; kung ang buto ay nakausli, gumamit ng isang ring pad pagkatapos ay ilapat ang isang benda, siguraduhin na ito ay hindi direkta sa ibabaw ng bali."</item>
+        <item>"Kung ang buto ay nakausli, tumawag sa 911 o magpunta kaagad sa pinakamalit na ospital."</item>
+        <item>"Gumamit ng ring pad at suportahan ito gamit ang isang benda upang mabawasan ang paggalaw ng nabaliang parte ng katawan."</item>
+        <item>"Siguraduhin na ang benda ay hindi masyadong mahigpit."</item>
+        <item>"Kung mayroong sugat, kontrolin ang pagdurugo nito at takpan gamit ang malinis na gasa."</item>
         <item>"Suportahan ang bali sa pinaka komportableng posisyon. Ipahinga at itaas o ipatong ang bali sa unan."</item>
-        <item>"Gumamit ng saklay para hindi mapwersa ang bali. Huwag tatantangkaing ituwid ang bali."</item>
-        <item>"Regular na tiyakin na ang benda ay hindi masyadong masikip, na nakakaapekto sa sirkulasyon."</item>
-        <item>"Obserbahan kung may mga sintomas na mararamdaman."</item>
-        <item>"Tumawag sa 911 o gamitin ang Nearby Hospital feature."</item>
+        <item>"Gumamit ng pangsuporta o pangsalo para hindi mapuwersa ang bali. Huwag tatantangkaing ituwid ang bali."</item>
+        <item>"Regular na tiyakin na ang benda ay hindi masyadong masikip."</item>
+        <item>"Magpatingin o magpasuri sa doktor."</item>
     </string-array>
 
 
     <!-- LACERATION -->
     <!-- MAJOR LACERATION: RECOMMENDED -->
     <string-array name="laceration_major_recommended">
-        <item>"Mag suot ng guwantes. Kung sa palagay mo ang dugo ay maaaring tumilamsik, maaaring magsuot ng pang proteksyon sa mata at mukha."</item>
+        <item>"Magsuot ng guwantes at proteksyon para sa mata at mukha."</item>
         <item>"Kontrolin ang pagdurugo sa pamamagitan ng:
-                    (a) takpan ang sugat ng benda at mag-aplay ng presyur hanggang sa tumigil ang pag durugo o
-                    (b) mag-aplay ng presyur sa ibabaw ng benda upang mapanatili ang presyur sa sugat at mapanatiling nasa pwesto ang benda.
+                    (a) pagtakip sa sugat gamit ang benda at paglagay ng presyur hanggang sa tumigil ang pagdurugo o
+                    (b) marahan na pagdiin sa ibabaw ng benda upang mapanatili ang presyur sa sugat at mapanatiling nasa pwesto ang benda.
 
-                    Kung ang dugo ay tumagos sa benda, sa halip na ito ay paltan o tanggalin, dagdagan ang benda at mag-aplay ng presyur."</item>
-        <item>"Patuloy na obserbahan ang kalagayan ng tao. Obserbahan ang tao para sa mga senyales na maaaring magpahiwatig na ang kalagayan ng tao ay lumalala tulad ng mas mabilis o mas mabagal na paghinga, mga pagbabago sa kulay ng balat at hindi pagkapakali."</item>
-        <item>"Panatilihin ang tao mula sa pagkuha ng lamig o init ng katawan."</item>
-        <item>"Hayaang mag pahinga ang tao at tiyakin na ito ay walang nararamdamang masama."</item>
-        <item>"Maghugas ng kamay pagkatapos na pagkatapos ng pagbibigay ng pag-aalaga, kahit na nag suot ng guwantes."</item>
+                    Huwag alisin ang bendang napuno na ng dugo, sa halip, dagdagan ang benda at lagyan ito ng presyur."</item>
+        <item>"Obserbahan ang tao para sa mga senyales tulad ng mabilis o mabagal na paghinga, mga pagbabago sa kulay ng balat at hindi pagkapakali."</item>
+        <item>"Iwasan na masyadong malamigan o mainitan ang tao."</item>
+        <item>"Tiyaking komportable ang tao."</item>
+        <item>"Maghugas ng kamay pagkatapos magbigay ng paunang lunas."</item>
+        <item>"Tumawag sa 911 o magpunta kaagad sa pinakamalapit na ospital kung ang pagdurugo ay hindi humihinto."</item>
+    </string-array>
+
+    <string-array name="laceration_major_practice">
+        <item>"Magsuot ng guwantes at proteksyon para sa mata at mukha."</item>
+        <item>"Kontrolin ang pagdurugo sa pamamagitan ng pagtakip sa sugat gamit ang benda at paglagay ng presyur hanggang sa tumigil ang pagdurugo nito."</item>
+        <item>"Obserbahan ang tao kung ito ay nakararanas ng mabilis o mabagal na paghinga, mga pagbabago sa kulay ng balat at hindi pagkapakali."</item>
+        <item>"Iwasan na masyadong malamigan o mainitan ang tao."</item>
+        <item>"Tiyaking komportable ang tao."</item>
+        <item>"Maghugas ng kamay pagkatapos magbigay ng paunang lunas."</item>
+        <item>"Tumawag sa 911 o magpunta kaagad sa pinakamalapit na ospital kung ang pagdurugo ay hindi humihinto."</item>
+
     </string-array>
     <!-- MINOR LACERATION: RECOMMENDED -->
     <string-array name="laceration_minor_recommended">
-        <item>"Gumamit ng guwantes at lagyan ng gasa ang sugat."</item>
-        <item>"Mag-aplay ng presyur ng ilang minuto upang makontrol ang pag durugo."</item>
-        <item>"Hugasan ang sugat lubusan na may sabon at tubig. Kung maaari, hugasan ang sugat sa tagal na 5 minuto sa malinis at tumatakbong tubig sa gripo."</item>
-        <item>"Pahiran ng gamot sa sugat ang sugat na hindi malala kung ang tao ay walang alerhiya sa gamot ."</item>
+        <item>"Magsuot ng guwantes at lagyan ng gasa ang sugat."</item>
+        <item>"Marahang diinan ang sugat upang makontrol ang pagdurugo."</item>
+        <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
+        <item>"Pahiran ng antiseptic o antibiotic cream ang sugat kung walang alerji ang tao sa ganitong uri ng gamot."</item>
         <item>"Takpan ang sugat ng gasa upang maiwasan ang impeksiyon."</item>
     </string-array>
     <!-- MINOR LACERATION: ALTERNATIVE -->
     <string-array name="laceration_minor_alternative">
-        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig. Kung guwantes ay hindi magagamit, gumamit ng anumang malinis na tela sa pagitan ng iyong mga kamay at ang sugat."</item>
-        <item>Mag-aplay ng hindi kalakasang presyur sa sugat. Gumamit ng isang malinis na tela o panyo na mag-aaplay ng presyur."</item>
+        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig.</item>
+        <item>"Kung walang guwantes, gumamit ng anumang malinis na tela o damit sa pagitan ng iyong mga kamay at ng sugat."</item>
+        <item>"Mag-aplay ng hindi kalakasang presyur sa sugat upang tumigil ang pagdurugo."</item>
         <item>"Linisin at takpan ang sugat ng malinis na tela o panyo."</item>
     </string-array>
 
@@ -286,24 +303,25 @@
     <!-- PUNCTURE -->
     <!-- SEVERE PUNCTURE: RECOMMENDED -->
     <string-array name="puncture_severe_recommended">
-        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig pagkatapos ay magsuot ng guwantes."</item>
-        <item>"Mag-aplay ng presyur sa apektadong lugar gamit ang gasa."</item>
+        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig, pagkatapos ay magsuot ng guwantes."</item>
+        <item>"Marahang diinan ang sugat gamit ang gasa upang makontrol ang pagdurugo."</item>
         <item>"Linisin at takpan ang sugat ng gasa."</item>
-        <item>"Kumonsulta at sumangguni sa isang doktor kaagad kung ang pagdurugo ay hindi humihinto."</item>
+        <item>"Huwag tanggalin ang tela o panyo na napuno na ng dugo. Sa halip, patungan ito ulit ng malinis na tela o panyo."</item>
+        <item>"Kumonsulta at sumangguni kaagad sa isang doktor kung ang pagdurugo ay hindi humihinto."</item>
     </string-array>
     <!-- SEVERE PUNCTURE: ALTERNATIVE -->
     <string-array name="puncture_severe_alternative">
-        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig. Kung guwantes ay hindi magagamit, gumamit ng anumang malinis na tela sa pagitan ng iyong mga kamay at ang sugat."</item>
-        <item>"Mag-aplay ng hindi kalakasang presyur sa sugat. Kung ang gasa ay hindi magagamit, gumamit ng malinis na tela o panyo para makapag-aplay ng presyur."</item>
-        <item>"Linisin at takpan ang sugat ng malinis na tela o panyo."</item>
-        <item>"Kung ang dugo ay tumagos sa tela o panyo, huwag itong tanggalin. Dagdagan ulit ito ng malinis na tela o panyo."</item>
+        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig."</item>
+        <item>"Kung walang guwantes, gumamit ng anumang malinis na tela o damit sa pagitan ng iyong mga kamay at ng sugat."</item>
+        <item>"Patungan ng malinis na panyo o damit ang sugat at bigyan ng hindi kalakasang presyur ang sugat."</item>
+        <item>"Huwag tanggalin ang tela o panyo na napuno na ng dugo. Sa halip, patungan ito ulit ng malinis na tela o panyo."</item>
         <item>"Kumonsulta at sumangguni sa isang doktor kaagad kung ang pagdurugo ay hindi humihinto."</item>
     </string-array>
     <!-- SLIGHT PUNCTURE: RECOMMENDED -->
     <string-array name="puncture_slight_recommended">
-        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig at pagkatapos gawin ito ay magsuot ng guwantes."</item>
+        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig, pagkatapos ay magsuot ng guwantes."</item>
         <item>"Linisin ang sugat gamit ang sabon at tubig."</item>
-        <item>"Mag-aplay ng mild antiseptic o antibiotic cream."</item>
+        <item>"Lagyan ng mild antiseptic o antibiotic cream ang sugat kung walang alerji ang tao sa ganitong uri ng gamot."</item>
         <item>"Takpan ang sugat ng gasa o benda."</item>
     </string-array>
 </resources>
