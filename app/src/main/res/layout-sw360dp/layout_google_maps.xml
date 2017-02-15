@@ -24,7 +24,7 @@
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/checkmark"
+                android:src="@drawable/ic_hospital_nearby"
                 android:layout_marginRight="20dp"
                 android:layout_marginEnd="20dp"/>
 
