@@ -10,7 +10,7 @@
     <com.example.jonas.pocketaid.PracticeFragments.TouchImage
         android:id="@+id/touchImage"
         android:layout_height="250dp"
-        android:src="@drawable/ic_map_bg"
+        android:src="@drawable/samplecut"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_width="500dp" />
@@ -54,6 +54,16 @@
             android:layout_alignParentEnd="true"
             android:layout_marginRight="16dp"
             android:layout_marginEnd="16dp" />
+
+        <Button
+            android:id="@+id/triggerButton"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/circleshape"
+            android:layout_marginTop="79dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/textView9"
+            android:layout_alignEnd="@+id/textView9" />
 
     </RelativeLayout>
 

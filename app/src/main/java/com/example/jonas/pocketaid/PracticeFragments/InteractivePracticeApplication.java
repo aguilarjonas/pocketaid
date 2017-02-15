@@ -1,10 +1,6 @@
 package com.example.jonas.pocketaid.PracticeFragments;
 
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.jonas.pocketaid.R;
@@ -24,7 +20,8 @@ public class InteractivePracticeApplication extends Fragment {
 
     ViewGroup rootView;
     TouchImage applicationImage;
-
+    Button btTrigger;
+    Paint paint;
     public InteractivePracticeApplication() {
         // Required empty public constructor
     }
@@ -35,10 +32,9 @@ public class InteractivePracticeApplication extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_interactive_practice_application, container, false);
-
-
+        btTrigger = (Button) rootView.findViewById(R.id.triggerButton);
         addTouchListener();
-
+        getTrigger();
         return rootView;
     }
 
@@ -48,18 +44,26 @@ public class InteractivePracticeApplication extends Fragment {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-
                 float x = event.getX();
                 float y = event.getY();
 
-
-                String message = String.format("Coordinates: (%.2f, %.2f", x, y);
-                Toast.makeText(getActivity().getApplicationContext(), message , Toast.LENGTH_LONG).show();
+                String message = String.format("Coordinates: %.2f, %.2f", x, y);
+                Toast.makeText(getActivity().getApplicationContext(), message , Toast.LENGTH_SHORT).show();
 
                 return false;
             }
         });
 
+    }
+
+    public void getTrigger(){
+        btTrigger.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG SUGAT", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
