@@ -22,6 +22,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.util.Pair;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jonas.pocketaid.Adapters.PracticeItemAdapter;
+import com.example.jonas.pocketaid.Adapters.StepNumberListAdapter;
 import com.example.jonas.pocketaid.R;
 import com.woxthebox.draglistview.DragItem;
 import com.woxthebox.draglistview.DragListView;
