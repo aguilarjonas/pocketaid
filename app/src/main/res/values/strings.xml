@@ -390,4 +390,9 @@
         <item>"Apply mild antiseptic or antibiotic cream."</item>
         <item>"Cover the wound loosely with sterile gauze or bandage."</item>
     </string-array>
+
+    <!--NEW UPDATE-->
+    <!-- INTERACTIVE PRACTICE INSTRUCTIONS -->
+    <string name="material_steps">Tap the materials used for first aid.</string>
+    <string name="arrangement_steps">"Tap &amp; Drag the steps and arrange them sequentially."</string>
 </resources>

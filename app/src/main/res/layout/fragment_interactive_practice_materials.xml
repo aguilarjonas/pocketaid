@@ -1,199 +1,235 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.jonas.pocketaid.PracticeFragments.InteractivePracticeMaterialsFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_abrasion"
-        android:id="@+id/imageView_pic1"
-        />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:text="@string/material_steps"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_fracture"
-        android:id="@+id/imageView_pic4"
-        android:layout_alignTop="@+id/imageView_pic3"
-        android:layout_alignLeft="@+id/imageView_pic2"
-        android:layout_alignStart="@+id/imageView_pic2"
-        android:layout_marginLeft="19dp"
-        android:layout_marginStart="19dp"
-         />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="@dimen/ten_dp">
 
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_spinner"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginEnd="30dp">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_bites"
-        android:id="@+id/imageView_pic2"
-        android:layout_marginRight="15dp"
-        android:layout_marginEnd="15dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-         />
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_abrasion"
+                        android:id="@+id/imageView_pic1" />
 
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/checkmark"
+                        android:id="@+id/imageView1_check"
+                        tools:visibility="visible"
+                        android:layout_gravity="bottom|end"/>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_insect"
-        android:layout_marginTop="20dp"
-        android:id="@+id/imageView_pic5"
-        android:layout_below="@+id/imageView_pic3"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-         />
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="36dp"
+                        android:layout_marginEnd="36dp"
+                        android:id="@+id/textView_materials1"
+                        android:layout_gravity="bottom|center_vertical"/>
+                </FrameLayout>
 
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_spinner">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_dir_hospt_v2"
-        android:id="@+id/imageView_pic6"
-        android:layout_alignTop="@+id/imageView_pic5"
-        android:layout_alignLeft="@+id/imageView_pic4"
-        android:layout_alignStart="@+id/imageView_pic4"
-         />
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_bites"
+                        android:id="@+id/imageView_pic2" />
 
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/checkmark"
+                        android:id="@+id/imageView2_check"
+                        tools:visibility="visible"
+                        android:layout_gravity="bottom|end"/>
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/checkmark"
-        android:id="@+id/imageView3_check"
-        tools:visibility="visible"
-        android:layout_above="@+id/imageView_pic6"
-        android:layout_alignRight="@+id/imageView_pic3"
-        android:layout_alignEnd="@+id/imageView_pic3"/>
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView_materials2"
+                        android:layout_gravity="bottom|center_vertical"/>
+                </FrameLayout>
+            </LinearLayout>
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/checkmark"
-        android:id="@+id/imageView4_check"
-        tools:visibility="visible"
-        android:layout_above="@+id/imageView_pic6"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="@dimen/ten_dp">
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/checkmark"
-        android:id="@+id/imageView2_check"
-        tools:visibility="visible"
-        android:layout_alignBottom="@+id/imageView_pic2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_spinner"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginRight="30dp">
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/checkmark"
-        android:id="@+id/imageView1_check"
-        tools:visibility="visible"
-        android:layout_above="@+id/imageView_pic3"
-        android:layout_alignRight="@+id/imageView_pic1"
-        android:layout_alignEnd="@+id/imageView_pic1" />
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_concussion"
+                        android:id="@+id/imageView_pic3" />
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/checkmark"
-        android:id="@+id/imageView6_check"
-        tools:visibility="visible"
-        android:layout_above="@+id/button_practice_next"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/checkmark"
+                        android:id="@+id/imageView3_check"
+                        tools:visibility="visible"
+                        android:layout_gravity="bottom|end" />
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        app:srcCompat="@drawable/checkmark"
-        android:id="@+id/imageView5_check"
-        tools:visibility="visible"
-        android:layout_above="@+id/button_practice_next"
-        android:layout_alignRight="@+id/imageView_pic5"
-        android:layout_alignEnd="@+id/imageView_pic5" />
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView_materials3"
+                        android:layout_gravity="bottom|center_horizontal"/>
+                </FrameLayout>
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView_pic4"
-        android:layout_alignRight="@+id/imageView_pic1"
-        android:layout_alignEnd="@+id/imageView_pic1"
-        android:layout_marginRight="36dp"
-        android:layout_marginEnd="36dp"
-        android:id="@+id/textView_materials1" />
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_spinner">
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView_pic4"
-        android:layout_toLeftOf="@+id/imageView2_check"
-        android:layout_toStartOf="@+id/imageView2_check"
-        android:id="@+id/textView_materials2" />
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_fracture"
+                        android:id="@+id/imageView_pic4" />
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView_materials1"
-        android:layout_alignStart="@+id/textView_materials1"
-        android:id="@+id/textView_materials3"
-        android:layout_below="@+id/imageView_pic3" />
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/checkmark"
+                        android:id="@+id/imageView4_check"
+                        tools:visibility="visible"
+                        android:layout_gravity="bottom|end" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_concussion"
-        android:id="@+id/imageView_pic3"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView_materials4"
+                        android:layout_gravity="bottom|center_horizontal" />
+                </FrameLayout>
+            </LinearLayout>
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView_materials3"
-        android:layout_toLeftOf="@+id/imageView4_check"
-        android:layout_toStartOf="@+id/imageView4_check"
-        android:id="@+id/textView_materials4" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_marginBottom="@dimen/ten_dp">
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView_materials5"
-        android:layout_alignBottom="@+id/imageView_pic5"
-        android:layout_alignLeft="@+id/textView_materials3"
-        android:layout_alignStart="@+id/textView_materials3" />
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/border_spinner">
 
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView_pic6"
-        android:layout_alignLeft="@+id/textView_materials4"
-        android:layout_alignStart="@+id/textView_materials4"
-        android:id="@+id/textView_materials6" />
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_insect"
+                        android:id="@+id/imageView_pic5" />
 
-    <Button
-        android:text="Next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_practice_next"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-</RelativeLayout>
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/checkmark"
+                        android:id="@+id/imageView5_check"
+                        tools:visibility="visible"
+                        android:layout_gravity="bottom|end" />
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView_materials5"
+                        android:layout_gravity="bottom|center_horizontal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_spinner">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_dir_hospt_v2"
+                        android:id="@+id/imageView_pic6" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/checkmark"
+                        android:id="@+id/imageView6_check"
+                        tools:visibility="visible"
+                        android:layout_gravity="bottom|end"/>
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView_materials6"
+                        android:layout_gravity="bottom|center_horizontal"/>
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom|end"
+                android:weightSum="1">
+
+                <Button
+                    android:text="Next"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button_practice_next"
+                    android:layout_weight="0.5"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

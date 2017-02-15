@@ -34,7 +34,7 @@ public class StepNumberListAdapter extends RecyclerView.Adapter<StepNumberListAd
 
     @Override
     public void onBindViewHolder(MyHolder holder, int position) {
-        holder.stepNumTV.setText(injurySteps[position+1]);
+        holder.stepNumTV.setText(Integer.toString(position+1));
     }
 
     @Override

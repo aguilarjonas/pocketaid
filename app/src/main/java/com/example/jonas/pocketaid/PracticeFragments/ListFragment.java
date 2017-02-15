@@ -50,7 +50,7 @@ public class ListFragment extends Fragment {
     private ArrayAdapter<Integer> stepNumberAdapter;
     String[] abrasionProcedure, animalBitesProcedure, insectBitesProcedure, thermalBurnProcedure, thirdDegreeBurnProcedure, concussionProcedure, contusionProcedure, fractureProcedure,
              majorLacerationProcedure, minorLacerationProcedure, slightPunctureProcedure, severePunctureProcedure, chemicalBurnProcedure, electricalBurnProcedure;
-    ListView lvStepNumber;
+    RecyclerView lvStepNumber;
     Button checkAnswerBT;
 
     @Override
@@ -72,7 +72,7 @@ public class ListFragment extends Fragment {
         minorLacerationProcedure = getResources().getStringArray(R.array.laceration_minor_practice);
         slightPunctureProcedure = getResources().getStringArray(R.array.puncture_slight_recommended);
         severePunctureProcedure = getResources().getStringArray(R.array.puncture_severe_recommended);
-        lvStepNumber = (ListView) rootView.findViewById(R.id.lv_step_numberPrac);
+        lvStepNumber = (RecyclerView) rootView.findViewById(R.id.lv_step_numberPrac);
         checkAnswerBT = (Button) rootView.findViewById(R.id.btCheckAnswersPrac);
         String chosenInjury = getArguments().getString("chosenInjury");
         selectedInjury(chosenInjury);
@@ -88,8 +88,9 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < abrasionProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(abrasionProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + abrasionProcedure[counter]));
             }
             shuffleArray();
@@ -101,8 +102,9 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < animalBitesProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(animalBitesProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + animalBitesProcedure[counter]));
             }
             shuffleArray();
@@ -114,8 +116,9 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < insectBitesProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(insectBitesProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + insectBitesProcedure[counter]));
             }
             shuffleArray();
@@ -127,8 +130,9 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < thermalBurnProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(thermalBurnProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thermalBurnProcedure[counter]));
             }
             shuffleArray();
@@ -140,8 +144,9 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < chemicalBurnProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(chemicalBurnProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + chemicalBurnProcedure[counter]));
             }
             shuffleArray();
@@ -153,8 +158,9 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < thirdDegreeBurnProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(thirdDegreeBurnProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thirdDegreeBurnProcedure[counter]));
             }
             shuffleArray();
@@ -166,8 +172,9 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < concussionProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(concussionProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + concussionProcedure[counter]));
             }
             shuffleArray();
@@ -179,8 +186,9 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < contusionProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(contusionProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + contusionProcedure[counter]));
             }
             shuffleArray();
@@ -192,8 +200,9 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < fractureProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(fractureProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + fractureProcedure[counter]));
             }
             shuffleArray();
@@ -205,8 +214,9 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < majorLacerationProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(majorLacerationProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + majorLacerationProcedure[counter]));
             }
             shuffleArray();
@@ -218,8 +228,9 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < minorLacerationProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(minorLacerationProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + minorLacerationProcedure[counter]));
             }
             shuffleArray();
@@ -231,8 +242,9 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < severePunctureProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(severePunctureProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + severePunctureProcedure[counter]));
             }
             shuffleArray();
@@ -244,13 +256,25 @@ public class ListFragment extends Fragment {
             for (int counter = 0; counter < slightPunctureProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-                lvStepNumber.setAdapter(stepNumberAdapter);
+//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
+//                lvStepNumber.setAdapter(stepNumberAdapter);
+                setStepNumberAdapter(slightPunctureProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + slightPunctureProcedure[counter]));
             }
             shuffleArray();
             getOnClickListener(selectedInjury);
         }
+    }
+
+    public void setStepNumberAdapter(String[] injury) {
+        StepNumberListAdapter adapter = new StepNumberListAdapter(getActivity().getApplicationContext(), injury);
+        lvStepNumber.setAdapter(adapter);
+        lvStepNumber.setLayoutManager(new LinearLayoutManager(getActivity()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        });
     }
 
     public void getOnClickListener(final String chosenInjury){
@@ -393,7 +417,12 @@ public class ListFragment extends Fragment {
     }
 
     private void setupListRecyclerView() {
-        mDragListView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mDragListView.setLayoutManager(new LinearLayoutManager(getActivity()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        });
         PracticeItemAdapter listAdapter = new PracticeItemAdapter(mItemArray, R.layout.list_item, R.id.image, false);
         mDragListView.setAdapter(listAdapter, true);
         mDragListView.setCanDragHorizontally(false);
