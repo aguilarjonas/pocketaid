@@ -2,8 +2,10 @@ package com.example.jonas.pocketaid.PracticeFragments;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jonas.pocketaid.Adapters.DialogPractice;
 import com.example.jonas.pocketaid.InteractiveModules.InteractiveAnswerSheet;
+import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 
 import java.util.ArrayList;
@@ -44,7 +48,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
     TextView textView_5;
     TextView textView_6;
 
-
+    private ViewGroup rootView;
     private String injuryType;
 
     ArrayList<String> answersUser = new ArrayList<String>();
@@ -61,10 +65,13 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                             final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final String CHOSEN_PRACTICE = getArguments().getString("chosenPractice");
-        ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_interactive_practice_materials, container, false);
+        //changes menu button to Up or Back button
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        rootView = (ViewGroup) inflater.inflate(R.layout.fragment_interactive_practice_materials, container, false);
 
         setImages(rootView);
         setImageOnClicks();
@@ -75,14 +82,16 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (checkAnswers(interactiveSheet.checkAnswerSheet(CHOSEN_PRACTICE)) == false){
-                    Toast.makeText(getActivity().getApplicationContext(), "Wrong Answer! Try Again", Toast.LENGTH_SHORT).show();
-                }
-
-                else {
+//                    Toast.makeText(getActivity().getApplicationContext(), "Wrong Answer! Try Again", Toast.LENGTH_SHORT).show();
+                    DialogPractice dialogPractice = new DialogPractice();
+                    dialogPractice.showDialog(getActivity(), "wrong");
+                } else {
                     answersUser.clear();
 
+                    DialogPractice dialogPractice = new DialogPractice();
+                    dialogPractice.showDialog(getActivity(), "correct");
+
                     // TODO Auto-generated method stub
-                    chosenPracticeChooser(CHOSEN_PRACTICE);
                     ListFragment listFrag = new ListFragment();
                     Bundle args = new Bundle();
                     args.putString("chosenInjury", injuryType);
@@ -508,7 +517,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
-    public void punctureSlightPractice (){
+    public void punctureSlightPractice () {
         //Set the materials Image here.
         setChecksAsInvisible();
         imageView_1.setImageResource(R.drawable.ic_laceration);
@@ -520,5 +529,4 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
-
 }

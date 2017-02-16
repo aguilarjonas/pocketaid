@@ -4,6 +4,7 @@ package com.example.jonas.pocketaid.PracticeFragments;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 
 /**
@@ -32,7 +34,12 @@ public class InteractivePracticeApplication extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_interactive_practice_application, container, false);
+        //changes menu button to Up or Back button
+        ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         btTrigger = (Button) rootView.findViewById(R.id.triggerButton);
+
         addTouchListener();
         getTrigger();
         return rootView;

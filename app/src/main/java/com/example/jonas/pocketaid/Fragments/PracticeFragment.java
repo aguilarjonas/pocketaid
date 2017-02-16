@@ -3,6 +3,7 @@ package com.example.jonas.pocketaid.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -47,6 +48,9 @@ public class PracticeFragment extends Fragment {
         // Inflate the layout for this fragment
         ((MainActivity)getActivity()).setActionBarTitle("Interactive Practice");
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_practice, container, false);
+
+        //unlocks menu bar or drawer
+        ((MainActivity)getActivity()).resetActionBar(false, DrawerLayout.LOCK_MODE_UNLOCKED);
         ((MainActivity)getActivity()).hideOrShowFAB("hide");
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.practice_injury_list);

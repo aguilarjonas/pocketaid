@@ -31,6 +31,7 @@
                 android:layout_marginBottom="@dimen/ten_dp">
 
                 <FrameLayout
+                    android:padding="@dimen/ten_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/border_spinner"
@@ -62,6 +63,7 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:padding="@dimen/ten_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/border_spinner">
@@ -97,6 +99,7 @@
                 android:layout_marginBottom="@dimen/ten_dp">
 
                 <FrameLayout
+                    android:padding="@dimen/ten_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/border_spinner"
@@ -126,6 +129,7 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:padding="@dimen/ten_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/border_spinner">
@@ -161,6 +165,7 @@
                 android:layout_marginBottom="@dimen/ten_dp">
 
                 <FrameLayout
+                    android:padding="@dimen/ten_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="30dp"
@@ -190,6 +195,7 @@
                 </FrameLayout>
 
                 <FrameLayout
+                    android:padding="@dimen/ten_dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/border_spinner">

@@ -21,6 +21,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.util.Pair;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -33,6 +34,7 @@ import android.widget.Toast;
 
 import com.example.jonas.pocketaid.Adapters.PracticeItemAdapter;
 import com.example.jonas.pocketaid.Adapters.StepNumberListAdapter;
+import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 import com.woxthebox.draglistview.DragItem;
 import com.woxthebox.draglistview.DragListView;
@@ -45,7 +47,6 @@ public class ListFragment extends Fragment {
 
     private ArrayList<Pair<Long, String>> mItemArray;
     private DragListView mDragListView;
-    private ArrayAdapter<Integer> stepNumberAdapter;
     String[] abrasionProcedure, animalBitesProcedure, insectBitesProcedure, thermalBurnProcedure, thirdDegreeBurnProcedure, concussionProcedure, contusionProcedure, fractureProcedure,
              majorLacerationProcedure, minorLacerationProcedure, slightPunctureProcedure, severePunctureProcedure, chemicalBurnProcedure, electricalBurnProcedure;
     RecyclerView lvStepNumber;
@@ -54,6 +55,10 @@ public class ListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.list_layout, container, false);
+        //changes menu button to Up or Back button
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+
         mDragListView = (DragListView) rootView.findViewById(R.id.drag_list_view);
         mDragListView.getRecyclerView().setVerticalScrollBarEnabled(true);
         abrasionProcedure = getResources().getStringArray(R.array.abrasion_recommended);
