@@ -87,19 +87,20 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
             public void onClick(View v) {
                 if (checkAnswers(interactiveSheet.checkAnswerSheet(CHOSEN_PRACTICE)) == false){
 //                    Toast.makeText(getActivity().getApplicationContext(), "Wrong Answer! Try Again", Toast.LENGTH_SHORT).show();
-                    DialogPractice dialogPractice = new DialogPractice();
-                    dialogPractice.showDialog(getActivity(), "wrong");
+                    showDialog(getString(R.string.wrong));
                 } else {
                     answersUser.clear();
-
-                    DialogPractice dialogPractice = new DialogPractice();
-                    dialogPractice.showDialog(getActivity(), "correct");
-
+                    showDialog(getString(R.string.correct));
                     moveToListFragment();
                 }
             }
         });
         return rootView;
+    }
+
+    public void showDialog(String correctOrNot) {
+        DialogPractice dialogPractice = new DialogPractice();
+        dialogPractice.showDialog(getActivity(), correctOrNot);
     }
 
     public void moveToListFragment() {
