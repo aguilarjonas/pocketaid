@@ -234,6 +234,7 @@ public class InteractivePracticeApplication extends Fragment {
             }
 
             else if (imageNumber == 99){
+                imageNumber = 1;
                 DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
                 fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
