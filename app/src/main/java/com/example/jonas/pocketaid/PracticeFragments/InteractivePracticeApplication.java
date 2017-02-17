@@ -84,6 +84,11 @@ public class InteractivePracticeApplication extends Fragment {
         material2 = (ImageView) rootView.findViewById(R.id.iv_application_material2);
         material3 = (ImageView) rootView.findViewById(R.id.iv_application_material3);
 
+        hasClickTrigger = false;
+        whichMaterial = 0;
+        changeImage = false;
+        isItDone = false;
+        nextStep = false;
 
         getTrigger();
 
