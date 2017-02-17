@@ -1,6 +1,8 @@
 package com.example.jonas.pocketaid.PracticeFragments;
 
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +37,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
     ImageView imageView_5;
     ImageView imageView_6;
 
+    FrameLayout frameLayout_1;
     ImageView imageView_1_check;
     ImageView imageView_2_check;
     ImageView imageView_3_check;
@@ -91,22 +95,26 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                     DialogPractice dialogPractice = new DialogPractice();
                     dialogPractice.showDialog(getActivity(), "correct");
 
-                    // TODO Auto-generated method stub
-                    ListFragment listFrag = new ListFragment();
-                    Bundle args = new Bundle();
-                    args.putString("chosenInjury", injuryType);
-                    listFrag.setArguments(args);
-
-                    FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
-                    fragmentTransaction.add(listFrag, "listFrag")
-                            .replace(R.id.fragment_container, listFrag)
-                            .addToBackStack("listFrag")
-                            .commit();
+                    moveToListFragment();
                 }
             }
         });
         return rootView;
     }
+
+    public void moveToListFragment() {
+        ListFragment listFrag = new ListFragment();
+        Bundle args = new Bundle();
+        args.putString("chosenInjury", injuryType);
+        listFrag.setArguments(args);
+
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.add(listFrag, "listFrag")
+                .replace(R.id.fragment_container, listFrag)
+                .addToBackStack("listFrag")
+                .commit();
+    }
+
 
     public void setImages(ViewGroup rootView){
         imageView_1 = (ImageView) rootView.findViewById(R.id.imageView_pic1);

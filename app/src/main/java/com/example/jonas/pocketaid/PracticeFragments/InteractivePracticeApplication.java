@@ -9,11 +9,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-<<<<<<< Updated upstream
 import android.support.v4.widget.DrawerLayout;
-=======
 import android.util.Log;
->>>>>>> Stashed changes
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -51,12 +48,8 @@ public class InteractivePracticeApplication extends Fragment {
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         btTrigger = (Button) rootView.findViewById(R.id.triggerButton);
-<<<<<<< Updated upstream
-
-=======
         relativeLayout_Touch = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_Touch);
         relativeLayout_Touch.addView(new MyView(getActivity().getApplicationContext()));
->>>>>>> Stashed changes
         addTouchListener();
         getTrigger();
 

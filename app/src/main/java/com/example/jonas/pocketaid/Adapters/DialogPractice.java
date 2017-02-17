@@ -4,14 +4,18 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jonas.pocketaid.PracticeFragments.InteractivePracticeMaterialsFragment;
 import com.example.jonas.pocketaid.R;
@@ -26,8 +30,9 @@ public class DialogPractice extends DialogFragment {
     private ImageView dialogIV;
     private Button dialogButton;
     private Dialog dialog;
+    private boolean status;
 
-    public void showDialog(Activity activity, String correctOrNot) {
+    public void showDialog(final Activity activity, final String correctOrNot) {
 
         dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -39,11 +44,13 @@ public class DialogPractice extends DialogFragment {
         dialogButton = (Button) dialog.findViewById(R.id.dialog_button);
 
         if(correctOrNot.toLowerCase().equals("wrong")) {
-            dialogIV.setImageResource(R.drawable.ic_xmark);
+            dialogIV.setImageResource(R.drawable.xmark_2);
+            dialogIV.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.dialogWrongBackground));
             dialogTV.setText("Sorry, wrong answer. :(");
         } else if(correctOrNot.toLowerCase().equals("correct")){
-            dialogIV.setImageResource(R.drawable.ic_checkmark);
-            dialogTV.setText("May Tama ka!!");
+            dialogIV.setImageResource(R.drawable.checkmark_2);
+            dialogIV.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.dialogRightBackground));
+            dialogTV.setText("Correct! Very Good!");
         }
 
         dialogButton.setOnClickListener(new View.OnClickListener() {

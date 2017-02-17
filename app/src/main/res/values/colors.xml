@@ -9,4 +9,6 @@
     <color name="gray">#BDBDCF</color>
     <color name="list_item_background">#AACCCCCC</color>
     <color name="background">#ECEFF1</color>
+    <color name="dialogWrongBackground">#c0392b</color>
+    <color name="dialogRightBackground">#2ecc71</color>
 </resources>

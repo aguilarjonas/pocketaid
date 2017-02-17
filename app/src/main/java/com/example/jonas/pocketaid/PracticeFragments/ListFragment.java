@@ -32,6 +32,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jonas.pocketaid.Adapters.DialogPractice;
 import com.example.jonas.pocketaid.Adapters.PracticeItemAdapter;
 import com.example.jonas.pocketaid.Adapters.StepNumberListAdapter;
 import com.example.jonas.pocketaid.MainActivity;
@@ -289,9 +290,11 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Lagyan")) &&
                             (mItemArray.get(2).second.startsWith("Cover") || mItemArray.get(2).second.startsWith("Takpan")) &&
                             (mItemArray.get(3).second.startsWith("Repeat") || mItemArray.get(3).second.startsWith("Ulitin"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Fracture")){
                     if((mItemArray.get(0).second.startsWith("In") || mItemArray.get(0).second.startsWith("Kung")) &&
@@ -302,26 +305,32 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(5).second.startsWith("Immobilize") || mItemArray.get(5).second.startsWith("Gumamit")) &&
                             (mItemArray.get(6).second.startsWith("Check") || mItemArray.get(6).second.startsWith("Regular")) &&
                             (mItemArray.get(7).second.startsWith("Call") || mItemArray.get(7).second.startsWith("Magpatingin"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Contusion")){
                     if((mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Ilapat"))&&
                             (mItemArray.get(1).second.startsWith("If") || mItemArray.get(1).second.contains("Kung maaari")) &&
                             (mItemArray.get(2).second.startsWith("Rest") || mItemArray.get(2).second.startsWith("Ipahinga")) &&
                             (mItemArray.get(3).second.contains("If needed") || mItemArray.get(3).second.contains("Kung kinakailangan"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Concussion")){
                     if((mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Lapatan")) &&
                             (mItemArray.get(1).second.startsWith("Observe") || mItemArray.get(1).second.startsWith("Obserbahan")) &&
                             (mItemArray.get(2).second.startsWith("If") || mItemArray.get(2).second.startsWith("Tumawag"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("3rd Degree Burns")){
                     if((mItemArray.get(0).second.startsWith("Protect") || mItemArray.get(0).second.startsWith("Protektahan")) &&
@@ -329,9 +338,11 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(2).second.startsWith("Do") || mItemArray.get(2).second.startsWith("Huwag")) &&
                             (mItemArray.get(3).second.startsWith("If") || mItemArray.get(3).second.startsWith("Ilagay")) &&
                             (mItemArray.get(4).second.startsWith("Call") || mItemArray.get(4).second.startsWith("Tumawag"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Chemical Burns")){
                     if((mItemArray.get(0).second.startsWith("Remove") || mItemArray.get(0).second.contains("Kung mayroon")) &&
@@ -340,17 +351,21 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(3).second.startsWith("Cover") || mItemArray.get(3).second.startsWith("Takpan")) &&
                             (mItemArray.get(4).second.startsWith("If") || mItemArray.get(4).second.contains("Kung ang kemikal")) &&
                             (mItemArray.get(5).second.startsWith("Seek") || mItemArray.get(5).second.startsWith("Magpasuri"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Thermal Burns")){
                     if((mItemArray.get(0).second.startsWith("Hold") || mItemArray.get(0).second.startsWith("Banlawan")) &&
                             (mItemArray.get(1).second.startsWith("Cover") || mItemArray.get(1).second.startsWith("Hugasan")) &&
                             (mItemArray.get(2).second.startsWith("Keep") || mItemArray.get(2).second.startsWith("Takpan"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Insect Bites")){
                     if((mItemArray.get(0).second.startsWith("Check") || mItemArray.get(0).second.startsWith("Suriin"))&&
@@ -359,26 +374,32 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(3).second.startsWith("Cover")|| mItemArray.get(3).second.startsWith("Takpan")) &&
                             (mItemArray.get(4).second.startsWith("Apply") || mItemArray.get(4).second.startsWith("Lapatan")) &&
                             (mItemArray.get(5).second.startsWith("Call") || mItemArray.get(5).second.startsWith("Tumawag"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Animal Bites")){
                     if((mItemArray.get(0).second.startsWith("Control") || mItemArray.get(0).second.startsWith("Kontrolin")) &&
                             (mItemArray.get(1).second.startsWith("Do") || mItemArray.get(1).second.startsWith("Huwag")) &&
                             (mItemArray.get(2).second.startsWith("Call") || mItemArray.get(2).second.startsWith("Tumawag"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Puncture (Slightly Bleeding)")){
                     if((mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")) &&
                             (mItemArray.get(1).second.startsWith("Clean") || mItemArray.get(1).second.startsWith("Linisin")) &&
                             (mItemArray.get(2).second.startsWith("Apply") || mItemArray.get(2).second.startsWith("Lagyan")) &&
                             (mItemArray.get(3).second.startsWith("Cover") || mItemArray.get(3).second.startsWith("Takpan"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Puncture (Severe Bleeding)")){
                     if((mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")) &&
@@ -386,9 +407,11 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(2).second.startsWith("Clean") || mItemArray.get(2).second.startsWith("Linisin")) &&
                             (mItemArray.get(3).second.startsWith("If") || mItemArray.get(3).second.startsWith("Huwag")) &&
                             (mItemArray.get(4).second.startsWith("Consult") || mItemArray.get(4).second.startsWith("Kumonsulta"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Minor Laceration")){
                     if((mItemArray.get(0).second.startsWith("Use") || mItemArray.get(0).second.startsWith("Magsuot")) &&
@@ -396,9 +419,11 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(2).second.startsWith("Wash") || mItemArray.get(2).second.startsWith("Hugasan")) &&
                             (mItemArray.get(3).second.contains("Apply an") || mItemArray.get(3).second.contains("Pahiran")) &&
                             (mItemArray.get(4).second.startsWith("Cover") || mItemArray.get(4).second.startsWith("Takpan"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Major Laceration")){
                     if((mItemArray.get(0).second.startsWith("Put") || mItemArray.get(0).second.startsWith("Magsuot")) &&
@@ -408,13 +433,20 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(4).second.startsWith("Have") || mItemArray.get(4).second.startsWith("Tiyaking")) &&
                             (mItemArray.get(5).second.startsWith("Wash") || mItemArray.get(5).second.startsWith("Maghugas")) &&
                             (mItemArray.get(6).second.startsWith("Call") || mItemArray.get(6).second.startsWith("Tumawag"))){
+                        showDialog(getString(R.string.correct));
                         goToScoreFragment();
                     } else{
-                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
+                        showDialog(getString(R.string.wrong));
+//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
+    }
+
+    public void showDialog(String correctOrNot) {
+        DialogPractice dialogPractice = new DialogPractice();
+        dialogPractice.showDialog(getActivity(), correctOrNot);
     }
 
     public void goToScoreFragment(){
