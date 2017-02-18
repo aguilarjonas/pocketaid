@@ -29,38 +29,6 @@
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/overview_label"
-                android:layout_marginTop="35dp"
-                android:layout_marginLeft="@dimen/ten_dp"
-                android:layout_marginStart="@dimen/ten_dp"
-                android:layout_marginRight="@dimen/ten_dp"
-                android:layout_marginEnd="@dimen/ten_dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:text="OVERVIEW"/>
-
-            <View
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="@dimen/ten_dp"
-                android:layout_marginStart="@dimen/ten_dp"
-                android:layout_marginRight="@dimen/ten_dp"
-                android:layout_marginEnd="@dimen/ten_dp"
-                android:layout_width="match_parent"
-                android:layout_height="5dp"
-                android:background="#E0E0E0"/>
-
-            <TextView
-                android:id="@+id/overview_injury"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/ten_dp"
-                android:layout_marginLeft="@dimen/ten_dp"
-                android:layout_marginStart="@dimen/ten_dp"
-                android:layout_marginRight="@dimen/ten_dp"
-                android:layout_marginEnd="@dimen/ten_dp"/>
-
-            <TextView
                 android:id="@+id/overview_causes_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
