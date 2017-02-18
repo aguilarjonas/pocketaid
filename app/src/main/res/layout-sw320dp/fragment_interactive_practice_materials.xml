@@ -1,0 +1,289 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:tag="interactive_materials"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.jonas.pocketaid.PracticeFragments.InteractivePracticeMaterialsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:text="@string/material_steps"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="@dimen/ten_dp">
+
+                <FrameLayout
+                    android:id="@+id/frame_layout_materials1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:background="@drawable/border_spinner"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginEnd="30dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="@dimen/ten_dp"
+                        android:src="@drawable/ic_abrasion"
+                        android:id="@+id/imageView_pic1" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:background="@drawable/checkbox_background"
+                        android:layout_gravity="bottom|end">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_checkmark"
+                            android:id="@+id/imageView1_check"
+                            tools:visibility="visible"/>
+                    </FrameLayout>
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="36dp"
+                        android:layout_marginEnd="36dp"
+                        android:id="@+id/textView_materials1"
+                        android:layout_gravity="bottom|center_vertical"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/frame_layout_materials2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_spinner">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="@dimen/ten_dp"
+                        android:src="@drawable/ic_bites"
+                        android:id="@+id/imageView_pic2" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:background="@drawable/checkbox_background"
+                        android:layout_gravity="bottom|end">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_checkmark"
+                            android:id="@+id/imageView2_check"
+                            tools:visibility="visible"/>
+                    </FrameLayout>
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView_materials2"
+                        android:layout_gravity="bottom|center_vertical"/>
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|center_horizontal"
+                android:layout_marginBottom="@dimen/ten_dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_spinner"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginRight="30dp">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="@dimen/ten_dp"
+                        android:src="@drawable/ic_concussion"
+                        android:id="@+id/imageView_pic3" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:background="@drawable/checkbox_background"
+                        android:layout_gravity="bottom|end">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_checkmark"
+                            android:id="@+id/imageView3_check"
+                            tools:visibility="visible" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView_materials3"
+                        android:layout_gravity="bottom|center_horizontal"/>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_spinner">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@drawable/ic_fracture"
+                        android:layout_margin="@dimen/ten_dp"
+                        android:id="@+id/imageView_pic4" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:background="@drawable/checkbox_background"
+                        android:layout_gravity="bottom|end">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_checkmark"
+                            android:id="@+id/imageView4_check"
+                            tools:visibility="visible"
+                            android:layout_gravity="bottom|end" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView_materials4"
+                        android:layout_gravity="bottom|center_horizontal" />
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_marginBottom="@dimen/ten_dp">
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/border_spinner">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="@dimen/ten_dp"
+                        android:src="@drawable/ic_insect"
+                        android:id="@+id/imageView_pic5" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:background="@drawable/checkbox_background"
+                        android:layout_gravity="bottom|end">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_checkmark"
+                            android:id="@+id/imageView5_check"
+                            tools:visibility="visible"
+                            android:layout_gravity="bottom|end" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView_materials5"
+                        android:layout_gravity="bottom|center_horizontal" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_spinner">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="@dimen/ten_dp"
+                        android:src="@drawable/ic_dir_hospt_v2"
+                        android:id="@+id/imageView_pic6" />
+
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="2dp"
+                        android:background="@drawable/checkbox_background"
+                        android:layout_gravity="bottom|end">
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_checkmark"
+                            android:id="@+id/imageView6_check"
+                            tools:visibility="visible"/>
+                    </FrameLayout>
+
+                    <TextView
+                        android:text="TextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView_materials6"
+                        android:layout_gravity="bottom|center_horizontal"/>
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="bottom|end"
+                android:weightSum="1">
+
+                <Button
+                    android:text="Next"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/button_practice_next"
+                    android:layout_weight="0.5"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -30,19 +30,31 @@ public class DialogPractice extends DialogFragment {
     private ImageView dialogIV;
     private Button dialogButton;
     private Dialog dialog;
-    private boolean status;
 
-    public void showDialog(final Activity activity, final String correctOrNot) {
+    public void showDialog(Activity activity, final String correctOrNot) {
 
+        createNewDialog(activity);
+        initializeDialogViews();
+        setDialogViews(correctOrNot, activity);
+        dialogButtonListener();
+
+        dialog.show();
+    }
+
+    public void createNewDialog(Activity activity) {
         dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.layout_dialog);
+    }
 
+    public void initializeDialogViews() {
         dialogTV = (TextView) dialog.findViewById(R.id.dialog_textView);
         dialogIV = (ImageView) dialog.findViewById(R.id.dialog_imageView);
         dialogButton = (Button) dialog.findViewById(R.id.dialog_button);
+    }
 
+    public void setDialogViews(String correctOrNot, Activity activity) {
         if(correctOrNot.toLowerCase().equals("wrong")) {
             dialogIV.setImageResource(R.drawable.xmark_2);
             dialogIV.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.dialogWrongBackground));
@@ -52,14 +64,14 @@ public class DialogPractice extends DialogFragment {
             dialogIV.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.dialogRightBackground));
             dialogTV.setText("Correct! Very Good!");
         }
+    }
 
+    public void dialogButtonListener() {
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });
-
-        dialog.show();
     }
 }

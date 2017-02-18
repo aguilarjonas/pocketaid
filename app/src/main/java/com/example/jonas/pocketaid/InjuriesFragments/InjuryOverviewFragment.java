@@ -91,9 +91,6 @@ public class InjuryOverviewFragment extends Fragment {
         injury_logo = (ImageView) rootView.findViewById(R.id.injury_logo);
         injury_logo.setImageResource(getResources().getIdentifier("ic_" + injury, "drawable", getActivity().getPackageName()));
 
-        overview_injury = (TextView) rootView.findViewById(R.id.overview_injury);
-        overview_injury.setText(injury);
-
         overview_causes = (TextView) rootView.findViewById(R.id.overview_causes);
         overview_causes.setText("makulit");
     }
