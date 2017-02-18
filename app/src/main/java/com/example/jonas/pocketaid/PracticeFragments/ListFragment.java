@@ -472,6 +472,7 @@ public class ListFragment extends Fragment {
         FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
         Bundle args = new Bundle();
         args.putString("numberOfMaterials" , String.valueOf(numberOfMaterials));
+        interactiveApplication.setArguments(args);
         fragmentTransaction.add(interactiveApplication, "interactiveApplication")
                 .replace(R.id.fragment_container, interactiveApplication)
                 .addToBackStack("interactiveApplication")
