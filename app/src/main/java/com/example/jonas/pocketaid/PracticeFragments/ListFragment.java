@@ -27,7 +27,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,6 +51,9 @@ public class ListFragment extends Fragment {
              majorLacerationProcedure, minorLacerationProcedure, slightPunctureProcedure, severePunctureProcedure, chemicalBurnProcedure, electricalBurnProcedure;
     RecyclerView lvStepNumber;
     Button checkAnswerBT;
+
+    int numberOfMaterials = 0;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -80,6 +82,9 @@ public class ListFragment extends Fragment {
         checkAnswerBT = (Button) rootView.findViewById(R.id.btCheckAnswersPrac);
         String chosenInjury = getArguments().getString("chosenInjury");
         selectedInjury(chosenInjury);
+
+        //To clear the *int* when going back.
+        numberOfMaterials = 0;
 
         return rootView;
     }
@@ -291,7 +296,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(2).second.startsWith("Cover") || mItemArray.get(2).second.startsWith("Takpan")) &&
                             (mItemArray.get(3).second.startsWith("Repeat") || mItemArray.get(3).second.startsWith("Ulitin"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 3;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -306,7 +312,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(6).second.startsWith("Check") || mItemArray.get(6).second.startsWith("Regular")) &&
                             (mItemArray.get(7).second.startsWith("Call") || mItemArray.get(7).second.startsWith("Magpatingin"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 3;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -317,7 +324,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(2).second.startsWith("Rest") || mItemArray.get(2).second.startsWith("Ipahinga")) &&
                             (mItemArray.get(3).second.contains("If needed") || mItemArray.get(3).second.contains("Kung kinakailangan"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 2;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -327,7 +335,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(1).second.startsWith("Observe") || mItemArray.get(1).second.startsWith("Obserbahan")) &&
                             (mItemArray.get(2).second.startsWith("If") || mItemArray.get(2).second.startsWith("Tumawag"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 2;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -339,7 +348,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(3).second.startsWith("If") || mItemArray.get(3).second.startsWith("Ilagay")) &&
                             (mItemArray.get(4).second.startsWith("Call") || mItemArray.get(4).second.startsWith("Tumawag"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 0;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -352,7 +362,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(4).second.startsWith("If") || mItemArray.get(4).second.contains("Kung ang kemikal")) &&
                             (mItemArray.get(5).second.startsWith("Seek") || mItemArray.get(5).second.startsWith("Magpasuri"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 2;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -362,7 +373,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(1).second.startsWith("Cover") || mItemArray.get(1).second.startsWith("Hugasan")) &&
                             (mItemArray.get(2).second.startsWith("Keep") || mItemArray.get(2).second.startsWith("Takpan"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 3;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -375,7 +387,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(4).second.startsWith("Apply") || mItemArray.get(4).second.startsWith("Lapatan")) &&
                             (mItemArray.get(5).second.startsWith("Call") || mItemArray.get(5).second.startsWith("Tumawag"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 3;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -385,7 +398,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(1).second.startsWith("Do") || mItemArray.get(1).second.startsWith("Huwag")) &&
                             (mItemArray.get(2).second.startsWith("Call") || mItemArray.get(2).second.startsWith("Tumawag"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 1;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -396,7 +410,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(2).second.startsWith("Apply") || mItemArray.get(2).second.startsWith("Lagyan")) &&
                             (mItemArray.get(3).second.startsWith("Cover") || mItemArray.get(3).second.startsWith("Takpan"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 3;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -408,7 +423,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(3).second.startsWith("If") || mItemArray.get(3).second.startsWith("Huwag")) &&
                             (mItemArray.get(4).second.startsWith("Consult") || mItemArray.get(4).second.startsWith("Kumonsulta"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 3;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -420,7 +436,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(3).second.contains("Apply an") || mItemArray.get(3).second.contains("Pahiran")) &&
                             (mItemArray.get(4).second.startsWith("Cover") || mItemArray.get(4).second.startsWith("Takpan"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 3;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -434,7 +451,8 @@ public class ListFragment extends Fragment {
                             (mItemArray.get(5).second.startsWith("Wash") || mItemArray.get(5).second.startsWith("Maghugas")) &&
                             (mItemArray.get(6).second.startsWith("Call") || mItemArray.get(6).second.startsWith("Tumawag"))){
                         showDialog(getString(R.string.correct));
-                        goToScoreFragment();
+                        numberOfMaterials = 3;
+                        goToInteractiveApplication();
                     } else{
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -449,9 +467,11 @@ public class ListFragment extends Fragment {
         dialogPractice.showDialog(getActivity(), correctOrNot);
     }
 
-    public void goToScoreFragment(){
+    public void goToInteractiveApplication(){
         InteractivePracticeApplication interactiveApplication = new InteractivePracticeApplication();
         FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+        Bundle args = new Bundle();
+        args.putString("numberOfMaterials" , String.valueOf(numberOfMaterials));
         fragmentTransaction.add(interactiveApplication, "interactiveApplication")
                 .replace(R.id.fragment_container, interactiveApplication)
                 .addToBackStack("interactiveApplication")

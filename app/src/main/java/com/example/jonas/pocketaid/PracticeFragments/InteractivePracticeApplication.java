@@ -49,12 +49,15 @@ public class InteractivePracticeApplication extends Fragment {
     ImageView material1;
     ImageView material2;
     ImageView material3;
+    ImageView material4;
 
     boolean hasClickTrigger = false;
     int whichMaterial = 0;
     boolean changeImage = false;
     boolean isItDone = false;
     boolean nextStep = false;
+
+    int numberOfMaterials = 0;
 
     int imageNumber = 1;
     public InteractivePracticeApplication() {
@@ -71,29 +74,35 @@ public class InteractivePracticeApplication extends Fragment {
         ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        numberOfMaterials = Integer.parseInt(getArguments().getString("numberOfMaterials"));
 
-        relativeLayout_Touch = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_Touch);
-        relativeLayout_Touch.addView(new MyView(getActivity().getApplicationContext()));
+        clearValues();
+        initializeElements();
+        getTrigger();
 
-        tvTrigger = (TextView) rootView.findViewById(R.id.triggerTextview);
+        return rootView;
+    }
 
-        relativeLayout_Touch = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_Touch);
-        relativeLayout_Touch.addView(new MyView(getActivity().getApplicationContext()));
+    public void initializeElements(){
 
         material1 = (ImageView) rootView.findViewById(R.id.iv_application_material1);
         material2 = (ImageView) rootView.findViewById(R.id.iv_application_material2);
         material3 = (ImageView) rootView.findViewById(R.id.iv_application_material3);
+        material4 = (ImageView) rootView.findViewById(R.id.iv_application_material4);
+
+
+        relativeLayout_Touch = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_Touch);
+        relativeLayout_Touch.addView(new MyView(getActivity().getApplicationContext()));
+        tvTrigger = (TextView) rootView.findViewById(R.id.triggerTextview);
+    }
+
+    public void clearValues(){
 
         hasClickTrigger = false;
         whichMaterial = 0;
         changeImage = false;
         isItDone = false;
         nextStep = false;
-
-        getTrigger();
-
-
-        return rootView;
     }
 
     public void getTrigger(){

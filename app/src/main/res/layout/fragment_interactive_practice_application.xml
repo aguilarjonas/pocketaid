@@ -80,6 +80,16 @@
             android:layout_marginLeft="33dp"
             android:layout_marginStart="33dp" />
 
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/checkmark"
+            android:id="@+id/iv_application_material4"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/iv_application_material2"
+            android:layout_alignStart="@+id/iv_application_material2"
+            android:layout_marginBottom="31dp" />
+
     </RelativeLayout>
 
 </RelativeLayout>
