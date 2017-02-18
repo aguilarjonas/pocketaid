@@ -396,7 +396,7 @@
     <!--NEW UPDATE-->
     <!-- INTERACTIVE PRACTICE INSTRUCTIONS -->
     <string name="material_steps">Tap the materials used for first aid.</string>
-    <string name="arrangement_steps">"Tap &amp; Drag the steps and arrange them sequentially."</string>
+    <string name="arrangement_steps">"Tap &amp; Drag the steps and arrange them in proper order."</string>
 
     <!-- CORRECT OR WRONG -->
     <string name="correct">correct</string>
