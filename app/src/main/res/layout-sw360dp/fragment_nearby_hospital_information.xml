@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/ic_map_bg">
+    android:layout_height="match_parent">
 
     <fragment android:id="@+id/map_hospitalOnly"
         android:name="com.google.android.gms.maps.SupportMapFragment"
@@ -13,137 +12,148 @@
         tools:context=".Fragments.NearbyFragment"/>
 
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:padding="15dp"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <android.support.v7.widget.CardView
+            android:layout_margin="5dp"
+            app:contentPadding="@dimen/ten_dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            app:cardUseCompatPadding="true">
 
-            <TextView
-                android:id="@+id/label_hospitalName"
-                android:text="@string/hospitalinfoName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:textColor="#000"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textview_hospitalnameinfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginStart="15dp"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:gravity="end"
-                android:layout_weight="1"/>
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/textview_hospitalnameinfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:text="Histopathology Section - Manila Doctos Hospital"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
+                <View
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray"/>
 
-            <TextView
-                android:id="@+id/label_address"
-                android:text="@string/Address"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:textSize="15sp"
-                android:textColor="#000" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textview_hospitaladdress"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="19dp"
-                android:layout_marginStart="19dp"
-                android:textSize="15sp"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:gravity="end"
-                android:layout_weight="1"/>
-        </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_checkmark"/>
+                        <TextView
+                            android:id="@+id/textview_hospitaladdress"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginStart="20dp"
+                            android:textSize="15sp"
+                            android:textColor="#000"
+                            android:gravity="start"
+                            android:text="Laboratory Medicine, Manila Doctors Hospital, 667, United Nation Avenue, Ermita, Manila"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
 
-            <TextView
-                android:id="@+id/label_phone"
-                android:text="@string/phoneNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:textColor="#000"/>
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
 
-            <TextView
-                android:id="@+id/textview_phonenumberinfo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:gravity="end"
-                android:layout_weight="1"/>
-        </LinearLayout>
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_checkmark"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/textview_phonenumberinfo"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginStart="20dp"
+                            android:textSize="15sp"
+                            android:textColor="#000"
+                            android:gravity="start"
+                            android:text="(02) 524 3011"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
 
-            <TextView
-                android:id="@+id/label_distance"
-                android:text="@string/distance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:textSize="15sp"
-                android:textColor="#000"/>
+                    <LinearLayout
+                        android:layout_marginTop="@dimen/ten_dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
 
-            <TextView
-                android:id="@+id/textView_distance"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:paddingTop="5dp"
-                android:textSize="15sp"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:gravity="end"
-                android:layout_weight="1"/>
-        </LinearLayout>
-    </LinearLayout>
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/ic_checkmark"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/ten_dp"
-        android:gravity="center">
+                        <TextView
+                            android:id="@+id/textView_distance"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginStart="20dp"
+                            android:text="6.4 km"
+                            android:textSize="15sp"
+                            android:textColor="#000"
+                            android:gravity="start"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
 
-        <ImageButton
-            android:id="@+id/image_callhospital"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/ic_call_hospt"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:scaleType="fitCenter"/>
+                    <View
+                        android:layout_marginTop="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/gray"/>
 
-        <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            app:srcCompat="@drawable/ic_dir_hospt_v2"
-            android:id="@+id/image_gotohospital"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:layout_marginLeft="28dp"
-            android:layout_marginStart="28dp" />
-    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center">
+
+                        <ImageButton
+                            android:id="@+id/image_callhospital"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/ic_call_hospt"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:scaleType="fitCenter"/>
+
+                        <ImageButton
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            app:srcCompat="@drawable/ic_dir_hospt_v2"
+                            android:id="@+id/image_gotohospital"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginStart="35dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </ScrollView>
 </LinearLayout>
