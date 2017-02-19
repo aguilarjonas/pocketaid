@@ -211,14 +211,14 @@
     <!-- ABRASION: RECOMMENDED -->
     <string-array name="abrasion_recommended">
         <item>"Wash the affected area with water and anti-bacterial soap."</item>
-        <item>"Apply Betadine Solution or Spray on the wound."</item>
+        <item>"Apply povidone-iodine solution or spray on the wound."</item>
         <item>"Cover the affected area with gauze or band-aid."</item>
         <item>"Repeat daily until fully healed."</item>
     </string-array>
     <!-- ABRASION: ALTERNATIVE -->
     <string-array name="abrasion_alternative">
         <item>"Boil the guava leaves in water and use it as a rinse to the affected area."</item>
-        <item>"Apply Betadine Solution or Spray."</item>
+        <item>"Apply povidone-iodine solution or spray on the wound."</item>
         <item>"Cover the affected area with gauze or band-aid."</item>
         <item>"Repeat daily until fully healed."</item>
     </string-array>
