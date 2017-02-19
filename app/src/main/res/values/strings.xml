@@ -401,4 +401,18 @@
     <!-- CORRECT OR WRONG -->
     <string name="correct">correct</string>
     <string name="wrong">wrong</string>
+
+    <!-- POSSIBLE CAUSES OF INJURIES -->
+
+    <string name="abrasion_cause">When the surface of a person’s skin comes in contact with a rough surface and this surface rubs the skin, exposing the surface skin or the uppermost layers of your epidermis.</string>
+    <string name="laceration_cause">This happens when skin comes into contact with blunt or sharp edged objects such as rock, broken glass, knife or scissors.</string>
+    <string name="burns">This happens when the skin or eye comes into contact with flame, hot liquid or too much exposure to sun.</string>
+    <string name="third_deg_burns_cause">In most cases, third degree burns are caused by a scalding liquid, skin that comes in contact with a hot object for an extended period of time,
+    flames from a fire, an electrical source, a chemical source.</string>
+    <string name="concussion_cause">Common causes includes fights, falls, playground injuries, car crashes, and bike accidents. Concussions can also happen while participating in any sport or activity such as football, boxing, hockey, soccer, skiing, or snowboarding.</string>
+    <string name="contusion_cause">This is caused by trauma cases, such as a direct blow or applied force to the skin or body part.</string>
+    <string name="fracture_cause">This is caused by traumatic incidents such as sporting injuries, vehicle accidents or falls.</string>
+    <string name="puncture_cause">This is caused by forceful penetration of a sharp, pointed object through the skin.</string>
+    <string name="insect_bites_cause">Children who live near wooded and/or grassy or even dirty surrounding areas or who spend recreation time in these locations are most susceptible to insect bites.</string>
+    <string name="animal_bites_cause">Cats and dogs cause most animal bites. Children who have pets or who live in areas with these animals are more susceptible to animal bites.</string>
 </resources>
