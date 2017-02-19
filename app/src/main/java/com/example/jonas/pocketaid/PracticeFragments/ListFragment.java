@@ -299,6 +299,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 3;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 3;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -315,6 +319,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 3;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 3;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -327,6 +335,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 2;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 2;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -338,6 +350,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 2;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 2;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -351,6 +367,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 0;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 0;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -365,6 +385,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 2;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 2;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -376,6 +400,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 3;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 3;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -390,6 +418,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 3;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 3;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -401,6 +433,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 1;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 1;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -413,6 +449,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 3;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 3;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -426,6 +466,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 3;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 3;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -439,6 +483,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 3;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 3;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
@@ -454,6 +502,10 @@ public class ListFragment extends Fragment {
                         numberOfMaterials = 3;
                         goToInteractiveApplication();
                     } else{
+                        numberOfMaterials = 3;
+
+                        goToInteractiveApplication();
+
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }

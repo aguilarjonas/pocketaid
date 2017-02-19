@@ -35,6 +35,8 @@ import com.example.jonas.pocketaid.R;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  */
@@ -52,7 +54,7 @@ public class InteractivePracticeApplication extends Fragment {
     ImageView material4;
 
     boolean hasClickTrigger = false;
-    int whichMaterial = 0;
+    ArrayList<Integer> whichMaterial = new ArrayList<Integer>();
     boolean changeImage = false;
     boolean isItDone = false;
     boolean nextStep = false;
@@ -60,6 +62,7 @@ public class InteractivePracticeApplication extends Fragment {
     int numberOfMaterials = 0;
 
     int imageNumber = 1;
+    int whatsNext = 1;
     public InteractivePracticeApplication() {
         // Required empty public constructor
     }
@@ -78,9 +81,34 @@ public class InteractivePracticeApplication extends Fragment {
 
         clearValues();
         initializeElements();
+        setVisibilityForMaterials(numberOfMaterials);
         getTrigger();
 
         return rootView;
+    }
+
+    public void setVisibilityForMaterials(int numberOfMaterials){
+
+        if (numberOfMaterials == 0){
+            material1.setVisibility(View.GONE);
+            material2.setVisibility(View.GONE);
+            material3.setVisibility(View.GONE);
+            material4.setVisibility(View.GONE);
+        }
+        else if (numberOfMaterials == 1){
+            material2.setVisibility(View.GONE);
+            material3.setVisibility(View.GONE);
+            material4.setVisibility(View.GONE);
+        }
+
+        else if (numberOfMaterials == 2){
+            material3.setVisibility(View.GONE);
+            material4.setVisibility(View.GONE);
+        }
+
+        else if (numberOfMaterials == 3){
+            material4.setVisibility(View.GONE);
+        }
     }
 
     public void initializeElements(){
@@ -99,7 +127,9 @@ public class InteractivePracticeApplication extends Fragment {
     public void clearValues(){
 
         hasClickTrigger = false;
-        whichMaterial = 0;
+        whichMaterial.add(0, 0);
+        whichMaterial.add(1, 0);
+        whatsNext = 1;
         changeImage = false;
         isItDone = false;
         nextStep = false;
@@ -120,19 +150,32 @@ public class InteractivePracticeApplication extends Fragment {
                         hasClickTrigger = true;
 
                     case MotionEvent.ACTION_UP:
-                        if (whichMaterial == 1 && nextStep == true){
+                        if (whichMaterial.get(1) == 1 && nextStep == true && whatsNext == 1){
                             Log.e("TAMA KA:", "MAY TAMA KA ... SA ULO");
 //                            whichMaterial = 2;
                             changeImage = true;
+                            whatsNext = 2;
+                            if (numberOfMaterials == 1){
+                                isItDone = true;
+                            }
                         }
 
-                        else if (whichMaterial == 2 && nextStep == true){
+
+
+                        else if (whichMaterial.get(1) == 2 && nextStep == true && whatsNext == 2){
                             changeImage = true;
+                            whatsNext = 3;
+                            if (numberOfMaterials == 2){
+                                isItDone = true;
+                            }
                         }
 
-                        else if (whichMaterial == 3 && nextStep == true){
+                        else if (whichMaterial.get(1) == 3 && nextStep == true && whatsNext == 3){
                             changeImage = true;
                             isItDone = true;
+                            if (numberOfMaterials == 3){
+                                isItDone = true;
+                            }
 
                         }
 
@@ -155,11 +198,12 @@ public class InteractivePracticeApplication extends Fragment {
                     This prevents the user from triggering the material again, if the user has completed
                     the first step
                  */
-                if (whichMaterial == 0){
+                if (whichMaterial.get(0) == 0){
                     switch(event.getAction()){
                         case MotionEvent.ACTION_DOWN:
                             Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
-                            whichMaterial = 1;
+                            whichMaterial.set(0, 0);
+                            whichMaterial.set(1, 1);
                             nextStep = true;
                             Log.e("GAMIT:", "ANDITO AKO SA GAMIT");
                     }
@@ -178,11 +222,12 @@ public class InteractivePracticeApplication extends Fragment {
                     This prevents the user from triggering the material again, if the user has completed
                     the second step
                  */
-                if (whichMaterial == 1){
+                if (whichMaterial.get(1) == 1){
                     switch(event.getAction()){
                         case MotionEvent.ACTION_DOWN:
                             Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
-                            whichMaterial = 2;
+                            whichMaterial.set(0, 0);
+                            whichMaterial.set(1, 2);
                             nextStep = true;
                             Log.e("GAMIT:", "ANDITO AKO SA GAMIT");
                     }
@@ -201,11 +246,12 @@ public class InteractivePracticeApplication extends Fragment {
                     This prevents the user from triggering the material again, if the user has completed
                     the second step
                  */
-                if (whichMaterial == 2){
+                if (whichMaterial.get(1) == 2){
                     switch(event.getAction()){
                         case MotionEvent.ACTION_DOWN:
                             Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
-                            whichMaterial = 3;
+                            whichMaterial.set(0, 0);
+                            whichMaterial.set(1, 3);
                             nextStep = true;
                             Log.e("GAMIT:", "ANDITO AKO SA GAMIT");
                     }
