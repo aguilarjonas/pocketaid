@@ -126,7 +126,7 @@ public class InjuriesFragment extends Fragment {
                     setInjuryTabLayout("Abrasion");
                 } else if(injuryInString.equals(getResources().getString(R.string.bites).toLowerCase())) {
                     setInjuryTabLayout("Bites");
-                } else if(injuryInString.equals(getResources().getString(R.string.burns).toLowerCase())) {
+                } else if(injuryInString.equals(getResources().getString(R.string.burns_list).toLowerCase())) {
                     setInjuryTabLayout("Burns");
                 } else if(injuryInString.equals(getResources().getString(R.string.concussion).toLowerCase())) {
                     setInjuryTabLayout("Concussion");
