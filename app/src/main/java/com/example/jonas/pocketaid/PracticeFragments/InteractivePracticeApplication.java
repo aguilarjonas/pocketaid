@@ -208,6 +208,11 @@ public class InteractivePracticeApplication extends Fragment {
                             whichMaterial.set(1, 1);
                             nextStep = true;
                         }
+
+                        if (whatsNext != 1){
+                            whichMaterial.set(1,1);
+                        }
+
                         Log.e("GAMIT:", "ANDITO AKO SA GAMIT");
                 }
 
@@ -233,6 +238,10 @@ public class InteractivePracticeApplication extends Fragment {
                             whichMaterial.set(0, 0);
                             whichMaterial.set(1, 2);
                             nextStep = true;
+                        }
+
+                        if (whatsNext != 2){
+                            whichMaterial.set(1,2);
                         }
 
                         Log.e("GAMIT:", "ANDITO AKO SA GAMIT");
@@ -261,6 +270,10 @@ public class InteractivePracticeApplication extends Fragment {
                             whichMaterial.set(0, 0);
                             whichMaterial.set(1, 3);
                             nextStep = true;
+                        }
+
+                        if (whatsNext != 3 || whatsNext == 3){
+                            whichMaterial.set(1,3);
                         }
                         Log.e("GAMIT:", "ANDITO AKO SA GAMIT");
                 }
