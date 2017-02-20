@@ -160,8 +160,6 @@ public class InteractivePracticeApplication extends Fragment {
                             }
                         }
 
-
-
                         else if (whichMaterial.get(1) == 2 && nextStep == true && whatsNext == 2){
                             changeImage = true;
                             whatsNext = 3;
@@ -172,7 +170,7 @@ public class InteractivePracticeApplication extends Fragment {
 
                         else if (whichMaterial.get(1) == 3 && nextStep == true && whatsNext == 3){
                             changeImage = true;
-                            isItDone = true;
+//                            isItDone = true;
                             if (numberOfMaterials == 3){
                                 isItDone = true;
                             }
@@ -198,7 +196,7 @@ public class InteractivePracticeApplication extends Fragment {
                     This prevents the user from triggering the material again, if the user has completed
                     the first step
                  */
-                if (whichMaterial.get(0) == 0){
+                if (whichMaterial.get(1) == 0){
                     switch(event.getAction()){
                         case MotionEvent.ACTION_DOWN:
                             Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();

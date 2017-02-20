@@ -406,7 +406,7 @@
 
     <string name="abrasion_cause">When the surface of a person’s skin comes in contact with a rough surface and this surface rubs the skin, exposing the surface skin or the uppermost layers of your epidermis.</string>
     <string name="laceration_cause">This happens when skin comes into contact with blunt or sharp edged objects such as rock, broken glass, knife or scissors.</string>
-    <string name="burns">This happens when the skin or eye comes into contact with flame, hot liquid or too much exposure to sun.</string>
+    <string name="burns_cause">This happens when the skin or eye comes into contact with flame, hot liquid or too much exposure to sun.</string>
     <string name="third_deg_burns_cause">In most cases, third degree burns are caused by a scalding liquid, skin that comes in contact with a hot object for an extended period of time,
     flames from a fire, an electrical source, a chemical source.</string>
     <string name="concussion_cause">Common causes includes fights, falls, playground injuries, car crashes, and bike accidents. Concussions can also happen while participating in any sport or activity such as football, boxing, hockey, soccer, skiing, or snowboarding.</string>
