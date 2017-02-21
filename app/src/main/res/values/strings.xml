@@ -327,11 +327,12 @@
     <!-- FRACTURE -->
     <!-- FRACTURE: RECOMMENDED -->
     <string-array name="fracture_recommended">
-        <item>"In the case of an open wound, control the bleeding by covering the wound with a sterile dressing."</item>
-        <item>"If a bone is protruding, use a ring pad then apply a bandage making sure it is not directly over the fracture."</item>
+        <item>"In case of an open wound, control the bleeding and cover the wound with a sterile dressing."</item>
+        <item>"If a bone is protruding, use a ring pad then apply a bandage to immobilize the fractured part."</item>
+        <item>"Make sure that the bandage is not too tight."</item>
         <item>"Support the fractured limb in the most comfortable position."</item>
-        <item>"If applicable, raise and rest a fractured foot or ankle on pillows or folded blankets."</item>
-        <item>"Immobilize the fractured limbs using a splint or sling. Do not attempt to straighten the fractured limb."</item>
+        <item>"Raise and rest a fractured foot or ankle on pillows or folded blankets."</item>
+        <item>"Immobilize the fractured part using a splint or sling. Do not try to straighten the fractured limb."</item>
         <item>"Check regularly that the bandages are not too tight."</item>
         <item>"Call 911 or seek medical attention immediately in case of an open fracture or severe bleeding."</item>
     </string-array>
@@ -362,7 +363,8 @@
     </string-array>
     <!-- MINOR LACERATION: ALTERNATIVE -->
     <string-array name="laceration_minor_alternative">
-        <item>"Wash your hands with soap and water. Use any clean barrier between your hand and the wound if gloves is not available."</item>
+        <item>"Wash your hands with soap and water.</item>
+        <item>"Use any clean barrier between your hand and the wound if gloves is not available."</item>
         <item>"Apply direct pressure and press firmly against the wound. Use a clean cloth or handkerchief to apply pressure."</item>
         <item>"Clean and cover the wound with a clean cloth or handkerchief."</item>
     </string-array>
@@ -389,7 +391,7 @@
     <string-array name="puncture_slight_recommended">
         <item>"Wash your hands with soap and water then wear gloves."</item>
         <item>"Clean the wound with soap and water."</item>
-        <item>"Apply mild antiseptic or antibiotic cream on the wound."</item>
+        <item>"Apply mild antiseptic on the wound."</item>
         <item>"Cover the wound loosely with sterile gauze or bandage."</item>
     </string-array>
 
@@ -399,14 +401,14 @@
     <string name="arrangement_steps">"Tap &amp; Drag the steps and arrange them in proper order."</string>
 
     <!-- CORRECT OR WRONG -->
-    <string name="correct">correct</string>
-    <string name="wrong">wrong</string>
+    <string name="correct">Correct</string>
+    <string name="wrong">Wrong</string>
 
     <!-- POSSIBLE CAUSES OF INJURIES -->
 
     <string name="abrasion_cause">When the surface of a person’s skin comes in contact with a rough surface and this surface rubs the skin, exposing the surface skin or the uppermost layers of your epidermis.</string>
     <string name="laceration_cause">This happens when skin comes into contact with blunt or sharp edged objects such as rock, broken glass, knife or scissors.</string>
-    <string name="burns_cause">This happens when the skin or eye comes into contact with flame, hot liquid or too much exposure to sun.</string>
+    <string name="burns_cause">This happens when the skin or any part of the body comes into contact with flame, hot liquid or too much exposure to sun.</string>
     <string name="third_deg_burns_cause">In most cases, third degree burns are caused by a scalding liquid, skin that comes in contact with a hot object for an extended period of time,
     flames from a fire, an electrical source, a chemical source.</string>
     <string name="concussion_cause">Common causes includes fights, falls, playground injuries, car crashes, and bike accidents. Concussions can also happen while participating in any sport or activity such as football, boxing, hockey, soccer, skiing, or snowboarding.</string>
@@ -415,4 +417,68 @@
     <string name="puncture_cause">This is caused by forceful penetration of a sharp, pointed object through the skin.</string>
     <string name="insect_bites_cause">Children who live near wooded and/or grassy or even dirty surrounding areas or who spend recreation time in these locations are most susceptible to insect bites.</string>
     <string name="animal_bites_cause">Cats and dogs cause most animal bites. Children who have pets or who live in areas with these animals are more susceptible to animal bites.</string>
+
+    <!-- NOTES OR PRECAUTIONS -->
+    
+    <string-array name="abrasion_notes">
+        <item>Never dress a wound with obvious contamination. If you aren’t able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
+        <item>Call your medical-care provider immediately for abrasion wounds longer than one-half inch that are gaping open and have edges that don’t stay together because as a rule these wounds need stitches.</item>
+    </string-array>
+    
+    <string-array name="insect_bites_notes">
+        <item>Oftentimes insect stings are harmless. If a person is allergic, an insect sting may lead to anaphylaxis (an acute allergic reaction to which the body has become hypersensitive). Seek medical attention immediately.</item>
+        <item>Watch for signs of itchiness, swelling on their face, hands or feet, slowing down of breathing. This symptoms requires medical attention immediately.</item>
+        <item>Don’t put petroleum jelly, alcohol, or ammonia on insect stuck on skin—they will make the insect bury deeper.</item>
+    </string-array>
+
+    <string-array name="animal_bites_notes">
+        <item>Wild animals that gain access to your home pose a much more serious risk, as they are more likely to carry and transmit rabies and other viruses. These types of bites require immediate medical attention.</item>
+        <item>The animal that has bitten the person needs to be monitored for rabies.</item>
+    </string-array>
+    
+    <string-array name="burns_notes">
+        <item>Never apply adhesive dressings or any lotions, ointments or creams to a first or second degree burn that you are treating at home unless the skin is broken.</item>
+        <item>Never apply grease, oil, ointment, toothpaste, or any other substance to any burn.</item>
+        <item>If anything is stuck to the burn, leave it for medical professionals to remove.</item>
+        <item>Immerse the burned area in cool water but not iced water.</item>
+    </string-array>
+
+    <string-array name="concussion_notes">
+        <item>In the case of bleeding under the scalp or bruises that are outside the skull known as “goose eggs,” use ice packs immediately in order to reduce swelling.</item>
+        <item>Never apply ice directly to the skin.</item>
+    </string-array>
+
+    <string-array name="contusion_notes">
+    	<item>Watch out for signs of internal bleeding. You need to be alert, as you may need to manage for shock.</item>
+    	<item>The symptoms of shock are:
+    		(1) A weak or rapid pulse.
+    		(2) Dizziness or confusion.
+    		(3) Cold, clammy skin and hands and pale skin.
+    		(4) Extreme thirst.
+    		(5) Vomiting.
+    		(6) Anxiety.
+    		(7) Fingernails that do not blanch with applied pressure (turn white when pressed and color does not return within two seconds).</item>
+    </string-array>
+
+    <string-array name="fracture_notes">
+    	<item>Do not touch or try to clean the wound; just fasten a sterile or clean pad or cloth securely in place over the wound and secure it with bandages or cloth strips (belts, scarves, neckties).</item>
+    	<item>Do not move the injured person until a splint has been applied unless there is a greater danger of life-threatening urgency.</item>
+    </string-array>
+
+    <string-array name="laceration_notes">
+    	<item>Never dress a wound with obvious contamination. If you are not able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
+        <item>Call your medical-care provider immediately for laceration wounds longer than one-half inch that are gaping open and have edges that don’t stay together because as a rule these wounds need stitches.</item>
+        <item>Never wash deep cuts, because it may increase the rate of bleeding. Do not remove blood-stained dressings from deep cuts, as this may  restart bleeding.</item>
+    	<item>See a doctor immediateley if:
+    		(1) For cuts that do not stop bleeding after ten minutes or applying pressure.
+    		(2) If there is a chance that nerves or tendons have been affected.
+    		(3) If there is something embedded in the cut.
+    		(4) If the cut is on the mouth, face, hand, or genitals.</item>
+    </string-array>
+
+    <string-array name="puncture_notes">
+    	<item>Never wash a major or severe puncture wound as this may cause more serious bleeding.</item>
+    	<item>Never probe or remove debris from a wound, attempt to push body parts back in, or breathe on a wound or dressing because doing so may cause serious infection later.</item>
+    </string-array>
+
 </resources>

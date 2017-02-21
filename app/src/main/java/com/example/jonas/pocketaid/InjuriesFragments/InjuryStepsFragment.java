@@ -3,26 +3,18 @@ package com.example.jonas.pocketaid.InjuriesFragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.jonas.pocketaid.Adapters.InjuryStepsAdapter;
 import com.example.jonas.pocketaid.Adapters.RecyclerStepsAdapter;
 import com.example.jonas.pocketaid.R;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -139,7 +131,7 @@ public class InjuryStepsFragment extends Fragment {
                         imgSteps = new int[] { 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
 
-                        setEmptyArrayString(46);
+                        setEmptyArrayString(6);
                         steps = getResources().getStringArray(R.array.burns_chemical_recommended);
                         imgSteps = new int[] { 0, 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, lv_chemical);
@@ -195,9 +187,9 @@ public class InjuryStepsFragment extends Fragment {
                     }
                 } else if(injury.toLowerCase().equals("major")) {
                     if(position == 0) {
-                        setEmptyArrayString(6);
+                        setEmptyArrayString(7);
                         steps = getResources().getStringArray(R.array.laceration_major_recommended);
-                        imgSteps = new int[] { 0, 0, 0, 0, 0, 0 };
+                        imgSteps = new int[] { 0, 0, 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("minor")) {
@@ -207,16 +199,16 @@ public class InjuryStepsFragment extends Fragment {
                         imgSteps = new int[] { 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     } else if(position == 1){
-                        setEmptyArrayString(3);
+                        setEmptyArrayString(4);
                         steps = getResources().getStringArray(R.array.laceration_minor_alternative);
-                        imgSteps = new int[] { 0, 0, 0 };
+                        imgSteps = new int[] { 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("severe")) {
                     if(position == 0) {
-                        setEmptyArrayString(4);
+                        setEmptyArrayString(5);
                         steps = getResources().getStringArray(R.array.puncture_severe_recommended);
-                        imgSteps = new int[] { 0, 0, 0, 0 };
+                        imgSteps = new int[] { 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     } else if(position == 1){
                         setEmptyArrayString(5);

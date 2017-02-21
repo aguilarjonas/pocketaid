@@ -1,10 +1,7 @@
 package com.example.jonas.pocketaid.PracticeFragments;
 
 
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
@@ -104,7 +101,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
     }
 
     public void moveToListFragment() {
-        ListFragment listFrag = new ListFragment();
+        InteractivePracticeStepsOrdering listFrag = new InteractivePracticeStepsOrdering();
         Bundle args = new Bundle();
         args.putString("chosenInjury", injuryType);
         listFrag.setArguments(args);
