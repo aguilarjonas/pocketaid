@@ -79,7 +79,6 @@
             android:layout_alignStart="@+id/iv_application_material2"
             android:layout_marginLeft="33dp"
             android:layout_marginStart="33dp" />
-<<<<<<< Updated upstream
 
         <ImageView
             android:layout_width="50dp"
@@ -90,8 +89,6 @@
             android:layout_alignLeft="@+id/iv_application_material2"
             android:layout_alignStart="@+id/iv_application_material2"
             android:layout_marginBottom="31dp" />
-=======
->>>>>>> Stashed changes
 
     </RelativeLayout>
 
