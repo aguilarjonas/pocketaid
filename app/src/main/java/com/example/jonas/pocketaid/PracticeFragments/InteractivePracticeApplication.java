@@ -40,7 +40,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class InteractivePracticeApplication extends Fragment {
+public class InteractivePracticeApplication extends Fragment implements View.OnTouchListener {
 
     ViewGroup rootView;
     ImageView applicationImage;
@@ -87,6 +87,13 @@ public class InteractivePracticeApplication extends Fragment {
         getTrigger();
 
         return rootView;
+    }
+
+    public void getTrigger(){
+        tvTrigger.setOnTouchListener(this);
+        material1.setOnTouchListener(this);
+        material2.setOnTouchListener(this);
+        material3.setOnTouchListener(this);
     }
 
     public void setVisibilityForMaterials(int numberOfMaterials){
@@ -138,14 +145,11 @@ public class InteractivePracticeApplication extends Fragment {
         justStarted = true;
     }
 
-    public void getTrigger(){
 
-        tvTrigger.setOnTouchListener(new View.OnTouchListener(){
-            private Rect rect;
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch(v.getId()){
+            case R.id.triggerTextview:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG SUGAT", Toast.LENGTH_SHORT).show();
@@ -170,6 +174,7 @@ public class InteractivePracticeApplication extends Fragment {
                             if (numberOfMaterials == 2){
                                 isItDone = true;
                             }
+                            Log.e("HELLO", "2nd");
                         }
 
                         else if (whichMaterial.get(1) == 3 && nextStep == true && whatsNext == 3){
@@ -178,28 +183,15 @@ public class InteractivePracticeApplication extends Fragment {
                             if (numberOfMaterials == 3){
                                 isItDone = true;
                             }
+                            Log.e("HELLO", "3nd");
 
                         }
 
                         else changeImage = false;
                 }
+                break;
 
-
-
-                return false;
-            }
-        });
-
-        material1.setOnTouchListener(new View.OnTouchListener(){
-            private Rect rect;
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                //By default, the whichMaterial == 0.
-                /*
-                    This prevents the user from triggering the material again, if the user has completed
-                    the first step
-                 */
+            case R.id.iv_application_material1:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
@@ -208,74 +200,45 @@ public class InteractivePracticeApplication extends Fragment {
                             whichMaterial.set(1, 1);
                             nextStep = true;
                         }
-
-                        Log.e("GAMIT:", "ANDITO AKO SA GAMIT");
+                        Log.e("GAMIT:", "ANDITO AKO SA GAMIT11");
                 }
+                break;
 
 
-                return false;
-            }
-        });
-
-        material2.setOnTouchListener(new View.OnTouchListener(){
-            private Rect rect;
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                //By default, the whichMaterial == 0.
-                /*
-                    This prevents the user from triggering the material again, if the user has completed
-                    the second step
-                 */
+            case R.id.iv_application_material2:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
-                        if (whichMaterial.get(1) == 1){
+                        if (whichMaterial.get(1) == 1 && whatsNext == 2){
                             whichMaterial.set(0, 0);
                             whichMaterial.set(1, 2);
                             nextStep = true;
+                            Log.e("GAMIT:", "ANDITO AKO SA GAMIT22");
+
                         }
-
-
-                        Log.e("GAMIT:", "ANDITO AKO SA GAMIT");
                 }
+                break;
 
 
-                return false;
-            }
-        });
-
-        material3.setOnTouchListener(new View.OnTouchListener(){
-            private Rect rect;
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                //By default, the whichMaterial == 0.
-                /*
-                    This prevents the user from triggering the material again, if the user has completed
-                    the second step
-                 */
-
+            case R.id.iv_application_material3:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
                         Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
-                        if (whichMaterial.get(1) == 2){
+                        if (whichMaterial.get(1) == 2 && whatsNext == 3){
                             whichMaterial.set(0, 0);
                             whichMaterial.set(1, 3);
                             nextStep = true;
+                            Log.e("GAMIT:", "ANDITO AKO SA GAMIT33");
+
                         }
 
 
-                        Log.e("GAMIT:", "ANDITO AKO SA GAMIT");
                 }
+                break;
 
 
-                return false;
-            }
-        });
-
-
-
+        }
+        return false;
     }
 
 
