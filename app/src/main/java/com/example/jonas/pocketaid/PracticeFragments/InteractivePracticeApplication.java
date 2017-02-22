@@ -249,11 +249,11 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             //Change this default to a transparent background
             Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.ic_chemical);
             if (imageNumber == 1){
-                 b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
             }
 
             else if (imageNumber == 2){
-                 b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
             }
 
             else if (imageNumber == 3){
