@@ -22,9 +22,7 @@ public class InjuryOverviewFragment extends Fragment {
 
     private String injuryType;
     private ImageView injury_logo;
-    private TextView overview_injury;
     private TextView overview_causes;
-    private FloatingActionButton fab;
 
     public InjuryOverviewFragment() {
         // Required empty public constructor
@@ -56,28 +54,28 @@ public class InjuryOverviewFragment extends Fragment {
     public void determineInjury(String injuryChosen, ViewGroup rootView) {
         if(injuryChosen.toLowerCase().equals("abrasion")) {
             injuryType = "abrasion";
-            initializeView(injuryType, rootView);
+            initializeView(injuryType, rootView, getResources().getString(R.string.abrasion_cause));
         } else if(injuryChosen.toLowerCase().equals("bites")) {
             injuryType = "bites";
-            initializeView(injuryType, rootView);
+            initializeView(injuryType, rootView, getResources().getString(R.string.animal_bites_cause) + " " + getResources().getString(R.string.insect_bites_cause));
         } else if(injuryChosen.toLowerCase().equals("burns")) {
             injuryType = "burns";
-            initializeView(injuryType, rootView);
+            initializeView(injuryType, rootView, getResources().getString(R.string.burns_cause) + " " + getResources().getString(R.string.third_deg_burns_cause));
         } else if(injuryChosen.toLowerCase().equals("concussion")) {
             injuryType = "concussion";
-            initializeView(injuryType, rootView);
+            initializeView(injuryType, rootView, getResources().getString(R.string.concussion_cause));
         } else if(injuryChosen.toLowerCase().equals("contusion")) {
             injuryType = "contusion";
-            initializeView(injuryType, rootView);
+            initializeView(injuryType, rootView, getResources().getString(R.string.contusion_cause));
         } else if(injuryChosen.toLowerCase().equals("fracture")) {
             injuryType = "fracture";
-            initializeView(injuryType, rootView);
+            initializeView(injuryType, rootView, getResources().getString(R.string.fracture_cause));
         } else if(injuryChosen.toLowerCase().equals("laceration")) {
             injuryType = "laceration";
-            initializeView(injuryType, rootView);
+            initializeView(injuryType, rootView, getResources().getString(R.string.laceration_cause));
         } else if(injuryChosen.toLowerCase().equals("puncture")) {
             injuryType = "puncture";
-            initializeView(injuryType, rootView);
+            initializeView(injuryType, rootView, getResources().getString(R.string.puncture_cause));
         }
     }
 
@@ -87,12 +85,12 @@ public class InjuryOverviewFragment extends Fragment {
                                 This function determines what type of injury was passed by InjuryTabLayout
         Function Developer : Jonas Aguilar
      */
-    public void initializeView(String injury, ViewGroup rootView) {
+    public void initializeView(String injury, ViewGroup rootView, String cause) {
         injury_logo = (ImageView) rootView.findViewById(R.id.injury_logo);
         injury_logo.setImageResource(getResources().getIdentifier("ic_" + injury, "drawable", getActivity().getPackageName()));
 
         overview_causes = (TextView) rootView.findViewById(R.id.overview_causes);
-        overview_causes.setText("makulit");
+        overview_causes.setText(cause);
     }
 
 

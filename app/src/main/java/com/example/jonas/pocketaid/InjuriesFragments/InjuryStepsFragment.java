@@ -97,7 +97,7 @@ public class InjuryStepsFragment extends Fragment {
                     if(position == 0) {
                         setEmptyArrayString(4);
                         steps = getResources().getStringArray(R.array.abrasion_recommended);
-                        imgSteps = new int[] { R.drawable.abrasion_1, 0, 0, 0 };
+                        imgSteps = new int[] { 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     } else if(position == 1){
                         setEmptyArrayString(4);
