@@ -92,22 +92,22 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material1.setVisibility(View.GONE);
             material2.setVisibility(View.GONE);
             material3.setVisibility(View.GONE);
-            material4.setVisibility(View.GONE);
+//            material4.setVisibility(View.GONE);
         }
         else if (numberOfMaterials == 1){
             material2.setVisibility(View.GONE);
             material3.setVisibility(View.GONE);
-            material4.setVisibility(View.GONE);
+//            material4.setVisibility(View.GONE);
         }
 
         else if (numberOfMaterials == 2){
             material3.setVisibility(View.GONE);
-            material4.setVisibility(View.GONE);
+//            material4.setVisibility(View.GONE);
         }
 
-        else if (numberOfMaterials == 3){
-            material4.setVisibility(View.GONE);
-        }
+//        else if (numberOfMaterials == 3){
+//            material4.setVisibility(View.GONE);
+//        }
     }
 
     public void initializeElements(){
@@ -115,7 +115,6 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         material1 = (ImageView) rootView.findViewById(R.id.iv_application_material1);
         material2 = (ImageView) rootView.findViewById(R.id.iv_application_material2);
         material3 = (ImageView) rootView.findViewById(R.id.iv_application_material3);
-        material4 = (ImageView) rootView.findViewById(R.id.iv_application_material4);
 
 
         relativeLayout_Touch = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_Touch);

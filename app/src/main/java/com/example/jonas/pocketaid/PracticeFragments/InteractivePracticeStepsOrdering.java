@@ -45,6 +45,7 @@ import java.util.Collections;
 
 public class InteractivePracticeStepsOrdering extends Fragment {
 
+    private Button backButton;
     private ArrayList<Pair<Long, String>> mItemArray;
     private DragListView mDragListView;
     String[] abrasionProcedure, animalBitesProcedure, insectBitesProcedure, thermalBurnProcedure, thirdDegreeBurnProcedure, concussionProcedure, contusionProcedure, fractureProcedure,
@@ -80,8 +81,10 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         severePunctureProcedure = getResources().getStringArray(R.array.puncture_severe_recommended);
         lvStepNumber = (RecyclerView) rootView.findViewById(R.id.lv_step_numberPrac);
         checkAnswerBT = (Button) rootView.findViewById(R.id.btCheckAnswersPrac);
+        backButton = (Button) rootView.findViewById(R.id.backButtonPractice);
         String chosenInjury = getArguments().getString("chosenInjury");
         selectedInjury(chosenInjury);
+        backButtonListener();
 
         //To clear the *int* when going back.
         numberOfMaterials = 0;
@@ -533,6 +536,15 @@ public class InteractivePracticeStepsOrdering extends Fragment {
 
     public void shuffleArray(){
         Collections.shuffle(mItemArray);
+    }
+
+    public void backButtonListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getFragmentManager().popBackStack();
+            }
+        });
     }
 
     public void checkOrderOfProcedures(){
