@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class InteractivePracticeMaterialsFragment extends Fragment {
+public class InteractivePracticeMaterialsFragment extends Fragment implements View.OnClickListener {
 
     ImageView imageView_1;
     ImageView imageView_2;
@@ -75,7 +76,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_interactive_practice_materials, container, false);
 
         setImages(rootView);
-        setImageOnClicks();
+//        setImageOnClicks();
         chosenPracticeChooser(CHOSEN_PRACTICE);
 
 
@@ -136,15 +137,24 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
         textView_5 = (TextView) rootView.findViewById(R.id.textView_materials5);
         textView_6 = (TextView) rootView.findViewById(R.id.textView_materials6);
 
+        imageView_1.setOnClickListener(this);
+        imageView_2.setOnClickListener(this);
+        imageView_3.setOnClickListener(this);
+        imageView_4.setOnClickListener(this);
+        imageView_5.setOnClickListener(this);
+        imageView_6.setOnClickListener(this);
+
+
 
         nextButton =  (Button) rootView.findViewById(R.id.button_practice_next);
     }
 
-    public void setImageOnClicks(){
-        imageView_1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
 
+        switch(v.getId()){
+
+            case R.id.imageView_pic1:
                 if (imageView_1_check.getVisibility() == View.VISIBLE){
                     imageView_1_check.setVisibility(View.INVISIBLE);
                     answersUser.remove("1");
@@ -154,14 +164,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                     imageView_1_check.setVisibility(View.VISIBLE);
                     answersUser.add("1");
                 }
+                break;
 
-            }
-        });
-
-        imageView_2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+            case R.id.imageView_pic2:
                 if (imageView_2_check.getVisibility() == View.VISIBLE){
                     imageView_2_check.setVisibility(View.INVISIBLE);
                     answersUser.remove("2");
@@ -171,14 +176,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                     imageView_2_check.setVisibility(View.VISIBLE);
                     answersUser.add("2");
                 }
+                break;
 
-            }
-        });
-
-        imageView_3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+            case R.id.imageView_pic3:
                 if (imageView_3_check.getVisibility() == View.VISIBLE){
                     imageView_3_check.setVisibility(View.INVISIBLE);
                     answersUser.remove("3");
@@ -188,14 +188,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                     imageView_3_check.setVisibility(View.VISIBLE);
                     answersUser.add("3");
                 }
+                break;
 
-            }
-        });
-
-        imageView_4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+            case R.id.imageView_pic4:
                 if (imageView_4_check.getVisibility() == View.VISIBLE){
                     imageView_4_check.setVisibility(View.INVISIBLE);
                     answersUser.remove("4");
@@ -205,13 +200,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                     imageView_4_check.setVisibility(View.VISIBLE);
                     answersUser.add("4");
                 }
-            }
-        });
+                break;
 
-        imageView_5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+            case R.id.imageView_pic5:
                 if (imageView_5_check.getVisibility() == View.VISIBLE){
                     imageView_5_check.setVisibility(View.INVISIBLE);
                     answersUser.remove("5");
@@ -221,13 +212,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                     imageView_5_check.setVisibility(View.VISIBLE);
                     answersUser.add("5");
                 }
-            }
-        });
+                break;
 
-        imageView_6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
+            case R.id.imageView_pic6:
                 if (imageView_6_check.getVisibility() == View.VISIBLE) {
                     imageView_6_check.setVisibility(View.INVISIBLE);
                     answersUser.remove("6");
@@ -235,10 +222,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
                     imageView_6_check.setVisibility(View.VISIBLE);
                     answersUser.add("6");
                 }
-            }
-        });
+                break;
+        }
     }
-
 
     public boolean checkAnswers(ArrayList<String> answerSheet){
 
@@ -535,4 +521,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment {
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
+
+
+
 }
