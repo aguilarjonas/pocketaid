@@ -194,14 +194,14 @@ public class InjuryStepsFragment extends Fragment {
                     }
                 } else if(injury.toLowerCase().equals("minor")) {
                     if(position == 0) {
-                        setEmptyArrayString(5);
+                        setEmptyArrayString(6);
                         steps = getResources().getStringArray(R.array.laceration_minor_recommended);
-                        imgSteps = new int[] { 0, 0, 0, 0, 0 };
+                        imgSteps = new int[] { 0, 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     } else if(position == 1){
-                        setEmptyArrayString(4);
+                        setEmptyArrayString(6);
                         steps = getResources().getStringArray(R.array.laceration_minor_alternative);
-                        imgSteps = new int[] { 0, 0, 0, 0 };
+                        imgSteps = new int[] { 0, 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("severe")) {

@@ -219,7 +219,7 @@
     <string-array name="abrasion_alternative">
         <item>"Boil the guava leaves in water and use it as a rinse to the affected area."</item>
         <item>"Apply povidone-iodine solution or spray on the wound."</item>
-        <item>"Cover the affected area with gauze or band-aid."</item>
+        <item>"Cover the affected area with gauze or clean handkerchief."</item>
         <item>"Repeat daily until fully healed."</item>
     </string-array>
 
@@ -352,9 +352,10 @@
     </string-array>
     <!-- MINOR LACERATION: RECOMMENDED -->
     <string-array name="laceration_minor_recommended">
-        <item>"Use disposable gloves and place a sterile dressing on the wound."</item>
-        <item>"Apply direct pressure for a few minutes to control any bleeding."</item>
+    	<item>"Wash your hands with soap and water.</item>
+        <item>"Use disposable gloves."</item>
         <item>"Wash the wound thoroughly with soap and water."</item>
+        <item>"Apply direct pressure for a few minutes to control any bleeding."</item>
         <item>"Apply an antibiotic ointment to a minor wound if the person has no known allergies or sensitivities to the medication."</item>
         <item>"Cover the wound with a sterile dressing and a bandage or with an adhesive bandage to keep the wound moist and prevent drying."</item>
     </string-array>
@@ -362,7 +363,9 @@
     <string-array name="laceration_minor_alternative">
         <item>"Wash your hands with soap and water.</item>
         <item>"Use any clean barrier between your hand and the wound if gloves is not available."</item>
+        <item>"Wash the wound thoroughly with soap and water."</item>
         <item>"Apply direct pressure and press firmly against the wound. Use a clean cloth or handkerchief to apply pressure."</item>
+        <item>"Apply an antibiotic ointment to the wound if the person has no known allergies or sensitivities to the medication."</item>
         <item>"Clean and cover the wound with a clean cloth or handkerchief."</item>
     </string-array>
 
@@ -417,64 +420,116 @@
     <!-- NOTES OR PRECAUTIONS -->
     
     <string-array name="abrasion_notes">
+    	<item>Call your medical-care provider immediately for abrasion wounds longer than one-half inch that are gaping open and have edges that don’t stay together because as a rule, these wounds need stitches.</item>
+    	<item>""</item>
         <item>Never dress a wound with obvious contamination. If you aren’t able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
-        <item>Call your medical-care provider immediately for abrasion wounds longer than one-half inch that are gaping open and have edges that don’t stay together because as a rule these wounds need stitches.</item>
+    	<item>""</item>
     </string-array>
     
     <string-array name="insect_bites_notes">
-        <item>Oftentimes insect stings are harmless. If a person is allergic, an insect sting may lead to anaphylaxis (an acute allergic reaction to which the body has become hypersensitive). Seek medical attention immediately.</item>
-        <item>Watch for signs of itchiness, swelling on their face, hands or feet, slowing down of breathing. This symptoms requires medical attention immediately.</item>
+    	<item>""</item>
         <item>Don’t put petroleum jelly, alcohol, or ammonia on insect stuck on skin—they will make the insect bury deeper.</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>Watch for signs of itchiness, swelling on their face, hands or feet, slowing down of breathing. This symptoms requires medical attention immediately.</item>
     </string-array>
 
     <string-array name="animal_bites_notes">
-        <item>Wild animals that gain access to your home pose a much more serious risk, as they are more likely to carry and transmit rabies and other viruses. These types of bites require immediate medical attention.</item>
-        <item>The animal that has bitten the person needs to be monitored for rabies.</item>
+    	<item>""</item>
+    	<item>""</item>
+        <item>Wild animals that gain access to your home pose a much more serious risk, as they are more likely to carry and transmit rabies and other viruses. These types of bites require immediate medical attention.
+              The animal that has bitten the person needs to be monitored for rabies.</item>
     </string-array>
     
-    <string-array name="burns_notes">
-        <item>Never apply adhesive dressings or any lotions, ointments or creams to a first or second degree burn that you are treating at home unless the skin is broken.</item>
-        <item>Never apply grease, oil, ointment, toothpaste, or any other substance to any burn.</item>
-        <item>If anything is stuck to the burn, leave it for medical professionals to remove.</item>
-        <item>Immerse the burned area in cool water but not iced water.</item>
+    <string-array name="burns_thermal_notes">
+    	<item>Immerse the burned area in cool water but not iced water.</item>
+        <item>Never apply adhesive dressings or any lotions, ointments or creams to a first or second degree burn that you are treating at home unless the skin is broken.
+              Never apply grease, oil, ointment, toothpaste, or any other substance to any burn.</item>
+        <item>""</item>
+        
     </string-array>
 
+    <string-array name="burns_chemical_notes">
+    	<item>""</item>
+    	<item>Immerse the burned area in cool water but not iced water.</item>
+    	<item>""</item>
+        <item>Never apply adhesive dressings or any lotions, ointments or creams to a first or second degree burn that you are treating at home unless the skin is broken.
+              Never apply grease, oil, ointment, toothpaste, or any other substance to any burn.</item>
+        <item>""</item>
+        <item>""</item>
+        
+    </string-array>
+
+    <string-array name="burns_electrical_notes">
+        <item>""</item>
+    	<item>""</item>
+    </string-array>
+
+
     <string-array name="concussion_notes">
-        <item>In the case of bleeding under the scalp or bruises that are outside the skull known as “goose eggs,” use ice packs immediately in order to reduce swelling.</item>
-        <item>Never apply ice directly to the skin.</item>
+        <item>In the case of bleeding under the scalp or bruises that are outside the skull known as “goose eggs,” use ice packs immediately in order to reduce swelling. Never apply ice directly to the skin.</item>
+        <item>""</item>
+        <item>""</item>
     </string-array>
 
     <string-array name="contusion_notes">
-    	<item>Watch out for signs of internal bleeding. You need to be alert, as you may need to manage for shock.</item>
-    	<item>The symptoms of shock are:
-    		(1) A weak or rapid pulse.
-    		(2) Dizziness or confusion.
-    		(3) Cold, clammy skin and hands and pale skin.
-    		(4) Extreme thirst.
-    		(5) Vomiting.
-    		(6) Anxiety.
-    		(7) Fingernails that do not blanch with applied pressure (turn white when pressed and color does not return within two seconds).</item>
+    	<item>Never apply ice directly to the skin, use ice bag or cover the ice with a clean towel then apply it to the affected area.</item>
+    	<item>""</item>
+        <item>""</item>
+        <item>""</item>
     </string-array>
 
     <string-array name="fracture_notes">
     	<item>Do not touch or try to clean the wound; just fasten a sterile or clean pad or cloth securely in place over the wound and secure it with bandages or cloth strips (belts, scarves, neckties).</item>
     	<item>Do not move the injured person until a splint has been applied unless there is a greater danger of life-threatening urgency.</item>
+    	<item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
     </string-array>
 
-    <string-array name="laceration_notes">
-    	<item>Never dress a wound with obvious contamination. If you are not able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
-        <item>Call your medical-care provider immediately for laceration wounds longer than one-half inch that are gaping open and have edges that don’t stay together because as a rule these wounds need stitches.</item>
-        <item>Never wash deep cuts, because it may increase the rate of bleeding. Do not remove blood-stained dressings from deep cuts, as this may  restart bleeding.</item>
-    	<item>See a doctor immediateley if:
+    <string-array name="laceration_major_notes">
+    	<item>Call your medical-care provider immediately for laceration wounds longer than one-half inch that are gaping open and have edges that don’t stay together because as a rule these wounds need stitches.</item>
+    	<item>Never wash deep cuts, because it may increase the rate of bleeding. Do not remove blood-stained dressings from deep cuts, as this may  restart bleeding.
+    		  Never dress a wound with obvious contamination. If you are not able to get it clean, cover it lightly with a sterile bandage and seek
+    		  medical attention.</item>
+    	<item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+    	<item>See a doctor immediately if:
     		(1) For cuts that do not stop bleeding after ten minutes or applying pressure.
     		(2) If there is a chance that nerves or tendons have been affected.
     		(3) If there is something embedded in the cut.
     		(4) If the cut is on the mouth, face, hand, or genitals.</item>
     </string-array>
 
-    <string-array name="puncture_notes">
+    <string-array name="laceration_minor_notes">
+    	<item>""</item>
+    	<item>""</item>
+    	<item>""</item>
+    	<item>""</item>
+    	<item>""</item>
+    	<item>Never dress a wound with obvious contamination. If you are not able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
+    </string-array>
+
+    <string-array name="puncture_severe_notes">
+    	<item>""</item>
     	<item>Never wash a major or severe puncture wound as this may cause more serious bleeding.</item>
     	<item>Never probe or remove debris from a wound, attempt to push body parts back in, or breathe on a wound or dressing because doing so may cause serious infection later.</item>
+    	<item>""</item>
+    	<item>""</item>
     </string-array>
+
+    <string-array name="puncture_slight_notes">
+    	<item>""</item>
+    	<item>""</item>
+    	<item>""</item>
+    	<item>Never dress a wound with obvious contamination. If you are not able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
+    </string-array>
+
 
 </resources>

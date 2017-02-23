@@ -342,54 +342,83 @@
     <!-- NOTES OR PRECAUTIONS -->
 
     <string-array name="abrasion_notes">
-        <item>Huwag takpan nang maigi ang maruming sugat. Kung hindi mo ito kayang linisin, lagyan ito ng manipis at malinis na gasa and magpunta kaagad sa pinakamalapit na pagamutan.</item>
+        <item>Huwag takpan ng gasa o benda ang maruming sugat. Kung hindi mo ito kayang linisin, lagyan ito ng manipis at malinis na gasa and magpunta kaagad sa pinakamalapit na pagamutan.</item>
+        <item>""</item>
         <item>Humingi ng tulong o magpunta kaagad sa ospital kapag ang sugat ay kasing haba o mas mahaba sa kalahating pulgada, may malubhang pagdurugo, nakalitaw at hindi nagdidikit na balat. Ang ganitong uri ng sugat ay kinakailangang tahiin.</item>
+        <item>""</item>
     </string-array>
 
     <string-array name="insect_bites_notes">
-        <item>Karaniwan ang kagat ng insekto ay hindi ganoon ka-delikado. Ngunit kung ang taong nakagat ay nakararanas ng hindi pangkaraniwang reaksyon sa katawan o alerji, humingi kaagad ng tulong at dalhin ang tao sa ospital.</item>
-        <item>Dalhin kaagad ang tao sa ospital kung ito ay nakararanas ng pangangati sa katawan, pagmaga ng mukha, kamay o paa at pagbagal ng paghinga.</item>
+        <item>""</item>
         <item>Huwag lagyan ng petroleum jelly, alkohol o amonya kung ang insekto ay naka-kagat pa rin o nakadikit sa balat, dahil maaari nitong pabaunin lalo ang kagat ng insekto. </item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>Dalhin kaagad ang tao sa ospital kung ito ay nakararanas ng pangangati sa katawan, pagmaga ng mukha, kamay o paa at pagbagal ng paghinga.</item>
     </string-array>
 
     <string-array name="animal_bites_notes">
-        <item>Mas mataas ang tsansa na may rabis o virus ang mga mababangis na hayop. Kinakailangang madala kaagad sa ospital ang taong nakagat ng ganitong uri ng hayop.</item>
-        <item>Kailangang maobserbahan ang hayop na naka-kagat at masuri kung ito ay may rabies.</item>
+        <item>""</item>
+        <item>""</item>
+        <item>Mas mataas ang tsansa na may rabis o virus ang mga mababangis na hayop. Kinakailangang madala kaagad sa ospital ang taong nakagat ng ganitong uri ng hayop. 
+              Kailangang maobserbahan ang hayop na naka-kagat at masuri kung ito ay may rabies.</item>
     </string-array>
 
-    <string-array name="burns_notes">
-        <item>Huwag lalagyan ng madikit na takip o ng lotion, ointment o cream ang first o second degree burn, maliban na lamang kung ang balat na napaso ay nabakbak.</item>
-        <item>Huwag lalagyan ng grasa, langis, ointment, pasimada(toothpaste) o kahit anong likido ang napasong parte.</item>
-        <item>Kung mayroon mang nakaharang o nakabara sa balat ng napasong parte, hayaan ang mga medikal na propesyunal ang magalis dito.</item>
+    <string-array name="burns_thermal_notes">
         <item>Gumamit ng malamig, ngunit hindi nagyeyelong tubig bilang pang banlaw sa napasong parte.</item>
+        <item>Huwag lalagyan ng madikit na takip o ng lotion, ointment o cream ang first o second degree burn, maliban na lamang kung ang balat na napaso ay nabakbak.
+              Huwag lalagyan ng grasa, langis, ointment, pasimada(toothpaste) o kahit anong likido ang napasong parte.</item>
+        <item>""</item>
+    </string-array>
+
+    <string-array name="burns_chemical_notes">
+        <item>""</item>
+        <item>Gumamit ng malamig, ngunit hindi nagyeyelong tubig bilang pang banlaw sa napasong parte.</item>
+        <item>""</item>
+        <item>Huwag lalagyan ng madikit na takip o ng lotion, ointment o cream ang first o second degree burn, maliban na lamang kung ang balat na napaso ay nabakbak.
+              Huwag lalagyan ng grasa, langis, ointment, pasimada(toothpaste) o kahit anong likido ang napasong parte.</item>
+        <item>""</item>
+        <item>""</item>
+        
+    </string-array>
+
+    <string-array name="burns_electrical_notes">
+        <item>""</item>
+        <item>""</item>
     </string-array>
 
     <string-array name="concussion_notes">
-        <item>Marahan lamang diinan ang bukol gamit ang ice pack o yelong binalot sa damit.</item>
-        <item>Huwag idikit ng direkta ang yelo sa balat o naumpog na parte. Maaaring ibalot muna ito sa malinis na damit o kaya naman ay ipasok ito sa ice bag.</item>
+        <item>Marahan lamang diinan ang bukol gamit ang ice bag o yelong binalot sa damit. Huwag idikit ng direkta ang yelo sa balat o naumpog na parte.</item>
+        <item>""</item>
+        <item>""</item>
     </string-array>
 
     <string-array name="contusion_notes">
-        <item>Maging alerto at obserbahan ang tao sa senyales ng internal na pagdurugo, lapatan kaagad ng lunas o dalhin sa ospital kung nakararanas ng shock ang tao.</item>
-    	<item>Ang mga sumusunod ay sintomas ng shock:
-    		(1) Mahina o mabilis na pulso.
-    		(2) Nahihilo o nalilito.
-    		(3) Malamig at maputlang kamay at balat.
-    		(4) Matinding pagkauhaw.
-    		(5) Pagsusuka.
-    		(6) Pagkabalisa.
-    		(7) Hindi mabilis na pagbalik ng kulay ng kuko kapag ito ay diniinan.</item>
+        <item>Huwag idikit ng direkta ang yelo sa balat o naumpog na parte, sa halip gumamit ng ice bag o kaya naman ay balutin ang yelo sa malinis na damit.</item>
+    	<item>""</item>
+        <item>""</item>
+        <item>""</item>
     </string-array>
 
     <string-array name="fracture_notes">
         <item>Huwag hawakan o hugasan ang sugat sa nabaling parte. Lagyan lamang ito ng malinis na gasa o damit at maluwag na talian ng benda upang hindi ito magalaw.</item>
         <item>Huwag galawin ang taong nabalian hanggat hindi pa nalalagyan ng splint o pansuporta sa nabaling parte nito, maliban na lamang kung may panganib o banta sa buhay ng tao sa paligid nito.</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
     </string-array>
 
     <string-array name="laceration_notes">
-        <item>Huwag takpan nang maigi ang maruming sugat. Kung hindi mo ito kayang linisin, lagyan ito ng manipis at malinis na gasa and magpunta kaagad sa pinakamalapit na pagamutan.</item>
         <item>Humingi ng tulong o magpunta kaagad sa ospital kapag ang sugat ay kasing haba o mas mahaba sa kalahating pulgada, nakalitaw at hindi nagdidikit na balat. Ang ganitong uri ng sugat ay kinakailangang tahiin.</item>
-        <item>Huwag hugasan ang mga malalalim na sugat dahil maaari lamang nitong pataasin ang tsansa ng pagdurugo. Huwag tanggalin ang gasa na puno ng dugo na nakatapal sa sugat dahil lalo lamang lalala ang pagdurugo nito. </item>
+        <item>Huwag hugasan ang mga malalalim na sugat dahil maaari lamang nitong pataasin ang tsansa ng pagdurugo. Huwag tanggalin ang gasa na puno ng dugo na nakatapal sa sugat dahil lalo lamang lalala ang pagdurugo nito. 
+              Huwag takpan ng gasa o benda ang maruming sugat. Kung hindi mo ito kayang linisin, lagyan ito ng manipis at malinis na gasa and magpunta kaagad sa pinakamalapit na pagamutan.</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
     	<item>Kumonsulta kaagad sa doktor kung:
     		(1) Ang sugat ay hindi tumitigil sa pagdurugo.
     		(2) Kung may suspetsiya ka na may natamaang ugat o litid.
@@ -397,9 +426,28 @@
     		(4) Kung ang hiwa ay nasa bibig, mukha, kamay o sensitibong parte ng katawan.</item>
     </string-array>
 
-    <string-array name="puncture_notes">
+    <string-array name="laceration_minor_notes">
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>Huwag takpan ng gasa o benda ang maruming sugat. Kung hindi mo ito kayang linisin, lagyan ito ng manipis at malinis na gasa and magpunta kaagad sa pinakamalapit na pagamutan.</item>
+    </string-array>
+
+    <string-array name="puncture_severe_notes">
+        <item>""</item>
         <item>Huwag hugasan ang malubhang sugat dahil maaari lamang nitong palalain ang pagdurugo.</item>
         <item>Huwag itulak o alisin ang bagay na nakabaon sa sugat, alisin o ibalik ang naalis na laman o hingahan ang sugat dahil maaari lamang itong magdulot ng impeksyon.</item>
+        <item>""</item>
+        <item>""</item>
+    </string-array>
+
+    <string-array name="puncture_slight_notes">
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>Huwag takpan ng gasa o benda ang maruming sugat. Kung hindi mo ito kayang linisin, lagyan ito ng manipis at malinis na gasa and magpunta kaagad sa pinakamalapit na pagamutan.</item>
     </string-array>
 
 </resources>
