@@ -12,6 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.codesgood.views.JustifiedTextView;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 
@@ -22,7 +23,7 @@ public class InjuryOverviewFragment extends Fragment {
 
     private String injuryType;
     private ImageView injury_logo;
-    private TextView overview_causes;
+    private JustifiedTextView overview_causes;
 
     public InjuryOverviewFragment() {
         // Required empty public constructor
@@ -89,9 +90,7 @@ public class InjuryOverviewFragment extends Fragment {
         injury_logo = (ImageView) rootView.findViewById(R.id.injury_logo);
         injury_logo.setImageResource(getResources().getIdentifier("ic_" + injury, "drawable", getActivity().getPackageName()));
 
-        overview_causes = (TextView) rootView.findViewById(R.id.overview_causes);
+        overview_causes = (JustifiedTextView) rootView.findViewById(R.id.overview_causes);
         overview_causes.setText(cause);
     }
-
-
 }

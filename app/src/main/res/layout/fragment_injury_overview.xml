@@ -6,49 +6,62 @@
     tools:context="com.example.jonas.pocketaid.InjuriesFragments.InjuryOverviewFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="15dp">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/injury_logo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleType="center" />
-    </RelativeLayout>
-    
-    <TextView
-        android:id="@+id/overview_causes_label"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="@dimen/ten_dp"
-        android:layout_marginStart="@dimen/ten_dp"
-        android:layout_marginRight="@dimen/ten_dp"
-        android:layout_marginEnd="@dimen/ten_dp"
-        android:textStyle="bold"
-        android:text="POSSIBLE CAUSES"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <View
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="@dimen/ten_dp"
-        android:layout_marginStart="@dimen/ten_dp"
-        android:layout_marginRight="@dimen/ten_dp"
-        android:layout_marginEnd="@dimen/ten_dp"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:background="#ecf0f1"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="15dp">
 
-    <TextView
-        android:id="@+id/overview_causes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/ten_dp"
-        android:layout_marginLeft="@dimen/ten_dp"
-        android:layout_marginStart="@dimen/ten_dp"
-        android:layout_marginRight="@dimen/ten_dp"
-        android:layout_marginEnd="@dimen/ten_dp"/>
+                <ImageView
+                    android:id="@+id/injury_logo"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:src="@drawable/ic_abrasion"/>
+            </RelativeLayout>
 
+            <TextView
+                android:id="@+id/overview_causes_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="@dimen/ten_dp"
+                android:layout_marginStart="@dimen/ten_dp"
+                android:layout_marginRight="@dimen/ten_dp"
+                android:layout_marginEnd="@dimen/ten_dp"
+                android:textStyle="bold"
+                android:text="POSSIBLE CAUSES"/>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="@dimen/ten_dp"
+                android:layout_marginStart="@dimen/ten_dp"
+                android:layout_marginRight="@dimen/ten_dp"
+                android:layout_marginEnd="@dimen/ten_dp"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="#E0E0E0"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:id="@+id/overview_causes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/abrasion_cause"
+                android:textSize="15sp"
+                android:textColor="@color/textColor"
+                android:layout_marginTop="@dimen/ten_dp"
+                android:layout_marginLeft="@dimen/ten_dp"
+                android:layout_marginStart="@dimen/ten_dp"
+                android:layout_marginRight="@dimen/ten_dp"
+                android:layout_marginEnd="@dimen/ten_dp" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>
