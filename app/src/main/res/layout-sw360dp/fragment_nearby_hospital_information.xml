@@ -57,9 +57,11 @@
                         android:gravity="center">
 
                         <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_checkmark"/>
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/address"/>
                         <TextView
                             android:id="@+id/textview_hospitaladdress"
                             android:layout_width="0dp"
@@ -80,9 +82,11 @@
                         android:gravity="center">
 
                         <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_checkmark"/>
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/phone"/>
 
                         <TextView
                             android:id="@+id/textview_phonenumberinfo"
@@ -104,9 +108,11 @@
                         android:gravity="center">
 
                         <ImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:src="@drawable/ic_checkmark"/>
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/distance"/>
 
                         <TextView
                             android:id="@+id/textView_distance"
@@ -149,8 +155,8 @@
                             android:adjustViewBounds="true"
                             android:scaleType="fitCenter"
                             android:background="?attr/selectableItemBackgroundBorderless"
-                            android:layout_marginLeft="35dp"
-                            android:layout_marginStart="35dp" />
+                            android:layout_marginLeft="65dp"
+                            android:layout_marginStart="65dp" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
