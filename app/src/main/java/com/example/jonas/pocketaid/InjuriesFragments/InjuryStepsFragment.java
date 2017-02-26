@@ -3,6 +3,7 @@ package com.example.jonas.pocketaid.InjuriesFragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -97,7 +98,7 @@ public class InjuryStepsFragment extends Fragment {
                     if(position == 0) {
                         setEmptyArrayString(4);
                         steps = getResources().getStringArray(R.array.abrasion_recommended);
-                        imgSteps = new int[] { 0, 0, 0, 0 };
+                        imgSteps = new int[] { R.drawable.wash_300, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     } else if(position == 1){
                         setEmptyArrayString(4);
