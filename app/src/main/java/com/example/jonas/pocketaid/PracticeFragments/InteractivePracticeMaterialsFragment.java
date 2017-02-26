@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.jonas.pocketaid.Adapters.DialogPractice;
 import com.example.jonas.pocketaid.InteractiveModules.InteractiveAnswerSheet;
+import com.example.jonas.pocketaid.InteractiveModules.InteractiveModel;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 
@@ -112,8 +113,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         InteractivePracticeStepsOrdering listFrag = new InteractivePracticeStepsOrdering();
         Bundle args = new Bundle();
         args.putString("chosenInjury", injuryType);
-        args.putString("numberOfTries", String.valueOf(numberOfTries));
-        args.putString("numberOfErrors", String.valueOf(numberOfError));
+
+        InteractiveModel interModel = InteractiveModel.getInstance();
+        interModel.setNumberOfTries(numberOfTries);
+        interModel.setNumberOfError(numberOfError);
+//        args.putString("numberOfTries", String.valueOf(numberOfTries));
+//        args.putString("numberOfErrors", String.valueOf(numberOfError));
 
         listFrag.setArguments(args);
 

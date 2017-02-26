@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.jonas.pocketaid.InteractiveModules.InteractiveModel;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.PracticeFragments.InteractivePracticeMaterialsFragment;
 import com.example.jonas.pocketaid.R;
@@ -79,6 +80,10 @@ public class InjuryListPracticeAdapter extends RecyclerView.Adapter<InjuryListPr
 
                     args.putString("chosenPractice", injury_name.getText().toString());
                     interactiveMaterials.setArguments(args);
+                    //InteractiveModel interModel = new InteractiveModel();
+                    //interModel.resetValues();
+                    InteractiveModel interModel = InteractiveModel.getInstance();
+                    interModel.resetValues();
 
                     //String injury_name2 = injury_name.getText().toString();
 

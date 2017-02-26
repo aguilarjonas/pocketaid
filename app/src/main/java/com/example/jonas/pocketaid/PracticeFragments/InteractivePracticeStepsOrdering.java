@@ -24,6 +24,7 @@ import android.support.v4.util.Pair;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ import android.widget.Toast;
 import com.example.jonas.pocketaid.Adapters.DialogPractice;
 import com.example.jonas.pocketaid.Adapters.PracticeItemAdapter;
 import com.example.jonas.pocketaid.Adapters.StepNumberListAdapter;
+import com.example.jonas.pocketaid.InteractiveModules.InteractiveModel;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 import com.woxthebox.draglistview.DragItem;
@@ -55,6 +57,8 @@ public class InteractivePracticeStepsOrdering extends Fragment {
 
     int numberOfMaterials = 0;
     String chosenInjury = "";
+
+    InteractiveModel interModel = InteractiveModel.getInstance();
 
 
     @Override
@@ -87,6 +91,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         selectedInjury(chosenInjury);
         backButtonListener();
 
+        Log.e("Singleton Test", interModel.getNumberOfError() + "/" + interModel.getNumberOfTries());
         //To clear the *int* when going back.
         numberOfMaterials = 0;
 
