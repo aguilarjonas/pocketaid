@@ -85,7 +85,6 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
     public void setImagesForMaterials(String chosenInjury){
 
         if (chosenInjury.equals("Abrasion")){
-
             //3
 
         }
@@ -138,10 +137,6 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         else if (chosenInjury.equals("Major Laceration")){
             //3
         }
-
-
-
-
     }
 
 

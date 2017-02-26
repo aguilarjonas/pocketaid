@@ -56,6 +56,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
     ArrayList<String> answersUser = new ArrayList<String>();
     InteractiveAnswerSheet interactiveSheet = new InteractiveAnswerSheet();
 
+    int numberOfTries = 0;
+    int numberOfError = 0;
+
 
 
     final ArrayList<ArrayList<String>> categoryAnswer = new ArrayList<ArrayList<String>>();
@@ -86,9 +89,13 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 if (checkAnswers(interactiveSheet.checkAnswerSheet(CHOSEN_PRACTICE)) == false){
 //                    Toast.makeText(getActivity().getApplicationContext(), "Wrong Answer! Try Again", Toast.LENGTH_SHORT).show();
                     showDialog(getString(R.string.wrong));
+                    numberOfTries++;
+                    numberOfError++;
                 } else {
                     answersUser.clear();
                     showDialog(getString(R.string.correct));
+                    numberOfTries++;
+                    Log.e("Error/Tries", numberOfError + "/" + numberOfTries);
                     moveToListFragment();
                 }
             }
@@ -105,6 +112,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         InteractivePracticeStepsOrdering listFrag = new InteractivePracticeStepsOrdering();
         Bundle args = new Bundle();
         args.putString("chosenInjury", injuryType);
+        args.putString("numberOfTries", String.valueOf(numberOfTries));
+        args.putString("numberOfErrors", String.valueOf(numberOfError));
+
         listFrag.setArguments(args);
 
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
