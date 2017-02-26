@@ -54,6 +54,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
     int imageNumber = 1;
     int whatsNext = 1;
 
+    String chosenInjury = "";
+
     boolean justStarted = true;
     public InteractivePracticeApplication() {
         // Required empty public constructor
@@ -70,14 +72,79 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         numberOfMaterials = Integer.parseInt(getArguments().getString("numberOfMaterials"));
-
+        chosenInjury = getArguments().getString("chosenInjury");
         clearValues();
         initializeElements();
         setVisibilityForMaterials(numberOfMaterials);
         getTrigger();
+        setImagesForMaterials(chosenInjury);
 
         return rootView;
     }
+
+    public void setImagesForMaterials(String chosenInjury){
+
+        if (chosenInjury.equals("Abrasion")){
+
+            //3
+
+        }
+
+        else if (chosenInjury.equals("Fracture")){
+            //3
+
+        }
+
+        else if (chosenInjury.equals("Contusion")){
+            //2
+        }
+
+        else if (chosenInjury.equals("Concussion")){
+            //2
+        }
+
+        else if (chosenInjury.equals("3rd Degree Burns")){
+            //0
+        }
+
+        else if (chosenInjury.equals("Chemical Burns")){
+            //2
+        }
+
+        else if (chosenInjury.equals("Thermal Burns")){
+            //3
+        }
+
+        else if (chosenInjury.equals("Insect Bites")){
+            //3
+        }
+
+        else if (chosenInjury.equals("Animal Bites")){
+            //1
+        }
+
+        else if (chosenInjury.equals("Puncture (Slightly Bleeding)")){
+            //3
+        }
+
+        else if (chosenInjury.equals("Puncture (Severe Bleeding)")){
+            //3
+        }
+
+        else if (chosenInjury.equals("Minor Laceration")){
+            //3
+        }
+
+        else if (chosenInjury.equals("Major Laceration")){
+            //3
+        }
+
+
+
+
+    }
+
+
 
     public void getTrigger(){
         tvTrigger.setOnTouchListener(this);
@@ -246,20 +313,11 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         protected void onDraw(Canvas canvas) {
             Log.e("onDraw:", "onDraw");
             //Change this default to a transparent background
+
+
             Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.ic_chemical);
-            if (imageNumber == 1){
-                b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
-            }
 
-            else if (imageNumber == 2){
-                b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
-            }
-
-            else if (imageNumber == 3){
-                b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
-            }
-
-            else if (imageNumber == 99){
+            if (imageNumber == 99){
                 imageNumber = 1;
                 DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
@@ -268,6 +326,177 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
                         .addToBackStack("displayScoreFragment")
                         .commit();
             }
+
+            else if (imageNumber != 99){
+                if (chosenInjury.equals("Abrasion")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                    }
+
+                    else if (imageNumber == 2){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                    }
+
+                    else if (imageNumber == 3){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                    }
+                }
+
+                else if (chosenInjury.equals("Fracture")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                    }
+
+                    else if (imageNumber == 2){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                    }
+
+                    else if (imageNumber == 3){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                    }
+                }
+
+                else if (chosenInjury.equals("Contusion")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                    }
+
+                    else if (imageNumber == 2){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                    }
+
+                    else if (imageNumber == 3){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                    }
+                }
+
+                else if (chosenInjury.equals("3rd Degree Burns")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                    }
+
+                    else if (imageNumber == 2){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                    }
+
+                    else if (imageNumber == 3){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                    }
+                }
+
+                else if (chosenInjury.equals("Chemical Burns")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                    }
+
+                    else if (imageNumber == 2){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                    }
+
+                    else if (imageNumber == 3){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                    }
+                }
+
+                else if (chosenInjury.equals("Thermal Burns")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                    }
+
+                    else if (imageNumber == 2){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                    }
+
+                    else if (imageNumber == 3){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                    }
+                }
+
+                else if (chosenInjury.equals("Insect Bites")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                    }
+
+                    else if (imageNumber == 2){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                    }
+
+                    else if (imageNumber == 3){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                    }
+                }
+
+                else if (chosenInjury.equals("Animal Bites")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                    }
+
+                    else if (imageNumber == 2){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                    }
+
+                    else if (imageNumber == 3){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                    }
+                }
+
+                else if (chosenInjury.equals("Puncture (Slightly Bleeding)")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                    }
+
+                    else if (imageNumber == 2){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                    }
+
+                    else if (imageNumber == 3){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                    }
+                }
+
+                else  if (chosenInjury.equals("Puncture (Severe Bleeding)")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                    }
+
+                    else if (imageNumber == 2){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                    }
+
+                    else if (imageNumber == 3){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                    }
+                }
+
+                else if (chosenInjury.equals("Minor Laceration")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                    }
+
+                    else if (imageNumber == 2){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                    }
+
+                    else if (imageNumber == 3){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                    }
+                }
+
+                else if (chosenInjury.equals("Major Laceration")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                    }
+
+                    else if (imageNumber == 2){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                    }
+
+                    else if (imageNumber == 3){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                    }
+                }
+            }
+
 
             canvas.drawBitmap(b, 0, 0, paint);
             canvas.drawCircle(point.x, point.y, 100, paint);

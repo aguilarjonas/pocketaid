@@ -54,6 +54,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
     Button checkAnswerBT;
 
     int numberOfMaterials = 0;
+    String chosenInjury = "";
 
 
     @Override
@@ -82,7 +83,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         lvStepNumber = (RecyclerView) rootView.findViewById(R.id.lv_step_numberPrac);
         checkAnswerBT = (Button) rootView.findViewById(R.id.btCheckAnswersPrac);
         backButton = (Button) rootView.findViewById(R.id.backButtonPractice);
-        String chosenInjury = getArguments().getString("chosenInjury");
+        chosenInjury = getArguments().getString("chosenInjury");
         selectedInjury(chosenInjury);
         backButtonListener();
 
@@ -527,6 +528,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
         Bundle args = new Bundle();
         args.putString("numberOfMaterials" , String.valueOf(numberOfMaterials));
+        args.putString("chosenInjury" , chosenInjury);
         interactiveApplication.setArguments(args);
         fragmentTransaction.add(interactiveApplication, "interactiveApplication")
                 .replace(R.id.fragment_container, interactiveApplication)
