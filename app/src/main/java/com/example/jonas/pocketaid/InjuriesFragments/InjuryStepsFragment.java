@@ -266,12 +266,4 @@ public class InjuryStepsFragment extends Fragment {
             }
         });
     }
-
-    /*
-        Function Name : setEmptyArrayString
-        Function Description :  This function will be called in the setStepsAndImages
-                                This function sets the notes to empty strings
-        Function Developer : Jonas Aguilar
-     */
-
 }
