@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jonas.pocketaid.InteractiveModules.InteractiveModel;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 
@@ -57,6 +58,11 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
     String chosenInjury = "";
 
     boolean justStarted = true;
+
+    InteractiveModel interModel;
+    int numberOfErrors = 0;
+    int numberOfTries = 0;
+
     public InteractivePracticeApplication() {
         // Required empty public constructor
     }
@@ -70,6 +76,12 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         //changes menu button to Up or Back button
         ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        interModel = InteractiveModel.getInstance();
+
+        numberOfErrors = interModel.getNumberOfError();
+        numberOfTries = interModel.getNumberOfTries();
+
 
         numberOfMaterials = Integer.parseInt(getArguments().getString("numberOfMaterials"));
         chosenInjury = getArguments().getString("chosenInjury");
@@ -214,6 +226,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
                             changeImage = true;
                             whatsNext = 2;
                             justStarted = false;
+                            nextStep = false;
                             if (numberOfMaterials == 1){
                                 isItDone = true;
                             }
@@ -222,14 +235,20 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
                         else if (whichMaterial.get(1) == 2 && nextStep == true && whatsNext == 2){
                             changeImage = true;
                             whatsNext = 3;
+                            nextStep = false;
+
+
                             if (numberOfMaterials == 2){
                                 isItDone = true;
                             }
+
                             Log.e("HELLO", "2nd");
                         }
 
                         else if (whichMaterial.get(1) == 3 && nextStep == true && whatsNext == 3){
                             changeImage = true;
+                            nextStep = false;
+
 //                            isItDone = true;
                             if (numberOfMaterials == 3){
                                 isItDone = true;
@@ -314,6 +333,12 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
             if (imageNumber == 99){
                 imageNumber = 1;
+
+                interModel.setNumberOfError(numberOfErrors);
+                interModel.setNumberOfTries(numberOfTries);
+
+                Log.e("TEST SINGLETON", interModel.getNumberOfError() + "/" + interModel.getNumberOfTries());
+
                 DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
                 fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
@@ -501,8 +526,9 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         public boolean onTouchEvent(MotionEvent event) {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
-                    point.x = event.getX() ;
-                    point.y = event.getY() ;
+                    numberOfTries++;
+                    point.x = event.getX();
+                    point.y = event.getY();
                     Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG PICTURE", Toast.LENGTH_SHORT).show();
                     Log.e("PICTURE:", "ANDITO AKO SA PICTURE");
 
@@ -511,7 +537,6 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
                         if (isItDone == true){
                             imageNumber = 99;
                             Log.e("IMAGE NUMBER:", "99");
-
                         }
 
                         else {
@@ -519,19 +544,16 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
                             changeImage = false;
                             imageNumber ++;
                         }
-
                     }
 
-                    else
+                    else{
+                        numberOfErrors++;
                         Log.e("PICTURE:", "HEHEHE di ka magaling");
-
-
+                    }
             }
             invalidate();
             return true;
-
         }
-
     }
     class Point {
         float x, y;
