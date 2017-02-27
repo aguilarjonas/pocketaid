@@ -232,7 +232,9 @@ public class MainActivity extends AppCompatActivity
         else {
             Toast.makeText(getApplicationContext(), "Walang File", Toast.LENGTH_SHORT).show();
 
-            String vidAddress = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
+            //String vidAddress = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
+            String vidAddress = "http://d2f5qcrcmzlmuh.cloudfront.net/"+injuryType+".mp4";
+
             Uri vidUri = Uri.parse(vidAddress);
 
             videoView.setVideoURI(vidUri);

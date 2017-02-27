@@ -204,7 +204,8 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         Function Developer : Jonas Aguilar
      */
     public void downloadTutorial() {
-        myURL = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
+        //myURL = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
+        myURL = "http://d2f5qcrcmzlmuh.cloudfront.net/"+injuryType+".mp4";
 
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(myURL));
         request.setTitle(injuryType + " Video");
