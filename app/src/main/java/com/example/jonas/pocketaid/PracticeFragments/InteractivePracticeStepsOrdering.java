@@ -60,6 +60,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
 
     int numberOfErrors = 0;
     int numberOfTries = 0;
+    int numberOfCorrect = 0;
 
     InteractiveModel interModel = InteractiveModel.getInstance();
 
@@ -75,6 +76,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
 
         numberOfErrors = interModel.getNumberOfError();
         numberOfTries = interModel.getNumberOfTries();
+        numberOfCorrect = interModel.getNumberOfCorrect();
 
         mDragListView = (DragListView) rootView.findViewById(R.id.drag_list_view);
         mDragListView.getRecyclerView().setVerticalScrollBarEnabled(true);
@@ -99,7 +101,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         selectedInjury(chosenInjury);
         backButtonListener();
 
-        Log.e("Singleton Test", interModel.getNumberOfError() + "/" + interModel.getNumberOfTries());
+        //Log.e("Singleton Test", interModel.getNumberOfError() + "/" + interModel.getNumberOfTries());
         //To clear the *int* when going back.
         numberOfMaterials = 0;
 
@@ -315,6 +317,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(3).second.startsWith("Repeat") || mItemArray.get(3).second.startsWith("Ulitin"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 3;
+                        numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
@@ -335,6 +338,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(7).second.startsWith("Call") || mItemArray.get(7).second.startsWith("Magpatingin"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 3;
+                        numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
@@ -352,6 +356,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(3).second.contains("If needed") || mItemArray.get(3).second.contains("Kung kinakailangan"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 2;
+                        numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 2;
@@ -368,6 +373,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(2).second.startsWith("If") || mItemArray.get(2).second.startsWith("Tumawag"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 2;
+                        numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 2;
@@ -386,6 +392,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(4).second.startsWith("Call") || mItemArray.get(4).second.startsWith("Tumawag"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 0;
+                        numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 0;
@@ -405,6 +412,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(5).second.startsWith("Seek") || mItemArray.get(5).second.startsWith("Magpasuri"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 2;
+                        numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 2;
@@ -421,6 +429,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(2).second.startsWith("Keep") || mItemArray.get(2).second.startsWith("Takpan"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 3;
+                        numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
@@ -440,6 +449,8 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(5).second.startsWith("Call") || mItemArray.get(5).second.startsWith("Tumawag"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 3;
+                        numberOfCorrect++;
+
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
@@ -456,6 +467,8 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(2).second.startsWith("Call") || mItemArray.get(2).second.startsWith("Tumawag"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 1;
+                        numberOfCorrect++;
+
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 1;
@@ -473,6 +486,8 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(3).second.startsWith("Cover") || mItemArray.get(3).second.startsWith("Takpan"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 3;
+                        numberOfCorrect++;
+
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
@@ -491,6 +506,8 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(4).second.startsWith("Consult") || mItemArray.get(4).second.startsWith("Kumonsulta"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 3;
+                        numberOfCorrect++;
+
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
@@ -509,6 +526,8 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(4).second.startsWith("Cover") || mItemArray.get(4).second.startsWith("Takpan"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 3;
+                        numberOfCorrect++;
+
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
@@ -529,6 +548,8 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                             (mItemArray.get(6).second.startsWith("Call") || mItemArray.get(6).second.startsWith("Tumawag"))){
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 3;
+                        numberOfCorrect++;
+
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
@@ -553,8 +574,12 @@ public class InteractivePracticeStepsOrdering extends Fragment {
 
         interModel.setNumberOfError(numberOfErrors);
         interModel.setNumberOfTries(numberOfTries);
+        interModel.setNumberOfCorrect(numberOfCorrect);
 
-        Log.e("Singleton Test", interModel.getNumberOfError() + "/" + interModel.getNumberOfTries()  );
+        Log.e("Correct", numberOfCorrect + " ");
+        Log.e("Error", numberOfErrors + " " );
+        Log.e("Tries", numberOfTries + " " );
+
 
         InteractivePracticeApplication interactiveApplication = new InteractivePracticeApplication();
         FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();

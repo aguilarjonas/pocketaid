@@ -59,6 +59,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
     int numberOfTries = 0;
     int numberOfError = 0;
+    int numberOfCorrect = 0;
 
 
 
@@ -96,7 +97,11 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     answersUser.clear();
                     showDialog(getString(R.string.correct));
                     numberOfTries++;
-                    Log.e("Error/Tries", numberOfError + "/" + numberOfTries);
+                    numberOfCorrect++;
+                    Log.e("Correct", numberOfCorrect + " ");
+                    Log.e("Error", numberOfError + " " );
+                    Log.e("Tries", numberOfTries + " " );
+
                     moveToListFragment();
                 }
             }
@@ -117,6 +122,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         InteractiveModel interModel = InteractiveModel.getInstance();
         interModel.setNumberOfTries(numberOfTries);
         interModel.setNumberOfError(numberOfError);
+        interModel.setNumberOfCorrect(numberOfCorrect);
 //        args.putString("numberOfTries", String.valueOf(numberOfTries));
 //        args.putString("numberOfErrors", String.valueOf(numberOfError));
 

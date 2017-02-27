@@ -62,6 +62,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
     InteractiveModel interModel;
     int numberOfErrors = 0;
     int numberOfTries = 0;
+    int numberOfCorrect = 0;
 
     public InteractivePracticeApplication() {
         // Required empty public constructor
@@ -81,6 +82,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
         numberOfErrors = interModel.getNumberOfError();
         numberOfTries = interModel.getNumberOfTries();
+        numberOfCorrect = interModel.getNumberOfCorrect();
 
 
         numberOfMaterials = Integer.parseInt(getArguments().getString("numberOfMaterials"));
@@ -336,8 +338,11 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
                 interModel.setNumberOfError(numberOfErrors);
                 interModel.setNumberOfTries(numberOfTries);
+                interModel.setNumberOfCorrect(numberOfCorrect);
 
-                Log.e("TEST SINGLETON", interModel.getNumberOfError() + "/" + interModel.getNumberOfTries());
+                Log.e("Correct", numberOfCorrect + " ");
+                Log.e("Error", numberOfErrors + " " );
+                Log.e("Tries", numberOfTries + " " );
 
                 DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
@@ -533,6 +538,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
                     Log.e("PICTURE:", "ANDITO AKO SA PICTURE");
 
                     if (hasClickTrigger == true && changeImage == true){
+                        numberOfCorrect++;
                         Log.e("PICTURE:", "HEHEHE and galing ko");
                         if (isItDone == true){
                             imageNumber = 99;
