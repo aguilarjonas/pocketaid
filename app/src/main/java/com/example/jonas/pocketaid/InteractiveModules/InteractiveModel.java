@@ -9,6 +9,7 @@ public class InteractiveModel {
     private static InteractiveModel uniqInstance;
     private static int numberOfError = 0;
     private static int numberOfTries = 0;
+    private static int numberOfCorrect = 0;
 
     private InteractiveModel() {
     }
@@ -24,6 +25,15 @@ public class InteractiveModel {
     public void resetValues(){
         InteractiveModel.numberOfError = 0;
         InteractiveModel.numberOfTries = 0;
+        InteractiveModel.numberOfCorrect = 0;
+    }
+
+    public static int getNumberOfCorrect() {
+        return numberOfCorrect;
+    }
+
+    public static void setNumberOfCorrect(int numberOfCorrect) {
+        InteractiveModel.numberOfCorrect = numberOfCorrect;
     }
 
     public static int getNumberOfError() {
