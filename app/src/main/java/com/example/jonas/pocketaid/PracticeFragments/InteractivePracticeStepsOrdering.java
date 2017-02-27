@@ -58,6 +58,9 @@ public class InteractivePracticeStepsOrdering extends Fragment {
     int numberOfMaterials = 0;
     String chosenInjury = "";
 
+    int numberOfErrors = 0;
+    int numberOfTries = 0;
+
     InteractiveModel interModel = InteractiveModel.getInstance();
 
 
@@ -67,6 +70,11 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         //changes menu button to Up or Back button
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+
+        InteractiveModel interModel = InteractiveModel.getInstance();
+
+        numberOfErrors = interModel.getNumberOfError();
+        numberOfTries = interModel.getNumberOfTries();
 
         mDragListView = (DragListView) rootView.findViewById(R.id.drag_list_view);
         mDragListView.getRecyclerView().setVerticalScrollBarEnabled(true);
@@ -299,6 +307,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         checkAnswerBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                numberOfTries++;
                 if(chosenInjury.equals("Abrasion")){
                     if((mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")) &&
                             (mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Lagyan")) &&
@@ -309,8 +318,8 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
-
-                        goToInteractiveApplication();
+                        numberOfErrors++;
+                        //goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -329,6 +338,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
+                        numberOfErrors++;
 
                         goToInteractiveApplication();
 
@@ -345,6 +355,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 2;
+                        numberOfErrors++;
 
                         goToInteractiveApplication();
 
@@ -360,6 +371,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 2;
+                        numberOfErrors++;
 
                         goToInteractiveApplication();
 
@@ -377,6 +389,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 0;
+                        numberOfErrors++;
 
                         goToInteractiveApplication();
 
@@ -395,6 +408,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 2;
+                        numberOfErrors++;
 
                         goToInteractiveApplication();
 
@@ -410,6 +424,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
+                        numberOfErrors++;
 
                         goToInteractiveApplication();
 
@@ -428,6 +443,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
+                        numberOfErrors++;
 
                         goToInteractiveApplication();
 
@@ -443,6 +459,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 1;
+                        numberOfErrors++;
 
                         goToInteractiveApplication();
 
@@ -459,6 +476,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
+                        numberOfErrors++;
 
                         goToInteractiveApplication();
 
@@ -476,6 +494,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
+                        numberOfErrors++;
 
                         goToInteractiveApplication();
 
@@ -493,6 +512,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
+                        numberOfErrors++;
 
                         goToInteractiveApplication();
 
@@ -512,6 +532,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
+                        numberOfErrors++;
 
                         goToInteractiveApplication();
 
@@ -529,6 +550,12 @@ public class InteractivePracticeStepsOrdering extends Fragment {
     }
 
     public void goToInteractiveApplication(){
+
+        interModel.setNumberOfError(numberOfErrors);
+        interModel.setNumberOfTries(numberOfTries);
+
+        Log.e("Singleton Test", interModel.getNumberOfError() + "/" + interModel.getNumberOfTries()  );
+
         InteractivePracticeApplication interactiveApplication = new InteractivePracticeApplication();
         FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
         Bundle args = new Bundle();
