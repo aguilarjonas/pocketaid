@@ -3,7 +3,6 @@ package com.example.jonas.pocketaid.InjuriesFragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,8 +14,6 @@ import android.widget.TextView;
 
 import com.example.jonas.pocketaid.Adapters.RecyclerStepsAdapter;
 import com.example.jonas.pocketaid.R;
-
-import java.util.Arrays;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,7 +28,7 @@ public class InjuryStepsFragment extends Fragment {
     private TextView tv_chemical;
     private TextView tv_electrical;
     private String[] steps;
-    private String[] notes;
+    private String[] notes, notesElectrical, notesChemical;
     private int[] imgSteps;
 
     public InjuryStepsFragment() { /** Required empty public constructor **/ }
@@ -96,51 +93,51 @@ public class InjuryStepsFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(injury.toLowerCase().equals("abrasion")) {
                     if(position == 0) {
-                        setEmptyArrayString(4);
                         steps = getResources().getStringArray(R.array.abrasion_recommended);
+                        notes = getResources().getStringArray(R.array.abrasion_notes);
                         imgSteps = new int[] { R.drawable.wash_300, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     } else if(position == 1){
-                        setEmptyArrayString(4);
+                        notes = getResources().getStringArray(R.array.abrasion_notes);
                         steps = getResources().getStringArray(R.array.abrasion_alternative);
                         imgSteps = new int[] { 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("animal")) {
                     if(position == 0) {
-                        setEmptyArrayString(3);
+                        notes = getResources().getStringArray(R.array.animal_bites_notes);
                         steps = getResources().getStringArray(R.array.bites_animal_recommended);
                         imgSteps = new int[] { 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("insect")) {
                     if(position == 0) {
-                        setEmptyArrayString(6);
+                        notes = getResources().getStringArray(R.array.insect_bites_notes);
                         steps = getResources().getStringArray(R.array.bites_insect_recommended);
                         imgSteps = new int[] { 0, 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     } else if(position == 1){
-                        setEmptyArrayString(6);
+                        notes = getResources().getStringArray(R.array.insect_bites_notes);
                         steps = getResources().getStringArray(R.array.bites_insect_alternative);
                         imgSteps = new int[] { 0, 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("firstseconddegree")) {
                     if(position == 0) {
-                        setEmptyArrayString(3);
+                        notes = getResources().getStringArray(R.array.burns_thermal_notes);
                         steps = getResources().getStringArray(R.array.burns_thermal_recommended);
                         imgSteps = new int[] { 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
 
-                        setEmptyArrayString(6);
+                        notesChemical = getResources().getStringArray(R.array.burns_chemical_notes);
                         steps = getResources().getStringArray(R.array.burns_chemical_recommended);
                         imgSteps = new int[] { 0, 0, 0, 0, 0, 0 };
-                        setInjuryStepAdapter(steps, imgSteps, notes, lv_chemical);
+                        setInjuryStepAdapter(steps, imgSteps, notesChemical, lv_chemical);
 
-                        setEmptyArrayString(2);
+                        notesElectrical = getResources().getStringArray(R.array.burns_electrical_notes);
                         steps = getResources().getStringArray(R.array.burns_electrical_recommended);
                         imgSteps = new int[] { 0, 0 };
-                        setInjuryStepAdapter(steps, imgSteps, notes, lv_electrical);
+                        setInjuryStepAdapter(steps, imgSteps, notesElectrical, lv_electrical);
 
                         tv_thermal.setVisibility(View.VISIBLE);
                         tv_chemical.setVisibility(View.VISIBLE);
@@ -148,7 +145,7 @@ public class InjuryStepsFragment extends Fragment {
                         lv_chemical.setVisibility(View.VISIBLE);
                         lv_electrical.setVisibility(View.VISIBLE);
                     } else if(position == 1){
-                        setEmptyArrayString(3);
+                        notes = getResources().getStringArray(R.array.burns_thermal_notes);
                         steps = getResources().getStringArray(R.array.burns_thermal_alternative);
                         imgSteps = new int[] { 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
@@ -160,66 +157,66 @@ public class InjuryStepsFragment extends Fragment {
                         imgSteps = new int[] { 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     } else if(position == 1){
-                        setEmptyArrayString(5);
+                        notes = getResources().getStringArray(R.array.burns_third_notes);
                         steps = getResources().getStringArray(R.array.burns_third_alternative);
                         imgSteps = new int[] { 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("concussion")) {
                     if(position == 0) {
-                        setEmptyArrayString(3);
+                        notes = getResources().getStringArray(R.array.concussion_notes);
                         steps = getResources().getStringArray(R.array.concussion_recommended);
                         imgSteps = new int[] { 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("contusion")) {
                     if(position == 0) {
-                        setEmptyArrayString(4);
+                        notes = getResources().getStringArray(R.array.contusion_notes);
                         steps = getResources().getStringArray(R.array.contusion_recommended);
                         imgSteps = new int[] { 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("fracture")) {
                     if(position == 0) {
-                        setEmptyArrayString(8);
+                        notes = getResources().getStringArray(R.array.fracture_notes);
                         steps = getResources().getStringArray(R.array.fracture_recommended);
                         imgSteps = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("major")) {
                     if(position == 0) {
-                        setEmptyArrayString(7);
+                        notes = getResources().getStringArray(R.array.laceration_major_notes);
                         steps = getResources().getStringArray(R.array.laceration_major_recommended);
                         imgSteps = new int[] { 0, 0, 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("minor")) {
                     if(position == 0) {
-                        setEmptyArrayString(6);
+                        notes = getResources().getStringArray(R.array.laceration_minor_notes);
                         steps = getResources().getStringArray(R.array.laceration_minor_recommended);
                         imgSteps = new int[] { 0, 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     } else if(position == 1){
-                        setEmptyArrayString(6);
+                        notes = getResources().getStringArray(R.array.laceration_minor_notes);
                         steps = getResources().getStringArray(R.array.laceration_minor_alternative);
                         imgSteps = new int[] { 0, 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("severe")) {
                     if(position == 0) {
-                        setEmptyArrayString(5);
+                        notes = getResources().getStringArray(R.array.puncture_severe_notes);
                         steps = getResources().getStringArray(R.array.puncture_severe_recommended);
                         imgSteps = new int[] { 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     } else if(position == 1){
-                        setEmptyArrayString(5);
+                        notes = getResources().getStringArray(R.array.puncture_severe_notes);
                         steps = getResources().getStringArray(R.array.puncture_severe_alternative);
                         imgSteps = new int[] { 0, 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("slight")) {
                     if(position == 0) {
-                        setEmptyArrayString(4);
+                        notes = getResources().getStringArray(R.array.puncture_slight_notes);
                         steps = getResources().getStringArray(R.array.puncture_slight_recommended);
                         imgSteps = new int[] { 0, 0, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
@@ -276,8 +273,5 @@ public class InjuryStepsFragment extends Fragment {
                                 This function sets the notes to empty strings
         Function Developer : Jonas Aguilar
      */
-    public void setEmptyArrayString(int number) {
-        notes = new String[number];
-        Arrays.fill(notes, "");
-    }
+
 }

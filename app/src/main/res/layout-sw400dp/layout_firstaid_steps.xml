@@ -40,8 +40,7 @@
         android:layout_height="wrap_content"
         android:textColor="@color/noteColor"
         android:textSize="15sp"
-        android:layout_marginTop="5dp"
-        android:visibility="gone"/>
+        android:layout_marginTop="5dp"/>
 
     <ImageView
         android:id="@+id/step_image"
