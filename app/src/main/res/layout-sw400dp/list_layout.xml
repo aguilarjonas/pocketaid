@@ -64,13 +64,6 @@
                 android:gravity="bottom">
 
                 <Button
-                    android:id="@+id/backButtonPractice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Back" />
-
-                <Button
                     android:id="@+id/btCheckAnswersPrac"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
