@@ -47,6 +47,7 @@ import java.util.Collections;
 
 public class InteractivePracticeStepsOrdering extends Fragment {
 
+    private TextView instruction;
     private Button backButton;
     private ArrayList<Pair<Long, String>> mItemArray;
     private DragListView mDragListView;
@@ -79,6 +80,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         numberOfCorrect = interModel.getNumberOfCorrect();
 
         mDragListView = (DragListView) rootView.findViewById(R.id.drag_list_view);
+        instruction = (TextView) rootView.findViewById(R.id.arrangement_instruction);
         mDragListView.getRecyclerView().setVerticalScrollBarEnabled(true);
         abrasionProcedure = getResources().getStringArray(R.array.abrasion_recommended);
         animalBitesProcedure = getResources().getStringArray(R.array.animal_bites_practice);
@@ -96,16 +98,21 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         severePunctureProcedure = getResources().getStringArray(R.array.puncture_severe_recommended);
         lvStepNumber = (RecyclerView) rootView.findViewById(R.id.lv_step_numberPrac);
         checkAnswerBT = (Button) rootView.findViewById(R.id.btCheckAnswersPrac);
-        backButton = (Button) rootView.findViewById(R.id.backButtonPractice);
+//        backButton = (Button) rootView.findViewById(R.id.backButtonPractice);
         chosenInjury = getArguments().getString("chosenInjury");
+        appendInjuryToInstruction(chosenInjury);
         selectedInjury(chosenInjury);
-        backButtonListener();
+//        backButtonListener();
 
         //Log.e("Singleton Test", interModel.getNumberOfError() + "/" + interModel.getNumberOfTries());
         //To clear the *int* when going back.
         numberOfMaterials = 0;
 
         return rootView;
+    }
+
+    public void appendInjuryToInstruction(String injury) {
+        instruction.append(injury + ".");
     }
 
     public void selectedInjury(String chosenInjury){
@@ -597,14 +604,14 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         Collections.shuffle(mItemArray);
     }
 
-    public void backButtonListener() {
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().popBackStack();
-            }
-        });
-    }
+//    public void backButtonListener() {
+//        backButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                getFragmentManager().popBackStack();
+//            }
+//        });
+//    }
 
     public void checkOrderOfProcedures(){
         mItemArray = new ArrayList<>();
