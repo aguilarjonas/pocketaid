@@ -397,9 +397,9 @@
 
     <!--NEW UPDATE-->
     <!-- INTERACTIVE PRACTICE INSTRUCTIONS -->
-    <string name="material_steps">Tap the materials used for first aid.</string>
-    <string name="arrangement_steps">"Tap &amp; Drag the steps and arrange them in proper order."</string>
-    <string name="application_steps">"Tap the material to be used and tap the area where it should be placed."</string>
+    <string name="material_steps">Select the materials used for the first aid of "</string>
+    <string name="arrangement_steps">"Tap &amp; Drag the steps to arrange them in proper order according to the indicated injury: "</string>
+    <string name="application_steps">"Tap the material to be used then the area where it should be placed according to the first aid procedure of "</string>
 
     <!-- CORRECT OR WRONG -->
     <string name="correct">Correct</string>
