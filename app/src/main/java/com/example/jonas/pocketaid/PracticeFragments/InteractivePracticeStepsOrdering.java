@@ -99,6 +99,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         lvStepNumber = (RecyclerView) rootView.findViewById(R.id.lv_step_numberPrac);
         checkAnswerBT = (Button) rootView.findViewById(R.id.btCheckAnswersPrac);
 //        backButton = (Button) rootView.findViewById(R.id.backButtonPractice);
+        //backButton = (Button) rootView.findViewById(R.id.backButtonPractice);
         chosenInjury = getArguments().getString("chosenInjury");
         appendInjuryToInstruction(chosenInjury);
         selectedInjury(chosenInjury);

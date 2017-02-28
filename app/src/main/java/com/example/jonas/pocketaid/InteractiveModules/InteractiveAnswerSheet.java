@@ -7,6 +7,7 @@ import com.example.jonas.pocketaid.R;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by Raeven on 11 Feb 2017.
@@ -21,10 +22,33 @@ public class InteractiveAnswerSheet {
     TextView textView_5;
     TextView textView_6;
 
+    ArrayList<Integer> RANDOMIZED_ME = new ArrayList<Integer>(){{
+        add(1);
+        add(2);
+        add(3);
+        add(4);
+        add(5);
+        add(6);
+
+    }};
+
+    public ArrayList<Integer> getRANDOMIZED_ME() {
+        Collections.shuffle(RANDOMIZED_ME);
+        return RANDOMIZED_ME;
+    }
+
+    public void setRANDOMIZED_ME(ArrayList<Integer> RANDOMIZED_ME) {
+        this.RANDOMIZED_ME = RANDOMIZED_ME;
+    }
+
     final ArrayList<String> ANSWER_ABRASION = new ArrayList<String>(){{
         add("1");
         add("2");
         add("3");
+        add("4");
+        add("5");
+        add("6");
+
     }};
 
     final ArrayList<String> ANSWER_ANIMAL_BITES = new ArrayList<String>(){{
@@ -309,8 +333,6 @@ public class InteractiveAnswerSheet {
 
         return materialsSheetDefault;
     }
-
-
 
 
 }
