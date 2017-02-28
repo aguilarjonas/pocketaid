@@ -27,14 +27,14 @@ public class PracticeFragment extends Fragment {
 
     //list of injuries
     String[] injuries = {"Abrasion", "Animal Bites", "Insect Bites", "Thermal Burns", "Chemical Burns",
-                            "3rd Degree Burns", "Concussion", "Contusion", "Fracture",
+                            "Concussion", "Contusion", "Fracture",
                             "Major Laceration", "Minor Laceration", "Puncture (Severe Bleeding)", "Puncture (Slightly Bleeding)"
     };
 
     //icons
     Integer[] icon = {R.drawable.ic_abrasion, R.drawable.ic_bites, R.drawable.ic_insect, R.drawable.ic_thermal, R.drawable.ic_chemical,
-                        R.drawable.ic_burns, R.drawable.ic_concussion,
-                        R.drawable.ic_contusion, R.drawable.ic_fracture, R.drawable.ic_laceration,
+                        R.drawable.ic_concussion, R.drawable.ic_contusion,
+                        R.drawable.ic_fracture, R.drawable.ic_laceration,
                         R.drawable.ic_laceration, R.drawable.ic_severe, R.drawable.ic_slight
     };
 
