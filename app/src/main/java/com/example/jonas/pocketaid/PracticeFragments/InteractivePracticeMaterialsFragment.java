@@ -100,6 +100,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 if (checkAnswers(answerRandomized, materialNumber) == false){
 //                    Toast.makeText(getActivity().getApplicationContext(), "Wrong Answer! Try Again", Toast.LENGTH_SHORT).show();
                     showDialog(getString(R.string.wrong));
+                    setChecksAsInvisible();
+                    answersUser.clear();
                     numberOfTries++;
                     numberOfError++;
                 } else {
@@ -446,7 +448,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         setChecksAsInvisible();
         correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_betadine);
-        correctMaterials.add(R.drawable.ic_material_bandage); //Change to gauze
+        correctMaterials.add(R.drawable.ic_material_gauze); //Change to gauze
         //Collections.shuffle(answerRandomized);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
@@ -458,6 +460,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Clean Gauze
         setChecksAsInvisible();
+        correctMaterials.add(R.drawable.ic_material_gauze);
+        materialNumber = 1;
+        setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
@@ -466,12 +471,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Tweezers, Soap and Water, Gauze, Cold pack
         setChecksAsInvisible();
-        imageView_1.setImageResource(R.drawable.ic_laceration);
-        imageView_2.setImageResource(R.drawable.ic_concussion);
-        imageView_3.setImageResource(R.drawable.ic_bites);
-        imageView_4.setImageResource(R.drawable.ic_laceration);
-        imageView_5.setImageResource(R.drawable.ic_fracture);
-        imageView_6.setImageResource(R.drawable.ic_insect);
+        correctMaterials.add(R.drawable.ic_material_coldpack);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        materialNumber = 3;
+        setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
@@ -480,12 +485,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Water, Gauze, Soap and Water
         setChecksAsInvisible();
-        imageView_1.setImageResource(R.drawable.ic_laceration);
-        imageView_2.setImageResource(R.drawable.ic_concussion);
-        imageView_3.setImageResource(R.drawable.ic_bites);
-        imageView_4.setImageResource(R.drawable.ic_laceration);
-        imageView_5.setImageResource(R.drawable.ic_fracture);
-        imageView_6.setImageResource(R.drawable.ic_insect);
+        correctMaterials.add(R.drawable.ic_material_water);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        materialNumber = 3;
+        setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
@@ -494,12 +499,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //None
         setChecksAsInvisible();
-        imageView_1.setImageResource(R.drawable.ic_laceration);
-        imageView_2.setImageResource(R.drawable.ic_concussion);
-        imageView_3.setImageResource(R.drawable.ic_bites);
-        imageView_4.setImageResource(R.drawable.ic_laceration);
-        imageView_5.setImageResource(R.drawable.ic_fracture);
-        imageView_6.setImageResource(R.drawable.ic_insect);
+        correctMaterials.add(R.drawable.ic_material_coldpack);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        materialNumber = 3;
+        setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
@@ -510,12 +515,11 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Soap and water, Gauze
         setChecksAsInvisible();
-        imageView_1.setImageResource(R.drawable.ic_laceration);
-        imageView_2.setImageResource(R.drawable.ic_concussion);
-        imageView_3.setImageResource(R.drawable.ic_bites);
-        imageView_4.setImageResource(R.drawable.ic_laceration);
-        imageView_5.setImageResource(R.drawable.ic_fracture);
-        imageView_6.setImageResource(R.drawable.ic_insect);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        materialNumber = 2;
+        setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
@@ -524,12 +528,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Cold Pack, Ice
         setChecksAsInvisible();
-        imageView_1.setImageResource(R.drawable.ic_laceration);
-        imageView_2.setImageResource(R.drawable.ic_concussion);
-        imageView_3.setImageResource(R.drawable.ic_bites);
-        imageView_4.setImageResource(R.drawable.ic_laceration);
-        imageView_5.setImageResource(R.drawable.ic_fracture);
-        imageView_6.setImageResource(R.drawable.ic_insect);
+        correctMaterials.add(R.drawable.ic_material_coldpack);
+        correctMaterials.add(R.drawable.ic_material_ice);
+//        correctMaterials.add(R.drawable.ic_material_gauze);
+        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        materialNumber = 2;
+        setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
@@ -538,12 +542,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Cold Pack, Ice, PainReliever
         setChecksAsInvisible();
-        imageView_1.setImageResource(R.drawable.ic_laceration);
-        imageView_2.setImageResource(R.drawable.ic_concussion);
-        imageView_3.setImageResource(R.drawable.ic_bites);
-        imageView_4.setImageResource(R.drawable.ic_laceration);
-        imageView_5.setImageResource(R.drawable.ic_fracture);
-        imageView_6.setImageResource(R.drawable.ic_insect);
+        correctMaterials.add(R.drawable.ic_material_coldpack);
+        correctMaterials.add(R.drawable.ic_material_ice);
+        //correctMaterials.add(R.drawable.ic_material_gauze);
+        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        materialNumber = 2;
+        setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
@@ -552,25 +556,27 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Gauze, Ring Pad, Sling, Bandage
         setChecksAsInvisible();
-        imageView_1.setImageResource(R.drawable.ic_laceration);
-        imageView_2.setImageResource(R.drawable.ic_concussion);
-        imageView_3.setImageResource(R.drawable.ic_bites);
-        imageView_4.setImageResource(R.drawable.ic_laceration);
-        imageView_5.setImageResource(R.drawable.ic_fracture);
-        imageView_6.setImageResource(R.drawable.ic_insect);
+        correctMaterials.add(R.drawable.ic_material_ringpad);
+        correctMaterials.add(R.drawable.ic_material_sling);
+        correctMaterials.add(R.drawable.ic_material_bandage);
+        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        materialNumber = 3;
+        setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void majorLacerationPractice (){
         //Set the materials Image here.
+        //Gloves, Gauze, Soap and Water, Antibiotic
+
         setChecksAsInvisible();
-        imageView_1.setImageResource(R.drawable.ic_laceration);
-        imageView_2.setImageResource(R.drawable.ic_concussion);
-        imageView_3.setImageResource(R.drawable.ic_bites);
-        imageView_4.setImageResource(R.drawable.ic_laceration);
-        imageView_5.setImageResource(R.drawable.ic_fracture);
-        imageView_6.setImageResource(R.drawable.ic_insect);
+        correctMaterials.add(R.drawable.ic_material_glove);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+//        correctMaterials.add(R.drawable.ic_material_antibiotic);
+        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        materialNumber = 2;
+        setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
@@ -579,12 +585,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Gloves, Gauze, Soap and Water, Antibiotic
         setChecksAsInvisible();
-        imageView_1.setImageResource(R.drawable.ic_laceration);
-        imageView_2.setImageResource(R.drawable.ic_concussion);
-        imageView_3.setImageResource(R.drawable.ic_bites);
-        imageView_4.setImageResource(R.drawable.ic_laceration);
-        imageView_5.setImageResource(R.drawable.ic_fracture);
-        imageView_6.setImageResource(R.drawable.ic_insect);
+        correctMaterials.add(R.drawable.ic_material_glove);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        materialNumber = 3;
+        setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
@@ -593,12 +599,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Gloves, Soap and Water, Gauze
         setChecksAsInvisible();
-        imageView_1.setImageResource(R.drawable.ic_laceration);
-        imageView_2.setImageResource(R.drawable.ic_concussion);
-        imageView_3.setImageResource(R.drawable.ic_bites);
-        imageView_4.setImageResource(R.drawable.ic_laceration);
-        imageView_5.setImageResource(R.drawable.ic_fracture);
-        imageView_6.setImageResource(R.drawable.ic_insect);
+        correctMaterials.add(R.drawable.ic_material_glove);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        materialNumber = 3;
+        setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
@@ -607,12 +613,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Gloves, Soap and Water, Gauze
         setChecksAsInvisible();
-        imageView_1.setImageResource(R.drawable.ic_laceration);
-        imageView_2.setImageResource(R.drawable.ic_concussion);
-        imageView_3.setImageResource(R.drawable.ic_bites);
-        imageView_4.setImageResource(R.drawable.ic_laceration);
-        imageView_5.setImageResource(R.drawable.ic_fracture);
-        imageView_6.setImageResource(R.drawable.ic_insect);
+        correctMaterials.add(R.drawable.ic_material_glove);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        materialNumber = 3;
+        setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
