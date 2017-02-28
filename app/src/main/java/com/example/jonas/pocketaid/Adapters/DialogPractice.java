@@ -3,21 +3,13 @@ package com.example.jonas.pocketaid.Adapters;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.jonas.pocketaid.PracticeFragments.InteractivePracticeMaterialsFragment;
 import com.example.jonas.pocketaid.R;
 
 /**
@@ -58,11 +50,11 @@ public class DialogPractice extends DialogFragment {
         if(correctOrNot.toLowerCase().equals("wrong")) {
             dialogIV.setImageResource(R.drawable.xmark_2);
             dialogIV.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.dialogWrongBackground));
-            dialogTV.setText("Sorry, wrong answer. :(");
+            dialogTV.setText("Incorrect answer");
         } else if(correctOrNot.toLowerCase().equals("correct")){
             dialogIV.setImageResource(R.drawable.checkmark_2);
             dialogIV.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.dialogRightBackground));
-            dialogTV.setText("Correct! Very Good!");
+            dialogTV.setText("Correct answer");
         }
     }
 

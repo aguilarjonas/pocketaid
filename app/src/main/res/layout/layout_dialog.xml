@@ -27,7 +27,7 @@
         android:textColor="@color/textColor"
         android:layout_marginBottom="@dimen/ten_dp"
         android:layout_below="@+id/dialog_imageView"
-        android:text="Sorry, wrong answer :("/>
+        android:text=""/>
 
     <Button
         android:id="@+id/dialog_button"

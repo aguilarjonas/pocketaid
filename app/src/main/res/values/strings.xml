@@ -50,7 +50,7 @@
     </string-array>
 
     <!-- DISCLAIMER -->
-    <string name="disclaimer">"Can this contain a lot of text? Can it contain a newline? Yes it can. Adding a 2nd line like this should work. It should not cause parsing errors"</string>
+    <string name="disclaimer">"\t\tNot all of the procedures included in this application apply to all because of some uncontrollable factors like the current environment, location, materials that are needed and as well as the capabilities of the user. The developers or anyone else involved in the creation of this application will not be held liable and will not take any responsibility for the results of any attempt to use any of the presented information in this application."</string>
 
     <!-- GROUP NAME -->
     <string name="grp_name">- FUNtastic FOUR</string>
@@ -532,5 +532,10 @@
     	<item>Never dress a wound with obvious contamination. If you are not able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
     </string-array>
 
+    <!-- INSTRUCTIONS FOR INTERACTIVE PRACTICE -->
+
+    <string name="interactive_practice_intro_title">What is interactive practice?</string>
+    <string name="interactive_practice_intro">Interactive practice of first aid procedures has three stages: Selection of Materials, Arrangement of First Aid Steps and Application of First Aid.\n\nSelect an injury to start.</string>
+    <string name="start_interactive_practice">Select an injury to start.</string>
 
 </resources>

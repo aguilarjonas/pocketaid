@@ -50,7 +50,7 @@
     </string-array>
 
     <!-- DISCLAIMER -->
-    <string name="disclaimer">"Can this contain a lot of text? Can it contain a newline? Yes it can. Adding a 2nd line like this should work. It should not cause parsing errors"</string>
+    <string name="disclaimer">"Hindi lahat ng mga paunang lunas na nakalagay dito sa aplikasyon ay maaaring gamitin ng lahat dahil sa mga kadahilanang tulad ng kasalukuyang kapaligiran, lokasyon, mga materyales na kinakailangan at ang kakayahan ng gumagamit ng aplikasyon. Ang mga gumawa o sino mang tumulong sa paggawa ng aplikasyon na ito ay walang pananagutan o responsibilidad sa anumang magiging resulta ng paggamit ng mga paunang lunas na nakasaad sa aplikasyon na ito."</string>
 
     <!-- GROUP NAME -->
     <string name="grp_name">- FUNtastic FOUR</string>
