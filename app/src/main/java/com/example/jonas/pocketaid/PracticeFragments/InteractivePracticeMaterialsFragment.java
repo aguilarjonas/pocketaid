@@ -52,6 +52,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
     TextView textView_6;
 
     private ViewGroup rootView;
+    private TextView instruction;
     private String injuryType;
 
     ArrayList<String> answersUser = new ArrayList<String>();
@@ -165,8 +166,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         imageView_5.setOnClickListener(this);
         imageView_6.setOnClickListener(this);
 
-
-
+        instruction = (TextView) rootView.findViewById(R.id.material_instruction);
         nextButton =  (Button) rootView.findViewById(R.id.button_practice_next);
     }
 
@@ -350,6 +350,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             punctureSlightPractice();
         }
+
+        instruction.append(injuryType + ".");
     }
 
     public void setChecksAsInvisible(){

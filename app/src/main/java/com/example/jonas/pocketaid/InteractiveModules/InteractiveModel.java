@@ -28,7 +28,7 @@ public class InteractiveModel {
         InteractiveModel.numberOfCorrect = 0;
     }
 
-    public static int getNumberOfCorrect() {
+    public int getNumberOfCorrect() {
         return numberOfCorrect;
     }
 
@@ -36,7 +36,7 @@ public class InteractiveModel {
         InteractiveModel.numberOfCorrect = numberOfCorrect;
     }
 
-    public static int getNumberOfError() {
+    public int getNumberOfError() {
         return numberOfError;
     }
 
@@ -44,7 +44,7 @@ public class InteractiveModel {
         InteractiveModel.numberOfError = numberOfError;
     }
 
-    public static int getNumberOfTries() {
+    public int getNumberOfTries() {
         return numberOfTries;
     }
 
