@@ -68,6 +68,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
     int materialNumber = 0;
 
+    InteractiveModel interModel;
+
 
 
 
@@ -88,6 +90,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_interactive_practice_materials, container, false);
+        interModel = InteractiveModel.getInstance();
 
         setImages(rootView);
 //        setImageOnClicks();
@@ -386,6 +389,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
     public void setImagesRandomly(int materialNumber){
         int getMaterialNumber = 0;
+        interModel.setCorrectMaterials(correctMaterials);
         answerRandomized = interactiveSheet.getRANDOMIZED_ME();
 
         for(int i = 0; i < materialNumber; i++){
@@ -521,6 +525,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_betadine);
         correctMaterials.add(R.drawable.ic_material_gauze); //Change to gauze
+
 
         //Collections.shuffle(answerRandomized);
         materialNumber = 3;

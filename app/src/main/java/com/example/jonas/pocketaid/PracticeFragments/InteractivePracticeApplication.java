@@ -64,6 +64,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
     int numberOfTries = 0;
     int numberOfCorrect = 0;
 
+    ArrayList<Integer> testing = new ArrayList<Integer>();
+
     public InteractivePracticeApplication() {
         // Required empty public constructor
     }
@@ -84,6 +86,10 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         numberOfTries = interModel.getNumberOfTries();
         numberOfCorrect = interModel.getNumberOfCorrect();
 
+        testing = interModel.getCorrectMaterials();
+
+        Log.e("TESTING", testing.get(0) + " " + testing.get(1) + " " + testing.get(2));
+
 
         numberOfMaterials = Integer.parseInt(getArguments().getString("numberOfMaterials"));
         chosenInjury = getArguments().getString("chosenInjury");
@@ -100,6 +106,9 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
         if (chosenInjury.equals("Abrasion")){
             //3
+            material1.setImageResource(testing.get(0));
+            material2.setImageResource(testing.get(1));
+            material3.setImageResource(testing.get(2));
 
         }
 
@@ -134,6 +143,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
         else if (chosenInjury.equals("Animal Bites")){
             //1
+            material1.setImageResource(testing.get(0));
         }
 
         else if (chosenInjury.equals("Puncture (Slightly Bleeding)")){
