@@ -522,6 +522,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_betadine);
         correctMaterials.add(R.drawable.ic_material_gauze); //Change to gauze
+
         //Collections.shuffle(answerRandomized);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
@@ -536,6 +537,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         correctMaterials.add(R.drawable.ic_material_gauze);
         materialNumber = 1;
         setImagesRandomly(materialNumber);
+
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
