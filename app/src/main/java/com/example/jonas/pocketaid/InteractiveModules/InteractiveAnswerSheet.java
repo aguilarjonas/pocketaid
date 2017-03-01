@@ -32,6 +32,22 @@ public class InteractiveAnswerSheet {
 
     }};
 
+    ArrayList<Integer> MATERIAL_STORAGE = new ArrayList<Integer>(){{
+        add(R.drawable.ic_material_antibiotic);
+        add(R.drawable.ic_material_bandage);
+        add(R.drawable.ic_material_betadine);
+        add(R.drawable.ic_material_coldpack);
+        add(R.drawable.ic_material_gauze);
+        add(R.drawable.ic_material_glove);
+        add(R.drawable.ic_material_ice);
+        add(R.drawable.ic_material_painreliever);
+        add(R.drawable.ic_material_ringpad);
+        add(R.drawable.ic_material_sling);
+        add(R.drawable.ic_material_soapwater);
+    }};
+
+
+
     public ArrayList<Integer> getRANDOMIZED_ME() {
         Collections.shuffle(RANDOMIZED_ME);
         return RANDOMIZED_ME;
@@ -41,88 +57,14 @@ public class InteractiveAnswerSheet {
         this.RANDOMIZED_ME = RANDOMIZED_ME;
     }
 
-    final ArrayList<String> ANSWER_ABRASION = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-        add("4");
-        add("5");
-        add("6");
 
-    }};
+    public ArrayList<Integer> getMATERIAL_STORAGE() {
+        return MATERIAL_STORAGE;
+    }
 
-    final ArrayList<String> ANSWER_ANIMAL_BITES = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-        add("4");
-    }};
-
-    final ArrayList<String> ANSWER_INSECT_BITES = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_THERMAL = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_CHEMICAL = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_THERMAL2 = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_CONCUSSION = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_CONTUSION = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_FRACTURE = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_MAJOR_LACERATION = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_MINOR_LACERATION = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_PUNCTURE_SEVERE = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
-
-    final ArrayList<String> ANSWER_PUNCTURE_SLIGHT = new ArrayList<String>(){{
-        add("1");
-        add("2");
-        add("3");
-    }};
+    public void setMATERIAL_STORAGE(ArrayList<Integer> MATERIAL_STORAGE) {
+        this.MATERIAL_STORAGE = MATERIAL_STORAGE;
+    }
 
     final ArrayList<String> MATERIALS_ABRASION = new ArrayList<String>(){{
         add("I");
@@ -240,52 +182,7 @@ public class InteractiveAnswerSheet {
         add("NA");
         add("MAG PUNCTURE2");
     }};
-    public ArrayList<String> checkAnswerSheet(String injuryType){
 
-        ArrayList<String> answerSheetDefault = new ArrayList<String>();
-
-        if (injuryType == "Abrasion"){
-            return ANSWER_ABRASION;
-        }
-        else if (injuryType == "Animal Bites"){
-            return ANSWER_ANIMAL_BITES;
-
-        } else if ((injuryType == "Insect Bites")){
-            return ANSWER_INSECT_BITES;
-
-        } else if ((injuryType == "Thermal Burns")){
-            return ANSWER_THERMAL;
-
-        } else if ((injuryType == "Chemical Burns")){
-            return ANSWER_CHEMICAL;
-
-        } else if ((injuryType == "3rd Degree Burns")){
-            return ANSWER_THERMAL2;
-
-        } else if ((injuryType == "Concussion")){
-            return ANSWER_CONCUSSION;
-
-        } else if ((injuryType == "Contusion")){
-            return ANSWER_CONTUSION;
-
-        } else if ((injuryType == "Fracture")){
-            return ANSWER_FRACTURE;
-
-        } else if ((injuryType == "Major Laceration")){
-            return ANSWER_MAJOR_LACERATION;
-
-        } else if ((injuryType == "Minor Laceration")){
-            return ANSWER_MINOR_LACERATION;
-
-        } else if ((injuryType == "Puncture (Severe Bleeding)")){
-            return ANSWER_PUNCTURE_SEVERE;
-
-        } else if ((injuryType == "Puncture (Slightly Bleeding)")){
-            return ANSWER_PUNCTURE_SLIGHT;
-        }
-
-        return answerSheetDefault;
-    }
 
     public ArrayList<String> getMaterialTexts(String injuryType){
         ArrayList<String> materialsSheetDefault = new ArrayList<String>();
