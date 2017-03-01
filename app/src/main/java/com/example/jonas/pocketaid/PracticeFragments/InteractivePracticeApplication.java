@@ -82,9 +82,10 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
         interModel = InteractiveModel.getInstance();
 
-        numberOfErrors = interModel.getNumberOfError();
-        numberOfTries = interModel.getNumberOfTries();
-        numberOfCorrect = interModel.getNumberOfCorrect();
+        numberOfCorrect = interModel.getStage3Stats().get(0);
+        numberOfErrors = interModel.getStage3Stats().get(1);
+        numberOfTries = interModel.getStage3Stats().get(2);
+
 
         testing = interModel.getCorrectMaterials();
 
@@ -350,9 +351,20 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
                 interModel.setNumberOfTries(numberOfTries);
                 interModel.setNumberOfCorrect(numberOfCorrect);
 
-                Log.e("Correct", numberOfCorrect + " ");
-                Log.e("Error", numberOfErrors + " " );
-                Log.e("Tries", numberOfTries + " " );
+                interModel.assignThirdStageStats(numberOfCorrect, numberOfErrors, numberOfTries);
+
+
+                Log.e("SCORE FROM FRAG 1", "CORRECT: " + String.valueOf(interModel.getStage1Stats().get(0)) + " ");
+                Log.e("SCORE FROM FRAG 1", "WRONG: " + String.valueOf(interModel.getStage1Stats().get(1)) + " ");
+                Log.e("SCORE FROM FRAG 1", "TRIES: " + String.valueOf(interModel.getStage1Stats().get(2)) + " ");
+
+                Log.e("SCORE FROM FRAG 2", "CORRECT: " + String.valueOf(interModel.getStage2Stats().get(0)) + " ");
+                Log.e("SCORE FROM FRAG 2", "WRONG: " + String.valueOf(interModel.getStage2Stats().get(1)) + " ");
+                Log.e("SCORE FROM FRAG 2", "TRIES: " + String.valueOf(interModel.getStage2Stats().get(2)) + " ");
+
+                Log.e("SCORE FROM FRAG 3", "CORRECT: " + String.valueOf(interModel.getStage3Stats().get(0)) + " ");
+                Log.e("SCORE FROM FRAG 3", "WRONG: " + String.valueOf(interModel.getStage3Stats().get(1)) + " ");
+                Log.e("SCORE FROM FRAG 3", "TRIES: " + String.valueOf(interModel.getStage3Stats().get(2)) + " ");
 
                 DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
                 FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();

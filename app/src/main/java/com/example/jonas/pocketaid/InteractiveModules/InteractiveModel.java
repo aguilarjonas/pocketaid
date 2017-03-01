@@ -14,6 +14,13 @@ public class InteractiveModel {
     private static int numberOfTries = 0;
     private static int numberOfCorrect = 0;
 
+    private static ArrayList<Integer> stage1Stats = new ArrayList<Integer>();
+    private static ArrayList<Integer> stage2Stats = new ArrayList<Integer>();
+    private static ArrayList<Integer> stage3Stats = new ArrayList<Integer>();
+
+
+
+
     private static ArrayList<Integer> correctMaterials = new ArrayList<Integer>();
 
     private InteractiveModel() {
@@ -27,11 +34,71 @@ public class InteractiveModel {
         return uniqInstance;
     }
 
+    public void assignFirstStageStats(int correct, int wrong, int tries){
+        InteractiveModel.stage1Stats.set(0, correct);
+        InteractiveModel.stage1Stats.set(1, wrong);
+        InteractiveModel.stage1Stats.set(2, tries);
+    }
+
+    public void assignSecondStageStats(int correct, int wrong, int tries){
+        InteractiveModel.stage2Stats.set(0, correct);
+        InteractiveModel.stage2Stats.set(1, wrong);
+        InteractiveModel.stage2Stats.set(2, tries);
+    }
+
+    public void assignThirdStageStats(int correct, int wrong, int tries){
+        InteractiveModel.stage3Stats.set(0, correct);
+        InteractiveModel.stage3Stats.set(1, wrong);
+        InteractiveModel.stage3Stats.set(2, tries);
+    }
+
     public void resetValues(){
         InteractiveModel.numberOfError = 0;
         InteractiveModel.numberOfTries = 0;
         InteractiveModel.numberOfCorrect = 0;
         InteractiveModel.correctMaterials.clear();
+
+        InteractiveModel.stage1Stats.clear();
+        InteractiveModel.stage1Stats.add(0);
+        InteractiveModel.stage1Stats.add(0);
+        InteractiveModel.stage1Stats.add(0);
+
+        InteractiveModel.stage2Stats.clear();
+        InteractiveModel.stage2Stats.add(0);
+        InteractiveModel.stage2Stats.add(0);
+        InteractiveModel.stage2Stats.add(0);
+
+        InteractiveModel.stage3Stats.clear();
+        InteractiveModel.stage3Stats.add(0);
+        InteractiveModel.stage3Stats.add(0);
+        InteractiveModel.stage3Stats.add(0);
+
+
+
+    }
+
+    public static ArrayList<Integer> getStage3Stats() {
+        return stage3Stats;
+    }
+
+    public static void setStage3Stats(ArrayList<Integer> stage3Stats) {
+        InteractiveModel.stage3Stats = stage3Stats;
+    }
+
+    public static ArrayList<Integer> getStage1Stats() {
+        return stage1Stats;
+    }
+
+    public static void setStage1Stats(ArrayList<Integer> stage1Stats) {
+        InteractiveModel.stage1Stats = stage1Stats;
+    }
+
+    public static ArrayList<Integer> getStage2Stats() {
+        return stage2Stats;
+    }
+
+    public static void setStage2Stats(ArrayList<Integer> stage2Stats) {
+        InteractiveModel.stage2Stats = stage2Stats;
     }
 
     public int getNumberOfCorrect() {

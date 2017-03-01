@@ -75,9 +75,9 @@ public class InteractivePracticeStepsOrdering extends Fragment {
 
         InteractiveModel interModel = InteractiveModel.getInstance();
 
-        numberOfErrors = interModel.getNumberOfError();
-        numberOfTries = interModel.getNumberOfTries();
-        numberOfCorrect = interModel.getNumberOfCorrect();
+        numberOfCorrect = interModel.getStage2Stats().get(0);
+        numberOfErrors = interModel.getStage2Stats().get(1);
+        numberOfTries = interModel.getStage2Stats().get(2);
 
         mDragListView = (DragListView) rootView.findViewById(R.id.drag_list_view);
         instruction = (TextView) rootView.findViewById(R.id.arrangement_instruction);
@@ -351,7 +351,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 3;
                         numberOfErrors++;
 
-                        goToInteractiveApplication();
+//                        goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -369,7 +369,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 2;
                         numberOfErrors++;
 
-                        goToInteractiveApplication();
+//                        goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -386,7 +386,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 2;
                         numberOfErrors++;
 
-                        goToInteractiveApplication();
+//                        goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -405,7 +405,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 0;
                         numberOfErrors++;
 
-                        goToInteractiveApplication();
+//                        goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -425,7 +425,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 2;
                         numberOfErrors++;
 
-                        goToInteractiveApplication();
+//                        goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -442,7 +442,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 3;
                         numberOfErrors++;
 
-                        goToInteractiveApplication();
+//                        goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -463,7 +463,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 3;
                         numberOfErrors++;
 
-                        goToInteractiveApplication();
+//                        goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -481,7 +481,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 1;
                         numberOfErrors++;
 
-                        goToInteractiveApplication();
+//                        goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -500,7 +500,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 3;
                         numberOfErrors++;
 
-                        goToInteractiveApplication();
+//                        goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -520,7 +520,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 3;
                         numberOfErrors++;
 
-                        goToInteractiveApplication();
+//                        goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -540,7 +540,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 3;
                         numberOfErrors++;
 
-                        goToInteractiveApplication();
+//                        goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -562,7 +562,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 3;
                         numberOfErrors++;
 
-                        goToInteractiveApplication();
+//                        goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
 //                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
@@ -583,10 +583,14 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         interModel.setNumberOfTries(numberOfTries);
         interModel.setNumberOfCorrect(numberOfCorrect);
 
-        Log.e("Correct", numberOfCorrect + " ");
-        Log.e("Error", numberOfErrors + " " );
-        Log.e("Tries", numberOfTries + " " );
+        interModel.assignSecondStageStats(numberOfCorrect, numberOfErrors, numberOfTries);
+        Log.e("SCORE FROM FRAG 1", "CORRECT: " + String.valueOf(interModel.getStage1Stats().get(0)) + " ");
+        Log.e("SCORE FROM FRAG 1", "WRONG: " + String.valueOf(interModel.getStage1Stats().get(1)) + " ");
+        Log.e("SCORE FROM FRAG 1", "TRIES: " + String.valueOf(interModel.getStage1Stats().get(2)) + " ");
 
+        Log.e("SCORE FROM FRAG 2", "CORRECT: " + String.valueOf(interModel.getStage2Stats().get(0)) + " ");
+        Log.e("SCORE FROM FRAG 2", "WRONG: " + String.valueOf(interModel.getStage2Stats().get(1)) + " ");
+        Log.e("SCORE FROM FRAG 2", "TRIES: " + String.valueOf(interModel.getStage2Stats().get(2)) + " ");
 
         InteractivePracticeApplication interactiveApplication = new InteractivePracticeApplication();
         FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();

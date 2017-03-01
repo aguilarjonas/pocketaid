@@ -155,6 +155,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         interModel.setNumberOfTries(numberOfTries);
         interModel.setNumberOfError(numberOfError);
         interModel.setNumberOfCorrect(numberOfCorrect);
+        interModel.assignFirstStageStats(numberOfCorrect, numberOfError, numberOfTries);
 //        args.putString("numberOfTries", String.valueOf(numberOfTries));
 //        args.putString("numberOfErrors", String.valueOf(numberOfError));
 
