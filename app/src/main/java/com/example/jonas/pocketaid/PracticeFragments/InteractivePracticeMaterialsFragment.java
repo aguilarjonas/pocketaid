@@ -442,77 +442,76 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
         ArrayList<Integer> materialStorage = new ArrayList<Integer>();
         materialStorage = interactiveSheet.getMATERIAL_STORAGE();
+
+        ArrayList<Integer> usedImageStorage = new ArrayList<Integer>();
+        usedImageStorage = correctMaterials;
+
+        ArrayList<Integer> imagesWithMaterials = new ArrayList<Integer>();
+
+        if (materialNumber == 3){
+            imagesWithMaterials.add(answerRandomized.get(0));
+            imagesWithMaterials.add(answerRandomized.get(1));
+            imagesWithMaterials.add(answerRandomized.get(2));
+        }
+
+        else if (materialNumber == 2){
+            imagesWithMaterials.add(answerRandomized.get(0));
+            imagesWithMaterials.add(answerRandomized.get(1));
+//            imagesWithMaterials.add(answerRandomized.get(2));
+        }
+
+        else if (materialNumber == 1){
+            imagesWithMaterials.add(answerRandomized.get(0));
+        }
+
+
         Collections.shuffle(materialStorage);
         int counter = 0 ;
-        int checkAll = 0;
-        int materialStorageCounter = 0;
-        do{
 
-            while (correctMaterials.contains(materialStorage.get(materialStorageCounter))){
-                materialStorageCounter++;
+        do {
+            if (usedImageStorage.contains(materialStorage.get(counter))) {
+                counter++;
             }
 
-                Log.e("RANDOM IMAGE", "DI KAMI TALO");
-                Log.e("TESTING", answerRandomized.get(0) + " " + answerRandomized.get(1)
-                                    + " " + answerRandomized.get(2));
+            else if (!imagesWithMaterials.contains(1)) {
+                imageView_1.setImageResource(materialStorage.get(counter));
+                usedImageStorage.add(materialStorage.get(counter));
+                imagesWithMaterials.add(1);
+            }
 
-                if (materialNumber == 3){
-                    if (answerRandomized.get(0) != 1 &&
-                            answerRandomized.get(1) != 1 &&
-                            answerRandomized.get(2) != 1){
-                        imageView_1.setImageResource(materialStorage.get(materialStorageCounter));
-                        Log.e("TESTING", "CHANGE IMAGE 1");
-                    }
+            else if (!imagesWithMaterials.contains(2)) {
+                imageView_2.setImageResource(materialStorage.get(counter));
+                usedImageStorage.add(materialStorage.get(counter));
+                imagesWithMaterials.add(2);
+            }
 
-                    else if (answerRandomized.get(0) != 2 &&
-                            answerRandomized.get(1) != 2 &&
-                            answerRandomized.get(2) != 2){
-                        imageView_2.setImageResource(materialStorage.get(materialStorageCounter));
-                        Log.e("TESTING", "CHANGE IMAGE 2");
+            else if (!imagesWithMaterials.contains(3)) {
+                imageView_3.setImageResource(materialStorage.get(counter));
+                usedImageStorage.add(materialStorage.get(counter));
+                imagesWithMaterials.add(3);
+            }
 
-                    }
+            else if (!imagesWithMaterials.contains(4)) {
+                imageView_4.setImageResource(materialStorage.get(counter));
+                usedImageStorage.add(materialStorage.get(counter));
+                imagesWithMaterials.add(4);
+            }
 
-                    else if (answerRandomized.get(0) != 3 &&
-                            answerRandomized.get(1) != 3 &&
-                            answerRandomized.get(2) != 3){
-                        imageView_3.setImageResource(materialStorage.get(materialStorageCounter));
-                        Log.e("TESTING", "CHANGE IMAGE 3");
+            else if (!imagesWithMaterials.contains(5)) {
+                imageView_5.setImageResource(materialStorage.get(counter));
+                usedImageStorage.add(materialStorage.get(counter));
+                imagesWithMaterials.add(5);
+            }
 
-                    }
+            else if (!imagesWithMaterials.contains(6)) {
+                imageView_6.setImageResource(materialStorage.get(counter));
+                usedImageStorage.add(materialStorage.get(counter));
+                imagesWithMaterials.add(6);
+            }
 
-                    else if (answerRandomized.get(0) != 4 &&
-                            answerRandomized.get(1) != 4 &&
-                            answerRandomized.get(2) != 4){
-                        imageView_4.setImageResource(materialStorage.get(materialStorageCounter));
-                        Log.e("TESTING", "CHANGE IMAGE 4");
-
-
-                    }
-
-                    else if (answerRandomized.get(0) != 5 &&
-                            answerRandomized.get(1) != 5 &&
-                            answerRandomized.get(2) != 5){
-                        imageView_5.setImageResource(materialStorage.get(materialStorageCounter));
-                        Log.e("TESTING", "CHANGE IMAGE 5");
-
-
-                    }
-
-                    else if (answerRandomized.get(0) != 6 &&
-                            answerRandomized.get(1) != 6 &&
-                            answerRandomized.get(2) != 6){
-                        imageView_6.setImageResource(materialStorage.get(materialStorageCounter));
-                        Log.e("TESTING", "CHANGE IMAGE 6");
-
-
-                    }
-                }
-            checkAll++;
-            counter++;
-            materialStorageCounter = 0;
-            }while(checkAll != 6);
-
-        }
+        } while(!imagesWithMaterials.containsAll(answerRandomized));
+        counter = 0;
+    }
 
 
     public void abrasionPractice (String injuryType){
