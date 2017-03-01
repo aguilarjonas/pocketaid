@@ -70,6 +70,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
     InteractiveModel interModel;
 
+    int getMaterialNumber = 0;
+    int counter = 0 ;
+    ArrayList<Integer> materialStorage = new ArrayList<Integer>();;
+    ArrayList<Integer> usedImageStorage = new ArrayList<Integer>();;
+    ArrayList<Integer> imagesWithMaterials = new ArrayList<Integer>();;
+
 
 
 
@@ -85,12 +91,14 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        Log.e("ONCREATE", "ONCREATEN ULIT");
         final String CHOSEN_PRACTICE = getArguments().getString("chosenPractice");
         //changes menu button to Up or Back button
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_interactive_practice_materials, container, false);
         interModel = InteractiveModel.getInstance();
+        resetValues();
 
         setImages(rootView);
 //        setImageOnClicks();
@@ -121,6 +129,16 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             }
         });
         return rootView;
+    }
+
+    public void resetValues(){
+
+        getMaterialNumber = 0;
+        counter = 0;
+        answerRandomized = interactiveSheet.getRANDOMIZED_ME();
+        usedImageStorage.clear();
+        imagesWithMaterials.clear();
+
     }
 
     public void showDialog(String correctOrNot) {
@@ -388,9 +406,10 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
     }
 
     public void setImagesRandomly(int materialNumber){
-        int getMaterialNumber = 0;
+         getMaterialNumber = 0;
+         counter = 0 ;
+
         interModel.setCorrectMaterials(correctMaterials);
-        answerRandomized = interactiveSheet.getRANDOMIZED_ME();
 
         for(int i = 0; i < materialNumber; i++){
             for(int j = 0; j <= 6; j++){
@@ -444,13 +463,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             }
         }
 
-        ArrayList<Integer> materialStorage = new ArrayList<Integer>();
         materialStorage = interactiveSheet.getMATERIAL_STORAGE();
-
-        ArrayList<Integer> usedImageStorage = new ArrayList<Integer>();
         usedImageStorage = correctMaterials;
 
-        ArrayList<Integer> imagesWithMaterials = new ArrayList<Integer>();
 
         if (materialNumber == 3){
             imagesWithMaterials.add(answerRandomized.get(0));
@@ -470,9 +485,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
 
         Collections.shuffle(materialStorage);
-        int counter = 0 ;
-
         do {
+
+//            if (counter == 11){
+//                counter--;
+//            }
+
             if (usedImageStorage.contains(materialStorage.get(counter))) {
                 counter++;
             }
@@ -514,7 +532,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             }
 
         } while(!imagesWithMaterials.containsAll(answerRandomized));
-        counter = 0;
+
     }
 
 
