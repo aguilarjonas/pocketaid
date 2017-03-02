@@ -239,6 +239,7 @@ public class MainActivity extends AppCompatActivity
             youTubePlayerSupportFragment.initialize(getResources().getString(R.string.youtube_api_key), new YouTubePlayer.OnInitializedListener() {
                 @Override
                 public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                    youTubePlayer.setShowFullscreenButton(false);
                     youTubePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
                     youTubePlayer.loadVideo(youtubeLink);
                     youTubePlayer.play();
