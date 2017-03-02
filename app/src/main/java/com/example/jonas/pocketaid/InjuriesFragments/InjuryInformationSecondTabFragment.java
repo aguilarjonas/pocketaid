@@ -23,6 +23,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
+import com.google.android.youtube.player.*;
 
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
@@ -37,9 +38,13 @@ public class InjuryInformationSecondTabFragment extends Fragment {
     private VideoView videoView;
     private Switch downloadSwitch;
     private ImageView playVideoImage;
+    private TextView switchTextView;
     private String myURL = "";
     private String injuryType;
     private File videoFile;
+    private YouTubePlayerSupportFragment youTubePlayerSupportFragment;
+    private String youtubeLink;
+    private YouTubePlayer youTubePlayer;
 
     public InjuryInformationSecondTabFragment() { /** Required empty public constructor **/ }
 
@@ -67,6 +72,7 @@ public class InjuryInformationSecondTabFragment extends Fragment {
      */
     public void determineInjuryType(String chosenInjury) {
         if (chosenInjury.equals("Abrasion")){
+            youtubeLink = getResources().getString(R.string.abrasion_youtube);
             injuryType = "Abrasion";
         } else if (chosenInjury.equals("Bites")){
             injuryType = "Bites";
@@ -74,30 +80,40 @@ public class InjuryInformationSecondTabFragment extends Fragment {
             injuryType = "Burns";
         } else if (chosenInjury.equals("Concussion")){
             injuryType = "Concussion";
+            youtubeLink = getResources().getString(R.string.concussion_youtube);
         } else if (chosenInjury.equals("Contusion")){
             injuryType = "Contusion";
+            youtubeLink = getResources().getString(R.string.contusion_youtube);
         } else if (chosenInjury.equals("Fracture")){
             injuryType = "Fracture";
-        } else if (chosenInjury.equals("Laceration")){
+            youtubeLink = getResources().getString(R.string.fracture_youtube);
+        } else if (chosenInjury.equals("Laceration")){ //delete
             injuryType = "Laceration";
-        } else if (chosenInjury.equals("Puncture")){
+        } else if (chosenInjury.equals("Puncture")){ //delete
             injuryType = "Puncture";
         } else if(chosenInjury.equals("animal")){
             injuryType = "Animal";
+            youtubeLink = getResources().getString(R.string.animal_bites_youtube);
         } else if(chosenInjury.equals("insect")){
             injuryType = "Insect";
+            youtubeLink = getResources().getString(R.string.insect_bites_youtube);
         } else if(chosenInjury.toLowerCase().equals("first_second_degree")) {
             injuryType = "FirstSecondDegree";
         } else if(chosenInjury.toLowerCase().equals("third_degree")) {
             injuryType = "ThirdDegree";
+            youtubeLink = getResources().getString(R.string.third_degree_youtube);
         } else if(chosenInjury.toLowerCase().equals("major")) {
             injuryType = "Major";
+            youtubeLink = getResources().getString(R.string.major_laceration_youtube);
         } else if(chosenInjury.toLowerCase().equals("minor")) {
             injuryType = "Minor";
+            youtubeLink = getResources().getString(R.string.minor_laceration_youtube);
         } else if(chosenInjury.toLowerCase().equals("severe")) {
             injuryType = "Severe";
+            youtubeLink = getResources().getString(R.string.severe_puncture_youtube);
         } else if(chosenInjury.toLowerCase().equals("slight")) {
             injuryType = "Slight";
+            youtubeLink = getResources().getString(R.string.slight_puncture_youtube);
         }
     }
 
@@ -110,7 +126,11 @@ public class InjuryInformationSecondTabFragment extends Fragment {
     public void initializeViews(ViewGroup rootView) {
         playVideoImage = (ImageView) rootView.findViewById(R.id.imageView_play);
         downloadSwitch = (Switch) rootView.findViewById(R.id.switch_download);
+        switchTextView = (TextView) rootView.findViewById(R.id.tv_switch_download);
         videoView = (VideoView) rootView.findViewById(R.id.injury_video);
+        youTubePlayerSupportFragment = YouTubePlayerSupportFragment.newInstance();
+        FragmentTransaction fragmentTransaction = getChildFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.injury_youtubevideo, youTubePlayerSupportFragment).commit();
     }
 
     /*
@@ -143,7 +163,7 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         //sets the switch and the text to whether downloaded or not
         if (videoFile.exists()){
             downloadSwitch.setChecked(true);
-            downloadSwitch.setText(getString(R.string.Downloaded));
+            switchTextView.setText(getString(R.string.Downloaded));
         } else {
             downloadSwitch.setChecked(false);
         }
@@ -187,7 +207,7 @@ public class InjuryInformationSecondTabFragment extends Fragment {
                 NetworkInfo ni = cm.getActiveNetworkInfo();
 
                 if(ni != null && ni.isConnected()) {
-                    ((MainActivity)getActivity()).streamVideo(injuryType, videoView);
+                    ((MainActivity)getActivity()).streamVideo(injuryType, videoView, youTubePlayerSupportFragment, youtubeLink);
                     playVideoImage.setVisibility(View.INVISIBLE);
                 } else {
                     playVideoImage.setVisibility(View.VISIBLE);

@@ -20,6 +20,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -34,6 +35,9 @@ import com.example.jonas.pocketaid.Fragments.NearbyFragment;
 import com.example.jonas.pocketaid.Fragments.PracticeFragment;
 import com.example.jonas.pocketaid.Fragments.SettingsFragment;
 import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 import java.io.File;
@@ -213,7 +217,7 @@ public class MainActivity extends AppCompatActivity
 //    }
 
     //Added by Raeven
-    public boolean streamVideo (String injuryType, VideoView videoView){
+    public boolean streamVideo (String injuryType, VideoView videoView, YouTubePlayerSupportFragment youTubePlayerSupportFragment, final String youtubeLink){
         File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         File myFile = new File(extStore.getAbsolutePath(), injuryType + ".mp4");
 
@@ -231,17 +235,31 @@ public class MainActivity extends AppCompatActivity
 
         else {
             Toast.makeText(getApplicationContext(), "Walang File", Toast.LENGTH_SHORT).show();
+            videoView.setVisibility(View.GONE);
+            youTubePlayerSupportFragment.initialize(getResources().getString(R.string.youtube_api_key), new YouTubePlayer.OnInitializedListener() {
+                @Override
+                public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
+                    youTubePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
+                    youTubePlayer.loadVideo(youtubeLink);
+                    youTubePlayer.play();
+                }
+
+                @Override
+                public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
+                    Log.d("ERROR", youTubeInitializationResult.name());
+                }
+            });
 
             //String vidAddress = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
-            String vidAddress = "http://d2f5qcrcmzlmuh.cloudfront.net/"+injuryType+".mp4";
-
-            Uri vidUri = Uri.parse(vidAddress);
-
-            videoView.setVideoURI(vidUri);
-            MediaController vidControl = new MediaController(this);
-            videoView.setMediaController(mediaC);
-            mediaC.setAnchorView(videoView);
-            videoView.start();
+//            String vidAddress = "http://d2f5qcrcmzlmuh.cloudfront.net/"+injuryType+".mp4";
+//
+//            Uri vidUri = Uri.parse(vidAddress);
+//
+//            videoView.setVideoURI(vidUri);
+//            MediaController vidControl = new MediaController(this);
+//            videoView.setMediaController(mediaC);
+//            mediaC.setAnchorView(videoView);
+//            videoView.start();
 
             return false;
         }
