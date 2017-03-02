@@ -61,24 +61,24 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginRight="50dp"
                     android:layout_marginEnd="50dp"
                     android:src="@drawable/checkmark"
                     android:id="@+id/iv_application_material1" />
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:layout_marginRight="50dp"
                     android:layout_marginEnd="50dp"
                     android:src="@drawable/checkmark"
                     android:id="@+id/iv_application_material2" />
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
                     android:src="@drawable/checkmark"
                     android:id="@+id/iv_application_material3" />
             </LinearLayout>

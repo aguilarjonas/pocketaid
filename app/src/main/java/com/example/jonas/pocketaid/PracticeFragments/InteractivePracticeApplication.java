@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -39,10 +38,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
     Paint paint;
     RelativeLayout relativeLayout_Touch;
 
-    ImageView material1;
-    ImageView material2;
-    ImageView material3;
-    ImageView material4;
+    ImageView material1, material2, material3, material4, material5;
 
     boolean hasClickTrigger = false;
     ArrayList<Integer> whichMaterial = new ArrayList<Integer>();
@@ -115,15 +111,21 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
         else if (chosenInjury.equals("Fracture")){
             //3
-
+            material1.setImageResource(testing.get(0));
+            material2.setImageResource(testing.get(1));
+            material3.setImageResource(testing.get(2));
         }
 
         else if (chosenInjury.equals("Contusion")){
             //2
+            material1.setImageResource(testing.get(0));
+            material2.setImageResource(testing.get(1));
         }
 
         else if (chosenInjury.equals("Concussion")){
             //2
+            material1.setImageResource(testing.get(0));
+            material2.setImageResource(testing.get(1));
         }
 
         else if (chosenInjury.equals("3rd Degree Burns")){
@@ -132,14 +134,22 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
         else if (chosenInjury.equals("Chemical Burns")){
             //2
+            material1.setImageResource(testing.get(0));
+            material2.setImageResource(testing.get(1));
         }
 
         else if (chosenInjury.equals("Thermal Burns")){
             //3
+            material1.setImageResource(testing.get(0));
+            material2.setImageResource(testing.get(1));
+            material3.setImageResource(testing.get(2));
         }
 
         else if (chosenInjury.equals("Insect Bites")){
             //3
+            material1.setImageResource(testing.get(0));
+            material2.setImageResource(testing.get(1));
+            material3.setImageResource(testing.get(2));
         }
 
         else if (chosenInjury.equals("Animal Bites")){
@@ -149,18 +159,30 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
         else if (chosenInjury.equals("Puncture (Slightly Bleeding)")){
             //3
+            material1.setImageResource(testing.get(0));
+            material2.setImageResource(testing.get(1));
+            material3.setImageResource(testing.get(2));
         }
 
         else if (chosenInjury.equals("Puncture (Severe Bleeding)")){
             //3
+            material1.setImageResource(testing.get(0));
+            material2.setImageResource(testing.get(1));
+            material3.setImageResource(testing.get(2));
         }
 
         else if (chosenInjury.equals("Minor Laceration")){
             //3
+            material1.setImageResource(testing.get(0));
+            material2.setImageResource(testing.get(1));
+            material3.setImageResource(testing.get(2));
         }
 
         else if (chosenInjury.equals("Major Laceration")){
             //3
+            material1.setImageResource(testing.get(0));
+            material2.setImageResource(testing.get(1));
+            material3.setImageResource(testing.get(2));
         }
     }
 

@@ -7,7 +7,6 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -325,62 +324,62 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         } else if (chosenPractice.equals("Animal Bites")){
             injuryType = "Animal Bites";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            animalBitesPractice();
+            animalBitesPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Insect Bites")){
             injuryType = "Insect Bites";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            insectBitesPractice();
+            insectBitesPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Thermal Burns")){
             injuryType = "Thermal Burns";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            thermalPractice();
+            thermalPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Chemical Burns")){
             injuryType = "Chemical Burns";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            chemicalPractice();
+            chemicalPractice(chosenPractice);
 
         } else if (chosenPractice.equals("3rd Degree Burns")){
             injuryType = "3rd Degree Burns";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            thermalPractice2();
+            thermalPractice2(chosenPractice);
 
         } else if (chosenPractice.equals("Concussion")){
             injuryType = "Concussion";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            concussionPractice();
+            concussionPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Contusion")){
             injuryType = "Contusion";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            contussionPractice();
+            contussionPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Fracture")){
             injuryType = "Fracture";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            fracturePractice();
+            fracturePractice(chosenPractice);
 
         } else if (chosenPractice.equals("Major Laceration")){
             injuryType = "Major Laceration";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            majorLacerationPractice();
+            majorLacerationPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Minor Laceration")){
             injuryType = "Minor Laceration";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            minorLacerationPractice();
+            minorLacerationPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Puncture (Severe Bleeding)")){
             injuryType = "Puncture (Severe Bleeding)";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            punctureSeverePractice();
+            punctureSeverePractice(chosenPractice);
 
         } else if (chosenPractice.equals("Puncture (Slightly Bleeding)")){
             injuryType = "Puncture (Slightly Bleeding)";
             Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
-            punctureSlightPractice();
+            punctureSlightPractice(chosenPractice);
         }
 
         instruction.append(injuryType + ".");
@@ -468,7 +467,14 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         usedImageStorage = correctMaterials;
 
 
-        if (materialNumber == 3){
+        if (materialNumber == 4){
+            imagesWithMaterials.add(answerRandomized.get(0));
+            imagesWithMaterials.add(answerRandomized.get(1));
+            imagesWithMaterials.add(answerRandomized.get(2));
+            imagesWithMaterials.add(answerRandomized.get(3));
+        }
+
+        else if (materialNumber == 3){
             imagesWithMaterials.add(answerRandomized.get(0));
             imagesWithMaterials.add(answerRandomized.get(1));
             imagesWithMaterials.add(answerRandomized.get(2));
@@ -544,8 +550,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_betadine);
         correctMaterials.add(R.drawable.ic_material_gauze); //Change to gauze
-
-
         //Collections.shuffle(answerRandomized);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
@@ -553,7 +557,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
-    public void animalBitesPractice (){
+    public void animalBitesPractice (String injuryType){
         //Set the materials Image here.
         //Clean Gauze
         setChecksAsInvisible();
@@ -565,27 +569,27 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
-    public void insectBitesPractice (){
+    public void insectBitesPractice (String injuryType){
         //Set the materials Image here.
         //Tweezers, Soap and Water, Gauze, Cold pack
         setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_coldpack);
+        correctMaterials.add(R.drawable.ic_material_tweezer);
         correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_gauze);
-        //correctMaterials.add(R.drawable.ic_material_coldpack);
+//        correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
-    public void thermalPractice (){
+    public void thermalPractice (String injuryType){
         //Set the materials Image here.
         //Water, Gauze, Soap and Water
         setChecksAsInvisible();
         correctMaterials.add(R.drawable.ic_material_water);
-        correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_gauze);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
@@ -593,13 +597,13 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
-    public void thermalPractice2 (){
+    public void thermalPractice2 (String injuryType){
         //Set the materials Image here.
         //None
         setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_coldpack);
         correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_gauze);
+        correctMaterials.add(R.drawable.ic_material_coldpack);
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
@@ -609,7 +613,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
 
 
-    public void chemicalPractice (){
+    public void chemicalPractice (String injuryType){
         //Set the materials Image here.
         //Soap and water, Gauze
         setChecksAsInvisible();
@@ -622,12 +626,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
-    public void concussionPractice (){
+    public void concussionPractice (String injuryType){
         //Set the materials Image here.
         //Cold Pack, Ice
         setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_coldpack);
         correctMaterials.add(R.drawable.ic_material_ice);
+        correctMaterials.add(R.drawable.ic_material_coldpack);
 //        correctMaterials.add(R.drawable.ic_material_gauze);
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 2;
@@ -636,13 +640,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
-    public void contussionPractice (){
+    public void contussionPractice (String injuryType){
         //Set the materials Image here.
         //Cold Pack, Ice, PainReliever
         setChecksAsInvisible();
         correctMaterials.add(R.drawable.ic_material_coldpack);
         correctMaterials.add(R.drawable.ic_material_ice);
-        //correctMaterials.add(R.drawable.ic_material_gauze);
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 2;
         setImagesRandomly(materialNumber);
@@ -650,50 +653,47 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
-    public void fracturePractice (){
+    public void fracturePractice (String injuryType){
         //Set the materials Image here.
         //Gauze, Ring Pad, Sling, Bandage
         setChecksAsInvisible();
         correctMaterials.add(R.drawable.ic_material_ringpad);
-        correctMaterials.add(R.drawable.ic_material_sling);
         correctMaterials.add(R.drawable.ic_material_bandage);
-        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        correctMaterials.add(R.drawable.ic_material_sling);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
-    public void majorLacerationPractice (){
+    public void majorLacerationPractice (String injuryType){
         //Set the materials Image here.
         //Gloves, Gauze, Soap and Water, Antibiotic
 
         setChecksAsInvisible();
         correctMaterials.add(R.drawable.ic_material_glove);
         correctMaterials.add(R.drawable.ic_material_soapwater);
-//        correctMaterials.add(R.drawable.ic_material_antibiotic);
-        //correctMaterials.add(R.drawable.ic_material_coldpack);
-        materialNumber = 2;
-        setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
-    }
-
-    public void minorLacerationPractice (){
-        //Set the materials Image here.
-        //Gloves, Gauze, Soap and Water, Antibiotic
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_glove);
         correctMaterials.add(R.drawable.ic_material_gauze);
-        correctMaterials.add(R.drawable.ic_material_soapwater);
-        //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
 
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
-    public void punctureSeverePractice (){
+    public void minorLacerationPractice (String injuryType){
+        //Set the materials Image here.
+        //Gloves, Gauze, Soap and Water, Antibiotic
+        setChecksAsInvisible();
+        correctMaterials.add(R.drawable.ic_material_glove);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+        materialNumber = 3;
+        setImagesRandomly(materialNumber);
+
+        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+    }
+
+    public void punctureSeverePractice (String injuryType){
         //Set the materials Image here.
         //Gloves, Soap and Water, Gauze
         setChecksAsInvisible();
@@ -707,7 +707,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
-    public void punctureSlightPractice () {
+    public void punctureSlightPractice (String injuryType) {
         //Set the materials Image here.
         //Gloves, Soap and Water, Gauze
         setChecksAsInvisible();
