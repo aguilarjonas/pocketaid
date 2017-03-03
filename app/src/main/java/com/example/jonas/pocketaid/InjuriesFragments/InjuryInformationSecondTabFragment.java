@@ -46,6 +46,9 @@ public class InjuryInformationSecondTabFragment extends Fragment {
     private String youtubeLink;
     private YouTubePlayer youTubePlayer;
 
+    private long downloadCode = 0;
+    DownloadManager manager;
+
     public InjuryInformationSecondTabFragment() { /** Required empty public constructor **/ }
 
     @Override
@@ -184,8 +187,15 @@ public class InjuryInformationSecondTabFragment extends Fragment {
                         Toast.makeText(getActivity(), "No Internet Connection", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(getActivity(), "Video Deleted", Toast.LENGTH_SHORT).show();
-                    videoFile.delete();
+                    if(downloadCode == 0){
+                        Toast.makeText(getActivity(), "Video Deleted", Toast.LENGTH_SHORT).show();
+                        videoFile.delete();
+                    }
+
+                    else{
+                        Toast.makeText(getActivity(), "Download Cancelled", Toast.LENGTH_SHORT).show();
+                        manager.remove(downloadCode);
+                    }
                 }
             }
         });
@@ -240,7 +250,10 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS +"/.VideoTutorials/", fileName);
 
         DownloadManager manager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
-        manager.enqueue(request);
+//        manager.enqueue(request);
+
+        downloadCode = manager.enqueue(request);
+
     }
 
 }
