@@ -16,7 +16,7 @@
         <TextView
             android:id="@+id/step_number"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_margin="@dimen/ten_dp"
@@ -24,26 +24,35 @@
             android:text="1"/>
 
 
-        <TextView
-            android:id="@+id/steps"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textColor="@color/textColor"
-            android:textSize="15sp"
-            android:gravity="center|start"
-            android:text="step 1"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/steps"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/textColor"
+                android:textSize="18sp"
+                android:gravity="center|start"
+                android:text="step 1"/>
+
+            <TextView
+                android:id="@+id/additional_note"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/noteColor"
+                android:textSize="15sp"
+                android:layout_marginTop="@dimen/ten_dp"/>
+        </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/additional_note"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/noteColor"
-        android:textSize="15sp"
-        android:layout_marginTop="5dp"/>
 
     <ImageView
         android:id="@+id/step_image"
+        android:layout_marginTop="@dimen/ten_dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 </LinearLayout>

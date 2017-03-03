@@ -13,13 +13,14 @@ public class InteractiveModel {
     private static int numberOfError = 0;
     private static int numberOfTries = 0;
     private static int numberOfCorrect = 0;
+    double stageOnePercentage;
+    double stageTwoPercentage;
+    double stageThreePercentage;
+    double averagePercentage;
 
     private static ArrayList<Integer> stage1Stats = new ArrayList<Integer>();
     private static ArrayList<Integer> stage2Stats = new ArrayList<Integer>();
     private static ArrayList<Integer> stage3Stats = new ArrayList<Integer>();
-
-
-
 
     private static ArrayList<Integer> correctMaterials = new ArrayList<Integer>();
 
@@ -72,12 +73,9 @@ public class InteractiveModel {
         InteractiveModel.stage3Stats.add(0);
         InteractiveModel.stage3Stats.add(0);
         InteractiveModel.stage3Stats.add(0);
-
-
-
     }
 
-    public static ArrayList<Integer> getStage3Stats() {
+    public ArrayList<Integer> getStage3Stats() {
         return stage3Stats;
     }
 
@@ -85,7 +83,7 @@ public class InteractiveModel {
         InteractiveModel.stage3Stats = stage3Stats;
     }
 
-    public static ArrayList<Integer> getStage1Stats() {
+    public ArrayList<Integer> getStage1Stats() {
         return stage1Stats;
     }
 
@@ -93,7 +91,7 @@ public class InteractiveModel {
         InteractiveModel.stage1Stats = stage1Stats;
     }
 
-    public static ArrayList<Integer> getStage2Stats() {
+    public ArrayList<Integer> getStage2Stats() {
         return stage2Stats;
     }
 
@@ -131,5 +129,37 @@ public class InteractiveModel {
 
     public static void setCorrectMaterials(ArrayList<Integer> correctMaterials) {
         InteractiveModel.correctMaterials = correctMaterials;
+    }
+
+    public double getStageOnePercentage() {
+        return (((double)getStage1Stats().get(0)/(double)getStage1Stats().get(2))*100);
+    }
+
+    public void setStageOnePercentage(double stageOnePercentage) {
+        this.stageOnePercentage = stageOnePercentage;
+    }
+
+    public double getStageTwoPercentage() {
+        return (((double)getStage2Stats().get(0)/(double)getStage2Stats().get(2))*100);
+    }
+
+    public void setStageTwoPercentage(double stageTwoPercentage) {
+        this.stageTwoPercentage = stageTwoPercentage;
+    }
+
+    public double getStageThreePercentage() {
+        return (((double)getStage3Stats().get(0)/(double)getStage3Stats().get(2))*100);
+    }
+
+    public void setStageThreePercentage(double stageThreePercentage) {
+        this.stageThreePercentage = stageThreePercentage;
+    }
+
+    public double getAveragePercentage() {
+        return (getStageOnePercentage() + getStageTwoPercentage() + getStageThreePercentage())/3;
+    }
+
+    public void setAveragePercentage(double averagePercentage) {
+        this.averagePercentage = averagePercentage;
     }
 }

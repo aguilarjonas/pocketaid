@@ -102,6 +102,7 @@ public class InjuryInformationSecondTabFragment extends Fragment {
             youtubeLink = getResources().getString(R.string.insect_bites_youtube);
         } else if(chosenInjury.toLowerCase().equals("first_second_degree")) {
             injuryType = "FirstSecondDegree";
+            youtubeLink = getResources().getString(R.string.first_second_degree_youtube);
         } else if(chosenInjury.toLowerCase().equals("third_degree")) {
             injuryType = "ThirdDegree";
             youtubeLink = getResources().getString(R.string.third_degree_youtube);

@@ -339,11 +339,7 @@
     <!-- MAJOR LACERATION: RECOMMENDED -->
     <string-array name="laceration_major_recommended">
         <item>"Put on disposable gloves. If you suspect that blood might splatter, you may need to wear eye and face protection."</item>
-        <item>"Control the bleeding by:
-            (a) covering the wound with a dressing and firmly pressing against the wound until the bleeding stops or
-            (b) applying a pressure bandage over the dressing to maintain pressure on the wound and to hold the dressing in place.
-
-            If blood soaks through the bandage, do not remove the blood-soaked bandages. Instead, add more dressings and bandages and apply additional direct pressure."</item>
+        <item>"Control the bleeding by: \n(a) covering the wound with a dressing and firmly pressing against the wound until the bleeding stops or \n(b) applying a pressure bandage over the dressing to maintain pressure on the wound and to hold the dressing in place. \nIf blood soaks through the bandage, do not remove the blood-soaked bandages. Instead, add more dressings and bandages and apply additional direct pressure."</item>
         <item>"Continue to monitor the person's condition. Observe the person closely for signals that may indicate that the person's condition is worsening such as faster or slower breathing, changes in skin color and restlessness."</item>
         <item>"Care for shock. Keep the person from getting chilled or overheated."</item>
         <item>"Have the person rest comfortably."</item>
@@ -542,10 +538,11 @@
     <string name="youtube_api_key">"AIzaSyDPEigjFr7JJx5_6PNpzrgHYSYIU5dtgKw"</string>
     
     <!-- YOUTUBE LINKS -->
-    <string name="abrasion_youtube">bhsbD46YpPc</string>
+    <string name="abrasion_youtube">"bhsbD46YpPc"</string>
     <string name="animal_bites_youtube">"NwNaYNBH0u8"</string>
     <string name="concussion_youtube">"iLWLaLg-E_4"</string>
     <string name="contusion_youtube">"1p_qt48obOw"</string>
+    <string name="first_second_degree_youtube">"FqH4YKBHO3c"</string>
     <string name="fracture_youtube">"cfZpJFvr7IA"</string>
     <string name="insect_bites_youtube">"yKdK4cP6NSM"</string>
     <string name="major_laceration_youtube">"0JC3XUO64BU"</string>
