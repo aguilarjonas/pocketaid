@@ -158,7 +158,7 @@ public class InjuryInformationSecondTabFragment extends Fragment {
      */
     public void downloadSwitchListener() {
         File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        videoFile = new File(extStore.getAbsolutePath(), injuryType + ".mp4");
+        videoFile = new File(extStore.getAbsolutePath() + "/.VideoTutorials/", injuryType + ".mp4");
 
         //sets the switch and the text to whether downloaded or not
         if (videoFile.exists()){
@@ -234,8 +234,10 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         request.allowScanningByMediaScanner();
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
         String fileName = URLUtil.guessFileName(myURL, null, MimeTypeMap.getFileExtensionFromUrl(myURL));
+        File dir = new File(Environment.getExternalStorageDirectory() + "/Download/.VideoTutorials/");
+        dir.mkdirs();
 
-        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, fileName);
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS +"/.VideoTutorials/", fileName);
 
         DownloadManager manager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
         manager.enqueue(request);

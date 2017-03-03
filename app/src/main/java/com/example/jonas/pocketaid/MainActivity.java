@@ -219,12 +219,12 @@ public class MainActivity extends AppCompatActivity
     //Added by Raeven
     public boolean streamVideo (String injuryType, VideoView videoView, YouTubePlayerSupportFragment youTubePlayerSupportFragment, final String youtubeLink){
         File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        File myFile = new File(extStore.getAbsolutePath(), injuryType + ".mp4");
+        File myFile = new File(extStore.getAbsolutePath() + "/.VideoTutorials/", injuryType + ".mp4");
 
         if (myFile.exists()) {
             Toast.makeText(getApplicationContext(), "Merong File", Toast.LENGTH_SHORT).show();
             videoView.setVideoPath(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() +
-                    "/" + injuryType + ".mp4");
+                    "/.VideoTutorials/" + injuryType + ".mp4");
             MediaController vidControl = new MediaController(this);
             videoView.setMediaController(mediaC);
             mediaC.setAnchorView(videoView);
