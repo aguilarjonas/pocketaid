@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity
 
     //Added by Raeven
     MediaController mediaC;
-    private VideoView videoView;
     private SlidingUpPanelLayout mLayout;
 
 
@@ -98,11 +97,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         //Added by Raeven
         mediaC = new MediaController(this);
-        videoView = (VideoView)findViewById(R.id.injury_video);
         mLayout = (SlidingUpPanelLayout) findViewById(R.id.sliding_layout);
-
-
-
     }
 
     @Override
@@ -210,12 +205,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-//    public void downloadVideo(String injuryType) {
-//        Toast.makeText(getApplicationContext(), "Downloading", Toast.LENGTH_SHORT).show();
-//        InjuryInformationFragment injuriesFragment = (InjuryInformationFragment) getSupportFragmentManager().findFragmentByTag(injuryType);
-//        injuriesFragment.downloadTutorial();
-//    }
-
     //Added by Raeven
     public boolean streamVideo (String injuryType, VideoView videoView, YouTubePlayerSupportFragment youTubePlayerSupportFragment, final String youtubeLink){
         File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
@@ -250,23 +239,8 @@ public class MainActivity extends AppCompatActivity
                     Log.d("ERROR", youTubeInitializationResult.name());
                 }
             });
-
-            //String vidAddress = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
-//            String vidAddress = "http://d2f5qcrcmzlmuh.cloudfront.net/"+injuryType+".mp4";
-//
-//            Uri vidUri = Uri.parse(vidAddress);
-//
-//            videoView.setVideoURI(vidUri);
-//            MediaController vidControl = new MediaController(this);
-//            videoView.setMediaController(mediaC);
-//            mediaC.setAnchorView(videoView);
-//            videoView.start();
-
             return false;
         }
-//        Intent intent = new Intent(getBaseContext(), VideoActivity.class);
-//        intent.putExtra("injuryType", injuryType);
-//        startActivity(intent);
     }
 
     @Override

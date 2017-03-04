@@ -70,24 +70,13 @@ public class InjuryListPracticeAdapter extends RecyclerView.Adapter<InjuryListPr
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /**
-                    Bundle args = new Bundle();
-                    args.putString("injury", injury_name.getText().toString());
-                    interactivePracticeFragment.setArguments(args);**/
                     InteractivePracticeMaterialsFragment interactiveMaterials = new InteractivePracticeMaterialsFragment();
                     Bundle args = new Bundle();
-                    //Log.e("TESTING", injury_name.getText().toString());
 
                     args.putString("chosenPractice", injury_name.getText().toString());
                     interactiveMaterials.setArguments(args);
-                    //InteractiveModel interModel = new InteractiveModel();
-                    //interModel.resetValues();
                     InteractiveModel interModel = InteractiveModel.getInstance();
                     interModel.resetValues();
-
-                    //String injury_name2 = injury_name.getText().toString();
-
-                    //Log.e("TESTING", injury_name2);
 
                     FragmentTransaction fragmentTransaction = ((MainActivity) context).getSupportFragmentManager().beginTransaction();
                     fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,

@@ -47,10 +47,10 @@ public class DisplayScoreFragment extends Fragment {
         stageOneCorrectTries.setText(interactiveModel.getStage1Stats().get(0) + "/" + interactiveModel.getStage1Stats().get(2));
         stageTwoCorrectTries.setText(interactiveModel.getStage2Stats().get(0) + "/" + interactiveModel.getStage2Stats().get(2));
         stageThreeCorrectTries.setText(interactiveModel.getStage3Stats().get(0) + "/" + interactiveModel.getStage3Stats().get(2));
-        stageOnePercentage.setText(String.format("%.2f", interactiveModel.getStageOnePercentage()));
-        stageTwoPercentage.setText(String.format("%.2f", interactiveModel.getStageTwoPercentage()));
-        stageThreePercentage.setText(String.format("%.2f", interactiveModel.getStageThreePercentage()));
-        averagePercentage.setText(String.format("%.2f", interactiveModel.getAveragePercentage()));
+        stageOnePercentage.setText(String.format("%.2f", interactiveModel.getStageOnePercentage()) + "%");
+        stageTwoPercentage.setText(String.format("%.2f", interactiveModel.getStageTwoPercentage()) + "%");
+        stageThreePercentage.setText(String.format("%.2f", interactiveModel.getStageThreePercentage()) + "%");
+        averagePercentage.setText(String.format("%.2f", interactiveModel.getAveragePercentage()) + "%");
     }
 
     public void initialize(ViewGroup rootView) {

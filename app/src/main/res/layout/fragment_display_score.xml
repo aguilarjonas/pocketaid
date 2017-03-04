@@ -41,11 +41,11 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/textColor"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             android:text="FIRST STAGE"/>
 
                         <View
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:background="@color/gray"/>
@@ -70,7 +70,7 @@
 
                                 <TextView
                                     android:textColor="@color/textColor"
-                                    android:textSize="40sp"
+                                    android:textSize="35sp"
                                     android:gravity="center"
                                     android:id="@+id/stage1_correcttries"
                                     android:layout_width="match_parent"
@@ -90,7 +90,7 @@
                                     android:text="PERCENTAGE (%)"/>
 
                                 <TextView
-                                    android:textSize="40sp"
+                                    android:textSize="35sp"
                                     android:textColor="@color/textColor"
                                     android:gravity="center"
                                     android:id="@+id/stage1_percentage"
@@ -119,11 +119,11 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/textColor"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             android:text="SECOND STAGE"/>
 
                         <View
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="5dp"
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
                             android:background="@color/gray"/>
@@ -148,7 +148,7 @@
 
                                 <TextView
                                     android:textColor="@color/textColor"
-                                    android:textSize="40sp"
+                                    android:textSize="35sp"
                                     android:gravity="center"
                                     android:id="@+id/stage2_correcttries"
                                     android:layout_width="match_parent"
@@ -168,7 +168,7 @@
                                     android:text="PERCENTAGE (%)"/>
 
                                 <TextView
-                                    android:textSize="40sp"
+                                    android:textSize="35sp"
                                     android:textColor="@color/textColor"
                                     android:gravity="center"
                                     android:id="@+id/stage2_percentage"
@@ -197,7 +197,7 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/textColor"
                             android:textStyle="bold"
-                            android:textSize="20sp"
+                            android:textSize="18sp"
                             android:text="THIRD STAGE"/>
 
                         <View
@@ -226,7 +226,7 @@
 
                                 <TextView
                                     android:textColor="@color/textColor"
-                                    android:textSize="40sp"
+                                    android:textSize="35sp"
                                     android:gravity="center"
                                     android:id="@+id/stage3_correcttries"
                                     android:layout_width="match_parent"
@@ -246,7 +246,7 @@
                                     android:text="PERCENTAGE (%)"/>
 
                                 <TextView
-                                    android:textSize="40sp"
+                                    android:textSize="35sp"
                                     android:textColor="@color/textColor"
                                     android:gravity="center"
                                     android:id="@+id/stage3_percentage"
@@ -303,22 +303,17 @@
                         android:textStyle="bold"
                         android:text="68.555%"/>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/ten_dp"
-                        android:gravity="center"
-                        android:textSize="17sp"
-                        android:text="GOOD JOB!"/>
-
                     <FrameLayout
+                        android:layout_marginTop="@dimen/ten_dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                         <Button
                             android:id="@+id/goBackButton"
-                            android:text="DONE!"
+                            android:text="DONE"
+                            android:textColor="@color/colorPrimary"
                             android:layout_gravity="bottom|center"
+                            style="@style/Base.Widget.AppCompat.Button.Borderless"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
                     </FrameLayout>
