@@ -44,13 +44,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
     ImageView imageView_5_check;
     ImageView imageView_6_check;
 
-    TextView textView_1;
-    TextView textView_2;
-    TextView textView_3;
-    TextView textView_4;
-    TextView textView_5;
-    TextView textView_6;
-
     private ViewGroup rootView;
     private TextView instruction;
     private String injuryType;
@@ -90,7 +83,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Log.e("ONCREATE", "ONCREATEN ULIT");
         final String CHOSEN_PRACTICE = getArguments().getString("chosenPractice");
         //changes menu button to Up or Back button
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -155,8 +147,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         interModel.setNumberOfError(numberOfError);
         interModel.setNumberOfCorrect(numberOfCorrect);
         interModel.assignFirstStageStats(numberOfCorrect, numberOfError, numberOfTries);
-//        args.putString("numberOfTries", String.valueOf(numberOfTries));
-//        args.putString("numberOfErrors", String.valueOf(numberOfError));
+
 
         listFrag.setArguments(args);
 
@@ -183,13 +174,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         imageView_5_check = (ImageView) rootView.findViewById(R.id.imageView5_check);
         imageView_6_check = (ImageView) rootView.findViewById(R.id.imageView6_check);
 
-        textView_1 = (TextView) rootView.findViewById(R.id.textView_materials1);
-        textView_2 = (TextView) rootView.findViewById(R.id.textView_materials2);
-        textView_3 = (TextView) rootView.findViewById(R.id.textView_materials3);
-        textView_4 = (TextView) rootView.findViewById(R.id.textView_materials4);
-        textView_5 = (TextView) rootView.findViewById(R.id.textView_materials5);
-        textView_6 = (TextView) rootView.findViewById(R.id.textView_materials6);
-
         imageView_1.setOnClickListener(this);
         imageView_2.setOnClickListener(this);
         imageView_3.setOnClickListener(this);
@@ -210,13 +194,11 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 if (imageView_1_check.getVisibility() == View.VISIBLE){
                     imageView_1_check.setVisibility(View.INVISIBLE);
                     answersUser.remove(1);
-                    Log.e("HELLO", "Nag tanggal si 1");
                 }
 
                 else if (imageView_1_check.getVisibility() == View.INVISIBLE){
                     imageView_1_check.setVisibility(View.VISIBLE);
                     answersUser.add(1);
-                    Log.e("HELLO", "Nag add si 1");
 
                 }
                 break;
@@ -225,15 +207,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 if (imageView_2_check.getVisibility() == View.VISIBLE){
                     imageView_2_check.setVisibility(View.INVISIBLE);
                     answersUser.remove(2);
-                    Log.e("HELLO", "Nag tanggal si ");
 
                 }
 
                 else if (imageView_2_check.getVisibility() == View.INVISIBLE){
                     imageView_2_check.setVisibility(View.VISIBLE);
                     answersUser.add(2);
-                    Log.e("HELLO", "Nag add si 1");
-
                 }
                 break;
 
@@ -304,14 +283,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
                     if (answerSheet.get(i) == answersUser.get(j)){
                         numberOfCorrect++;
-                        Log.e("TAMA AKO!!!", "GALING MO NAMAN");
                     }
 
                     else{
                         numberOfIncorrect++;
                     }
 
-                    numberOfLoops++;
                 }
             }//End of 1st For Loop
 
@@ -330,67 +307,54 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
         if (chosenPractice.equals("Abrasion")){
             injuryType = "Abrasion";
-            //Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             abrasionPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Animal Bites")){
             injuryType = "Animal Bites";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             animalBitesPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Insect Bites")){
             injuryType = "Insect Bites";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             insectBitesPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Thermal Burns")){
             injuryType = "Thermal Burns";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             thermalPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Chemical Burns")){
             injuryType = "Chemical Burns";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             chemicalPractice(chosenPractice);
 
         } else if (chosenPractice.equals("3rd Degree Burns")){
             injuryType = "3rd Degree Burns";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             thermalPractice2(chosenPractice);
 
         } else if (chosenPractice.equals("Concussion")){
             injuryType = "Concussion";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             concussionPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Contusion")){
             injuryType = "Contusion";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             contussionPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Fracture")){
             injuryType = "Fracture";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             fracturePractice(chosenPractice);
 
         } else if (chosenPractice.equals("Major Laceration")){
             injuryType = "Major Laceration";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             majorLacerationPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Minor Laceration")){
             injuryType = "Minor Laceration";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             minorLacerationPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Puncture (Severe Bleeding)")){
             injuryType = "Puncture (Severe Bleeding)";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             punctureSeverePractice(chosenPractice);
 
         } else if (chosenPractice.equals("Puncture (Slightly Bleeding)")){
             injuryType = "Puncture (Slightly Bleeding)";
-            Toast.makeText(getActivity().getApplicationContext(), chosenPractice, Toast.LENGTH_SHORT).show();
             punctureSlightPractice(chosenPractice);
         }
 
@@ -405,17 +369,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         imageView_5_check.setVisibility(View.INVISIBLE);
         imageView_6_check.setVisibility(View.INVISIBLE);
     }
-
-//    public void setTheChosenText(ArrayList<String> textHolder){
-//
-//        textView_1.setText(textHolder.get(0));
-//        textView_2.setText(textHolder.get(1));
-//        textView_3.setText(textHolder.get(2));
-//        textView_4.setText(textHolder.get(3));
-//        textView_5.setText(textHolder.get(4));
-//        textView_6.setText(textHolder.get(5));
-//
-//    }
 
     public void setImagesRandomly(int materialNumber){
          getMaterialNumber = 0;
@@ -566,7 +519,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 3;
         setImagesRandomly(materialNumber);
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void animalBitesPractice (String injuryType){
@@ -578,7 +530,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         setImagesRandomly(materialNumber);
 
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void insectBitesPractice (String injuryType){
@@ -592,7 +543,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 3;
         setImagesRandomly(materialNumber);
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void thermalPractice (String injuryType){
@@ -606,7 +556,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 3;
         setImagesRandomly(materialNumber);
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void thermalPractice2 (String injuryType){
@@ -620,7 +569,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 3;
         setImagesRandomly(materialNumber);
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
 
@@ -635,7 +583,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 2;
         setImagesRandomly(materialNumber);
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void concussionPractice (String injuryType){
@@ -649,7 +596,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 2;
         setImagesRandomly(materialNumber);
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void contussionPractice (String injuryType){
@@ -662,7 +608,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 2;
         setImagesRandomly(materialNumber);
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void fracturePractice (String injuryType){
@@ -675,7 +620,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 3;
         setImagesRandomly(materialNumber);
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void majorLacerationPractice (String injuryType){
@@ -689,7 +633,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 3;
         setImagesRandomly(materialNumber);
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void minorLacerationPractice (String injuryType){
@@ -702,7 +645,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 3;
         setImagesRandomly(materialNumber);
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void punctureSeverePractice (String injuryType){
@@ -716,7 +658,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 3;
         setImagesRandomly(materialNumber);
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void punctureSlightPractice (String injuryType) {
@@ -730,7 +671,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 3;
         setImagesRandomly(materialNumber);
 //
-//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
 
