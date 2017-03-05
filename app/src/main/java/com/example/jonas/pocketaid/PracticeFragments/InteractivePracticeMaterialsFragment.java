@@ -193,20 +193,19 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             case R.id.imageView_pic1:
                 if (imageView_1_check.getVisibility() == View.VISIBLE){
                     imageView_1_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove(1);
+                    answersUser.remove(Integer.valueOf(1));
                 }
 
                 else if (imageView_1_check.getVisibility() == View.INVISIBLE){
                     imageView_1_check.setVisibility(View.VISIBLE);
                     answersUser.add(1);
-
                 }
                 break;
 
             case R.id.imageView_pic2:
                 if (imageView_2_check.getVisibility() == View.VISIBLE){
                     imageView_2_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove(2);
+                    answersUser.remove(Integer.valueOf(2));
 
                 }
 
@@ -219,7 +218,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             case R.id.imageView_pic3:
                 if (imageView_3_check.getVisibility() == View.VISIBLE){
                     imageView_3_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove(3);
+                    answersUser.remove(Integer.valueOf(3));
                 }
 
                 else if (imageView_3_check.getVisibility() == View.INVISIBLE){
@@ -231,7 +230,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             case R.id.imageView_pic4:
                 if (imageView_4_check.getVisibility() == View.VISIBLE){
                     imageView_4_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove(4);
+                    answersUser.remove(Integer.valueOf(4));
                 }
 
                 else if (imageView_4_check.getVisibility() == View.INVISIBLE){
@@ -243,7 +242,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             case R.id.imageView_pic5:
                 if (imageView_5_check.getVisibility() == View.VISIBLE){
                     imageView_5_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove(5);
+                    answersUser.remove(Integer.valueOf(5));
                 }
 
                 else if (imageView_5_check.getVisibility() == View.INVISIBLE){
@@ -255,7 +254,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             case R.id.imageView_pic6:
                 if (imageView_6_check.getVisibility() == View.VISIBLE) {
                     imageView_6_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove(6);
+                    answersUser.remove(Integer.valueOf(6));
                 } else if (imageView_6_check.getVisibility() == View.INVISIBLE) {
                     imageView_6_check.setVisibility(View.VISIBLE);
                     answersUser.add(6);
@@ -305,8 +304,15 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
     public void chosenPracticeChooser(String chosenPractice){
 
-        if (chosenPractice.equals("Abrasion")){
-            injuryType = "Abrasion";
+        if (chosenPractice.equals("Abrasion") || chosenPractice.equals("Gasgas")){
+            if(chosenPractice.equals("Abrasion")){
+                injuryType = "Abrasion";
+            }
+
+            else if (chosenPractice.equals("Gasgas")){
+                injuryType = "Gasgas";
+
+            }
             abrasionPractice(chosenPractice);
 
         } else if (chosenPractice.equals("Animal Bites")){
