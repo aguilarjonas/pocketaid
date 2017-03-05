@@ -55,7 +55,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
     private TextView instruction;
     private String injuryType;
 
-    ArrayList<String> answersUser = new ArrayList<String>();
+    ArrayList<Integer> answersUser = new ArrayList<Integer>();
     InteractiveAnswerSheet interactiveSheet = new InteractiveAnswerSheet();
 
     int numberOfTries = 0;
@@ -107,7 +107,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         nextButton.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkAnswers(answerRandomized, materialNumber) == false){
+                if (checkAnswers(answerRandomized, materialNumber, answersUser) == false){
 //                    Toast.makeText(getActivity().getApplicationContext(), "Wrong Answer! Try Again", Toast.LENGTH_SHORT).show();
                     showDialog(getString(R.string.wrong));
                     setChecksAsInvisible();
@@ -209,80 +209,90 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             case R.id.imageView_pic1:
                 if (imageView_1_check.getVisibility() == View.VISIBLE){
                     imageView_1_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove("1");
+                    answersUser.remove(1);
+                    Log.e("HELLO", "Nag tanggal si 1");
                 }
 
                 else if (imageView_1_check.getVisibility() == View.INVISIBLE){
                     imageView_1_check.setVisibility(View.VISIBLE);
-                    answersUser.add("1");
+                    answersUser.add(1);
+                    Log.e("HELLO", "Nag add si 1");
+
                 }
                 break;
 
             case R.id.imageView_pic2:
                 if (imageView_2_check.getVisibility() == View.VISIBLE){
                     imageView_2_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove("2");
+                    answersUser.remove(2);
+                    Log.e("HELLO", "Nag tanggal si ");
+
                 }
 
                 else if (imageView_2_check.getVisibility() == View.INVISIBLE){
                     imageView_2_check.setVisibility(View.VISIBLE);
-                    answersUser.add("2");
+                    answersUser.add(2);
+                    Log.e("HELLO", "Nag add si 1");
+
                 }
                 break;
 
             case R.id.imageView_pic3:
                 if (imageView_3_check.getVisibility() == View.VISIBLE){
                     imageView_3_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove("3");
+                    answersUser.remove(3);
                 }
 
                 else if (imageView_3_check.getVisibility() == View.INVISIBLE){
                     imageView_3_check.setVisibility(View.VISIBLE);
-                    answersUser.add("3");
+                    answersUser.add(3);
                 }
                 break;
 
             case R.id.imageView_pic4:
                 if (imageView_4_check.getVisibility() == View.VISIBLE){
                     imageView_4_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove("4");
+                    answersUser.remove(4);
                 }
 
                 else if (imageView_4_check.getVisibility() == View.INVISIBLE){
                     imageView_4_check.setVisibility(View.VISIBLE);
-                    answersUser.add("4");
+                    answersUser.add(4);
                 }
                 break;
 
             case R.id.imageView_pic5:
                 if (imageView_5_check.getVisibility() == View.VISIBLE){
                     imageView_5_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove("5");
+                    answersUser.remove(5);
                 }
 
                 else if (imageView_5_check.getVisibility() == View.INVISIBLE){
                     imageView_5_check.setVisibility(View.VISIBLE);
-                    answersUser.add("5");
+                    answersUser.add(5);
                 }
                 break;
 
             case R.id.imageView_pic6:
                 if (imageView_6_check.getVisibility() == View.VISIBLE) {
                     imageView_6_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove("6");
+                    answersUser.remove(6);
                 } else if (imageView_6_check.getVisibility() == View.INVISIBLE) {
                     imageView_6_check.setVisibility(View.VISIBLE);
-                    answersUser.add("6");
+                    answersUser.add(6);
                 }
                 break;
         }
     }
 
-    public boolean checkAnswers(ArrayList<Integer> answerSheet, int materialNumber){
+    public boolean checkAnswers(ArrayList<Integer> answerSheet, int materialNumber,
+                    ArrayList<Integer> answersUser){
 
         boolean isAllCorrect = false;
         int numberOfCorrect = 0;
         int numberOfIncorrect = 0;
+        int numberOfLoops = 0;
+
 
         if (answersUser.size() != materialNumber){
             isAllCorrect = false;
@@ -292,19 +302,21 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             for (int i = 0; i < materialNumber; i++) {
                 for (int j = 0; j < answersUser.size(); j++) {
 
-                    if (Integer.toString(answerSheet.get(i)) == answersUser.get(j)){
+                    if (answerSheet.get(i) == answersUser.get(j)){
                         numberOfCorrect++;
+                        Log.e("TAMA AKO!!!", "GALING MO NAMAN");
                     }
 
                     else{
                         numberOfIncorrect++;
                     }
+
+                    numberOfLoops++;
                 }
             }//End of 1st For Loop
 
             int testHolder = answerSheet.size();
-            Log.e("Correct/Item", numberOfCorrect + "/" + testHolder);
-            Log.e("Incorrect", numberOfIncorrect + "");
+
 
             if (numberOfCorrect == materialNumber ){
                 isAllCorrect = true;
