@@ -1,15 +1,12 @@
 package com.example.jonas.pocketaid;
 
 import android.Manifest;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -34,7 +31,6 @@ import com.example.jonas.pocketaid.Fragments.InjuriesFragment;
 import com.example.jonas.pocketaid.Fragments.NearbyFragment;
 import com.example.jonas.pocketaid.Fragments.PracticeFragment;
 import com.example.jonas.pocketaid.Fragments.SettingsFragment;
-import com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerSupportFragment;

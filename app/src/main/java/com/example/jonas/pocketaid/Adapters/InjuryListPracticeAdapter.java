@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,9 @@ public class InjuryListPracticeAdapter extends RecyclerView.Adapter<InjuryListPr
                 public void onClick(View v) {
                     InteractivePracticeMaterialsFragment interactiveMaterials = new InteractivePracticeMaterialsFragment();
                     Bundle args = new Bundle();
+
+                    v.getId();
+                    Log.e("TESTING", v.getId() + "");
 
                     args.putString("chosenPractice", injury_name.getText().toString());
                     interactiveMaterials.setArguments(args);

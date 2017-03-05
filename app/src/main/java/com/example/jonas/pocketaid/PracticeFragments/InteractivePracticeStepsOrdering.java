@@ -1,18 +1,4 @@
-/**
- * Copyright 2014 Magnus Woxblom
- * <p/>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * <p/>
- * http://www.apache.org/licenses/LICENSE-2.0
- * <p/>
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
+
 
 package com.example.jonas.pocketaid.PracticeFragments;
 
@@ -69,7 +55,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.list_layout, container, false);
-        //changes menu button to Up or Back button
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
 
@@ -102,10 +87,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         chosenInjury = getArguments().getString("chosenInjury");
         appendInjuryToInstruction(chosenInjury);
         selectedInjury(chosenInjury);
-//        backButtonListener();
-
-        //Log.e("Singleton Test", interModel.getNumberOfError() + "/" + interModel.getNumberOfTries());
-        //To clear the *int* when going back.
         numberOfMaterials = 0;
 
         return rootView;
@@ -123,8 +104,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < abrasionProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(abrasionProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + abrasionProcedure[counter]));
             }
@@ -137,8 +116,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < animalBitesProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(animalBitesProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + animalBitesProcedure[counter]));
             }
@@ -151,8 +128,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < insectBitesProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(insectBitesProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + insectBitesProcedure[counter]));
             }
@@ -165,8 +140,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < thermalBurnProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(thermalBurnProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thermalBurnProcedure[counter]));
             }
@@ -179,8 +152,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < chemicalBurnProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(chemicalBurnProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + chemicalBurnProcedure[counter]));
             }
@@ -193,8 +164,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < thirdDegreeBurnProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(thirdDegreeBurnProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thirdDegreeBurnProcedure[counter]));
             }
@@ -207,8 +176,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < concussionProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(concussionProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + concussionProcedure[counter]));
             }
@@ -221,8 +188,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < contusionProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(contusionProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + contusionProcedure[counter]));
             }
@@ -235,8 +200,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < fractureProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(fractureProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + fractureProcedure[counter]));
             }
@@ -249,8 +212,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < majorLacerationProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(majorLacerationProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + majorLacerationProcedure[counter]));
             }
@@ -263,8 +224,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < minorLacerationProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(minorLacerationProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + minorLacerationProcedure[counter]));
             }
@@ -277,8 +236,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < severePunctureProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(severePunctureProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + severePunctureProcedure[counter]));
             }
@@ -291,8 +248,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             for (int counter = 0; counter < slightPunctureProcedure.length; ++counter) {
                 int stepNumberHolder = counter + 1;
                 numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
-//                stepNumberAdapter = new ArrayAdapter<Integer>(getActivity(), R.layout.steps_numbering, R.id.rowTextView, numberingProcedure);
-//                lvStepNumber.setAdapter(stepNumberAdapter);
                 setStepNumberAdapter(slightPunctureProcedure);
                 mItemArray.add(new Pair<>(Long.valueOf(counter), "" + slightPunctureProcedure[counter]));
             }
@@ -329,11 +284,9 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 3;
                         numberOfErrors++;
-                        //goToInteractiveApplication();
 
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
-                    }
+                   }
                 } else if(chosenInjury.equals("Fracture")){
                     if((mItemArray.get(0).second.startsWith("In") || mItemArray.get(0).second.startsWith("Kung")) &&
                             (mItemArray.get(1).second.startsWith("If") || mItemArray.get(1).second.startsWith("Gumamit")) &&
@@ -350,12 +303,8 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 3;
                         numberOfErrors++;
-
-//                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
-                    }
+                   }
                 } else if(chosenInjury.equals("Contusion")){
                     if((mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Ilapat"))&&
                             (mItemArray.get(1).second.startsWith("If") || mItemArray.get(1).second.contains("Kung maaari")) &&
@@ -368,12 +317,8 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 2;
                         numberOfErrors++;
-
-//                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
-                    }
+                   }
                 } else if(chosenInjury.equals("Concussion")){
                     if((mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Lapatan")) &&
                             (mItemArray.get(1).second.startsWith("Observe") || mItemArray.get(1).second.startsWith("Obserbahan")) &&
@@ -385,11 +330,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 2;
                         numberOfErrors++;
-
-//                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("3rd Degree Burns")){
                     if((mItemArray.get(0).second.startsWith("Protect") || mItemArray.get(0).second.startsWith("Protektahan")) &&
@@ -404,11 +345,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 0;
                         numberOfErrors++;
-
-//                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Chemical Burns")){
                     if((mItemArray.get(0).second.startsWith("Remove") || mItemArray.get(0).second.contains("Kung mayroon")) &&
@@ -424,11 +361,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 2;
                         numberOfErrors++;
-
-//                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Thermal Burns")){
                     if((mItemArray.get(0).second.startsWith("Hold") || mItemArray.get(0).second.startsWith("Banlawan")) &&
@@ -441,11 +374,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 3;
                         numberOfErrors++;
-
-//                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Insect Bites")){
                     if((mItemArray.get(0).second.startsWith("Check") || mItemArray.get(0).second.startsWith("Suriin"))&&
@@ -462,11 +391,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 3;
                         numberOfErrors++;
-
-//                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Animal Bites")){
                     if((mItemArray.get(0).second.startsWith("Control") || mItemArray.get(0).second.startsWith("Kontrolin")) &&
@@ -480,11 +405,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 1;
                         numberOfErrors++;
-
-//                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Puncture (Slightly Bleeding)")){
                     if((mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")) &&
@@ -499,11 +420,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 3;
                         numberOfErrors++;
-
-//                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Puncture (Severe Bleeding)")){
                     if((mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")) &&
@@ -519,11 +436,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 3;
                         numberOfErrors++;
-
-//                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Minor Laceration")){
                     if((mItemArray.get(0).second.startsWith("Use") || mItemArray.get(0).second.startsWith("Magsuot")) &&
@@ -539,11 +452,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 3;
                         numberOfErrors++;
-
-//                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 } else if(chosenInjury.equals("Major Laceration")){
                     if((mItemArray.get(0).second.startsWith("Put") || mItemArray.get(0).second.startsWith("Magsuot")) &&
@@ -561,11 +470,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                     } else{
                         numberOfMaterials = 3;
                         numberOfErrors++;
-
-//                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
-//                        Toast.makeText(mDragListView.getContext(), "Incorrect order of procedures. Try again.", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -607,15 +512,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
     public void shuffleArray(){
         Collections.shuffle(mItemArray);
     }
-
-//    public void backButtonListener() {
-//        backButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                getFragmentManager().popBackStack();
-//            }
-//        });
-//    }
 
     public void checkOrderOfProcedures(){
         mItemArray = new ArrayList<>();
