@@ -285,9 +285,10 @@
     </string-array>
     <!-- MINOR LACERATION: RECOMMENDED -->
     <string-array name="laceration_minor_recommended">
-        <item>"Magsuot ng guwantes at lagyan ng gasa ang sugat."</item>
-        <item>"Marahang diinan ang sugat upang makontrol ang pagdurugo."</item>
         <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
+        <item>"Magsuot ng guwantes at lagyan ng gasa ang sugat."</item>
+        <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
+        <item>"Marahang diinan ang sugat upang makontrol ang pagdurugo."</item>
         <item>"Pahiran ng antiseptic o antibiotic cream ang sugat kung walang alerji ang tao sa ganitong uri ng gamot."</item>
         <item>"Takpan ang sugat ng gasa upang maiwasan ang impeksiyon."</item>
     </string-array>
@@ -295,7 +296,9 @@
     <string-array name="laceration_minor_alternative">
         <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig.</item>
         <item>"Kung walang guwantes, gumamit ng anumang malinis na tela o damit sa pagitan ng iyong mga kamay at ng sugat."</item>
+        <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
         <item>"Mag-aplay ng hindi kalakasang presyur sa sugat upang tumigil ang pagdurugo."</item>
+        <item>"Pahiran ng antiseptic o antibiotic cream ang sugat kung walang alerji ang tao sa ganitong uri ng gamot."</item>
         <item>"Linisin at takpan ang sugat ng malinis na tela o panyo."</item>
     </string-array>
 
