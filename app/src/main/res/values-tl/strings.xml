@@ -450,4 +450,31 @@
         <item>Huwag takpan ng gasa o benda ang maruming sugat. Kung hindi mo ito kayang linisin, lagyan ito ng manipis at malinis na gasa and magpunta kaagad sa pinakamalapit na pagamutan.</item>
     </string-array>
 
+    <!-- INSTRUCTIONS FOR INTERACTIVE PRACTICE -->
+
+    <string name="interactive_practice_intro_title">Ano ang interaktibong pagsasanay?</string>
+    <string name="interactive_practice_intro">Ang interaktibong pagsasanay ng mga paunang lunas ay may tatlong antas: Seleksyon ng mga materyal, Pagsasaayos ng pagkakasunod-sunod ng mga paunang lunas at Aplikasyon ng mga paunang lunas. \n\nPumili ng injuri upang magsimula.</string>
+
+    <!-- LIST OF INJURIES IN CARDS -->
+    <string-array name="injuries_cards">
+        <item>Gasgas</item>
+        <item>Kagat ng hayop</item>
+        <item>Kagat ng insekto</item>
+        <item>Paso</item>
+        <item>Paso dulot ng kemikal</item>
+        <item>Umpog</item>
+        <item>Pasa</item>
+        <item>Bali</item>
+        <item>Laslas(Major)</item>
+        <item>Laslas(Minor)</item>
+        <item>Tusok(Malubhang pagdurugo)</item>
+        <item>Tusok(Hindi malubhang pagdurugo)</item>
+    </string-array>
+
+    <!-- INTERACTIVE PRACTICE INSTRUCTIONS -->
+    <string name="material_steps">"Piliin ang mga materyal na kinakailangan "</string>
+    <string name="arrangement_steps">"Isaayos ang pagkakasunod-sunod ng mga paunang lunas ayon sa "</string>
+    <string name="application_steps">"Piliin ang materyal at pindutin kung saan ito dapat ilagay."</string>
+
+
 </resources>

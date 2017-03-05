@@ -406,16 +406,16 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         imageView_6_check.setVisibility(View.INVISIBLE);
     }
 
-    public void setTheChosenText(ArrayList<String> textHolder){
-
-        textView_1.setText(textHolder.get(0));
-        textView_2.setText(textHolder.get(1));
-        textView_3.setText(textHolder.get(2));
-        textView_4.setText(textHolder.get(3));
-        textView_5.setText(textHolder.get(4));
-        textView_6.setText(textHolder.get(5));
-
-    }
+//    public void setTheChosenText(ArrayList<String> textHolder){
+//
+//        textView_1.setText(textHolder.get(0));
+//        textView_2.setText(textHolder.get(1));
+//        textView_3.setText(textHolder.get(2));
+//        textView_4.setText(textHolder.get(3));
+//        textView_5.setText(textHolder.get(4));
+//        textView_6.setText(textHolder.get(5));
+//
+//    }
 
     public void setImagesRandomly(int materialNumber){
          getMaterialNumber = 0;
@@ -565,8 +565,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Collections.shuffle(answerRandomized);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void animalBitesPractice (String injuryType){
@@ -577,8 +577,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         materialNumber = 1;
         setImagesRandomly(materialNumber);
 
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void insectBitesPractice (String injuryType){
@@ -591,8 +591,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 //        correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void thermalPractice (String injuryType){
@@ -605,8 +605,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void thermalPractice2 (String injuryType){
@@ -619,8 +619,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
 
@@ -634,8 +634,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 2;
         setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void concussionPractice (String injuryType){
@@ -648,8 +648,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 2;
         setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void contussionPractice (String injuryType){
@@ -661,8 +661,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 2;
         setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void fracturePractice (String injuryType){
@@ -674,8 +674,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         correctMaterials.add(R.drawable.ic_material_sling);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void majorLacerationPractice (String injuryType){
@@ -688,8 +688,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         correctMaterials.add(R.drawable.ic_material_gauze);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void minorLacerationPractice (String injuryType){
@@ -701,8 +701,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         correctMaterials.add(R.drawable.ic_material_gauze);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void punctureSeverePractice (String injuryType){
@@ -715,8 +715,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
     public void punctureSlightPractice (String injuryType) {
@@ -729,8 +729,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 3;
         setImagesRandomly(materialNumber);
-
-        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
+//
+//        setTheChosenText(interactiveSheet.getMaterialTexts(injuryType));
     }
 
 

@@ -26,9 +26,11 @@ public class PracticeFragment extends Fragment {
     private InjuryListPracticeAdapter adapter;
 
     //list of injuries
+//    String[] injuries;
+
     String[] injuries = {"Abrasion", "Animal Bites", "Insect Bites", "Thermal Burns", "Chemical Burns",
-                            "Concussion", "Contusion", "Fracture",
-                            "Major Laceration", "Minor Laceration", "Puncture (Severe Bleeding)", "Puncture (Slightly Bleeding)"
+            "Concussion", "Contusion", "Fracture",
+            "Major Laceration", "Minor Laceration", "Puncture (Severe Bleeding)", "Puncture (Slightly Bleeding)"
     };
 
     //icons
@@ -47,6 +49,7 @@ public class PracticeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         displayIntro();
+
         // Inflate the layout for this fragment
         ((MainActivity)getActivity()).setActionBarTitle("Interactive Practice");
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_practice, container, false);
@@ -54,7 +57,7 @@ public class PracticeFragment extends Fragment {
         //unlocks menu bar or drawer
         ((MainActivity)getActivity()).resetActionBar(false, DrawerLayout.LOCK_MODE_UNLOCKED);
         ((MainActivity)getActivity()).hideOrShowFAB("hide");
-
+//        injuries = getResources().getStringArray(R.array.injuries_cards); ETO YUNG PART NA BINAGO KO
         recyclerView = (RecyclerView) rootView.findViewById(R.id.practice_injury_list);
         adapter = new InjuryListPracticeAdapter(getActivity(), injuries, icon);
 

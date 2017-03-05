@@ -550,4 +550,20 @@
     <string name="severe_puncture_youtube">"7JvhWuvY6AE"</string>
     <string name="slight_puncture_youtube">"XtkrcQqlWqY"</string>
     <string name="third_degree_youtube">"i6iObxWo5ls"</string>
+
+    <!-- LIST OF INJURIES IN CARDS -->
+    <string-array name="injuries_cards">
+        <item>Abrasion</item>
+        <item>Animal Bites</item>
+        <item>Insect Bites</item>
+        <item>Thermal Burns</item>
+        <item>Chemical Burns</item>
+        <item>Concussion</item>
+        <item>Contusion</item>
+        <item>Fracture</item>
+        <item>Laceration(Major)</item>
+        <item>Laceration(Minor)</item>
+        <item>Puncture(Severe Bleeding)</item>
+        <item>Puncture(Slight Bleeding)</item>
+    </string-array>
 </resources>
