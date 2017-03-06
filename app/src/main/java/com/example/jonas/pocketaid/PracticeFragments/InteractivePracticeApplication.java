@@ -101,7 +101,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
     public void setImagesForMaterials(String chosenInjury){
 
-        if (chosenInjury.equals("Abrasion")){
+        if (chosenInjury.equals("Abrasion") || chosenInjury.equals("Gasgas")){
             //3
             material1.setImageResource(testing.get(0));
             material2.setImageResource(testing.get(1));
@@ -109,20 +109,20 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
         }
 
-        else if (chosenInjury.equals("Fracture")){
+        else if (chosenInjury.equals("Fracture") || chosenInjury.equals("Bali")){
             //3
             material1.setImageResource(testing.get(0));
             material2.setImageResource(testing.get(1));
             material3.setImageResource(testing.get(2));
         }
 
-        else if (chosenInjury.equals("Contusion")){
+        else if (chosenInjury.equals("Contusion") || chosenInjury.equals("Pasa")){
             //2
             material1.setImageResource(testing.get(0));
             material2.setImageResource(testing.get(1));
         }
 
-        else if (chosenInjury.equals("Concussion")){
+        else if (chosenInjury.equals("Concussion") || chosenInjury.equals("Umpog")){
             //2
             material1.setImageResource(testing.get(0));
             material2.setImageResource(testing.get(1));
@@ -132,53 +132,53 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             //0
         }
 
-        else if (chosenInjury.equals("Chemical Burns")){
+        else if (chosenInjury.equals("Chemical Burns") || chosenInjury.equals("Paso dulot ng kemikal")){
             //2
             material1.setImageResource(testing.get(0));
             material2.setImageResource(testing.get(1));
         }
 
-        else if (chosenInjury.equals("Thermal Burns")){
+        else if (chosenInjury.equals("Thermal Burns") || chosenInjury.equals("Paso")){
             //3
             material1.setImageResource(testing.get(0));
             material2.setImageResource(testing.get(1));
             material3.setImageResource(testing.get(2));
         }
 
-        else if (chosenInjury.equals("Insect Bites")){
+        else if (chosenInjury.equals("Insect Bites") || chosenInjury.equals("Kagat ng insekto")){
             //3
             material1.setImageResource(testing.get(0));
             material2.setImageResource(testing.get(1));
             material3.setImageResource(testing.get(2));
         }
 
-        else if (chosenInjury.equals("Animal Bites")){
+        else if (chosenInjury.equals("Animal Bites") || chosenInjury.equals("Kagat ng hayop")){
             //1
             material1.setImageResource(testing.get(0));
         }
 
-        else if (chosenInjury.equals("Puncture (Slightly Bleeding)")){
+        else if (chosenInjury.equals("Puncture (Slightly Bleeding)") || chosenInjury.equals("Hindi malubhang laslas")){
             //3
             material1.setImageResource(testing.get(0));
             material2.setImageResource(testing.get(1));
             material3.setImageResource(testing.get(2));
         }
 
-        else if (chosenInjury.equals("Puncture (Severe Bleeding)")){
+        else if (chosenInjury.equals("Puncture (Severe Bleeding)") || chosenInjury.equals("Tusok(Malubhang pagdurugo)")){
             //3
             material1.setImageResource(testing.get(0));
             material2.setImageResource(testing.get(1));
             material3.setImageResource(testing.get(2));
         }
 
-        else if (chosenInjury.equals("Minor Laceration")){
+        else if (chosenInjury.equals("Minor Laceration") || chosenInjury.equals("Hindi malubhang laslas")){
             //3
             material1.setImageResource(testing.get(0));
             material2.setImageResource(testing.get(1));
             material3.setImageResource(testing.get(2));
         }
 
-        else if (chosenInjury.equals("Major Laceration")){
+        else if (chosenInjury.equals("Major Laceration") || chosenInjury.equals("Malubhang laslas")){
             //3
             material1.setImageResource(testing.get(0));
             material2.setImageResource(testing.get(1));

@@ -129,7 +129,7 @@
          ***************************************** -->
 
     <string-array name="animal_bites_practice">
-        <item>"Control the bleeding by applying pressure on the bite."</item>
+        <item>"Control the bleeding by applying pressure on the bite using gauze."</item>
         <item>"Do not clean serious wound. It will be cleaned at a medical facility."</item>
         <item>"Call 911 or seek medical attention immediately."</item>
     </string-array>
@@ -196,8 +196,8 @@
     <!-- MINOR LACERATION: RECOMMENDED -->
     <string-array name="laceration_minor_practice">
         <item>"Use disposable gloves and place a sterile dressing on the wound."</item>
-        <item>"Apply direct pressure for a few minutes to control any bleeding."</item>
         <item>"Wash the wound thoroughly with soap and water."</item>
+        <item>"Apply direct pressure for a few minutes to control any bleeding."</item>
         <item>"Apply an antibiotic ointment to a minor wound if the person has no allergies to the medication."</item>
         <item>"Cover the wound with a sterile dressing."</item>
     </string-array>
