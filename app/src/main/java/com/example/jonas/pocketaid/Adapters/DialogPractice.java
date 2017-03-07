@@ -55,6 +55,14 @@ public class DialogPractice extends DialogFragment {
             dialogIV.setImageResource(R.drawable.checkmark_2);
             dialogIV.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.dialogRightBackground));
             dialogTV.setText("Correct answer");
+        } else if(correctOrNot.toLowerCase().equals("tama")){
+            dialogIV.setImageResource(R.drawable.checkmark_2);
+            dialogIV.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.dialogRightBackground));
+            dialogTV.setText("Tamang sagot");
+        } else if(correctOrNot.toLowerCase().equals("mali")){
+            dialogIV.setImageResource(R.drawable.xmark_2);
+            dialogIV.setBackgroundColor(ContextCompat.getColor(activity.getApplicationContext(), R.color.dialogWrongBackground));
+            dialogTV.setText("Maling sagot");
         }
     }
 

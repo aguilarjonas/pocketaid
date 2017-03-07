@@ -3,7 +3,6 @@ package com.example.jonas.pocketaid.InjuriesFragments;
 
 import android.app.DownloadManager;
 import android.content.Context;
-import android.media.MediaPlayer;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -16,17 +15,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.webkit.URLUtil;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
-import com.google.android.youtube.player.*;
 
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerSupportFragment;
 
 import java.io.File;
 
@@ -74,13 +73,14 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         Function Developer : Jonas Aguilar
      */
     public void determineInjuryType(String chosenInjury) {
-        if (chosenInjury.equals("Abrasion")){
+        if (chosenInjury.equals("Abrasion")) {
             youtubeLink = getResources().getString(R.string.abrasion_youtube);
             injuryType = "Abrasion";
-        } else if (chosenInjury.equals("Bites")){
-            injuryType = "Bites";
-        } else if (chosenInjury.equals("Burns")){
-            injuryType = "Burns";
+
+//        } else if(chosenInjury.toLowerCase().equals("Gasgas")) {
+//            injuryType = "Gasgas";
+//            youtubeLink = getResources().getString(R.string.abrasion_youtube);
+//        }
         } else if (chosenInjury.equals("Concussion")){
             injuryType = "Concussion";
             youtubeLink = getResources().getString(R.string.concussion_youtube);
@@ -90,10 +90,6 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         } else if (chosenInjury.equals("Fracture")){
             injuryType = "Fracture";
             youtubeLink = getResources().getString(R.string.fracture_youtube);
-        } else if (chosenInjury.equals("Laceration")){ //delete
-            injuryType = "Laceration";
-        } else if (chosenInjury.equals("Puncture")){ //delete
-            injuryType = "Puncture";
         } else if(chosenInjury.equals("animal")){
             injuryType = "Animal";
             youtubeLink = getResources().getString(R.string.animal_bites_youtube);

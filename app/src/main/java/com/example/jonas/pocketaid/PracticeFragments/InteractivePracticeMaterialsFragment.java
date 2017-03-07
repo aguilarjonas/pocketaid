@@ -311,18 +311,18 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             }
             abrasionPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Animal Bites") || chosenPractice.equals("Kagat ng hayop")){
+        } else if (chosenPractice.equals("Animal Bites") || chosenPractice.equalsIgnoreCase("Kagat ng hayop")){
             if(chosenPractice.equals("Animal Bites")){
                 injuryType = "Animal Bites";
-            } else if (chosenPractice.equals("Kagat ng hayop")){
+            } else if (chosenPractice.equalsIgnoreCase("Kagat ng hayop")){
                 injuryType = "Kagat ng hayop";
             }
             animalBitesPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Insect Bites") || chosenPractice.equals("Kagat ng insekto")){
+        } else if (chosenPractice.equals("Insect Bites") || chosenPractice.equalsIgnoreCase("Kagat ng insekto")){
             if(chosenPractice.equals("Insect Bites")){
                 injuryType = "Insect Bites";
-            } else if (chosenPractice.equals("Kagat ng insekto")){
+            } else if (chosenPractice.equalsIgnoreCase("Kagat ng insekto")){
                 injuryType = "Kagat ng insekto";
             }
             insectBitesPractice(chosenPractice);
@@ -335,10 +335,10 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             }
             thermalPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Chemical Burns") || chosenPractice.equals("Paso dulot ng kemikal")){
+        } else if (chosenPractice.equals("Chemical Burns") || chosenPractice.equalsIgnoreCase("Paso dulot ng kemikal")){
             if(chosenPractice.equals("Chemical Burns")){
                 injuryType = "Chemical Burns";
-            } else if (chosenPractice.equals("Paso dulot ng kemikal")){
+            } else if (chosenPractice.equalsIgnoreCase("Paso dulot ng kemikal")){
                 injuryType = "Paso dulot ng kemikal";
             }
             chemicalPractice(chosenPractice);
@@ -351,11 +351,11 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             }
             thermalPractice2(chosenPractice);
 
-        } else if (chosenPractice.equals("Concussion") || chosenPractice.equals("Umpog")){
+        } else if (chosenPractice.equals("Concussion") || chosenPractice.equals("Untog")){
             if(chosenPractice.equals("Concussion")){
                 injuryType = "Concussion";
-            } else if (chosenPractice.equals("Umpog")){
-                injuryType = "Umpog";
+            } else if (chosenPractice.equals("Untog")){
+                injuryType = "Untog";
             }
             concussionPractice(chosenPractice);
 
@@ -367,42 +367,42 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             }
             contussionPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Fracture") || chosenPractice.equals("Bali")){
+        } else if (chosenPractice.equals("Fracture") || chosenPractice.equalsIgnoreCase("Baling Buto")){
             if(chosenPractice.equals("Fracture")){
                 injuryType = "Fracture";
-            } else if (chosenPractice.equals("Bali")){
-                injuryType = "Bali";
+            } else if (chosenPractice.equalsIgnoreCase("Baling Buto")){
+                injuryType = "Baling Buto";
             }
             fracturePractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Major Laceration") || chosenPractice.equals("Malubhang laslas")){
+        } else if (chosenPractice.equals("Major Laceration") || chosenPractice.equalsIgnoreCase("Malubhang Laslas")){
             if(chosenPractice.equals("Major Laceration")){
                 injuryType = "Major Laceration";
-            } else if (chosenPractice.equals("Malubhang laslas")){
-                injuryType = "Malubhang laslas";
+            } else if (chosenPractice.equalsIgnoreCase("Malubhang Laslas")){
+                injuryType = "Malubhang Laslas";
             }
             majorLacerationPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Minor Laceration") || chosenPractice.equals("Hindi malubhang laslas")){
+        } else if (chosenPractice.equals("Minor Laceration") || chosenPractice.equalsIgnoreCase("Hindi malubhang laslas")){
             if(chosenPractice.equals("Minor Laceration")){
                 injuryType = "Minor Laceration";
-            } else if (chosenPractice.equals("Hindi malubhang laslas")){
+            } else if (chosenPractice.equalsIgnoreCase("Hindi malubhang laslas")){
                 injuryType = "Hindi malubhang laslas";
             }
             minorLacerationPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Puncture (Severe Bleeding)") || chosenPractice.equals("Tusok(Malubhang pagdurugo)")){
+        } else if (chosenPractice.equals("Puncture (Severe Bleeding)") || chosenPractice.equalsIgnoreCase("Tusok(Malubhang pagdurugo)")){
             if(chosenPractice.equals("Puncture (Severe Bleeding)")){
                 injuryType = "Puncture (Severe Bleeding)";
-            } else if (chosenPractice.equals("Tusok(Malubhang pagdurugo)")){
+            } else if (chosenPractice.equalsIgnoreCase("Tusok(Malubhang pagdurugo)")){
                 injuryType = "Tusok(Malubhang pagdurugo)";
             }
             punctureSeverePractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Puncture (Slightly Bleeding)") || chosenPractice.equals("Tusok(Hindi malubhang pagdurugo)")){
+        } else if (chosenPractice.equals("Puncture (Slightly Bleeding)") || chosenPractice.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo)")){
             if(chosenPractice.equals("Puncture (Slightly Bleeding)")){
                 injuryType = "Puncture (Slightly Bleeding)";
-            } else if (chosenPractice.equals("Tusok(Hindi malubhang pagdurugo)")){
+            } else if (chosenPractice.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo)")){
                 injuryType = "Tusok(Hindi malubhang pagdurugo)";
             }
             punctureSlightPractice(chosenPractice);

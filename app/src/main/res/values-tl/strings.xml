@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name">PocketAid</string>
     <!-- NAV BAR ITEMS -->
-    <string name="injuries">Injuries</string>
-    <string name="nearby">Nearby Hospitals</string>
-    <string name="practice">Interactive Practice</string>
-    <string name="about">About</string>
+    <string name="injuries">Mga Injuri</string>
+    <string name="nearby">Malapit na mga Ospital</string>
+    <string name="practice">Interaktibong Pagsasanay</string>
+    <string name="about">Impormasyon</string>
 
     <!--NAV BAR STATUS? -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -13,24 +13,24 @@
     <string name="action_settings">Settings</string>
 
     <!-- INJURIES -->
-    <string name="injury_search"><font size="14">Search for an injury</font></string>
+    <string name="injury_search"><font size="14">Maghanap ng injuri</font></string>
     <string name="abrasion">Gasgas</string>
-    <string name="bites">Kagat</string>
-    <string name="burns">Paso</string>
+    <string name="bites">Kagat ng hayop/insekto</string>
+    <string name="burns_list">Paso</string>
     <string name="concussion">Untog</string>
     <string name="contusion">Pasa</string>
     <string name="fracture">Baling Buto</string>
-    <string name="laceration">Hiwa</string>
+    <string name="laceration">Laslas</string>
     <string name="puncture">Tusok</string>
 
     <string-array name="injuries">
         <item>Gasgas</item>
-        <item>Kagat</item>
+        <item>Kagat ng hayop/insekto</item>
         <item>Paso</item>
         <item>Untog</item>
         <item>Pasa</item>
-        <item>Baling buto</item>
-        <item>Hiwa</item>
+        <item>Baling Buto</item>
+        <item>Laslas</item>
         <item>Tusok</item>
     </string-array>
 
@@ -129,6 +129,72 @@
          RECOMMENDED & ALTERNATIVE FIRST AID STEPS
          ***************************************** -->
 
+    <string-array name="animal_bites_practice">
+        <item>"Kontrolin ang pagdurugo sa pamamagitan ng pagdiin sa kagat gamit ang gasa."</item>
+        <item>"Huwag linisin ang malubhang sugat. Ito ay mas magandang linisin sa isang medikal na pasilidad."</item>
+        <item>"Tumawag sa 911 o pumunta kaagad sa pinakamalapit na ospital upang maturukan ng anti-rabies."</item>
+    </string-array>
+
+    <string-array name="insect_bites_practice">
+        <item>"Suriin kung ang pinagkagatan ng insekto ay namamaga at/o nagdurugo."</item>
+        <item>"Kung mayroong makikitang pangtusok ng insekto, maingat na gumamit ng tiyani upang alisin ito."</item>
+        <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
+        <item>"Takpan ang pinagkagatan ng insekto gamit ang malinis na benda o gasa."</item>
+        <item>"Lapatan ng yelo ang apektadong lugar upang mabawasan ang sakit at pamamaga."</item>
+        <item>"Tumawag sa 911 o pumunta sa pinakamalapit na ospital kung ang tao ay nakararanas ng problema sa paghinga."</item>
+    </string-array>
+
+    <string-array name="chemical_burns_practice">
+        <item>"Kung mayroon man, alisin ang kontaminadong damit ng biktima habang binabanlawan ito ng tubig."</item>
+        <item>"Panatilihing nakatapat sa dumadaloy na tubig ang napasong parte ng katawan sa loob ng 20 minuto o higit pa."</item>
+        <item>"Hugasan ang napasong parte ng katawan gamit ang sabon at tubig."</item>
+        <item>"Takpan ang napasong parte ng katawan ng tuyo at malinis na gasa o tela."</item>
+        <item>"Kung ang kemikal ay nasa mata, banlawan ito ng tubig sa loob ng 20 minuto."</item>
+        <item>"Magpasuri kaagad sa isang doktor o magpunta sa pinakamalapit na ospital."</item>
+    </string-array>
+
+    <string-array name="concussion_practice">
+        <item>"Lapatan ng yelo ang apektadong lugar sa loob ng 20 minuto kada 3 oras."</item>
+        <item>"Obserbahan ang tao kung ito ay nakararanas ng sintomas ng internal injuri gaya ng pananakit ng ulo o pagsuka."</item>
+        <item>"Tumawag sa 911 o magpunta kaagad sa pinakamalapit na ospital sa sandaling makaranas ang tao ng nasabing mga sintomas."</item>
+    </string-array>
+
+    <string-array name="contusion_practice">
+        <item>"Ilapat ang yelo sa apektadong parte ng katawan sa loob ng 15 minuto upang mawala ang pasa o pamamaga."</item>
+        <item>"Kung maaari,itaas ang parte ng katawan na may pasa nang mas mataas ng bahagya sa dibdib."</item>
+        <item>"Ipahinga at huwag masyadong galawin ang nabugbog na parte."</item>
+        <item>"Kung kinakailangan, uminom ng gamot na pampawala ng sakit upang makatulong na mabawasan ang sakit."</item>
+    </string-array>
+
+    <string-array name="fracture_practice">
+        <item>"Kung ang buto ay nakausli, tumawag sa 911 o magpunta kaagad sa pinakamalit na ospital."</item>
+        <item>"Gumamit ng ring pad at suportahan ito gamit ang isang benda upang mabawasan ang paggalaw ng nabaliang parte ng katawan."</item>
+        <item>"Siguraduhin na ang benda ay hindi masyadong mahigpit."</item>
+        <item>"Kung mayroong sugat, kontrolin ang pagdurugo nito at takpan gamit ang malinis na gasa."</item>
+        <item>"Suportahan ang bali sa pinaka komportableng posisyon. Ipahinga at itaas o ipatong ang bali sa unan."</item>
+        <item>"Gumamit ng pangsuporta o pangsalo para hindi mapuwersa ang bali. Huwag tatangkaing ituwid ang bali."</item>
+        <item>"Regular na tiyakin na ang benda ay hindi masyadong masikip."</item>
+        <item>"Magpatingin o magpasuri sa doktor."</item>
+    </string-array>
+
+    <string-array name="laceration_major_practice">
+        <item>"Magsuot ng guwantes at proteksyon para sa mata at mukha."</item>
+        <item>"Kontrolin ang pagdurugo sa pamamagitan ng pagtakip sa sugat gamit ang benda at paglagay ng presyur hanggang sa tumigil ang pagdurugo nito."</item>
+        <item>"Obserbahan ang tao kung ito ay nakararanas ng mabilis o mabagal na paghinga, mga pagbabago sa kulay ng balat at hindi pagkapakali."</item>
+        <item>"Iwasan na masyadong malamigan o mainitan ang tao."</item>
+        <item>"Tiyaking komportable ang tao."</item>
+        <item>"Maghugas ng kamay pagkatapos magbigay ng paunang lunas."</item>
+        <item>"Tumawag sa 911 o magpunta kaagad sa pinakamalapit na ospital kung ang pagdurugo ay hindi humihinto."</item>
+    </string-array>
+
+    <string-array name="laceration_minor_practice">
+        <item>"Magsuot ng guwantes."</item>
+        <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
+        <item>"Marahang diinan ang sugat upang makontrol ang pagdurugo."</item>
+        <item>"Pahiran ng antiseptic o antibiotic cream ang sugat kung walang alerji ang tao sa ganitong uri ng gamot."</item>
+        <item>"Takpan ang sugat ng gasa upang maiwasan ang impeksiyon."</item>
+    </string-array>
+
     <!-- ABRASION -->
     <!-- ABRASION: RECOMMENDED -->
     <string-array name="abrasion_recommended">
@@ -152,20 +218,9 @@
         <item>"Huwag linisin ang malubhang sugat. Ito ay mas magandang linisin sa isang medikal na pasilidad."</item>
         <item>"Tumawag sa 911 o pumunta kaagad sa pinakamalapit na ospital upang maturukan ng anti-rabies."</item>
     </string-array>
-    <string-array name="animal_bites_practice">
-        <item>"Kontrolin ang pagdurugo sa pamamagitan ng pagdiin sa kagat gamit ang gasa."</item>
-        <item>"Huwag linisin ang malubhang sugat. Ito ay mas magandang linisin sa isang medikal na pasilidad."</item>
-        <item>"Tumawag sa 911 o pumunta kaagad sa pinakamalapit na ospital upang maturukan ng anti-rabies."</item>
-    </string-array>
+
     <!-- INSECT BITES: RECOMMENDED -->
-    <string-array name="insect_bites_practice">
-        <item>"Suriin kung ang pinagkagatan ng insekto ay namamaga at/o nagdurugo."</item>
-        <item>"Kung mayroong makikitang pangtusok ng insekto, maingat na gumamit ng tiyani upang alisin ito."</item>
-        <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
-        <item>"Takpan ang pinagkagatan ng insekto gamit ang malinis na benda o gasa."</item>
-        <item>"Lapatan ng yelo ang apektadong lugar upang mabawasan ang sakit at pamamaga."</item>
-        <item>"Tumawag sa 911 o pumunta sa pinakamalapit na ospital kung ang tao ay nakararanas ng problema sa paghinga."</item>
-    </string-array>
+
     <string-array name="bites_insect_recommended">
         <item>"Suriin kung ang pinagkagatan ng insekto ay namamaga at/o nagdurugo."</item>
         <item>"Kung mayroong makikitang pangtusok ng insekto, maingat na gumamit ng tiyani upang alisin ito."</item>
@@ -184,7 +239,6 @@
         <item>"Tumawag sa 911 o pumunta sa pinakamalapit na ospital kung ang biktima ay nakararanas ng problema sa paghinga."</item>
     </string-array>
 
-
     <!-- BURNS -->
     <!-- 1ST & 2ND DEGREE BURNS: RECOMMENDED -->
     <string-array name="burns_thermal_recommended">
@@ -192,14 +246,7 @@
         <item>"Hugasan ang napasong parte ng katawan gamit ang malinis na tubig at sabon."</item>
         <item>"Takpan ang napasong parte ng katawan ng tuyo at malinis na gasa o tela."</item>
     </string-array>
-    <string-array name="chemical_burns_practice">
-        <item>"Kung mayroon man, alisin ang kontaminadong damit ng biktima habang binabanlawan ito ng tubig."</item>
-        <item>"Panatilihing nakatapat sa dumadaloy na tubig ang napasong parte ng katawan sa loob ng 20 minuto o higit pa."</item>
-        <item>"Hugasan ang napasong parte ng katawan gamit ang sabon at tubig."</item>
-        <item>"Takpan ang napasong parte ng katawan ng tuyo at malinis na gasa o tela."</item>
-        <item>"Kung ang kemikal ay nasa mata, banlawan ito ng tubig sa loob ng 20 minuto."</item>
-        <item>"Magpasuri kaagad sa isang doktor o magpunta sa pinakamalapit na ospital."</item>
-    </string-array>
+
     <string-array name="burns_chemical_recommended">
         <item>"Kung mayroon man, alisin ang kontaminadong damit ng biktima habang binabanlawan ito ng tubig."</item>
         <item>"Panatilihing nakatapat sa dumadaloy na tubig ang napasong parte ng katawan sa loob ng 20 minuto o higit pa."</item>
@@ -247,11 +294,7 @@
 
     <!-- CONCUSSION -->
     <!-- CONCUSSION: RECOMMENDED -->
-    <string-array name="concussion_practice">
-        <item>"Lapatan ng yelo ang apektadong lugar sa loob ng 20 minuto kada 3 oras."</item>
-        <item>"Obserbahan ang tao kung ito ay nakararanas ng sintomas ng internal injuri gaya ng pananakit ng ulo o pagsuka."</item>
-        <item>"Tumawag sa 911 o magpunta kaagad sa pinakamalapit na ospital sa sandaling makaranas ang tao ng nasabing mga sintomas."</item>
-    </string-array>
+
     <string-array name="concussion_recommended">
         <item>"Lapatan ng yelo ang apektadong lugar sa loob ng 20 minuto kada 3 oras."</item>
         <item>"Obserbahan ang tao kung ito ay nakararanas ng sintomas ng internal injuri gaya ng pananakit ng ulo o pagsuka."</item>
@@ -261,12 +304,7 @@
 
     <!-- CONTUSION -->
     <!-- CONTUSION: RECOMMENDED -->
-    <string-array name="contusion_practice">
-        <item>"Ilapat ang yelo sa apektadong parte ng katawan sa loob ng 15 minuto upang mawala ang pasa o pamamaga."</item>
-        <item>"Kung maaari,itaas ang parte ng katawan na may pasa nang mas mataas ng bahagya sa dibdib."</item>
-        <item>"Ipahinga at huwag masyadong galawin ang nabugbog na parte."</item>
-        <item>"Kung kinakailangan, uminom ng gamot na pampawala ng sakit upang makatulong na mabawasan ang sakit."</item>
-    </string-array>
+
     <string-array name="contusion_recommended">
     	<item>"Ilapat ang yelo sa apektadong parte ng katawan sa loob ng 15 minuto upang mawala ang pasa o pamamaga."</item>
         <item>"Kung maaari,itaas ang parte ng katawan na may pasa nang mas mataas ng bahagya sa dibdib."</item>
@@ -288,16 +326,7 @@
         <item>"Magpatingin o magpasuri sa doktor."</item>
     </string-array>
 
-    <string-array name="fracture_practice">
-        <item>"Kung ang buto ay nakausli, tumawag sa 911 o magpunta kaagad sa pinakamalit na ospital."</item>
-        <item>"Gumamit ng ring pad at suportahan ito gamit ang isang benda upang mabawasan ang paggalaw ng nabaliang parte ng katawan."</item>
-        <item>"Siguraduhin na ang benda ay hindi masyadong mahigpit."</item>
-        <item>"Kung mayroong sugat, kontrolin ang pagdurugo nito at takpan gamit ang malinis na gasa."</item>
-        <item>"Suportahan ang bali sa pinaka komportableng posisyon. Ipahinga at itaas o ipatong ang bali sa unan."</item>
-        <item>"Gumamit ng pangsuporta o pangsalo para hindi mapuwersa ang bali. Huwag tatantangkaing ituwid ang bali."</item>
-        <item>"Regular na tiyakin na ang benda ay hindi masyadong masikip."</item>
-        <item>"Magpatingin o magpasuri sa doktor."</item>
-    </string-array>
+
 
 
     <!-- LACERATION -->
@@ -316,29 +345,14 @@
         <item>"Tumawag sa 911 o magpunta kaagad sa pinakamalapit na ospital kung ang pagdurugo ay hindi humihinto."</item>
     </string-array>
 
-    <string-array name="laceration_major_practice">
-        <item>"Magsuot ng guwantes at proteksyon para sa mata at mukha."</item>
-        <item>"Kontrolin ang pagdurugo sa pamamagitan ng pagtakip sa sugat gamit ang benda at paglagay ng presyur hanggang sa tumigil ang pagdurugo nito."</item>
-        <item>"Obserbahan ang tao kung ito ay nakararanas ng mabilis o mabagal na paghinga, mga pagbabago sa kulay ng balat at hindi pagkapakali."</item>
-        <item>"Iwasan na masyadong malamigan o mainitan ang tao."</item>
-        <item>"Tiyaking komportable ang tao."</item>
-        <item>"Maghugas ng kamay pagkatapos magbigay ng paunang lunas."</item>
-        <item>"Tumawag sa 911 o magpunta kaagad sa pinakamalapit na ospital kung ang pagdurugo ay hindi humihinto."</item>
 
-    </string-array>
     <!-- MINOR LACERATION: RECOMMENDED -->
-    <string-array name="laceration_minor_practice">
-        <item>"Magsuot ng guwantes at lagyan ng gasa ang sugat."</item>
-        <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
-        <item>"Marahang diinan ang sugat upang makontrol ang pagdurugo."</item>
-        <item>"Pahiran ng antiseptic o antibiotic cream ang sugat kung walang alerji ang tao sa ganitong uri ng gamot."</item>
-        <item>"Takpan ang sugat ng gasa upang maiwasan ang impeksiyon."</item>
-    </string-array>
+
     <string-array name="laceration_minor_recommended">
+        <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig."</item>
+        <item>"Magsuot ng guwantes."</item>
         <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
-        <item>"Magsuot ng guwantes at lagyan ng gasa ang sugat."</item>
-        <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
-        <item>"Marahang diinan ang sugat upang makontrol ang pagdurugo."</item>
+        <item>"Marahang diinan ang sugat upang makontrol pagdurugo kung mayroon man."</item>
         <item>"Pahiran ng antiseptic o antibiotic cream ang sugat kung walang alerji ang tao sa ganitong uri ng gamot."</item>
         <item>"Takpan ang sugat ng gasa upang maiwasan ang impeksiyon."</item>
     </string-array>
@@ -378,6 +392,9 @@
         <item>"Takpan ang sugat ng gasa o benda."</item>
     </string-array>
 
+    <!-- CORRECT OR WRONG -->
+    <string name="correct">Tama</string>
+    <string name="wrong">Mali</string>
 
     <!-- POSSIBLE CAUSES OF INJURIES -->
 
@@ -464,7 +481,7 @@
         <item>""</item>
     </string-array>
 
-    <string-array name="laceration_notes">
+    <string-array name="laceration_major_notes">
         <item>Humingi ng tulong o magpunta kaagad sa ospital kapag ang sugat ay kasing haba o mas mahaba sa kalahating pulgada, nakalitaw at hindi nagdidikit na balat. Ang ganitong uri ng sugat ay kinakailangang tahiin.</item>
         <item>Huwag hugasan ang mga malalalim na sugat dahil maaari lamang nitong pataasin ang tsansa ng pagdurugo. Huwag tanggalin ang gasa na puno ng dugo na nakatapal sa sugat dahil lalo lamang lalala ang pagdurugo nito. 
               Huwag takpan ng gasa o benda ang maruming sugat. Kung hindi mo ito kayang linisin, lagyan ito ng manipis at malinis na gasa and magpunta kaagad sa pinakamalapit na pagamutan.</item>
@@ -506,22 +523,39 @@
     <!-- INSTRUCTIONS FOR INTERACTIVE PRACTICE -->
 
     <string name="interactive_practice_intro_title">Ano ang interaktibong pagsasanay?</string>
-    <string name="interactive_practice_intro">Ang interaktibong pagsasanay ng mga paunang lunas ay may tatlong antas: Seleksyon ng mga materyal, Pagsasaayos ng pagkakasunod-sunod ng mga paunang lunas at Aplikasyon ng mga paunang lunas. \n\nPumili ng injuri upang magsimula.</string>
+    <string name="interactive_practice_intro">Ang interaktibong pagsasanay ng mga paunang lunas ay may tatlong antas: Seleksyon ng mga materyal, Pagsasaayos ng pagkakasunod-sunod ng mga paunang lunas at Aplikasyon ng mga paunang lunas.</string>
+    <string name="start_interactive_practice">Pindutin ang OK. Pumili ng injuri upang magsimula.</string>
+
+    <string name="youtube_api_key">"AIzaSyDPEigjFr7JJx5_6PNpzrgHYSYIU5dtgKw"</string>
+
+    <!-- YOUTUBE LINKS -->
+    <string name="abrasion_youtube">"bhsbD46YpPc"</string>
+    <string name="animal_bites_youtube">"NwNaYNBH0u8"</string>
+    <string name="concussion_youtube">"iLWLaLg-E_4"</string>
+    <string name="contusion_youtube">"1p_qt48obOw"</string>
+    <string name="first_second_degree_youtube">"FqH4YKBHO3c"</string>
+    <string name="fracture_youtube">"cfZpJFvr7IA"</string>
+    <string name="insect_bites_youtube">"yKdK4cP6NSM"</string>
+    <string name="major_laceration_youtube">"0JC3XUO64BU"</string>
+    <string name="minor_laceration_youtube">"XG9SRdMUtMs"</string>
+    <string name="severe_puncture_youtube">"7JvhWuvY6AE"</string>
+    <string name="slight_puncture_youtube">"XtkrcQqlWqY"</string>
+    <string name="third_degree_youtube">"i6iObxWo5ls"</string>
 
     <!-- LIST OF INJURIES IN CARDS -->
     <string-array name="injuries_cards">
         <item>Gasgas</item>
-        <item>Kagat ng hayop</item>
-        <item>Kagat ng insekto</item>
+        <item>Kagat ng Hayop</item>
+        <item>Kagat ng Insekto</item>
         <item>Paso</item>
-        <item>Paso dulot ng kemikal</item>
-        <item>Umpog</item>
+        <item>Paso dulot ng Kemikal</item>
+        <item>Untog</item>
         <item>Pasa</item>
-        <item>Bali</item>
-        <item>Malubhang laslas</item>
-        <item>Hindi malubhang laslas</item>
-        <item>Tusok(Malubhang pagdurugo)</item>
-        <item>Tusok(Hindi malubhang pagdurugo)</item>
+        <item>Baling Buto</item>
+        <item>Malubhang Laslas</item>
+        <item>Hindi Malubhang Laslas</item>
+        <item>Tusok(Malubhang Pagdurugo)</item>
+        <item>Tusok(Hindi Malubhang Pagdurugo)</item>
     </string-array>
 
     <!-- INTERACTIVE PRACTICE INSTRUCTIONS -->

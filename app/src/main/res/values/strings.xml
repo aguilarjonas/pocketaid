@@ -195,7 +195,7 @@
     </string-array>
     <!-- MINOR LACERATION: RECOMMENDED -->
     <string-array name="laceration_minor_practice">
-        <item>"Use disposable gloves and place a sterile dressing on the wound."</item>
+        <item>"Use disposable gloves."</item>
         <item>"Wash the wound thoroughly with soap and water."</item>
         <item>"Apply direct pressure for a few minutes to control any bleeding."</item>
         <item>"Apply an antibiotic ointment to a minor wound if the person has no allergies to the medication."</item>
@@ -532,7 +532,7 @@
 
     <string name="interactive_practice_intro_title">What is interactive practice?</string>
     <string name="interactive_practice_intro">Interactive practice of first aid procedures has three stages: Selection of Materials, Arrangement of First Aid Steps and Application of First Aid.\n\nSelect an injury to start.</string>
-    <string name="start_interactive_practice">Select an injury to start.</string>
+    <string name="start_interactive_practice">Press OK. Select an injury to start.</string>
 
 
     <string name="youtube_api_key">"AIzaSyDPEigjFr7JJx5_6PNpzrgHYSYIU5dtgKw"</string>

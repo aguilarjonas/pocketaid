@@ -170,7 +170,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             shuffleArray();
             getOnClickListener(selectedInjury);
 
-        } else if (chosenInjury.equals("Concussion") || chosenInjury.equalsIgnoreCase("Umpog")){
+        } else if (chosenInjury.equals("Concussion") || chosenInjury.equalsIgnoreCase("Untog")){
             checkOrderOfProcedures();
             ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < concussionProcedure.length; ++counter) {
@@ -194,7 +194,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             shuffleArray();
             getOnClickListener(selectedInjury);
 
-        } else if (chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Bali")){
+        } else if (chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Baling Buto")){
             checkOrderOfProcedures();
             ArrayList<Integer> numberingProcedure = new ArrayList<>();
             for (int counter = 0; counter < fractureProcedure.length; ++counter) {
@@ -287,7 +287,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
 
                         showDialog(getString(R.string.wrong));
                    }
-                } else if(chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Bali")){
+                } else if(chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Baling Buto")){
                     if((mItemArray.get(0).second.startsWith("In") || mItemArray.get(0).second.startsWith("Kung")) &&
                             (mItemArray.get(1).second.startsWith("If") || mItemArray.get(1).second.startsWith("Gumamit")) &&
                             (mItemArray.get(2).second.startsWith("Make") || mItemArray.get(2).second.startsWith("Siguraduhin")) &&
@@ -319,7 +319,7 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfErrors++;
                         showDialog(getString(R.string.wrong));
                    }
-                } else if(chosenInjury.equals("Concussion") || chosenInjury.equalsIgnoreCase("Umpog")){
+                } else if(chosenInjury.equals("Concussion") || chosenInjury.equalsIgnoreCase("Untog")){
                     if((mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Lapatan")) &&
                             (mItemArray.get(1).second.startsWith("Observe") || mItemArray.get(1).second.startsWith("Obserbahan")) &&
                             (mItemArray.get(2).second.startsWith("If") || mItemArray.get(2).second.startsWith("Tumawag"))){
