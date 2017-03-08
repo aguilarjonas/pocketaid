@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:padding="12dp"
                 android:gravity="center"
-                android:textSize="15sp"
+                android:textSize="16sp"
                 android:text="@string/application_steps"/>
 
 
@@ -63,24 +63,24 @@
                 android:gravity="center">
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginEnd="20dp"
                     android:src="@drawable/checkmark"
                     android:id="@+id/iv_application_material1" />
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginEnd="20dp"
                     android:src="@drawable/checkmark"
                     android:id="@+id/iv_application_material2" />
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     android:src="@drawable/checkmark"
                     android:id="@+id/iv_application_material3" />
             </LinearLayout>

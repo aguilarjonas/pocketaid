@@ -59,18 +59,19 @@
                     android:layout_marginStart="40dp"/>
             </FrameLayout>
 
-            <LinearLayout
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="bottom">
+                android:layout_height="match_parent">
 
                 <Button
                     android:id="@+id/btCheckAnswersPrac"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                    android:textSize="16sp"
+                    android:layout_gravity="bottom|center"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="Next" />
-            </LinearLayout>
+            </FrameLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

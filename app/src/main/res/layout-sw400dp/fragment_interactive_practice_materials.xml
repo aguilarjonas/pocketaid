@@ -62,15 +62,6 @@
                             android:id="@+id/imageView1_check"
                             tools:visibility="visible"/>
                     </FrameLayout>
-
-                    <TextView
-                        android:text="TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="36dp"
-                        android:layout_marginEnd="36dp"
-                        android:id="@+id/textView_materials1"
-                        android:layout_gravity="bottom|center_vertical"/>
                 </FrameLayout>
 
                 <FrameLayout
@@ -100,13 +91,6 @@
                             android:id="@+id/imageView2_check"
                             tools:visibility="visible"/>
                     </FrameLayout>
-
-                    <TextView
-                        android:text="TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView_materials2"
-                        android:layout_gravity="bottom|center_vertical"/>
                 </FrameLayout>
             </LinearLayout>
 
@@ -145,13 +129,6 @@
                             android:id="@+id/imageView3_check"
                             tools:visibility="visible" />
                     </FrameLayout>
-
-                    <TextView
-                        android:text="TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView_materials3"
-                        android:layout_gravity="bottom|center_horizontal"/>
                 </FrameLayout>
 
                 <FrameLayout
@@ -181,13 +158,6 @@
                             tools:visibility="visible"
                             android:layout_gravity="bottom|end" />
                     </FrameLayout>
-
-                    <TextView
-                        android:text="TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView_materials4"
-                        android:layout_gravity="bottom|center_horizontal" />
                 </FrameLayout>
             </LinearLayout>
 
@@ -227,13 +197,6 @@
                             tools:visibility="visible"
                             android:layout_gravity="bottom|end" />
                     </FrameLayout>
-
-                    <TextView
-                        android:text="TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView_materials5"
-                        android:layout_gravity="bottom|center_horizontal" />
                 </FrameLayout>
 
                 <FrameLayout
@@ -262,13 +225,6 @@
                             android:id="@+id/imageView6_check"
                             tools:visibility="visible"/>
                     </FrameLayout>
-
-                    <TextView
-                        android:text="TextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/textView_materials6"
-                        android:layout_gravity="bottom|center_horizontal"/>
                 </FrameLayout>
             </LinearLayout>
 
@@ -278,7 +234,9 @@
 
                 <Button
                     android:text="Next"
-                    android:layout_gravity="bottom|end"
+                    style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_gravity="bottom|center"
+                    android:textSize="16sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/button_practice_next"/>
