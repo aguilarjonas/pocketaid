@@ -1,7 +1,9 @@
 package com.example.jonas.pocketaid.Fragments;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -22,16 +24,16 @@ import com.example.jonas.pocketaid.R;
  */
 public class PracticeFragment extends Fragment {
 
+    public static final String PREFS_NAME = "MyPrefsFile";
+    private AlertDialog.Builder builder;
+
+    private boolean isFirstRun = true;
+    private SharedPreferences prefs;
     private RecyclerView recyclerView;
     private InjuryListPracticeAdapter adapter;
 
     //list of injuries
     String[] injuries;
-
-//    String[] injuries = {"Gasgas", "Animal Bites", "Insect Bites", "Thermal Burns", "Chemical Burns",
-//            "Concussion", "Contusion", "Fracture",
-//            "Major Laceration", "Minor Laceration", "Puncture (Severe Bleeding)", "Puncture (Slightly Bleeding)"
-//    };
 
     //icons
     Integer[] icon = {R.drawable.ic_abrasion, R.drawable.ic_bites, R.drawable.ic_insect, R.drawable.ic_thermal, R.drawable.ic_chemical,
@@ -48,7 +50,26 @@ public class PracticeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        displayIntro();
+
+//
+//        SharedPreferences settings = getActivity().getSharedPreferences(PREFS_NAME, 0);
+//        boolean dialogShown = settings.getBoolean("dialogShown", false);
+//
+//        if (!dialogShown) {
+//            displayIntro();
+//            SharedPreferences.Editor editor = settings.edit();
+//            editor.putBoolean("dialogShown", true);
+//            editor.commit();
+//        }
+
+        prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        isFirstRun = prefs.getBoolean("isFirstRun", true);
+
+        if(isFirstRun){
+            displayIntro();
+        }
+        isFirstRun = false;
+        prefs.edit().putBoolean("isFirstRun", isFirstRun).commit();
 
         // Inflate the layout for this fragment
         ((MainActivity)getActivity()).setActionBarTitle("Interactive Practice");
@@ -69,8 +90,16 @@ public class PracticeFragment extends Fragment {
         return rootView;
     }
 
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        if(builder!=null && builder.isShowing()) {
+//            builder.dismiss();
+//        }
+//    }
+
     public void displayIntro(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder = new AlertDialog.Builder(getContext());
         builder.setTitle(getResources().getString(R.string.interactive_practice_intro_title));
         builder.setMessage(getResources().getString(R.string.interactive_practice_intro));
         builder.setPositiveButton("Ok", null);
