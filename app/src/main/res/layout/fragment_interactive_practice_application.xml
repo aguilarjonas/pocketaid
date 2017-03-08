@@ -38,10 +38,9 @@
 
                 <TextView
                     android:id="@+id/triggerTextview"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-
-                    android:layout_marginTop="97dp"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="0dp"
                     android:keepScreenOn="false"
                     android:visibility="visible"
                     android:layout_marginLeft="33dp"

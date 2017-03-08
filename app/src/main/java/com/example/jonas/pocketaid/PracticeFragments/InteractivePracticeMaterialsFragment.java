@@ -607,7 +607,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Water, Gauze, Soap and Water
         setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_water);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_gauze);
 //        correctMaterials.add(R.drawable.ic_material_soapwater);
         //correctMaterials.add(R.drawable.ic_material_coldpack);
@@ -703,10 +703,10 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Gloves, Gauze, Soap and Water, Antibiotic
 
         setChecksAsInvisible();
-//        correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_gauze);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_glove);
-        materialNumber = 2;
+        materialNumber = 3;
 
         interModel.setNumberOfMaterials(materialNumber);
 
@@ -734,11 +734,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Gloves, Soap and Water, Gauze
         setChecksAsInvisible();
-        //correctMaterials.add(R.drawable.ic_material_soapwater);
+
         correctMaterials.add(R.drawable.ic_material_gauze);
         correctMaterials.add(R.drawable.ic_material_glove);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
         //correctMaterials.add(R.drawable.ic_material_coldpack);
-        materialNumber = 2;
+        materialNumber = 3;
 
         interModel.setNumberOfMaterials(materialNumber);
 

@@ -286,8 +286,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfMaterials = 3;
                         interModel.setNumberOfMaterials(numberOfMaterials);
                         numberOfErrors++;
-                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
                    }
                 } else if(chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Baling Buto")){
@@ -306,13 +304,9 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
-
                         numberOfMaterials = (3-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfErrors++;
-                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
                    }
                 } else if(chosenInjury.equals("Contusion") || chosenInjury.equalsIgnoreCase("Pasa")){
@@ -324,15 +318,12 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         // -1 sa mga materials para di na kasama ice sa IP-A
                         numberOfMaterials = (2-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
-
                         numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = (2-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
                         numberOfErrors++;
-                        goToInteractiveApplication();
                         showDialog(getString(R.string.wrong));
                    }
                 } else if(chosenInjury.equals("Concussion") || chosenInjury.equalsIgnoreCase("Untog")){
@@ -343,16 +334,12 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         // -1 sa mga materials para di na kasama ice sa IP-A
                         numberOfMaterials = (2-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = (2-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfErrors++;
-                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
                     }
                 } else if(chosenInjury.equals("3rd Degree Burns") || chosenInjury.equalsIgnoreCase("Ikatlong degree na paso")){
@@ -364,13 +351,11 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 0;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 0;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfErrors++;
                         showDialog(getString(R.string.wrong));
                     }
@@ -384,16 +369,12 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 2;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 2;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfErrors++;
-                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
                     }
                 } else if(chosenInjury.equals("Thermal Burns") || chosenInjury.equalsIgnoreCase("Paso")){
@@ -403,15 +384,11 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 2;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
-
                         numberOfCorrect++;
                         goToInteractiveApplication();
                     } else{
-                        goToInteractiveApplication();
                         numberOfMaterials = 2;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfErrors++;
                         showDialog(getString(R.string.wrong));
                     }
@@ -425,17 +402,12 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 3;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfCorrect++;
-
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfErrors++;
-                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
                     }
                 } else if(chosenInjury.equals("Animal Bites") || chosenInjury.equalsIgnoreCase("Kagat ng hayop")){
@@ -445,17 +417,12 @@ public class InteractivePracticeStepsOrdering extends Fragment {
                         showDialog(getString(R.string.correct));
                         numberOfMaterials = 1;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfCorrect++;
-
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 1;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfErrors++;
-                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
                     }
                 } else if(chosenInjury.equals("Puncture(Slight Bleeding)") || chosenInjury.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo)")){
@@ -468,19 +435,14 @@ public class InteractivePracticeStepsOrdering extends Fragment {
 
                         numberOfMaterials = (3-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfCorrect++;
-
                         goToInteractiveApplication();
                     } else{
                         // -1 sa mga materials para di na kasama gloves sa IP-A
 
                         numberOfMaterials = (3-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfErrors++;
-                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
                     }
                 } else if(chosenInjury.equals("Puncture(Severe Bleeding)") || chosenInjury.equalsIgnoreCase("Tusok(Malubhang pagdurugo)")){
@@ -494,20 +456,13 @@ public class InteractivePracticeStepsOrdering extends Fragment {
 
                         numberOfMaterials = (2-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfCorrect++;
-
                         goToInteractiveApplication();
                     } else{
                         // -1 sa mga materials para di na kasama gloves sa IP-A
-
                         numberOfMaterials = (2-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
-
                         numberOfErrors++;
-                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
                     }
                 } else if(chosenInjury.equals("Laceration(Minor)") || chosenInjury.equalsIgnoreCase("Hindi malubhang laslas")){
@@ -521,19 +476,13 @@ public class InteractivePracticeStepsOrdering extends Fragment {
 
                         numberOfMaterials = (3-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfCorrect++;
-
                         goToInteractiveApplication();
                     } else{
                         // -1 sa mga materials para di na kasama gloves sa IP-A
-
                         numberOfMaterials = (3-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfErrors++;
-                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
                     }
                 } else if(chosenInjury.equals("Laceration(Major)") || chosenInjury.equalsIgnoreCase("Malubhang laslas")){
@@ -549,17 +498,12 @@ public class InteractivePracticeStepsOrdering extends Fragment {
 
                         numberOfMaterials = (2-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfCorrect++;
-
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = (2-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-
                         numberOfErrors++;
-                        goToInteractiveApplication();
-
                         showDialog(getString(R.string.wrong));
                     }
                 }

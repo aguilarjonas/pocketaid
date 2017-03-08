@@ -109,36 +109,61 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
-
+            int height = 150;
+            int width = 150;
+            tvTrigger.getLayoutParams().height = height;
+            tvTrigger.getLayoutParams().width = width;
+            tvTrigger.setX(360);
+            tvTrigger.setY(170);
         }
 
-        else if (chosenInjury.equals("Fracture") || chosenInjury.equals("Bali")){
+        else if (chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Baling Buto")){
             //3
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
+            tvTrigger.setRotation(340);
+            int height = 70;
+            int width = 250;
+            tvTrigger.getLayoutParams().height = height;
+            tvTrigger.getLayoutParams().width = width;
+            tvTrigger.setX(340);
+            tvTrigger.setY(320);
         }
 
         else if (chosenInjury.equals("Contusion") || chosenInjury.equals("Pasa")){
             //2
             material1.setImageResource(correctMaterials.get(0));
-            material2.setImageResource(correctMaterials.get(1));
+            tvTrigger.setRotation(310);
+            int height = 75;
+            int width = 320;
+            tvTrigger.getLayoutParams().height = height;
+            tvTrigger.getLayoutParams().width = width;
+            tvTrigger.setX(280);
+            tvTrigger.setY(200);
         }
 
-        else if (chosenInjury.equals("Concussion") || chosenInjury.equals("Umpog")){
+        else if (chosenInjury.equals("Concussion") || chosenInjury.equals("Untog")){
             //2
             material1.setImageResource(correctMaterials.get(0));
-            material2.setImageResource(correctMaterials.get(1));
+            tvTrigger.setX(320);
         }
 
         else if (chosenInjury.equals("3rd Degree Burns")){
             //0
         }
 
-        else if (chosenInjury.equals("Chemical Burns") || chosenInjury.equals("Paso dulot ng kemikal")){
+        else if (chosenInjury.equals("Chemical Burns") || chosenInjury.equalsIgnoreCase("Paso dulot ng kemikal")){
             //2
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
+            tvTrigger.setRotation(330);
+            int height = 130;
+            int width = 220;
+            tvTrigger.getLayoutParams().height = height;
+            tvTrigger.getLayoutParams().width = width;
+            tvTrigger.setX(370);
+            tvTrigger.setY(140);
         }
 
         else if (chosenInjury.equals("Thermal Burns") || chosenInjury.equals("Paso")){
@@ -146,46 +171,96 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
 //            material3.setImageResource(correctMaterials.get(2));
+            tvTrigger.setRotation(323);
+            int height = 150;
+            int width = 350;
+            tvTrigger.getLayoutParams().height = height;
+            tvTrigger.getLayoutParams().width = width;
+            tvTrigger.setX(270);
+            tvTrigger.setY(155);
         }
 
-        else if (chosenInjury.equals("Insect Bites") || chosenInjury.equals("Kagat ng insekto")){
+        else if (chosenInjury.equals("Insect Bites") || chosenInjury.equalsIgnoreCase("Kagat ng insekto")){
             //3
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
+            tvTrigger.setRotation(320);
+            int height = 110;
+            int width = 200;
+            tvTrigger.getLayoutParams().height = height;
+            tvTrigger.getLayoutParams().width = width;
+            tvTrigger.setX(330);
+            tvTrigger.setY(150);
         }
 
-        else if (chosenInjury.equals("Animal Bites") || chosenInjury.equals("Kagat ng hayop")){
+        else if (chosenInjury.equals("Animal Bites") || chosenInjury.equalsIgnoreCase("Kagat ng hayop")){
             //1
             material1.setImageResource(correctMaterials.get(0));
+            tvTrigger.setRotation(323);
+            int height = 200;
+            int width = 200;
+            tvTrigger.getLayoutParams().height = height;
+            tvTrigger.getLayoutParams().width = width;
+            tvTrigger.setX(405);
+            tvTrigger.setY(120);
         }
 
-        else if (chosenInjury.equals("Puncture(Slight Bleeding)") || chosenInjury.equals("Hindi malubhang laslas")){
+        else if (chosenInjury.equals("Puncture(Slight Bleeding)") || chosenInjury.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo")){
             //3
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
+            material1.setImageResource(correctMaterials.get(0));
+            tvTrigger.setRotation(320);
+            int height = 130;
+            int width = 180;
+            tvTrigger.getLayoutParams().height = height;
+            tvTrigger.getLayoutParams().width = width;
+            tvTrigger.setX(350);
+            tvTrigger.setY(190);
         }
 
-        else if (chosenInjury.equals("Puncture(Severe Bleeding)") || chosenInjury.equals("Tusok(Malubhang pagdurugo)")){
+        else if (chosenInjury.equals("Puncture(Severe Bleeding)") || chosenInjury.equalsIgnoreCase("Tusok(Malubhang pagdurugo)")){
             //3
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
+            tvTrigger.setRotation(320);
+            int height = 130;
+            int width = 180;
+            tvTrigger.getLayoutParams().height = height;
+            tvTrigger.getLayoutParams().width = width;
+            tvTrigger.setX(350);
+            tvTrigger.setY(190);
         }
 
-        else if (chosenInjury.equals("Laceration(Minor)") || chosenInjury.equals("Hindi malubhang laslas")){
+        else if (chosenInjury.equals("Laceration(Minor)") || chosenInjury.equalsIgnoreCase("Hindi malubhang laslas")){
             //3
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
 //            material3.setImageResource(correctMaterials.get(2));
+            tvTrigger.setRotation(323);
+            int height = 130;
+            int width = 370;
+            tvTrigger.getLayoutParams().height = height;
+            tvTrigger.getLayoutParams().width = width;
+            tvTrigger.setX(200);
+            tvTrigger.setY(180);
         }
 
-        else if (chosenInjury.equals("Laceration(Major)") || chosenInjury.equals("Malubhang laslas")){
+        else if (chosenInjury.equals("Laceration(Major)") || chosenInjury.equalsIgnoreCase("Malubhang laslas")){
             //3
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
+            tvTrigger.setRotation(323);
+            int height = 130;
+            int width = 370;
+            tvTrigger.getLayoutParams().height = height;
+            tvTrigger.getLayoutParams().width = width;
+            tvTrigger.setX(200);
+            tvTrigger.setY(180);
         }
     }
 
@@ -255,7 +330,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             case R.id.triggerTextview:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-//                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG SUGAT", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG SUGAT", Toast.LENGTH_SHORT).show();
                         Log.e("SUGAT:", "ANDITO AKO SA SUGAT");
                         hasClickTrigger = true;
 
@@ -304,7 +379,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             case R.id.iv_application_material1:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-//                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
                         if (whichMaterial.get(0) == 0 && justStarted == true){
                             whichMaterial.set(0, 0);
                             whichMaterial.set(1, 1);
@@ -318,13 +393,12 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             case R.id.iv_application_material2:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-//                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
                         if (whichMaterial.get(1) == 1 && whatsNext == 2){
                             whichMaterial.set(0, 0);
                             whichMaterial.set(1, 2);
                             nextStep = true;
                             Log.e("GAMIT:", "ANDITO AKO SA GAMIT22");
-
                         }
                 }
                 break;
@@ -333,34 +407,27 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             case R.id.iv_application_material3:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-//                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
                         if (whichMaterial.get(1) == 2 && whatsNext == 3){
                             whichMaterial.set(0, 0);
                             whichMaterial.set(1, 3);
                             nextStep = true;
                             Log.e("GAMIT:", "ANDITO AKO SA GAMIT33");
-
                         }
-
-
                 }
                 break;
 
             case R.id.button_next_application:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-//                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
                         DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
                         FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
                         fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
                                 .replace(R.id.fragment_container, displayScoreFragment)
                                 .addToBackStack("displayScoreFragment")
                                 .commit();
-
-
                 }
-
-
         }
         return false;
     }
@@ -637,7 +704,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
                     numberOfTries++;
                     point.x = event.getX();
                     point.y = event.getY();
-//                    Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG PICTURE", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG PICTURE", Toast.LENGTH_SHORT).show();
                     Log.e("PICTURE:", "ANDITO AKO SA PICTURE");
 
                     if (hasClickTrigger == true && changeImage == true){
