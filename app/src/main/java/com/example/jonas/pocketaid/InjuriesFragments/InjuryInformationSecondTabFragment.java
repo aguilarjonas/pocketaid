@@ -241,7 +241,7 @@ public class InjuryInformationSecondTabFragment extends Fragment {
 
         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS +"/.VideoTutorials/", fileName);
 
-        DownloadManager manager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
+        manager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
 //        manager.enqueue(request);
 
         downloadCode = manager.enqueue(request);

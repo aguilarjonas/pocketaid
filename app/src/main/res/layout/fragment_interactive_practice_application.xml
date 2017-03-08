@@ -38,7 +38,7 @@
                     android:id="@+id/triggerTextview"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
-                    android:background="?android:attr/panelColorBackground"
+
                     android:layout_marginTop="97dp"
                     android:keepScreenOn="false"
                     android:visibility="visible"
