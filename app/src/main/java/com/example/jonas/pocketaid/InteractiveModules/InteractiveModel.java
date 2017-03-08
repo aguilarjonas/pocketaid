@@ -13,6 +13,7 @@ public class InteractiveModel {
     private static int numberOfError = 0;
     private static int numberOfTries = 0;
     private static int numberOfCorrect = 0;
+    private static int numberOfMaterials = 0;
     double stageOnePercentage;
     double stageTwoPercentage;
     double stageThreePercentage;
@@ -57,6 +58,7 @@ public class InteractiveModel {
         InteractiveModel.numberOfError = 0;
         InteractiveModel.numberOfTries = 0;
         InteractiveModel.numberOfCorrect = 0;
+        InteractiveModel.numberOfMaterials = 0;
         InteractiveModel.correctMaterials.clear();
 
         InteractiveModel.stage1Stats.clear();
@@ -121,6 +123,14 @@ public class InteractiveModel {
 
     public static void setNumberOfTries(int numberOfTries) {
         InteractiveModel.numberOfTries = numberOfTries;
+    }
+
+    public int getNumberOfMaterials() {
+        return numberOfMaterials;
+    }
+
+    public void setNumberOfMaterials(int numberOfMaterials) {
+        this.numberOfMaterials = numberOfMaterials;
     }
 
     public static ArrayList<Integer> getCorrectMaterials() {

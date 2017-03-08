@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -60,7 +61,9 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
     int numberOfTries = 0;
     int numberOfCorrect = 0;
 
-    ArrayList<Integer> testing = new ArrayList<Integer>();
+    Button buttonNext;
+
+    ArrayList<Integer> correctMaterials = new ArrayList<Integer>();
 
     public InteractivePracticeApplication() {
         // Required empty public constructor
@@ -83,12 +86,12 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         numberOfTries = interModel.getStage3Stats().get(2);
 
 
-        testing = interModel.getCorrectMaterials();
+        correctMaterials = interModel.getCorrectMaterials();
 
-        Log.e("TESTING", testing.get(0) + " " + testing.get(1) + " " + testing.get(2));
+        Log.e("TESTING", correctMaterials.get(0) + " " + correctMaterials.get(1) + " " + correctMaterials.get(2));
 
 
-        numberOfMaterials = Integer.parseInt(getArguments().getString("numberOfMaterials"));
+        numberOfMaterials = interModel.getNumberOfMaterials();
         chosenInjury = getArguments().getString("chosenInjury");
         clearValues();
         initializeElements();
@@ -103,29 +106,29 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
         if (chosenInjury.equals("Abrasion") || chosenInjury.equals("Gasgas")){
             //3
-            material1.setImageResource(testing.get(0));
-            material2.setImageResource(testing.get(1));
-            material3.setImageResource(testing.get(2));
+            material1.setImageResource(correctMaterials.get(0));
+            material2.setImageResource(correctMaterials.get(1));
+            material3.setImageResource(correctMaterials.get(2));
 
         }
 
         else if (chosenInjury.equals("Fracture") || chosenInjury.equals("Bali")){
             //3
-            material1.setImageResource(testing.get(0));
-            material2.setImageResource(testing.get(1));
-            material3.setImageResource(testing.get(2));
+            material1.setImageResource(correctMaterials.get(0));
+            material2.setImageResource(correctMaterials.get(1));
+            material3.setImageResource(correctMaterials.get(2));
         }
 
         else if (chosenInjury.equals("Contusion") || chosenInjury.equals("Pasa")){
             //2
-            material1.setImageResource(testing.get(0));
-            material2.setImageResource(testing.get(1));
+            material1.setImageResource(correctMaterials.get(0));
+            material2.setImageResource(correctMaterials.get(1));
         }
 
         else if (chosenInjury.equals("Concussion") || chosenInjury.equals("Umpog")){
             //2
-            material1.setImageResource(testing.get(0));
-            material2.setImageResource(testing.get(1));
+            material1.setImageResource(correctMaterials.get(0));
+            material2.setImageResource(correctMaterials.get(1));
         }
 
         else if (chosenInjury.equals("3rd Degree Burns")){
@@ -134,55 +137,55 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
         else if (chosenInjury.equals("Chemical Burns") || chosenInjury.equals("Paso dulot ng kemikal")){
             //2
-            material1.setImageResource(testing.get(0));
-            material2.setImageResource(testing.get(1));
+            material1.setImageResource(correctMaterials.get(0));
+            material2.setImageResource(correctMaterials.get(1));
         }
 
         else if (chosenInjury.equals("Thermal Burns") || chosenInjury.equals("Paso")){
             //3
-            material1.setImageResource(testing.get(0));
-            material2.setImageResource(testing.get(1));
-            material3.setImageResource(testing.get(2));
+            material1.setImageResource(correctMaterials.get(0));
+            material2.setImageResource(correctMaterials.get(1));
+//            material3.setImageResource(correctMaterials.get(2));
         }
 
         else if (chosenInjury.equals("Insect Bites") || chosenInjury.equals("Kagat ng insekto")){
             //3
-            material1.setImageResource(testing.get(0));
-            material2.setImageResource(testing.get(1));
-            material3.setImageResource(testing.get(2));
+            material1.setImageResource(correctMaterials.get(0));
+            material2.setImageResource(correctMaterials.get(1));
+            material3.setImageResource(correctMaterials.get(2));
         }
 
         else if (chosenInjury.equals("Animal Bites") || chosenInjury.equals("Kagat ng hayop")){
             //1
-            material1.setImageResource(testing.get(0));
+            material1.setImageResource(correctMaterials.get(0));
         }
 
-        else if (chosenInjury.equals("Puncture (Slightly Bleeding)") || chosenInjury.equals("Hindi malubhang laslas")){
+        else if (chosenInjury.equals("Puncture(Slight Bleeding)") || chosenInjury.equals("Hindi malubhang laslas")){
             //3
-            material1.setImageResource(testing.get(0));
-            material2.setImageResource(testing.get(1));
-            material3.setImageResource(testing.get(2));
+            material1.setImageResource(correctMaterials.get(0));
+            material2.setImageResource(correctMaterials.get(1));
+            material3.setImageResource(correctMaterials.get(2));
         }
 
-        else if (chosenInjury.equals("Puncture (Severe Bleeding)") || chosenInjury.equals("Tusok(Malubhang pagdurugo)")){
+        else if (chosenInjury.equals("Puncture(Severe Bleeding)") || chosenInjury.equals("Tusok(Malubhang pagdurugo)")){
             //3
-            material1.setImageResource(testing.get(0));
-            material2.setImageResource(testing.get(1));
-            material3.setImageResource(testing.get(2));
+            material1.setImageResource(correctMaterials.get(0));
+            material2.setImageResource(correctMaterials.get(1));
+            material3.setImageResource(correctMaterials.get(2));
         }
 
-        else if (chosenInjury.equals("Minor Laceration") || chosenInjury.equals("Hindi malubhang laslas")){
+        else if (chosenInjury.equals("Laceration(Minor)") || chosenInjury.equals("Hindi malubhang laslas")){
             //3
-            material1.setImageResource(testing.get(0));
-            material2.setImageResource(testing.get(1));
-            material3.setImageResource(testing.get(2));
+            material1.setImageResource(correctMaterials.get(0));
+            material2.setImageResource(correctMaterials.get(1));
+//            material3.setImageResource(correctMaterials.get(2));
         }
 
-        else if (chosenInjury.equals("Major Laceration") || chosenInjury.equals("Malubhang laslas")){
+        else if (chosenInjury.equals("Laceration(Major)") || chosenInjury.equals("Malubhang laslas")){
             //3
-            material1.setImageResource(testing.get(0));
-            material2.setImageResource(testing.get(1));
-            material3.setImageResource(testing.get(2));
+            material1.setImageResource(correctMaterials.get(0));
+            material2.setImageResource(correctMaterials.get(1));
+            material3.setImageResource(correctMaterials.get(2));
         }
     }
 
@@ -193,6 +196,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         material1.setOnTouchListener(this);
         material2.setOnTouchListener(this);
         material3.setOnTouchListener(this);
+        buttonNext.setOnTouchListener(this);
     }
 
     public void setVisibilityForMaterials(int numberOfMaterials){
@@ -229,6 +233,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         relativeLayout_Touch = (RelativeLayout) rootView.findViewById(R.id.relativeLayout_Touch);
         relativeLayout_Touch.addView(new MyView(getActivity().getApplicationContext()));
         tvTrigger = (TextView) rootView.findViewById(R.id.triggerTextview);
+        buttonNext = (Button) rootView.findViewById(R.id.button_next_application);
     }
 
     public void clearValues(){
@@ -341,6 +346,20 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
                 }
                 break;
 
+            case R.id.button_next_application:
+                switch(event.getAction()){
+                    case MotionEvent.ACTION_DOWN:
+                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
+                        DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
+                        fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
+                                .replace(R.id.fragment_container, displayScoreFragment)
+                                .addToBackStack("displayScoreFragment")
+                                .commit();
+
+
+                }
+
 
         }
         return false;
@@ -350,6 +369,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
     class MyView extends View{
         Paint paint = new Paint();
         Point point = new Point();
+        Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.ic_applogo);
+        boolean allDone = false;
 
         public MyView(Context context) {
             super(context);
@@ -363,82 +384,128 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             Log.e("onDraw:", "onDraw");
             //Change this default to a transparent background
 
-
-            Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.ic_chemical);
-
             if (imageNumber == 99){
                 imageNumber = 1;
+
+                if (chosenInjury.equals("Abrasion")){
+                    b = BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_abrasion_four);
+                }
+
+                else if (chosenInjury.equals("Animal Bites")){
+                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_animal_two_copy);
+                }
+
+                else if (chosenInjury.equals("Insect Bites")){
+                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_insect_four_copy);
+                }
+
+                else if (chosenInjury.equals("Thermal Burns")){
+                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_thermal_three_copy);
+                }
+
+                else if (chosenInjury.equals("Chemical Burns")){
+                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_chemical_three_copy);
+                }
+
+                else if (chosenInjury.equals("Concussion")){
+                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_concussion_two_copy);
+                }
+
+                else if (chosenInjury.equals("Contusion")){
+                   b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_contusion_two_copy);
+                }
+
+                else if (chosenInjury.equals("Fracture")){
+                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_fracture_three);
+                }
+
+                else if (chosenInjury.equals("Laceration(Major)")){
+                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_major_lac_three_copy);
+
+                }
+
+                else if (chosenInjury.equals("Laceration(Minor)")){
+                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_major_lac_three_copy);
+                }
+
+                else  if (chosenInjury.equals("Puncture(Severe Bleeding)")){
+                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_puncture_three_copy);
+                }
+
+                else if (chosenInjury.equals("Puncture(Slight Bleeding)")){
+                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_puncture_three_copy);
+                }
+
+
+                    allDone = true;
 
                 interModel.setNumberOfError(numberOfErrors);
                 interModel.setNumberOfTries(numberOfTries);
                 interModel.setNumberOfCorrect(numberOfCorrect);
 
                 interModel.assignThirdStageStats(numberOfCorrect, numberOfErrors, numberOfTries);
-
-
-                Log.e("SCORE FROM FRAG 1", "CORRECT: " + String.valueOf(interModel.getStage1Stats().get(0)) + " ");
-                Log.e("SCORE FROM FRAG 1", "WRONG: " + String.valueOf(interModel.getStage1Stats().get(1)) + " ");
-                Log.e("SCORE FROM FRAG 1", "TRIES: " + String.valueOf(interModel.getStage1Stats().get(2)) + " ");
-
-                Log.e("SCORE FROM FRAG 2", "CORRECT: " + String.valueOf(interModel.getStage2Stats().get(0)) + " ");
-                Log.e("SCORE FROM FRAG 2", "WRONG: " + String.valueOf(interModel.getStage2Stats().get(1)) + " ");
-                Log.e("SCORE FROM FRAG 2", "TRIES: " + String.valueOf(interModel.getStage2Stats().get(2)) + " ");
-
-                Log.e("SCORE FROM FRAG 3", "CORRECT: " + String.valueOf(interModel.getStage3Stats().get(0)) + " ");
-                Log.e("SCORE FROM FRAG 3", "WRONG: " + String.valueOf(interModel.getStage3Stats().get(1)) + " ");
-                Log.e("SCORE FROM FRAG 3", "TRIES: " + String.valueOf(interModel.getStage3Stats().get(2)) + " ");
-
-                DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
-                FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
-                fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
-                        .replace(R.id.fragment_container, displayScoreFragment)
-                        .addToBackStack("displayScoreFragment")
-                        .commit();
+                buttonNext.setVisibility(View.VISIBLE);
             }
 
-            else if (imageNumber != 99){
+            else if (imageNumber != 99 && allDone == false){
                 if (chosenInjury.equals("Abrasion")){
+
                     if (imageNumber == 1){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_abrasion_one);
                     }
 
                     else if (imageNumber == 2){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_abrasion_two);
                     }
 
                     else if (imageNumber == 3){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_abrasion_three);
                     }
+
                 }
 
                 else if (chosenInjury.equals("Fracture")){
                     if (imageNumber == 1){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_fracture_one);
                     }
 
                     else if (imageNumber == 2){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_fracture_two);
                     }
 
-                    else if (imageNumber == 3){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+
+                }
+
+                else if (chosenInjury.equals("Concussion")){
+                    if (imageNumber == 1){
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_concussion_one_copy);
                     }
+
+//                    else if (imageNumber == 2){
+//                        b= BitmapFactory.decodeResource(getResources(), R.drawable.);
+//                    }
+//
+//                    else if (imageNumber == 3){
+//                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_fracture_three);
+//                    }
                 }
 
                 else if (chosenInjury.equals("Contusion")){
+                    //Bawas isa
                     if (imageNumber == 1){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_contusion_one_copy);
                     }
 
                     else if (imageNumber == 2){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_contusion_two_copy);
                     }
 
-                    else if (imageNumber == 3){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
-                    }
+//                    else if (imageNumber == 3){
+//                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+//                    }
                 }
 
+                //Remove
                 else if (chosenInjury.equals("3rd Degree Burns")){
                     if (imageNumber == 1){
                         b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
@@ -455,114 +522,106 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
                 else if (chosenInjury.equals("Chemical Burns")){
                     if (imageNumber == 1){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_chemical_one_copy);
                     }
 
                     else if (imageNumber == 2){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_chemical_two_copy);
                     }
 
-                    else if (imageNumber == 3){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
-                    }
                 }
 
                 else if (chosenInjury.equals("Thermal Burns")){
                     if (imageNumber == 1){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_thermal_one_copy);
                     }
 
                     else if (imageNumber == 2){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
-                    }
-
-                    else if (imageNumber == 3){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_thermal_two_copy);
                     }
                 }
 
                 else if (chosenInjury.equals("Insect Bites")){
                     if (imageNumber == 1){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_insect_one_copy);
                     }
 
                     else if (imageNumber == 2){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_insect_two_copy);
                     }
 
                     else if (imageNumber == 3){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_insect_three_copy);
+
                     }
+
                 }
 
                 else if (chosenInjury.equals("Animal Bites")){
                     if (imageNumber == 1){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_animal_one_copy);
                     }
 
-                    else if (imageNumber == 2){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
-                    }
+//                    else if (imageNumber == 2){
+//                    }
 
-                    else if (imageNumber == 3){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
-                    }
+//                    else if (imageNumber == 3){
+//                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
+//                    }
                 }
 
-                else if (chosenInjury.equals("Puncture (Slightly Bleeding)")){
+                else if (chosenInjury.equals("Puncture(Slight Bleeding)")){
                     if (imageNumber == 1){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_puncture_one_copy);
                     }
 
                     else if (imageNumber == 2){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_puncture_two_copy);
                     }
 
-                    else if (imageNumber == 3){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
-                    }
+//                    else if (imageNumber == 3){
+//                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_puncture_three_copy);
+//                    }
                 }
 
-                else  if (chosenInjury.equals("Puncture (Severe Bleeding)")){
+                else  if (chosenInjury.equals("Puncture(Severe Bleeding)")){
                     if (imageNumber == 1){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_puncture_one_copy);
                     }
 
                     else if (imageNumber == 2){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_puncture_two_copy);
                     }
 
-                    else if (imageNumber == 3){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
-                    }
+//                    else if (imageNumber == 3){
+//                    }
                 }
 
-                else if (chosenInjury.equals("Minor Laceration")){
+                else if (chosenInjury.equals("Laceration(Minor)")){
                     if (imageNumber == 1){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_major_lac_one_copy);
                     }
 
                     else if (imageNumber == 2){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_major_lac_two_copy);
                     }
 
-                    else if (imageNumber == 3){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
-                    }
+//                    else if (imageNumber == 3){
+//                    }
                 }
 
-                else if (chosenInjury.equals("Major Laceration")){
+                else if (chosenInjury.equals("Laceration(Major)")){
                     if (imageNumber == 1){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_major_lac_one_copy);
                     }
 
                     else if (imageNumber == 2){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
+                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_major_lac_two_copy);
                     }
-
-                    else if (imageNumber == 3){
-                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
-                    }
+//
+//                    else if (imageNumber == 3){
+//                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_major_lac_three_copy);
+//                    }
                 }
             }
 
@@ -601,6 +660,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
                         Log.e("PICTURE:", "HEHEHE di ka magaling");
                     }
             }
+
             invalidate();
             return true;
         }

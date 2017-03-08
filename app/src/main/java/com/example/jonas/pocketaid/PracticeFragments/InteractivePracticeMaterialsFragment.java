@@ -375,33 +375,33 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             }
             fracturePractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Major Laceration") || chosenPractice.equalsIgnoreCase("Malubhang Laslas")){
-            if(chosenPractice.equals("Major Laceration")){
-                injuryType = "Major Laceration";
+        } else if (chosenPractice.equals("Laceration(Major)") || chosenPractice.equalsIgnoreCase("Malubhang Laslas")){
+            if(chosenPractice.equals("Laceration(Major)")){
+                injuryType = "Laceration(Major)";
             } else if (chosenPractice.equalsIgnoreCase("Malubhang Laslas")){
                 injuryType = "Malubhang Laslas";
             }
             majorLacerationPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Minor Laceration") || chosenPractice.equalsIgnoreCase("Hindi malubhang laslas")){
-            if(chosenPractice.equals("Minor Laceration")){
-                injuryType = "Minor Laceration";
+        } else if (chosenPractice.equals("Laceration(Minor)") || chosenPractice.equalsIgnoreCase("Hindi malubhang laslas")){
+            if(chosenPractice.equals("Laceration(Minor)")){
+                injuryType = "Laceration(Minor)";
             } else if (chosenPractice.equalsIgnoreCase("Hindi malubhang laslas")){
                 injuryType = "Hindi malubhang laslas";
             }
             minorLacerationPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Puncture (Severe Bleeding)") || chosenPractice.equalsIgnoreCase("Tusok(Malubhang pagdurugo)")){
-            if(chosenPractice.equals("Puncture (Severe Bleeding)")){
-                injuryType = "Puncture (Severe Bleeding)";
+        } else if (chosenPractice.equals("Puncture(Severe Bleeding)") || chosenPractice.equalsIgnoreCase("Tusok(Malubhang pagdurugo)")){
+            if(chosenPractice.equals("Puncture(Severe Bleeding)")){
+                injuryType = "Puncture(Severe Bleeding)";
             } else if (chosenPractice.equalsIgnoreCase("Tusok(Malubhang pagdurugo)")){
                 injuryType = "Tusok(Malubhang pagdurugo)";
             }
             punctureSeverePractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Puncture (Slightly Bleeding)") || chosenPractice.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo)")){
-            if(chosenPractice.equals("Puncture (Slightly Bleeding)")){
-                injuryType = "Puncture (Slightly Bleeding)";
+        } else if (chosenPractice.equals("Puncture(Slight Bleeding)") || chosenPractice.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo)")){
+            if(chosenPractice.equals("Puncture(Slight Bleeding)")){
+                injuryType = "Puncture(Slight Bleeding)";
             } else if (chosenPractice.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo)")){
                 injuryType = "Tusok(Hindi malubhang pagdurugo)";
             }
@@ -567,6 +567,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         correctMaterials.add(R.drawable.ic_material_gauze); //Change to gauze
         //Collections.shuffle(answerRandomized);
         materialNumber = 3;
+
+        interModel.setNumberOfMaterials(materialNumber);
         setImagesRandomly(materialNumber);
 //
     }
@@ -577,6 +579,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         setChecksAsInvisible();
         correctMaterials.add(R.drawable.ic_material_gauze);
         materialNumber = 1;
+
+        interModel.setNumberOfMaterials(materialNumber);
+
         setImagesRandomly(materialNumber);
 
 //
@@ -591,6 +596,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         correctMaterials.add(R.drawable.ic_material_gauze);
 //        correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 3;
+
+        interModel.setNumberOfMaterials(materialNumber);
+
         setImagesRandomly(materialNumber);
 //
     }
@@ -601,9 +609,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         setChecksAsInvisible();
         correctMaterials.add(R.drawable.ic_material_water);
         correctMaterials.add(R.drawable.ic_material_gauze);
-        correctMaterials.add(R.drawable.ic_material_soapwater);
+//        correctMaterials.add(R.drawable.ic_material_soapwater);
         //correctMaterials.add(R.drawable.ic_material_coldpack);
-        materialNumber = 3;
+        materialNumber = 2;
+
+        interModel.setNumberOfMaterials(materialNumber);
+
         setImagesRandomly(materialNumber);
 //
     }
@@ -617,6 +628,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         correctMaterials.add(R.drawable.ic_material_coldpack);
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 3;
+
+        interModel.setNumberOfMaterials(materialNumber);
+
         setImagesRandomly(materialNumber);
 //
     }
@@ -631,6 +645,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         correctMaterials.add(R.drawable.ic_material_gauze);
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 2;
+
+        interModel.setNumberOfMaterials(materialNumber);
+
         setImagesRandomly(materialNumber);
 //
     }
@@ -639,11 +656,14 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Cold Pack, Ice
         setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_ice);
         correctMaterials.add(R.drawable.ic_material_coldpack);
+        correctMaterials.add(R.drawable.ic_material_ice);
 //        correctMaterials.add(R.drawable.ic_material_gauze);
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 2;
+
+        interModel.setNumberOfMaterials(materialNumber);
+
         setImagesRandomly(materialNumber);
 //
     }
@@ -656,6 +676,9 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         correctMaterials.add(R.drawable.ic_material_ice);
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 2;
+
+        interModel.setNumberOfMaterials(2);
+
         setImagesRandomly(materialNumber);
 //
     }
@@ -664,10 +687,13 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Gauze, Ring Pad, Sling, Bandage
         setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_ringpad);
         correctMaterials.add(R.drawable.ic_material_bandage);
         correctMaterials.add(R.drawable.ic_material_sling);
+        correctMaterials.add(R.drawable.ic_material_ringpad);
         materialNumber = 3;
+
+        interModel.setNumberOfMaterials(materialNumber);
+
         setImagesRandomly(materialNumber);
 //
     }
@@ -677,10 +703,13 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Gloves, Gauze, Soap and Water, Antibiotic
 
         setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_glove);
-        correctMaterials.add(R.drawable.ic_material_soapwater);
+//        correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_gauze);
-        materialNumber = 3;
+        correctMaterials.add(R.drawable.ic_material_glove);
+        materialNumber = 2;
+
+        interModel.setNumberOfMaterials(materialNumber);
+
         setImagesRandomly(materialNumber);
 //
     }
@@ -689,10 +718,14 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Gloves, Gauze, Soap and Water, Antibiotic
         setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_glove);
         correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_gauze);
+        correctMaterials.add(R.drawable.ic_material_glove);
         materialNumber = 3;
+
+        interModel.setNumberOfMaterials(materialNumber);
+
+
         setImagesRandomly(materialNumber);
 //
     }
@@ -701,11 +734,14 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Gloves, Soap and Water, Gauze
         setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_glove);
-        correctMaterials.add(R.drawable.ic_material_soapwater);
+        //correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_gauze);
+        correctMaterials.add(R.drawable.ic_material_glove);
         //correctMaterials.add(R.drawable.ic_material_coldpack);
-        materialNumber = 3;
+        materialNumber = 2;
+
+        interModel.setNumberOfMaterials(materialNumber);
+
         setImagesRandomly(materialNumber);
 //
     }
@@ -714,11 +750,14 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Set the materials Image here.
         //Gloves, Soap and Water, Gauze
         setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_glove);
         correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_gauze);
-        //correctMaterials.add(R.drawable.ic_material_coldpack);
+        correctMaterials.add(R.drawable.ic_material_glove);
         materialNumber = 3;
+
+        interModel.setNumberOfMaterials(materialNumber);
+
+        //correctMaterials.add(R.drawable.ic_material_coldpack);
         setImagesRandomly(materialNumber);
 //
     }
