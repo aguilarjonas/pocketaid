@@ -76,11 +76,6 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         if (chosenInjury.equals("Abrasion")) {
             youtubeLink = getResources().getString(R.string.abrasion_youtube);
             injuryType = "Abrasion";
-
-//        } else if(chosenInjury.toLowerCase().equals("Gasgas")) {
-//            injuryType = "Gasgas";
-//            youtubeLink = getResources().getString(R.string.abrasion_youtube);
-//        }
         } else if (chosenInjury.equals("Concussion")){
             injuryType = "Concussion";
             youtubeLink = getResources().getString(R.string.concussion_youtube);

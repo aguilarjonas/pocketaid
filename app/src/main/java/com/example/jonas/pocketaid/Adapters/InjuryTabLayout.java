@@ -71,15 +71,6 @@ public class InjuryTabLayout extends Fragment {
                     case 2:
                         return setInjuryInformationSecondTabFragment("insect");
                 }
-//            } else if(chosenInjury.toLowerCase().equals("Kagat ng hayop/insekto")) {
-//                switch (position) {
-//                    case 0:
-//                        return setOverviewFragment(chosenInjury);
-//                    case 1:
-//                        return setInjuryInformationFragment("hayop");
-//                    case 2:
-//                        return setInjuryInformationSecondTabFragment("insekto");
-//                }
             } else if(chosenInjury.toLowerCase().equals("burns")) {
                 switch (position) {
                     case 0:
@@ -122,16 +113,6 @@ public class InjuryTabLayout extends Fragment {
         @Override
         public int getCount() {
             String chosenInjury = getArguments().getString("injury");
-
-//            if(chosenInjury.toLowerCase().equals("bites") || chosenInjury.toLowerCase().equalsIgnoreCase("Kagat ng hayop/insekto") ||
-//                    chosenInjury.toLowerCase().equals("burns") || chosenInjury.toLowerCase().equalsIgnoreCase("paso") ||
-//                    chosenInjury.toLowerCase().equals("laceration") || chosenInjury.toLowerCase().equalsIgnoreCase("laslas") ||
-//                    chosenInjury.toLowerCase().equals("puncture") || chosenInjury.toLowerCase().equalsIgnoreCase("tusok")) {
-//                tab_numbers = 3;
-//            } else {
-//                tab_numbers = 2;
-//            }
-
             if(chosenInjury.toLowerCase().equals("bites") ||
                     chosenInjury.toLowerCase().equals("burns") ||
                     chosenInjury.toLowerCase().equals("laceration") ||
@@ -154,15 +135,6 @@ public class InjuryTabLayout extends Fragment {
                     case 2:
                         return "3rd Degree";
                 }
-//            }  else if(chosenInjury.toLowerCase().equalsIgnoreCase("paso")){
-//                switch (position) {
-//                    case 0:
-//                        return "OVERVIEW";
-//                    case 1:
-//                        return "Una at Ikalawang Degree";
-//                    case 2:
-//                        return "Ikatlong Degree";
-//                }
             } else if(chosenInjury.toLowerCase().equals("laceration")){
                 switch (position) {
                     case 0:
@@ -172,15 +144,6 @@ public class InjuryTabLayout extends Fragment {
                     case 2:
                         return "MINOR";
                 }
-//            } else if(chosenInjury.toLowerCase().equalsIgnoreCase("laslas")){
-//                switch (position) {
-//                    case 0:
-//                        return "OVERVIEW";
-//                    case 1:
-//                        return "MALUBHA";
-//                    case 2:
-//                        return "'DI MALUBHA";
-//                }
             } else if(chosenInjury.toLowerCase().equals("puncture")){
                 switch (position) {
                     case 0:
@@ -190,15 +153,6 @@ public class InjuryTabLayout extends Fragment {
                     case 2:
                         return "SLIGHT";
                 }
-//            } else if(chosenInjury.toLowerCase().equalsIgnoreCase("tusok")){
-//                switch (position) {
-//                    case 0:
-//                        return "OVERVIEW";
-//                    case 1:
-//                        return "MALUBHA";
-//                    case 2:
-//                        return "DI MALUBHA";
-//                }
             } else if(chosenInjury.toLowerCase().equals("bites")){
                 switch (position) {
                     case 0:
@@ -208,15 +162,6 @@ public class InjuryTabLayout extends Fragment {
                     case 2:
                         return "INSECT";
                 }
-//            }  else if(chosenInjury.toLowerCase().equalsIgnoreCase("kagat")){
-//                switch (position) {
-//                    case 0:
-//                        return "OVERVIEW";
-//                    case 1:
-//                        return "HAYOP";
-//                    case 2:
-//                        return "INSEKTO";
-//                }
             }
             else {
                 switch (position) {
@@ -226,7 +171,6 @@ public class InjuryTabLayout extends Fragment {
                         return chosenInjury;
                 }
             }
-
             return null;
         }
 

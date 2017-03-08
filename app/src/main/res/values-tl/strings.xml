@@ -141,7 +141,7 @@
         <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
         <item>"Takpan ang pinagkagatan ng insekto gamit ang malinis na benda o gasa."</item>
         <item>"Lapatan ng yelo ang apektadong lugar upang mabawasan ang sakit at pamamaga."</item>
-        <item>"Tumawag sa 911 o pumunta sa pinakamalapit na ospital kung ang tao ay nakararanas ng problema sa paghinga."</item>
+        <item>"Tumawag sa 911 o pumunta sa pinakamalapit na ospital kung ang tao ay nakararanas ng pangangati o problema sa paghinga."</item>
     </string-array>
 
     <string-array name="chemical_burns_practice">
@@ -161,7 +161,7 @@
 
     <string-array name="contusion_practice">
         <item>"Ilapat ang yelo sa apektadong parte ng katawan sa loob ng 15 minuto upang mawala ang pasa o pamamaga."</item>
-        <item>"Kung maaari,itaas ang parte ng katawan na may pasa nang mas mataas ng bahagya sa dibdib."</item>
+        <item>"Kung maaari, itaas ang parte ng katawan na may pasa nang mas mataas ng bahagya sa dibdib."</item>
         <item>"Ipahinga at huwag masyadong galawin ang nabugbog na parte."</item>
         <item>"Kung kinakailangan, uminom ng gamot na pampawala ng sakit upang makatulong na mabawasan ang sakit."</item>
     </string-array>
@@ -173,8 +173,8 @@
         <item>"Kung mayroong sugat, kontrolin ang pagdurugo nito at takpan gamit ang malinis na gasa."</item>
         <item>"Suportahan ang bali sa pinaka komportableng posisyon. Ipahinga at itaas o ipatong ang bali sa unan."</item>
         <item>"Gumamit ng pangsuporta o pangsalo para hindi mapuwersa ang bali. Huwag tatangkaing ituwid ang bali."</item>
-        <item>"Regular na tiyakin na ang benda ay hindi masyadong masikip."</item>
-        <item>"Magpatingin o magpasuri sa doktor."</item>
+        <item>"Palaging tiyakin na ang benda ay hindi masyadong masikip."</item>
+        <item>"Magpatingin o ipasuri kaagad sa doktor ang baling buto."</item>
     </string-array>
 
     <string-array name="laceration_major_practice">
@@ -261,7 +261,7 @@
     </string-array>
     <!-- 1ST & 2ND DEGREE BURNS: ALTERNATIVE -->
     <string-array name="burns_thermal_alternative">
-    	<item>"Basain ang isang malinis na tuwalya at ilapat sa napasong parte ng katawan"</item>
+    	<item>"Basain ang isang malinis na tuwalya at ilapat ito sa napasong parte ng katawan"</item>
         <item>"Takpan ang napasong parte gamit ang maluwag na damit o gasa at teyp."</item>
         <item>"Hugasan ng marahan ang napasong parte gamit ang tubig at sabon."</item>
     </string-array>
@@ -307,7 +307,7 @@
 
     <string-array name="contusion_recommended">
     	<item>"Ilapat ang yelo sa apektadong parte ng katawan sa loob ng 15 minuto upang mawala ang pasa o pamamaga."</item>
-        <item>"Kung maaari,itaas ang parte ng katawan na may pasa nang mas mataas ng bahagya sa dibdib."</item>
+        <item>"Kung maaari, itaas ang parte ng katawan na may pasa nang mas mataas ng bahagya sa dibdib."</item>
         <item>"Ipahinga at huwag masyadong galawin ang nabugbog na parte."</item>
         <item>"Kung kinakailangan, uminom ng gamot na pampawala ng sakit upang makatulong na mabawasan ang sakit."</item>
     </string-array>
