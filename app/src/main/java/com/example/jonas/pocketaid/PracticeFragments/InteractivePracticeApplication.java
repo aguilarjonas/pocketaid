@@ -7,7 +7,6 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -128,8 +127,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             int width = 150;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
-            tvTrigger.setX(360);
-            tvTrigger.setY(170);
+//            tvTrigger.setX(360);
+//            tvTrigger.setY(170);
         }
 
         else if (chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Baling Buto")){
@@ -142,8 +141,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             int width = 250;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
-            tvTrigger.setX(340);
-            tvTrigger.setY(320);
+//            tvTrigger.setX(340);
+//            tvTrigger.setY(320);
         }
 
         else if (chosenInjury.equals("Contusion") || chosenInjury.equals("Pasa")){
@@ -154,14 +153,14 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             int width = 320;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
-            tvTrigger.setX(280);
-            tvTrigger.setY(200);
+//            tvTrigger.setX(280);
+//            tvTrigger.setY(200);
         }
 
         else if (chosenInjury.equals("Concussion") || chosenInjury.equals("Untog")){
             //2
             material1.setImageResource(correctMaterials.get(0));
-            tvTrigger.setX(320);
+//            tvTrigger.setX(320);
         }
 
         else if (chosenInjury.equals("3rd Degree Burns")){
@@ -177,8 +176,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             int width = 220;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
-            tvTrigger.setX(370);
-            tvTrigger.setY(140);
+//            tvTrigger.setX(370);
+//            tvTrigger.setY(140);
         }
 
         else if (chosenInjury.equals("Thermal Burns") || chosenInjury.equals("Paso")){
@@ -191,8 +190,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             int width = 350;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
-            tvTrigger.setX(270);
-            tvTrigger.setY(155);
+//            tvTrigger.setX(270);
+//            tvTrigger.setY(155);
         }
 
         else if (chosenInjury.equals("Insect Bites") || chosenInjury.equalsIgnoreCase("Kagat ng insekto")){
@@ -205,8 +204,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             int width = 200;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
-            tvTrigger.setX(330);
-            tvTrigger.setY(150);
+//            tvTrigger.setX(330);
+//            tvTrigger.setY(150);
         }
 
         else if (chosenInjury.equals("Animal Bites") || chosenInjury.equalsIgnoreCase("Kagat ng hayop")){
@@ -217,8 +216,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             int width = 200;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
-            tvTrigger.setX(405);
-            tvTrigger.setY(120);
+//            tvTrigger.setX(405);
+//            tvTrigger.setY(120);
         }
 
 //        else if (chosenInjury.equals("Puncture(Slight Bleeding)") || chosenInjury.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo")){
@@ -246,8 +245,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             int width = 180;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
-            tvTrigger.setX(350);
-            tvTrigger.setY(190);
+//            tvTrigger.setX(350);
+//            tvTrigger.setY(190);
         }
 
 //        else if (chosenInjury.equals("Laceration(Minor)") || chosenInjury.equalsIgnoreCase("Hindi malubhang laslas")){
@@ -274,8 +273,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             int width = 370;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
-            tvTrigger.setX(200);
-            tvTrigger.setY(180);
+//            tvTrigger.setX(200);
+//            tvTrigger.setY(180);
         }
     }
 
