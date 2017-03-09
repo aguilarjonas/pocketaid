@@ -301,115 +301,117 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         return isAllCorrect;
     }
 
-    public void chosenPracticeChooser(String chosenPractice){
+    public void chosenPracticeChooser(String chosenPractice) {
 
-        if (chosenPractice.equals("Abrasion") || chosenPractice.equals("Gasgas")){
-            if(chosenPractice.equals("Abrasion")){
+        if (chosenPractice.equals("Abrasion") || chosenPractice.equals("Gasgas")) {
+            if (chosenPractice.equals("Abrasion")) {
                 injuryType = "Abrasion";
-            } else if (chosenPractice.equals("Gasgas")){
+            } else if (chosenPractice.equals("Gasgas")) {
                 injuryType = "Gasgas";
             }
             abrasionPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Animal Bites") || chosenPractice.equalsIgnoreCase("Kagat ng hayop")){
-            if(chosenPractice.equals("Animal Bites")){
+        } else if (chosenPractice.equals("Animal Bites") || chosenPractice.equalsIgnoreCase("Kagat ng hayop")) {
+            if (chosenPractice.equals("Animal Bites")) {
                 injuryType = "Animal Bites";
-            } else if (chosenPractice.equalsIgnoreCase("Kagat ng hayop")){
+            } else if (chosenPractice.equalsIgnoreCase("Kagat ng hayop")) {
                 injuryType = "Kagat ng hayop";
             }
             animalBitesPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Insect Bites") || chosenPractice.equalsIgnoreCase("Kagat ng insekto")){
-            if(chosenPractice.equals("Insect Bites")){
+        } else if (chosenPractice.equals("Insect Bites") || chosenPractice.equalsIgnoreCase("Kagat ng insekto")) {
+            if (chosenPractice.equals("Insect Bites")) {
                 injuryType = "Insect Bites";
-            } else if (chosenPractice.equalsIgnoreCase("Kagat ng insekto")){
+            } else if (chosenPractice.equalsIgnoreCase("Kagat ng insekto")) {
                 injuryType = "Kagat ng insekto";
             }
             insectBitesPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Thermal Burns") || chosenPractice.equals("Paso")){
-            if(chosenPractice.equals("Thermal Burns")){
+        } else if (chosenPractice.equals("Thermal Burns") || chosenPractice.equals("Paso")) {
+            if (chosenPractice.equals("Thermal Burns")) {
                 injuryType = "Thermal Burns";
-            } else if (chosenPractice.equals("Paso")){
+            } else if (chosenPractice.equals("Paso")) {
                 injuryType = "Paso";
             }
             thermalPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Chemical Burns") || chosenPractice.equalsIgnoreCase("Paso dulot ng kemikal")){
-            if(chosenPractice.equals("Chemical Burns")){
+        } else if (chosenPractice.equals("Chemical Burns") || chosenPractice.equalsIgnoreCase("Paso dulot ng kemikal")) {
+            if (chosenPractice.equals("Chemical Burns")) {
                 injuryType = "Chemical Burns";
-            } else if (chosenPractice.equalsIgnoreCase("Paso dulot ng kemikal")){
+            } else if (chosenPractice.equalsIgnoreCase("Paso dulot ng kemikal")) {
                 injuryType = "Paso dulot ng kemikal";
             }
             chemicalPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("3rd Degree Burns") || chosenPractice.equals("Ikatlong digri na paso")){
-            if(chosenPractice.equals("3rd Degree Burns")){
+        } else if (chosenPractice.equals("3rd Degree Burns") || chosenPractice.equals("Ikatlong digri na paso")) {
+            if (chosenPractice.equals("3rd Degree Burns")) {
                 injuryType = "3rd Degree Burns";
-            } else if (chosenPractice.equals("Ikatlong digri na paso")){
+            } else if (chosenPractice.equals("Ikatlong digri na paso")) {
                 injuryType = "Ikatlong digri na paso";
             }
             thermalPractice2(chosenPractice);
 
-        } else if (chosenPractice.equals("Concussion") || chosenPractice.equals("Untog")){
-            if(chosenPractice.equals("Concussion")){
+        } else if (chosenPractice.equals("Concussion") || chosenPractice.equals("Untog")) {
+            if (chosenPractice.equals("Concussion")) {
                 injuryType = "Concussion";
-            } else if (chosenPractice.equals("Untog")){
+            } else if (chosenPractice.equals("Untog")) {
                 injuryType = "Untog";
             }
             concussionPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Contusion") || chosenPractice.equals("Pasa")){
-            if(chosenPractice.equals("Contusion")){
+        } else if (chosenPractice.equals("Contusion") || chosenPractice.equals("Pasa")) {
+            if (chosenPractice.equals("Contusion")) {
                 injuryType = "Contusion";
-            } else if (chosenPractice.equals("Pasa")){
+            } else if (chosenPractice.equals("Pasa")) {
                 injuryType = "Pasa";
             }
             contussionPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Fracture") || chosenPractice.equalsIgnoreCase("Baling Buto")){
-            if(chosenPractice.equals("Fracture")){
+        } else if (chosenPractice.equals("Fracture") || chosenPractice.equalsIgnoreCase("Baling Buto")) {
+            if (chosenPractice.equals("Fracture")) {
                 injuryType = "Fracture";
-            } else if (chosenPractice.equalsIgnoreCase("Baling Buto")){
+            } else if (chosenPractice.equalsIgnoreCase("Baling Buto")) {
                 injuryType = "Baling Buto";
             }
             fracturePractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Laceration(Major)") || chosenPractice.equalsIgnoreCase("Malubhang Laslas")){
-            if(chosenPractice.equals("Laceration(Major)")){
-                injuryType = "Laceration(Major)";
-            } else if (chosenPractice.equalsIgnoreCase("Malubhang Laslas")){
-                injuryType = "Malubhang Laslas";
+        } else if (chosenPractice.equals("Laceration") || chosenPractice.equalsIgnoreCase("Laslas")) {
+            if (chosenPractice.equals("Laceration")) {
+                injuryType = "Laceration";
+            } else if (chosenPractice.equalsIgnoreCase("Laslas")) {
+                injuryType = "Laslas";
             }
             majorLacerationPractice(chosenPractice);
 
-        } else if (chosenPractice.equals("Laceration(Minor)") || chosenPractice.equalsIgnoreCase("Hindi malubhang laslas")){
-            if(chosenPractice.equals("Laceration(Minor)")){
-                injuryType = "Laceration(Minor)";
-            } else if (chosenPractice.equalsIgnoreCase("Hindi malubhang laslas")){
-                injuryType = "Hindi malubhang laslas";
-            }
-            minorLacerationPractice(chosenPractice);
-
-        } else if (chosenPractice.equals("Puncture(Severe Bleeding)") || chosenPractice.equalsIgnoreCase("Tusok(Malubhang pagdurugo)")){
-            if(chosenPractice.equals("Puncture(Severe Bleeding)")){
-                injuryType = "Puncture(Severe Bleeding)";
-            } else if (chosenPractice.equalsIgnoreCase("Tusok(Malubhang pagdurugo)")){
-                injuryType = "Tusok(Malubhang pagdurugo)";
+//        } else if (chosenPractice.equals("Laceration(Minor)") || chosenPractice.equalsIgnoreCase("Hindi malubhang laslas")){
+//            if(chosenPractice.equals("Laceration(Minor)")){
+//                injuryType = "Laceration(Minor)";
+//            } else if (chosenPractice.equalsIgnoreCase("Hindi malubhang laslas")){
+//                injuryType = "Hindi malubhang laslas";
+//            }
+//            minorLacerationPractice(chosenPractice);
+//
+        } else if (chosenPractice.equals("Puncture") || chosenPractice.equalsIgnoreCase("Tusok")) {
+            if (chosenPractice.equals("Puncture")) {
+                injuryType = "Puncture";
+            } else if (chosenPractice.equalsIgnoreCase("Tusok")) {
+                injuryType = "Tusok";
             }
             punctureSeverePractice(chosenPractice);
-
-        } else if (chosenPractice.equals("Puncture(Slight Bleeding)") || chosenPractice.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo)")){
-            if(chosenPractice.equals("Puncture(Slight Bleeding)")){
-                injuryType = "Puncture(Slight Bleeding)";
-            } else if (chosenPractice.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo)")){
-                injuryType = "Tusok(Hindi malubhang pagdurugo)";
-            }
-            punctureSlightPractice(chosenPractice);
         }
 
-        instruction.append(injuryType + ".");
+//        } else if (chosenPractice.equals("Puncture(Slight Bleeding)") || chosenPractice.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo)")){
+//            if(chosenPractice.equals("Puncture(Slight Bleeding)")){
+//                injuryType = "Puncture(Slight Bleeding)";
+//            } else if (chosenPractice.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo)")){
+//                injuryType = "Tusok(Hindi malubhang pagdurugo)";
+//            }
+//            punctureSlightPractice(chosenPractice);
+//        }
+
+            instruction.append(injuryType + ".");
     }
+
 
     public void setChecksAsInvisible(){
         imageView_1_check.setVisibility(View.INVISIBLE);
@@ -735,9 +737,10 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         //Gloves, Soap and Water, Gauze
         setChecksAsInvisible();
 
+        correctMaterials.add(R.drawable.ic_material_soapwater);
         correctMaterials.add(R.drawable.ic_material_gauze);
         correctMaterials.add(R.drawable.ic_material_glove);
-        correctMaterials.add(R.drawable.ic_material_soapwater);
+
         //correctMaterials.add(R.drawable.ic_material_coldpack);
         materialNumber = 3;
 
