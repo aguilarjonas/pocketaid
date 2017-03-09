@@ -552,10 +552,8 @@
         <item>Untog</item>
         <item>Pasa</item>
         <item>Baling Buto</item>
-        <item>Malubhang Laslas</item>
-        <item>Hindi Malubhang Laslas</item>
-        <item>Tusok(Malubhang Pagdurugo)</item>
-        <item>Tusok(Hindi Malubhang Pagdurugo)</item>
+        <item>Laslas</item>
+        <item>Tusok</item>
     </string-array>
 
     <!-- INTERACTIVE PRACTICE INSTRUCTIONS -->

@@ -561,9 +561,7 @@
         <item>Concussion</item>
         <item>Contusion</item>
         <item>Fracture</item>
-        <item>Laceration(Major)</item>
-        <item>Laceration(Minor)</item>
-        <item>Puncture(Severe Bleeding)</item>
-        <item>Puncture(Slight Bleeding)</item>
+        <item>Laceration</item>
+        <item>Puncture</item>
     </string-array>
 </resources>

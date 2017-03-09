@@ -36,10 +36,9 @@ public class PracticeFragment extends Fragment {
     String[] injuries;
 
     //icons
-    Integer[] icon = {R.drawable.ic_abrasion, R.drawable.ic_bites, R.drawable.ic_insect, R.drawable.ic_thermal, R.drawable.ic_chemical,
-                        R.drawable.ic_concussion, R.drawable.ic_contusion,
-                        R.drawable.ic_fracture, R.drawable.ic_laceration,
-                        R.drawable.ic_laceration, R.drawable.ic_severe, R.drawable.ic_slight
+    Integer[] icon = {R.drawable.ic_abrasion, R.drawable.ic_bites, R.drawable.ic_insect, R.drawable.ic_thermal,
+                        R.drawable.ic_chemical, R.drawable.ic_concussion, R.drawable.ic_contusion,
+                        R.drawable.ic_fracture, R.drawable.ic_laceration, R.drawable.ic_severe
     };
 
 

@@ -52,8 +52,7 @@
                     android:layout_marginTop="0dp"
                     android:keepScreenOn="false"
                     android:visibility="visible"
-                    android:layout_marginLeft="33dp"
-                    android:layout_marginStart="33dp" />
+                    android:layout_gravity="center"/>
             </FrameLayout>
 
 
@@ -106,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/button_next_application"
-                android:visibility="visible" />
+                android:visibility="gone" />
         </FrameLayout>
     </LinearLayout>
 </ScrollView>
