@@ -481,74 +481,74 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             if (imageNumber == 99){
                 imageNumber = 1;
 
-                if (chosenInjury.equals("Abrasion")){
+                if (chosenInjury.equals("Abrasion") || chosenInjury.equals("Gasgas")){
 //                    b = BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_abrasion_four);
 //                    imageview_back2.setImageResource(R.drawable.ic_ip_abrasion_four);
                     imageview_back.setImageResource(R.drawable.ic_ip_abrasion_four);
                 }
 
-                else if (chosenInjury.equals("Animal Bites")){
+                else if (chosenInjury.equals("Animal Bites") || chosenInjury.equals("Kagat ng hayop")){
                     imageview_back.setImageResource(R.drawable.ic_ip_animal_two_copy);
 
 //                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_animal_two_copy);
                 }
 
-                else if (chosenInjury.equals("Insect Bites")){
+                else if (chosenInjury.equals("Insect Bites") || chosenInjury.equals("Kagat ng insekto")){
                     imageview_back.setImageResource(R.drawable.ic_ip_insect_four_copy);
 
 //                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_insect_four_copy);
                 }
 
-                else if (chosenInjury.equals("Thermal Burns")){
+                else if (chosenInjury.equals("Thermal Burns") || chosenInjury.equals("Paso")){
                     imageview_back.setImageResource(R.drawable.ic_ip_thermal_three_copy);
 
 //                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_thermal_three_copy);
                 }
 
-                else if (chosenInjury.equals("Chemical Burns")){
+                else if (chosenInjury.equals("Chemical Burns") || chosenInjury.equals("Paso dulot ng kemikal")){
                     imageview_back.setImageResource(R.drawable.ic_ip_chemical_three_copy);
 
 //                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_chemical_three_copy);
                 }
 
-                else if (chosenInjury.equals("Concussion")){
+                else if (chosenInjury.equals("Concussion") || chosenInjury.equals("Untog")){
                     imageview_back.setImageResource(R.drawable.ic_ip_concussion_two_copy);
 
 //                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_concussion_two_copy);
                 }
 
-                else if (chosenInjury.equals("Contusion")){
+                else if (chosenInjury.equals("Contusion") || chosenInjury.equals("Pasa")){
                     imageview_back.setImageResource(R.drawable.ic_ip_contusion_two_copy);
 
 //                   b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_contusion_two_copy);
                 }
 
-                else if (chosenInjury.equals("Fracture")){
+                else if (chosenInjury.equals("Fracture") || chosenInjury.equals("Baling Buto")){
                     imageview_back.setImageResource(R.drawable.ic_ip_fracture_three);
 
 //                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_fracture_three);
                 }
 
-                else if (chosenInjury.equals("Laceration(Major)")){
+                else if (chosenInjury.equals("Laceration(Major)") || chosenInjury.equals("Malubhang Laslas")){
                     imageview_back.setImageResource(R.drawable.ic_ip_major_lac_three_copy);
 
 //                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_major_lac_three_copy);
 
                 }
 
-                else if (chosenInjury.equals("Laceration(Minor)")){
+                else if (chosenInjury.equals("Laceration(Minor)") || chosenInjury.equals("Hindi malubhang laslas")){
                     imageview_back.setImageResource(R.drawable.ic_ip_major_lac_three_copy);
 
 //                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_major_lac_three_copy);
                 }
 
-                else  if (chosenInjury.equals("Puncture(Severe Bleeding)")){
+                else  if (chosenInjury.equals("Puncture(Severe Bleeding)") || chosenInjury.equals("Tusok(Malubhang pagdurugo)")){
                     imageview_back.setImageResource(R.drawable.ic_ip_puncture_three_copy);
 
 //                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_puncture_three_copy);
                 }
 
-                else if (chosenInjury.equals("Puncture(Slight Bleeding)")){
+                else if (chosenInjury.equals("Puncture(Slight Bleeding)") || chosenInjury.equals("Tusok(Hindi malubhang pagdurugo)")){
                     imageview_back.setImageResource(R.drawable.ic_ip_puncture_three_copy);
 
 //                    b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_ip_puncture_three_copy);
@@ -566,7 +566,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             }
 
             else if (imageNumber != 99 && allDone == false){
-                if (chosenInjury.equals("Abrasion")){
+                if (chosenInjury.equals("Abrasion") || chosenInjury.equals("Gasgas")){
 
                     if (imageNumber == 1){
                         imageview_back.setImageResource(R.drawable.ic_ip_abrasion_one);
@@ -588,7 +588,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
                 }
 
-                else if (chosenInjury.equals("Fracture")){
+                else if (chosenInjury.equals("Fracture") || chosenInjury.equals("Baling Buto")){
                     if (imageNumber == 1){
                         imageview_back.setImageResource(R.drawable.ic_ip_fracture_one);
 
@@ -604,7 +604,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
                 }
 
-                else if (chosenInjury.equals("Concussion")){
+                else if (chosenInjury.equals("Concussion") || chosenInjury.equals("Untog")){
                     if (imageNumber == 1){
                         imageview_back.setImageResource(R.drawable.ic_ip_concussion_one_copy);
 
@@ -620,7 +620,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 //                    }
                 }
 
-                else if (chosenInjury.equals("Contusion")){
+                else if (chosenInjury.equals("Contusion") || chosenInjury.equals("Pasa")){
                     //Bawas isa
                     if (imageNumber == 1){
                         imageview_back.setImageResource(R.drawable.ic_ip_contusion_one_copy);
@@ -639,29 +639,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 //                    }
                 }
 
-                //Remove
-                else if (chosenInjury.equals("3rd Degree Burns")){
-                    if (imageNumber == 1){
-                        imageview_back.setImageResource(R.drawable.ic_ip_abrasion_one);
-
-//                        b= BitmapFactory.decodeResource(getResources(), R.drawable.abrasion_1);
-                    }
-
-                    else if (imageNumber == 2){
-                        imageview_back.setImageResource(R.drawable.ic_ip_abrasion_one);
-
-
-//                        b= BitmapFactory.decodeResource(getResources(), R.drawable.checkmark);
-                    }
-
-                    else if (imageNumber == 3){
-                        imageview_back.setImageResource(R.drawable.ic_ip_abrasion_one);
-
-//                        b= BitmapFactory.decodeResource(getResources(), R.drawable.ic_nearby);
-                    }
-                }
-
-                else if (chosenInjury.equals("Chemical Burns")){
+                else if (chosenInjury.equals("Chemical Burns") || chosenInjury.equals("Paso dulot ng kemikal")){
                     if (imageNumber == 1){
                         imageview_back.setImageResource(R.drawable.ic_ip_chemical_one_copy);
 
@@ -676,7 +654,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
                 }
 
-                else if (chosenInjury.equals("Thermal Burns")){
+                else if (chosenInjury.equals("Thermal Burns") || chosenInjury.equals("Paso")){
                     if (imageNumber == 1){
                         imageview_back.setImageResource(R.drawable.ic_ip_thermal_one_copy);
 
@@ -690,7 +668,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
                     }
                 }
 
-                else if (chosenInjury.equals("Insect Bites")){
+                else if (chosenInjury.equals("Insect Bites") || chosenInjury.equals("Kagat ng insekto")){
                     if (imageNumber == 1){
                         imageview_back.setImageResource(R.drawable.ic_ip_insect_one_copy);
 
@@ -712,7 +690,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
                 }
 
-                else if (chosenInjury.equals("Animal Bites")){
+                else if (chosenInjury.equals("Animal Bites") || chosenInjury.equals("Kagat ng hayop")){
                     if (imageNumber == 1){
                         imageview_back.setImageResource(R.drawable.ic_ip_animal_one_copy);
 
@@ -727,7 +705,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 //                    }
                 }
 
-                else if (chosenInjury.equals("Puncture(Slight Bleeding)")){
+                else if (chosenInjury.equals("Puncture(Slight Bleeding)") || chosenInjury.equals("Tusok(Hindi malubhang pagdurugo)")){
                     if (imageNumber == 1){
                         imageview_back.setImageResource(R.drawable.ic_ip_puncture_one_copy);
 
@@ -746,7 +724,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 //                    }
                 }
 
-                else  if (chosenInjury.equals("Puncture(Severe Bleeding)")){
+                else  if (chosenInjury.equals("Puncture(Severe Bleeding)") || chosenInjury.equals("Tusok(Malubhang pagdurugo)")){
                     if (imageNumber == 1){
                         imageview_back.setImageResource(R.drawable.ic_ip_puncture_one_copy);
 
@@ -763,7 +741,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 //                    }
                 }
 
-                else if (chosenInjury.equals("Laceration(Minor)")){
+                else if (chosenInjury.equals("Laceration(Minor)") || chosenInjury.equals("Hindi malubhang laslas")){
                     if (imageNumber == 1){
                         imageview_back.setImageResource(R.drawable.ic_ip_major_lac_one_copy);
 
@@ -780,7 +758,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 //                    }
                 }
 
-                else if (chosenInjury.equals("Laceration(Major)")){
+                else if (chosenInjury.equals("Laceration(Major)") || chosenInjury.equals("Malubhang Laslas")){
                     if (imageNumber == 1){
                         imageview_back.setImageResource(R.drawable.ic_ip_major_lac_one_copy);
 
