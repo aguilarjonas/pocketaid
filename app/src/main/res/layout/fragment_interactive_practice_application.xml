@@ -30,16 +30,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
+
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:id="@+id/imageview_back"
+                    />
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="250dp"
                     android:id="@+id/relativeLayout_Touch"
+                    android:src="@drawable/ic_puncture"
                     />
 
                 <TextView
                     android:id="@+id/triggerTextview"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:layout_marginTop="0dp"
                     android:keepScreenOn="false"
                     android:visibility="visible"
