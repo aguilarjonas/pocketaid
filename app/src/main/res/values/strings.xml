@@ -5,6 +5,12 @@
     <string name="nearby">Nearby Hospitals</string>
     <string name="practice">Interactive Practice</string>
     <string name="about">About</string>
+    <string name="setting">Setting</string>
+
+    <!-- PRACTICE NAV BAR ITEMS -->
+    <string name="material">Material Selection</string>
+    <string name="arrangement">Steps Arrangement</string>
+    <string name="application">Application</string>
 
     <!--NAV BAR STATUS? -->
     <string name="navigation_drawer_open">Open navigation drawer</string>

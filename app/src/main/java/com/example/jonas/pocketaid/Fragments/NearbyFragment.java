@@ -97,7 +97,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ((MainActivity)getActivity()).setActionBarTitle("Nearby Hospitals");
+        ((MainActivity)getActivity()).setActionBarTitle(getResources().getString(R.string.nearby));
 
         //unlocks menu bar or drawer
         ((MainActivity)getActivity()).resetActionBar(false, DrawerLayout.LOCK_MODE_UNLOCKED);

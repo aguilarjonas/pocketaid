@@ -53,7 +53,7 @@ public class InjuriesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ((MainActivity)getActivity()).setActionBarTitle("Injuries");
+        ((MainActivity)getActivity()).setActionBarTitle(getResources().getString(R.string.injuries));
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_injuries, container, false);
         ((MainActivity)getActivity()).resetActionBar(false, DrawerLayout.LOCK_MODE_UNLOCKED);
         ((MainActivity) getActivity()).hideOrShowFAB("show");

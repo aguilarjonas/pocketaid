@@ -5,6 +5,12 @@
     <string name="nearby">Malapit na mga Ospital</string>
     <string name="practice">Interaktibong Pagsasanay</string>
     <string name="about">Impormasyon</string>
+    <string name="setting">Setting</string>
+
+    <!-- PRACTICE NAV BAR ITEMS -->
+    <string name="material">Pagpili ng mga Material</string>
+    <string name="arrangement">Pag-saayos ng mga Hakbang</string>
+    <string name="application">Paggamit</string>
 
     <!--NAV BAR STATUS? -->
     <string name="navigation_drawer_open">Open navigation drawer</string>

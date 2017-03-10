@@ -27,7 +27,7 @@ public class AboutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ((MainActivity)getActivity()).setActionBarTitle("About");
+        ((MainActivity)getActivity()).setActionBarTitle(getResources().getString(R.string.about));
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_about, container, false);
 
         aboutText = (com.uncopt.android.widget.text.justify.JustifiedTextView) rootView.findViewById(R.id.about_disclaimer_body);

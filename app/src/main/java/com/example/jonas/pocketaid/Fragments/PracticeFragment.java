@@ -71,7 +71,7 @@ public class PracticeFragment extends Fragment {
         prefs.edit().putBoolean("isFirstRun", isFirstRun).commit();
 
         // Inflate the layout for this fragment
-        ((MainActivity)getActivity()).setActionBarTitle("Interactive Practice");
+        ((MainActivity)getActivity()).setActionBarTitle(getResources().getString(R.string.practice));
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_practice, container, false);
 
         //unlocks menu bar or drawer
