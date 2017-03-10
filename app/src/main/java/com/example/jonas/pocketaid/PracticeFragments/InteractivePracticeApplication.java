@@ -170,7 +170,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         material3.setOnTouchListener(this);
         buttonNext.setOnTouchListener(this);
     }
-    
+
     /*
         Function Name : setImagesForMaterials
         Function Description : This function will set the images chosen in the Interactive Practice
@@ -183,7 +183,6 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
-            tvTrigger.setBackgroundColor(Color.RED);
             int height = 150;
             int width = 150;
             tvTrigger.getLayoutParams().height = height;
