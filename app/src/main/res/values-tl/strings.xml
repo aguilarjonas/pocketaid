@@ -50,7 +50,7 @@
     </string-array>
 
     <!-- DISCLAIMER -->
-    <string name="disclaimer">"Hindi lahat ng mga paunang lunas na nakalagay dito sa aplikasyon ay maaaring gamitin ng lahat dahil sa mga kadahilanang tulad ng kasalukuyang kapaligiran, lokasyon, mga materyales na kinakailangan at ang kakayahan ng gumagamit ng aplikasyon. Ang mga gumawa o sino mang tumulong sa paggawa ng aplikasyon na ito ay walang pananagutan o responsibilidad sa anumang magiging resulta ng paggamit ng mga paunang lunas na nakasaad sa aplikasyon na ito."</string>
+    <string name="disclaimer">"Hindi lahat ng mga paunang lunas na nakasaad dito sa aplikasyon ay maaaring gamitin ng lahat dahil sa mga kadahilanang tulad ng kasalukuyang kapaligiran, lokasyon, mga materyales na kinakailangan at ang kakayahan ng gumagamit ng aplikasyon. Ang mga gumawa o sino mang tumulong sa paggawa ng aplikasyon na ito ay walang pananagutan o responsibilidad sa anumang magiging resulta ng paggamit ng mga paunang lunas na nakasaad sa aplikasyon na ito."</string>
 
     <!-- GROUP NAME -->
     <string name="grp_name">- FUNtastic FOUR</string>
@@ -400,7 +400,7 @@
 
     <string name="abrasion_cause">Ang karaniwang sanhi ng gasgas ay kapag ang balat ng tao ay kumadkad o kumayod sa magaspang na bagay o kaya naman ay kinamot nang kinamot.</string>
     <string name="laceration_cause">Ang karaniwang sanhi nito ay kapag ang balat ng tao ay nahiwa ng matalas o hindi matalas na bagay kagaya ng bato, nabasag na salamin, kutsilyo o gunting.</string>
-    <string name="burns_cause">Ang karaniwang sanhi nito ay kapag ang balat o anumang parte ng katawan ng tao ay dumikit sa apoy, mainit na tubig o kaya naman ay matagal na pagbilad sa araw.</string>
+    <string name="burns_cause">Ang karaniwang sanhi ng paso ay kapag ang balat o anumang parte ng katawan ng tao ay dumikit sa apoy, mainit na tubig o kaya naman ay matagal na pagbilad sa araw.</string>
     <string name="third_deg_burns_cause">Ang karaniwang sanhi nito ay kapag ang balat o anumang parte ng katawan ng tao ay matagal na nakadikit sa napakainit na bagay, sa apoy, o natapunan ng kumukulong tubig, nakuryente o kaya naman ay natapunan ng kemikal. </string>
     <string name="concussion_cause">Ang karaniwang sanhi ng untog ay pagiging malikot o di kaya naman ay nakipagaway, nalaglag o na-aksidente. Maaari rin itong mangyari sa paglalaro ng isports kagaya ng putbol, boksing at iba pa. </string>
     <string name="contusion_cause">Ang karaniwang sanhi ng pagkakaroon ng pasa ay kapag ang parte ng katawan ng tao ay nabugbog o nahampas nang malakas.</string>
