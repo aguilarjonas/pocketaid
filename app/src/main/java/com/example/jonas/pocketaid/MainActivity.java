@@ -23,7 +23,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.MediaController;
-import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.jonas.pocketaid.Fragments.AboutFragment;
@@ -207,7 +206,7 @@ public class MainActivity extends AppCompatActivity
         File myFile = new File(extStore.getAbsolutePath() + "/.VideoTutorials/", injuryType + ".mp4");
 
         if (myFile.exists()) {
-            Toast.makeText(getApplicationContext(), "Merong File", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "Merong File", Toast.LENGTH_SHORT).show();
             videoView.setVideoPath(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath() +
                     "/.VideoTutorials/" + injuryType + ".mp4");
             MediaController vidControl = new MediaController(this);
@@ -219,7 +218,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         else {
-            Toast.makeText(getApplicationContext(), "Walang File", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(), "Walang File", Toast.LENGTH_SHORT).show();
             videoView.setVisibility(View.GONE);
             youTubePlayerSupportFragment.initialize(getResources().getString(R.string.youtube_api_key), new YouTubePlayer.OnInitializedListener() {
                 @Override

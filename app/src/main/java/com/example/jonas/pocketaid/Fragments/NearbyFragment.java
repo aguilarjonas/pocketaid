@@ -194,7 +194,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
                 if (isLocationServiceEnabled() == false){
                     //Toast.makeText(getActivity().getApplicationContext(),"No location", Toast.LENGTH_LONG).show();
-                    snackbar = Snackbar.make(getView(), "No location service", Snackbar.LENGTH_INDEFINITE);
+                    snackbar = Snackbar.make(getView(), "No Location Service", Snackbar.LENGTH_INDEFINITE);
                     snackbar.setAction("Retry", new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -216,7 +216,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
             }
 
             if (isConnectedToNetwork(getContext()) == false && isLocationServiceEnabled() == false) {
-                snackbar = Snackbar.make(getView(), "No internet connection and location service.", Snackbar.LENGTH_INDEFINITE);
+                snackbar = Snackbar.make(getView(), "No Internet Connection and Location Service", Snackbar.LENGTH_INDEFINITE);
                 snackbar.setAction("Retry", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -231,9 +231,27 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 })
                         .show();
             }
-        } catch (NullPointerException e){
-            Toast.makeText(getActivity().getApplicationContext(),"No location211", Toast.LENGTH_LONG).show();
 
+            if(!isConnectedToNetwork(getContext())) {
+                snackbar = Snackbar.make(getView(), "No Internet Connection", Snackbar.LENGTH_INDEFINITE);
+                snackbar.setAction("Retry", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getActivity().getSupportFragmentManager().popBackStack();
+                        NearbyFragment nearbyFragment = new NearbyFragment();
+                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                        fragmentTransaction.add(nearbyFragment, "Nearby")
+                                .replace(R.id.fragment_container, nearbyFragment)
+                                .addToBackStack("Nearby")
+                                .commit();
+                    }
+                })
+                        .show();
+            }
+
+        } catch (NullPointerException e){
+            e.printStackTrace();
+            Toast.makeText(getActivity().getApplicationContext(),"Sorry! Something went wrong.", Toast.LENGTH_LONG).show();
         }
         
     }
@@ -570,7 +588,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         if (isLocationServiceEnabled()){
            if (isConnectedToNetwork(getContext()) == false){
 //                Toast.makeText(getActivity().getApplicationContext(),"No internetasda connection", Toast.LENGTH_LONG).show();
-               Snackbar.make(getView(), "No internet connection", Snackbar.LENGTH_INDEFINITE)
+               Snackbar.make(getView(), "No Internet Connection", Snackbar.LENGTH_INDEFINITE)
                        .setAction("Retry", new View.OnClickListener() {
                            @Override
                            public void onClick(View v) {
@@ -631,7 +649,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 } else {
 
                     // Permission denied, Disable the functionality that depends on this permission.
-                    Toast.makeText(getActivity().getApplicationContext(), "permission denied", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity().getApplicationContext(), "Permission was Denied", Toast.LENGTH_LONG).show();
                 }
                 return;
             }

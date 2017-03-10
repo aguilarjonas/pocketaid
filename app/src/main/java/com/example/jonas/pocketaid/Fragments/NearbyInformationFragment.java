@@ -449,7 +449,7 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
                 hospitalCallButton. setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(getActivity().getApplicationContext(),"No phone number available", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity().getApplicationContext(),"No Phone Number Available", Toast.LENGTH_LONG).show();
 
                     }
                 });
@@ -585,7 +585,7 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
                 mMap.addPolyline(lineOptions);
             }
             catch (NullPointerException e){
-                Toast.makeText(getActivity().getApplicationContext(), "No internet connection.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getApplicationContext(), "No Internet Connection.", Toast.LENGTH_LONG).show();
             }
 
             progressDialog.dismiss();

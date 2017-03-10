@@ -3,12 +3,10 @@ package com.example.jonas.pocketaid.Fragments;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.SearchView;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +20,7 @@ import com.example.jonas.pocketaid.Adapters.InjuryListAdapter;
 import com.example.jonas.pocketaid.Adapters.InjuryTabLayout;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
+
 import java.util.ArrayList;
 
 
@@ -123,21 +122,21 @@ public class InjuriesFragment extends Fragment {
                 TextView injuryName = (TextView) view.findViewById(R.id.injury_name);
                 String injuryInString = injuryName.getText().toString().toLowerCase();
                 if(injuryInString.equals(getResources().getString(R.string.abrasion).toLowerCase())) {
-                    setInjuryTabLayout("Abrasion");
+                    setInjuryTabLayout(getResources().getString(R.string.abrasion));
                 } else if(injuryInString.equals(getResources().getString(R.string.bites).toLowerCase())) {
-                    setInjuryTabLayout("Bites");
+                    setInjuryTabLayout(getResources().getString(R.string.bites));
                 } else if(injuryInString.equals(getResources().getString(R.string.burns_list).toLowerCase())) {
-                    setInjuryTabLayout("Burns");
+                    setInjuryTabLayout(getResources().getString(R.string.burns_list));
                 } else if(injuryInString.equals(getResources().getString(R.string.concussion).toLowerCase())) {
-                    setInjuryTabLayout("Concussion");
+                    setInjuryTabLayout(getResources().getString(R.string.concussion));
                 } else if(injuryInString.equals(getResources().getString(R.string.contusion).toLowerCase())) {
-                    setInjuryTabLayout("Contusion");
+                    setInjuryTabLayout(getResources().getString(R.string.contusion));
                 } else if(injuryInString.equals(getResources().getString(R.string.fracture).toLowerCase())) {
-                    setInjuryTabLayout("Fracture");
+                    setInjuryTabLayout(getResources().getString(R.string.fracture));
                 } else if(injuryInString.equals(getResources().getString(R.string.laceration).toLowerCase())) {
-                    setInjuryTabLayout("Laceration");
+                    setInjuryTabLayout(getResources().getString(R.string.laceration));
                 } else if(injuryInString.equals(getResources().getString(R.string.puncture).toLowerCase())) {
-                    setInjuryTabLayout("Puncture");
+                    setInjuryTabLayout(getResources().getString(R.string.puncture));
                 }
             }
         });

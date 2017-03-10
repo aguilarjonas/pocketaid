@@ -20,7 +20,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.jonas.pocketaid.InteractiveModules.InteractiveModel;
 import com.example.jonas.pocketaid.MainActivity;
@@ -346,7 +345,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             case R.id.triggerTextview:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG SUGAT", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG SUGAT", Toast.LENGTH_SHORT).show();
                         Log.e("SUGAT:", "ANDITO AKO SA SUGAT");
                         hasClickTrigger = true;
 
@@ -395,7 +394,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             case R.id.iv_application_material1:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
                         if (whichMaterial.get(0) == 0 && justStarted == true){
                             whichMaterial.set(0, 0);
                             whichMaterial.set(1, 1);
@@ -409,7 +408,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             case R.id.iv_application_material2:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                       Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
+//                       Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
                         if (whichMaterial.get(1) == 1 && whatsNext == 2){
                             whichMaterial.set(0, 0);
                             whichMaterial.set(1, 2);
@@ -423,7 +422,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             case R.id.iv_application_material3:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
                         if (whichMaterial.get(1) == 2 && whatsNext == 3){
                             whichMaterial.set(0, 0);
                             whichMaterial.set(1, 3);
@@ -436,7 +435,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             case R.id.button_next_application:
                 switch(event.getAction()){
                     case MotionEvent.ACTION_DOWN:
-                       Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
+//                       Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG GAMIT", Toast.LENGTH_SHORT).show();
                         DisplayScoreFragment displayScoreFragment = new DisplayScoreFragment();
                         FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();
                         fragmentTransaction.add(displayScoreFragment, "displayScoreFragment")
@@ -788,7 +787,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
                     numberOfTries++;
                     point.x = event.getX();
                     point.y = event.getY();
-                    Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG PICTURE", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getActivity().getApplicationContext(), "PININDOT MO YUNG PICTURE", Toast.LENGTH_SHORT).show();
                     Log.e("PICTURE:", "ANDITO AKO SA PICTURE");
 
                     if (hasClickTrigger == true && changeImage == true){

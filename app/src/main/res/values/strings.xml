@@ -211,14 +211,14 @@
     <!-- ABRASION: RECOMMENDED -->
     <string-array name="abrasion_recommended">
         <item>"Wash the affected area with water and anti-bacterial soap."</item>
-        <item>"Apply povidone-iodine solution or spray on the wound."</item>
+        <item>"Apply povidone-iodine (Betadine) solution or spray on the wound."</item>
         <item>"Cover the affected area with gauze or band-aid."</item>
         <item>"Repeat daily until fully healed."</item>
     </string-array>
     <!-- ABRASION: ALTERNATIVE -->
     <string-array name="abrasion_alternative">
         <item>"Boil the guava leaves in water and use it as a rinse to the affected area."</item>
-        <item>"Apply povidone-iodine solution or spray on the wound."</item>
+        <item>"Apply povidone-iodine (Betadine) solution or spray on the wound."</item>
         <item>"Cover the affected area with gauze or clean handkerchief."</item>
         <item>"Repeat daily until fully healed."</item>
     </string-array>
@@ -564,4 +564,19 @@
         <item>Laceration</item>
         <item>Puncture</item>
     </string-array>
+
+    <!-- TAB TITLES -->
+    <string name="overview_tab">"OVERVIEW"</string>
+    <string name="abrasion_tab">"ABRASION"</string>
+    <string name="animal_tab">"ANIMAL"</string>
+    <string name="insect_tab">"INSECT"</string>
+    <string name="first_second_degree_tab">"1st &amp; 2nd DEGREE"</string>
+    <string name="third_degree_tab">"3rd DEGREE"</string>
+    <string name="concussion_tab">"CONCUSSION"</string>
+    <string name="contusion_tab">"CONTUSION"</string>
+    <string name="fracture_tab">"FRACTURE"</string>
+    <string name="major_laceration_tab">"MAJOR"</string>
+    <string name="minor_laceration_tab">"MINOR"</string>
+    <string name="severe_puncture_tab">"SEVERE"</string>
+    <string name="slight_puncture_tab">"SLIGHT"</string>
 </resources>

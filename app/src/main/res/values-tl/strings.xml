@@ -15,7 +15,7 @@
     <!-- INJURIES -->
     <string name="injury_search"><font size="14">Maghanap ng injuri</font></string>
     <string name="abrasion">Gasgas</string>
-    <string name="bites">Kagat ng hayop/insekto</string>
+    <string name="bites">Kagat ng Hayop o Insekto</string>
     <string name="burns_list">Paso</string>
     <string name="concussion">Untog</string>
     <string name="contusion">Pasa</string>
@@ -199,16 +199,16 @@
     <!-- ABRASION: RECOMMENDED -->
     <string-array name="abrasion_recommended">
         <item>"Hugasan ang sugat gamit ang tubig at anti-bacterial na sabon."</item>
-        <item>"Lagyan ng Betadine Solution o Spray ang sugat."</item>
+        <item>"Lagyan ng povidone-iodine (Betadine) Solution o Spray ang sugat."</item>
         <item>"Takpan ang sugat ng gasa o band-aid."</item>
-        <item>"Ulitin araw-araw hanggang sa ganap gumagaling ang sugat."</item>
+        <item>"Ulitin araw-araw hanggang sa ganap na gumaling ang sugat."</item>
     </string-array>
     <!-- ABRASION: ALTERNATIVE -->
     <string-array name="abrasion_alternative">
         <item>"Magpakulo ng dahon ng bayabas sa tubig at ibanlaw ito sa sugat."</item>
-        <item>"Lagyan ng Betadine Solution o Spray ang sugat."</item>
+        <item>"Lagyan ng povidone-iodine (Betadine) Solution o Spray ang sugat."</item>
         <item>"Takpan ang sugat ng gasa o band-aid."</item>
-        <item>"Ulitin araw-araw hanggang sa ganap na gumagaling ang sugat."</item>
+        <item>"Ulitin araw-araw hanggang sa ganap na gumaling ang sugat."</item>
     </string-array>
 
     <!-- BITES -->
@@ -352,7 +352,7 @@
         <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig."</item>
         <item>"Magsuot ng guwantes."</item>
         <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
-        <item>"Marahang diinan ang sugat upang makontrol pagdurugo kung mayroon man."</item>
+        <item>"Marahang diinan ang sugat upang makontrol ang pagdurugo kung mayroon man."</item>
         <item>"Pahiran ng antiseptic o antibiotic cream ang sugat kung walang alerji ang tao sa ganitong uri ng gamot."</item>
         <item>"Takpan ang sugat ng gasa upang maiwasan ang impeksiyon."</item>
     </string-array>
@@ -400,19 +400,19 @@
 
     <string name="abrasion_cause">Ang karaniwang sanhi ng gasgas ay kapag ang balat ng tao ay kumadkad o kumayod sa magaspang na bagay o kaya naman ay kinamot nang kinamot.</string>
     <string name="laceration_cause">Ang karaniwang sanhi nito ay kapag ang balat ng tao ay nahiwa ng matalas o hindi matalas na bagay kagaya ng bato, nabasag na salamin, kutsilyo o gunting.</string>
-    <string name="burns_cause">Ang karaniwang sanhi ng paso ay kapag ang balat o anumang parte ng katawan ng tao ay dumikit sa apoy, mainit na tubig o kaya naman ay matagal na pagbilad sa araw.</string>
-    <string name="third_deg_burns_cause">Ang karaniwang sanhi nito ay kapag ang balat o anumang parte ng katawan ng tao ay matagal na nakadikit sa napakainit na bagay, sa apoy, o natapunan ng kumukulong tubig, nakuryente o kaya naman ay natapunan ng kemikal. </string>
-    <string name="concussion_cause">Ang karaniwang sanhi ng untog ay pagiging malikot o di kaya naman ay nakipagaway, nalaglag o na-aksidente. Maaari rin itong mangyari sa paglalaro ng isports kagaya ng putbol, boksing at iba pa. </string>
+    <string name="burns_cause">Ang karaniwang sanhi ng 1st at 2nd degree burn ay kapag ang balat o anumang parte ng katawan ng tao ay dumikit sa apoy, mainit na tubig, o kaya naman ay matagal na pagbilad sa araw.</string>
+    <string name="third_deg_burns_cause">Samantala, ang karaniwang sanhi ng 3rd degree burn ay kapag ang balat o anumang parte ng katawan ng tao ay matagal na nakadikit sa napakainit na bagay o sa apoy, natapunan ng kumukulong tubig, nakuryente, o kaya naman ay natapunan ng kemikal.</string>
+    <string name="concussion_cause">Ang karaniwang sanhi ng untog ay pagiging malikot, nakipagaway, nalaglag o aksidente. Maaari rin itong mangyari sa paglalaro ng isports kagaya ng putbol, boksing at iba pa. </string>
     <string name="contusion_cause">Ang karaniwang sanhi ng pagkakaroon ng pasa ay kapag ang parte ng katawan ng tao ay nabugbog o nahampas nang malakas.</string>
     <string name="fracture_cause">Ang karaniwang sanhi nito ay kapag ang tao ay nalaglag o kaya naman ay naaksidente na nagdudulot ng malakas na puwersa sa buto upang maging sanhi ng pagkabali nito.</string>
     <string name="puncture_cause">Ang karaniwang sanhi nito ay kapag ang parte ng katawan ng tao ay natusok o nasaksak ng matulis na bagay kagaya ng lapis, pako o stik.</string>
     <string name="insect_bites_cause">Ang karaniwang sanhi ng mga kagat ng insekto ay kapag ang bata ay nakatira o malapit sa madamo o makahoy o maruming kapaligiran.</string>
-    <string name="animal_bites_cause">Pusa at aso ang mga hayop na karaniwang nakakakagat sa bata. Ang mga bata na nakatira o malapit sa lugar na may mga hayop ay mas mataas na tsansa na makagat ng mga ito.</string>
+    <string name="animal_bites_cause">Samantala, ang mga aso at pusa naman ang karaniwang mga hayop na nakakakagat sa bata. Ang mga bata na nakatira o malapit sa lugar na may mga hayop ay may mas mataas na tsansa na makagat ng mga ito.</string>
 
     <!-- NOTES OR PRECAUTIONS -->
 
     <string-array name="abrasion_notes">
-        <item>Huwag takpan ng gasa o benda ang maruming sugat. Kung hindi mo ito kayang linisin, lagyan ito ng manipis at malinis na gasa and magpunta kaagad sa pinakamalapit na pagamutan.</item>
+        <item>Huwag takpan ng gasa o benda ang maruming sugat. Kung hindi mo ito kayang linisin, lagyan ito ng manipis at malinis na gasa magpunta kaagad sa pinakamalapit na pagamutan.</item>
         <item>""</item>
         <item>Humingi ng tulong o magpunta kaagad sa ospital kapag ang sugat ay kasing haba o mas mahaba sa kalahating pulgada, may malubhang pagdurugo, nakalitaw at hindi nagdidikit na balat. Ang ganitong uri ng sugat ay kinakailangang tahiin.</item>
         <item>""</item>
@@ -458,13 +458,13 @@
     </string-array>
 
     <string-array name="concussion_notes">
-        <item>Marahan lamang diinan ang bukol gamit ang ice bag o yelong binalot sa damit. Huwag idikit ng direkta ang yelo sa balat o naumpog na parte.</item>
+        <item>Marahan lamang diinan ang bukol gamit ang ice bag o yelong binalot sa damit. Huwag idikit ng direkta ang yelo sa balat o nauntog na parte.</item>
         <item>""</item>
         <item>""</item>
     </string-array>
 
     <string-array name="contusion_notes">
-        <item>Huwag idikit ng direkta ang yelo sa balat o naumpog na parte, sa halip gumamit ng ice bag o kaya naman ay balutin ang yelo sa malinis na damit.</item>
+        <item>Huwag idikit ng direkta ang yelo sa balat o nauntog na parte, sa halip gumamit ng ice bag o kaya naman ay balutin ang yelo sa malinis na damit.</item>
     	<item>""</item>
         <item>""</item>
         <item>""</item>
@@ -561,5 +561,18 @@
     <string name="arrangement_steps">"Isaayos ang pagkakasunod-sunod ng mga paunang lunas ayon sa "</string>
     <string name="application_steps">"Piliin ang materyal at pindutin kung saan ito dapat ilagay."</string>
 
-
+    <!-- TAB TITLES -->
+    <string name="overview_tab">"OVERVIEW"</string>
+    <string name="abrasion_tab">"GASGAS"</string>
+    <string name="animal_tab">"HAYOP"</string>
+    <string name="insect_tab">"INSEKTO"</string>
+    <string name="first_second_degree_tab">"1st &amp; 2nd DEGREE"</string>
+    <string name="third_degree_tab">"3rd DEGREE"</string>
+    <string name="concussion_tab">"UNTOG"</string>
+    <string name="contusion_tab">"PASA"</string>
+    <string name="fracture_tab">"BALING BUTO"</string>
+    <string name="major_laceration_tab">"MALUBHA"</string>
+    <string name="minor_laceration_tab">"HINDI MALUBHA"</string>
+    <string name="severe_puncture_tab">"MALUBHA"</string>
+    <string name="slight_puncture_tab">"HINDI MALUBHA"</string>
 </resources>

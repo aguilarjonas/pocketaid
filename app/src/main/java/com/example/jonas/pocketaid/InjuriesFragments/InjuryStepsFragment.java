@@ -149,7 +149,7 @@ public class InjuryStepsFragment extends Fragment {
                     } else if(position == 1){
                         notes = getResources().getStringArray(R.array.burns_thermal_notes);
                         steps = getResources().getStringArray(R.array.burns_thermal_alternative);
-                        imgSteps = new int[] { 0, 0, 0 };
+                        imgSteps = new int[] { 0, 0, R.drawable.ic_steps_wash_hands };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("thirddegree")) {
@@ -161,14 +161,14 @@ public class InjuryStepsFragment extends Fragment {
                     } else if(position == 1){
                         notes = getResources().getStringArray(R.array.burns_third_notes);
                         steps = getResources().getStringArray(R.array.burns_third_alternative);
-                        imgSteps = new int[] { 0, 0, 0, 0, 0 };
+                        imgSteps = new int[] { 0, 0, R.drawable.ic_steps_apply_gauze, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("concussion")) {
                     if(position == 0) {
                         notes = getResources().getStringArray(R.array.concussion_notes);
                         steps = getResources().getStringArray(R.array.concussion_recommended);
-                        imgSteps = new int[] { R.drawable.ic_steps_applycoldpack, 0, 0 };
+                        imgSteps = new int[] { R.drawable.ic_ip_concussion_two, 0, 0 };
                         setInjuryStepAdapter(steps, imgSteps, notes, recyclerView);
                     }
                 } else if(injury.toLowerCase().equals("contusion")) {

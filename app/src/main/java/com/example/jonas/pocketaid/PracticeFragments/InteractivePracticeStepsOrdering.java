@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.jonas.pocketaid.Adapters.DialogPractice;
 import com.example.jonas.pocketaid.Adapters.PracticeItemAdapter;
@@ -562,11 +561,11 @@ public class InteractivePracticeStepsOrdering extends Fragment {
             }
             @Override
             public void onItemDragEnded(int fromPosition, int toPosition) {
-                    if (Long.valueOf(toPosition).equals((Long)(mItemArray.get(toPosition).first))) {
-                        Toast.makeText(mDragListView.getContext(), "Correct position", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(mDragListView.getContext(), "Incorrect position", Toast.LENGTH_SHORT).show();
-                }
+//                if (Long.valueOf(toPosition).equals((Long)(mItemArray.get(toPosition).first))) {
+//                    Toast.makeText(mDragListView.getContext(), "Correct position", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(mDragListView.getContext(), "Incorrect position", Toast.LENGTH_SHORT).show();
+//                }
             }
         });
         setupListRecyclerView();
