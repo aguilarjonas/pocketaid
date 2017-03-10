@@ -215,39 +215,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
             }
 
-            if (isConnectedToNetwork(getContext()) == false && isLocationServiceEnabled() == false) {
-                snackbar = Snackbar.make(getView(), "No Internet Connection and Location Service", Snackbar.LENGTH_INDEFINITE);
-                snackbar.setAction("Retry", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        getActivity().getSupportFragmentManager().popBackStack();
-                        NearbyFragment nearbyFragment = new NearbyFragment();
-                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                        fragmentTransaction.add(nearbyFragment, "Nearby")
-                                .replace(R.id.fragment_container, nearbyFragment)
-                                .addToBackStack("Nearby")
-                                .commit();
-                    }
-                })
-                        .show();
-            }
 
-            if(!isConnectedToNetwork(getContext())) {
-                snackbar = Snackbar.make(getView(), "No Internet Connection", Snackbar.LENGTH_INDEFINITE);
-                snackbar.setAction("Retry", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        getActivity().getSupportFragmentManager().popBackStack();
-                        NearbyFragment nearbyFragment = new NearbyFragment();
-                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                        fragmentTransaction.add(nearbyFragment, "Nearby")
-                                .replace(R.id.fragment_container, nearbyFragment)
-                                .addToBackStack("Nearby")
-                                .commit();
-                    }
-                })
-                        .show();
-            }
 
         } catch (NullPointerException e){
             e.printStackTrace();
@@ -441,6 +409,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     public void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
+        snackbar.dismiss();
     }
 
     @Override
@@ -559,6 +528,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     public void onLocationChanged(Location location) {
         Log.d("onLocationChanged", "entered");
 
+
+
+
         mLastLocation = location;
         if (mCurrLocationMarker != null) {
             mCurrLocationMarker.remove();
@@ -583,18 +555,19 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
         if (isLocationServiceEnabled()){
            if (isConnectedToNetwork(getContext()) == false){
-//                Toast.makeText(getActivity().getApplicationContext(),"No internetasda connection", Toast.LENGTH_LONG).show();
-               Snackbar.make(getView(), "No Internet Connection", Snackbar.LENGTH_INDEFINITE)
-                       .setAction("Retry", new View.OnClickListener() {
-                           @Override
-                           public void onClick(View v) {
-                               Fragment nearbyFragment = getFragmentManager().findFragmentByTag("Nearby");
-                               FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                               fragmentTransaction.detach(nearbyFragment);
-                               fragmentTransaction.attach(nearbyFragment);
-                               fragmentTransaction.commit();
-                           }
-                       })
+               snackbar = Snackbar.make(getView(), "No Internet Connection", Snackbar.LENGTH_INDEFINITE);
+               snackbar.setAction("Retry", new View.OnClickListener() {
+                   @Override
+                   public void onClick(View v) {
+                       getActivity().getSupportFragmentManager().popBackStack();
+                       NearbyFragment nearbyFragment = new NearbyFragment();
+                       FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                       fragmentTransaction.add(nearbyFragment, "Nearby")
+                               .replace(R.id.fragment_container, nearbyFragment)
+                               .addToBackStack("Nearby")
+                               .commit();
+                   }
+               })
                        .show();
             }
 

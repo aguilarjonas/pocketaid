@@ -192,8 +192,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
             tvTrigger.setRotation(340);
-            int height = 70;
-            int width = 250;
+            int height = 90;
+            int width = 280;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
 
@@ -201,15 +201,16 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
 
         else if (chosenInjury.equals("Contusion") || chosenInjury.equals("Pasa")){
             material1.setImageResource(correctMaterials.get(0));
-            tvTrigger.setRotation(310);
-            int height = 75;
-            int width = 320;
+            tvTrigger.setRotation(325);
+            int height = 115;
+            int width = 350;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
         }
 
         else if (chosenInjury.equals("Concussion") || chosenInjury.equals("Untog")){
             material1.setImageResource(correctMaterials.get(0));
+
         }
 
         else if (chosenInjury.equals("Chemical Burns") || chosenInjury.equalsIgnoreCase("Paso dulot ng kemikal")){
@@ -217,7 +218,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material2.setImageResource(correctMaterials.get(1));
             tvTrigger.setRotation(330);
             int height = 130;
-            int width = 220;
+            int width = 235;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
         }
@@ -226,8 +227,8 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             tvTrigger.setRotation(323);
-            int height = 150;
-            int width = 350;
+            int height = 10;
+            int width = 370;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
         }
