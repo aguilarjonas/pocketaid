@@ -563,7 +563,6 @@ public class NearbyInformationFragment extends Fragment implements GoogleApiClie
                         //To instantiate only once.
                         if (j == 0){
                             distance = point.get("distance");
-                            Log.d("DISTANCEEEEEe", distance);
                         }
 
                         LatLng position = new LatLng(lat, lng);

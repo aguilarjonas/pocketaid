@@ -35,7 +35,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
     ImageView imageView_5;
     ImageView imageView_6;
 
-    FrameLayout frameLayout_1;
     ImageView imageView_1_check;
     ImageView imageView_2_check;
     ImageView imageView_3_check;
@@ -62,14 +61,13 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
     InteractiveModel interModel;
 
     int getMaterialNumber = 0;
-    int counter = 0 ;
-    ArrayList<Integer> materialStorage = new ArrayList<Integer>();;
-    ArrayList<Integer> usedImageStorage = new ArrayList<Integer>();;
-    ArrayList<Integer> imagesWithMaterials = new ArrayList<Integer>();;
-
-
-
-
+    int counter = 0;
+    ArrayList<Integer> materialStorage = new ArrayList<Integer>();
+    ;
+    ArrayList<Integer> usedImageStorage = new ArrayList<Integer>();
+    ;
+    ArrayList<Integer> imagesWithMaterials = new ArrayList<Integer>();
+    ;
 
     final ArrayList<ArrayList<String>> categoryAnswer = new ArrayList<ArrayList<String>>();
     Button nextButton;
@@ -83,7 +81,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                              final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final String CHOSEN_PRACTICE = getArguments().getString("chosenPractice");
-        //changes menu button to Up or Back button
+        //Changes menu button to Up or Back button
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         rootView = (ViewGroup) inflater.inflate(R.layout.fragment_interactive_practice_materials, container, false);
@@ -91,15 +89,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         resetValues();
 
         setImages(rootView);
-//        setImageOnClicks();
         chosenPracticeChooser(CHOSEN_PRACTICE);
 
-
-        nextButton.setOnClickListener( new View.OnClickListener() {
+        nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkAnswers(answerRandomized, materialNumber, answersUser) == false){
-//                    Toast.makeText(getActivity().getApplicationContext(), "Wrong Answer! Try Again", Toast.LENGTH_SHORT).show();
+                if (checkAnswers(answerRandomized, materialNumber, answersUser) == false) {
                     showDialog(getString(R.string.wrong));
                     setChecksAsInvisible();
                     answersUser.clear();
@@ -110,9 +105,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     showDialog(getString(R.string.correct));
                     numberOfTries++;
                     numberOfCorrect++;
-                    Log.e("Correct", numberOfCorrect + " ");
-                    Log.e("Error", numberOfError + " " );
-                    Log.e("Tries", numberOfTries + " " );
 
                     moveToListFragment();
                 }
@@ -121,7 +113,14 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         return rootView;
     }
 
-    public void resetValues(){
+     /*
+        Function Name : resetValues
+        Function Description : This function will be called if the user tried to go back or
+                               on the first call of this fragment.
+        Function Developer : Raeven Bauto
+     */
+
+    public void resetValues() {
 
         getMaterialNumber = 0;
         counter = 0;
@@ -131,34 +130,13 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
     }
 
-    public void showDialog(String correctOrNot) {
-        DialogPractice dialogPractice = new DialogPractice();
-        dialogPractice.showDialog(getActivity(), correctOrNot);
-    }
+     /*
+        Function Name : setImages
+        Function Description : This function will initialize the View elements in the XML.
+        Function Developer : Raeven Bauto
+     */
 
-    public void moveToListFragment() {
-        InteractivePracticeStepsOrdering listFrag = new InteractivePracticeStepsOrdering();
-        Bundle args = new Bundle();
-        args.putString("chosenInjury", injuryType);
-
-        InteractiveModel interModel = InteractiveModel.getInstance();
-        interModel.setNumberOfTries(numberOfTries);
-        interModel.setNumberOfError(numberOfError);
-        interModel.setNumberOfCorrect(numberOfCorrect);
-        interModel.assignFirstStageStats(numberOfCorrect, numberOfError, numberOfTries);
-
-
-        listFrag.setArguments(args);
-
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.add(listFrag, "listFrag")
-                .replace(R.id.fragment_container, listFrag)
-                .addToBackStack("listFrag")
-                .commit();
-    }
-
-
-    public void setImages(ViewGroup rootView){
+    public void setImages(ViewGroup rootView) {
         imageView_1 = (ImageView) rootView.findViewById(R.id.imageView_pic1);
         imageView_2 = (ImageView) rootView.findViewById(R.id.imageView_pic2);
         imageView_3 = (ImageView) rootView.findViewById(R.id.imageView_pic3);
@@ -181,125 +159,15 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         imageView_6.setOnClickListener(this);
 
         instruction = (TextView) rootView.findViewById(R.id.material_instruction);
-        nextButton =  (Button) rootView.findViewById(R.id.button_practice_next);
+        nextButton = (Button) rootView.findViewById(R.id.button_practice_next);
     }
 
-    @Override
-    public void onClick(View v) {
-
-        switch(v.getId()){
-
-            case R.id.imageView_pic1:
-                if (imageView_1_check.getVisibility() == View.VISIBLE){
-                    imageView_1_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove(Integer.valueOf(1));
-                }
-
-                else if (imageView_1_check.getVisibility() == View.INVISIBLE){
-                    imageView_1_check.setVisibility(View.VISIBLE);
-                    answersUser.add(1);
-                }
-                break;
-
-            case R.id.imageView_pic2:
-                if (imageView_2_check.getVisibility() == View.VISIBLE){
-                    imageView_2_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove(Integer.valueOf(2));
-
-                }
-
-                else if (imageView_2_check.getVisibility() == View.INVISIBLE){
-                    imageView_2_check.setVisibility(View.VISIBLE);
-                    answersUser.add(2);
-                }
-                break;
-
-            case R.id.imageView_pic3:
-                if (imageView_3_check.getVisibility() == View.VISIBLE){
-                    imageView_3_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove(Integer.valueOf(3));
-                }
-
-                else if (imageView_3_check.getVisibility() == View.INVISIBLE){
-                    imageView_3_check.setVisibility(View.VISIBLE);
-                    answersUser.add(3);
-                }
-                break;
-
-            case R.id.imageView_pic4:
-                if (imageView_4_check.getVisibility() == View.VISIBLE){
-                    imageView_4_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove(Integer.valueOf(4));
-                }
-
-                else if (imageView_4_check.getVisibility() == View.INVISIBLE){
-                    imageView_4_check.setVisibility(View.VISIBLE);
-                    answersUser.add(4);
-                }
-                break;
-
-            case R.id.imageView_pic5:
-                if (imageView_5_check.getVisibility() == View.VISIBLE){
-                    imageView_5_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove(Integer.valueOf(5));
-                }
-
-                else if (imageView_5_check.getVisibility() == View.INVISIBLE){
-                    imageView_5_check.setVisibility(View.VISIBLE);
-                    answersUser.add(5);
-                }
-                break;
-
-            case R.id.imageView_pic6:
-                if (imageView_6_check.getVisibility() == View.VISIBLE) {
-                    imageView_6_check.setVisibility(View.INVISIBLE);
-                    answersUser.remove(Integer.valueOf(6));
-                } else if (imageView_6_check.getVisibility() == View.INVISIBLE) {
-                    imageView_6_check.setVisibility(View.VISIBLE);
-                    answersUser.add(6);
-                }
-                break;
-        }
-    }
-
-    public boolean checkAnswers(ArrayList<Integer> answerSheet, int materialNumber,
-                    ArrayList<Integer> answersUser){
-
-        boolean isAllCorrect = false;
-        int numberOfCorrect = 0;
-        int numberOfIncorrect = 0;
-        int numberOfLoops = 0;
-
-
-        if (answersUser.size() != materialNumber){
-            isAllCorrect = false;
-        }
-
-        else {
-            for (int i = 0; i < materialNumber; i++) {
-                for (int j = 0; j < answersUser.size(); j++) {
-
-                    if (answerSheet.get(i) == answersUser.get(j)){
-                        numberOfCorrect++;
-                    }
-
-                    else{
-                        numberOfIncorrect++;
-                    }
-
-                }
-            }//End of 1st For Loop
-
-            int testHolder = answerSheet.size();
-
-
-            if (numberOfCorrect == materialNumber ){
-                isAllCorrect = true;
-            } else
-                isAllCorrect = false;
-        }
-        return isAllCorrect;
-    }
+     /*
+        Function Name : chosenPracticeChooser
+        Function Description : This function will check what injury did the user select.
+                               To prepare the correct materials for the first aid.
+        Function Developer : Raeven Bauto
+     */
 
     public void chosenPracticeChooser(String chosenPractice) {
 
@@ -409,11 +277,228 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 //            punctureSlightPractice(chosenPractice);
 //        }
 
-            instruction.append(injuryType + ".");
+        instruction.append(injuryType + ".");
+    }
+
+     /*
+        Function Name : abrasionPractice
+        Function Description : This function will add the correct materials from the
+                               chosenInjury.
+        Function Developer : Raeven Bauto
+     */
+
+    public void abrasionPractice(String injuryType) {
+        //Soap & Water, Betadine, Gauze/Bandaid
+        setChecksAsInvisible();
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_betadine);
+        correctMaterials.add(R.drawable.ic_material_gauze); //Change to gauze
+
+        materialNumber = 3;
+        interModel.setNumberOfMaterials(materialNumber);
+
+        setImagesRandomly(materialNumber);
+    }
+
+    /*
+      Function Name : animalBitesPractice
+      Function Description : This function will add the correct materials from the
+                             chosenInjury.
+      Function Developer : Raeven Bauto
+   */
+    public void animalBitesPractice(String injuryType) {
+        //Clean Gauze
+        setChecksAsInvisible();
+        correctMaterials.add(R.drawable.ic_material_gauze);
+
+        materialNumber = 1;
+        interModel.setNumberOfMaterials(materialNumber);
+
+        setImagesRandomly(materialNumber);
+    }
+
+    /*
+      Function Name : insectBitesPractice
+      Function Description : This function will add the correct materials from the
+                             chosenInjury.
+      Function Developer : Raeven Bauto
+   */
+    public void insectBitesPractice(String injuryType) {
+        //Tweezers, Soap and Water, Gauze, Cold pack
+        setChecksAsInvisible();
+        correctMaterials.add(R.drawable.ic_material_tweezer);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+
+        materialNumber = 3;
+        interModel.setNumberOfMaterials(materialNumber);
+
+        setImagesRandomly(materialNumber);
+
     }
 
 
-    public void setChecksAsInvisible(){
+    /*
+      Function Name : thermalPractice
+      Function Description : This function will add the correct materials from the
+                             chosenInjury.
+      Function Developer : Raeven Bauto
+   */
+    public void thermalPractice(String injuryType) {
+        //Water, Gauze, Soap and Water
+        setChecksAsInvisible();
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+
+        materialNumber = 2;
+        interModel.setNumberOfMaterials(materialNumber);
+
+        setImagesRandomly(materialNumber);
+    }
+
+
+    /*
+      Function Name : thermalPractice2
+      Function Description : This function will add the correct materials from the
+                             chosenInjury.
+      Function Developer : Raeven Bauto
+   */
+    public void thermalPractice2(String injuryType) {
+        //None
+        setChecksAsInvisible();
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+        correctMaterials.add(R.drawable.ic_material_coldpack);
+
+        materialNumber = 3;
+        interModel.setNumberOfMaterials(materialNumber);
+
+        setImagesRandomly(materialNumber);
+    }
+
+    /*
+      Function Name : chemicalPractice
+      Function Description : This function will add the correct materials from the
+                             chosenInjury.
+      Function Developer : Raeven Bauto
+   */
+    public void chemicalPractice(String injuryType) {
+        //Soap and water, Gauze
+        setChecksAsInvisible();
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+
+        materialNumber = 2;
+        interModel.setNumberOfMaterials(materialNumber);
+
+        setImagesRandomly(materialNumber);
+//
+    }
+
+    /*
+          Function Name : concussionPractice
+          Function Description : This function will add the correct materials from the
+                                 chosenInjury.
+          Function Developer : Raeven Bauto
+       */
+    public void concussionPractice(String injuryType) {
+        //Cold Pack, Ice
+        setChecksAsInvisible();
+        correctMaterials.add(R.drawable.ic_material_coldpack);
+        correctMaterials.add(R.drawable.ic_material_ice);
+
+        materialNumber = 2;
+        interModel.setNumberOfMaterials(materialNumber);
+
+        setImagesRandomly(materialNumber);
+    }
+
+    /*
+      Function Name : contussionPractice
+      Function Description : This function will add the correct materials from the
+                             chosenInjury.
+      Function Developer : Raeven Bauto
+   */
+    public void contussionPractice(String injuryType) {
+        //Cold Pack, Ice, PainReliever
+        setChecksAsInvisible();
+        correctMaterials.add(R.drawable.ic_material_coldpack);
+        correctMaterials.add(R.drawable.ic_material_ice);
+        materialNumber = 2;
+        interModel.setNumberOfMaterials(2);
+
+        setImagesRandomly(materialNumber);
+    }
+
+    /*
+          Function Name : fracturePractice
+          Function Description : This function will add the correct materials from the
+                                 chosenInjury.
+          Function Developer : Raeven Bauto
+       */
+    public void fracturePractice(String injuryType) {
+        //Gauze, Ring Pad, Sling, Bandage
+        setChecksAsInvisible();
+
+        correctMaterials.add(R.drawable.ic_material_bandage);
+        correctMaterials.add(R.drawable.ic_material_sling);
+        correctMaterials.add(R.drawable.ic_material_ringpad);
+
+        materialNumber = 3;
+        interModel.setNumberOfMaterials(materialNumber);
+
+        setImagesRandomly(materialNumber);
+    }
+
+    /*
+          Function Name : majorLacerationPractice
+          Function Description : This function will add the correct materials from the
+                                 chosenInjury.
+          Function Developer : Raeven Bauto
+       */
+    public void majorLacerationPractice(String injuryType) {
+        //Set the materials Image here.
+        //Gloves, Gauze, Soap and Water, Antibiotic
+        setChecksAsInvisible();
+
+        correctMaterials.add(R.drawable.ic_material_gauze);
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_glove);
+
+        materialNumber = 3;
+        interModel.setNumberOfMaterials(materialNumber);
+
+        setImagesRandomly(materialNumber);
+    }
+
+      /*
+        Function Name : punctureSeverePractice
+        Function Description : This function will add the correct materials from the
+                               chosenInjury.
+        Function Developer : Raeven Bauto
+     */
+
+    public void punctureSeverePractice(String injuryType) {
+        //Gloves, Soap and Water, Gauze
+        setChecksAsInvisible();
+
+        correctMaterials.add(R.drawable.ic_material_soapwater);
+        correctMaterials.add(R.drawable.ic_material_gauze);
+        correctMaterials.add(R.drawable.ic_material_glove);
+
+        materialNumber = 3;
+        interModel.setNumberOfMaterials(materialNumber);
+
+        setImagesRandomly(materialNumber);
+    }
+
+
+    /*
+        Function Name : setChecksAsInvisible
+        Function Description : This function will make sure that all the checkmarks are unchecked.
+        Function Developer : Raeven Bauto
+     */
+    public void setChecksAsInvisible() {
         imageView_1_check.setVisibility(View.INVISIBLE);
         imageView_2_check.setVisibility(View.INVISIBLE);
         imageView_3_check.setVisibility(View.INVISIBLE);
@@ -422,56 +507,39 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         imageView_6_check.setVisibility(View.INVISIBLE);
     }
 
-    public void setImagesRandomly(int materialNumber){
-         getMaterialNumber = 0;
-         counter = 0 ;
+
+    /*
+        Function Name : setImagesRandomly
+        Function Description : This function will check the materials added as well as
+                               the place they were placed to allow the random materials to be placed.
+        Function Developer : Raeven Bauto
+     */
+
+    public void setImagesRandomly(int materialNumber) {
+        getMaterialNumber = 0;
+        counter = 0;
 
         interModel.setCorrectMaterials(correctMaterials);
 
-        for(int i = 0; i < materialNumber; i++){
-            for(int j = 0; j <= 6; j++){
+        for (int i = 0; i < materialNumber; i++) {
+            for (int j = 0; j <= 6; j++) {
 
-                if (answerRandomized.get(i) == j){
-                    Log.e("HELLOO", "YOOHOOO EQUALS ME");
-                    if (getMaterialNumber == 3 ){
-                        Log.e("AWwww", "Break na kami");
+                if (answerRandomized.get(i) == j) {
+                    if (getMaterialNumber == 3) {
                         break;
-                    }
-
-                    else {
-                        if (j == 1){
+                    } else {
+                        if (j == 1) {
                             imageView_1.setImageResource(correctMaterials.get(getMaterialNumber));
-                            Log.e("HELLOO", "DAPAT NAG PALIT SI 1");
-                        }
-
-                        else if (j == 2){
+                        } else if (j == 2) {
                             imageView_2.setImageResource(correctMaterials.get(getMaterialNumber));
-                            Log.e("HELLOO", "DAPAT NAG PALIT SI 2");
-
-                        }
-
-                        else if (j == 3){
+                        } else if (j == 3) {
                             imageView_3.setImageResource(correctMaterials.get(getMaterialNumber));
-                            Log.e("HELLOO", "DAPAT NAG PALIT SI 3");
-
-                        }
-
-                        else if (j == 4){
+                        } else if (j == 4) {
                             imageView_4.setImageResource(correctMaterials.get(getMaterialNumber));
-                            Log.e("HELLOO", "DAPAT NAG PALIT SI 4");
-
-                        }
-
-                        else if (j == 5){
+                        } else if (j == 5) {
                             imageView_5.setImageResource(correctMaterials.get(getMaterialNumber));
-                            Log.e("HELLOO", "DAPAT NAG PALIT SI 5");
-
-                        }
-
-                        else if (j == 6){
+                        } else if (j == 6) {
                             imageView_6.setImageResource(correctMaterials.get(getMaterialNumber));
-                            Log.e("HELLOO", "DAPAT NAG PALIT SI 6");
-
                         }
                         getMaterialNumber++;
                     }
@@ -484,26 +552,19 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         usedImageStorage = correctMaterials;
 
 
-        if (materialNumber == 4){
+        if (materialNumber == 4) {
             imagesWithMaterials.add(answerRandomized.get(0));
             imagesWithMaterials.add(answerRandomized.get(1));
             imagesWithMaterials.add(answerRandomized.get(2));
             imagesWithMaterials.add(answerRandomized.get(3));
-        }
-
-        else if (materialNumber == 3){
+        } else if (materialNumber == 3) {
             imagesWithMaterials.add(answerRandomized.get(0));
             imagesWithMaterials.add(answerRandomized.get(1));
             imagesWithMaterials.add(answerRandomized.get(2));
-        }
-
-        else if (materialNumber == 2){
+        } else if (materialNumber == 2) {
             imagesWithMaterials.add(answerRandomized.get(0));
             imagesWithMaterials.add(answerRandomized.get(1));
-//            imagesWithMaterials.add(answerRandomized.get(2));
-        }
-
-        else if (materialNumber == 1){
+        } else if (materialNumber == 1) {
             imagesWithMaterials.add(answerRandomized.get(0));
         }
 
@@ -511,261 +572,193 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         Collections.shuffle(materialStorage);
         do {
 
-//            if (counter == 11){
-//                counter--;
-//            }
-
             if (usedImageStorage.contains(materialStorage.get(counter))) {
                 counter++;
-            }
-
-            else if (!imagesWithMaterials.contains(1)) {
+            } else if (!imagesWithMaterials.contains(1)) {
                 imageView_1.setImageResource(materialStorage.get(counter));
                 usedImageStorage.add(materialStorage.get(counter));
                 imagesWithMaterials.add(1);
-            }
-
-            else if (!imagesWithMaterials.contains(2)) {
+            } else if (!imagesWithMaterials.contains(2)) {
                 imageView_2.setImageResource(materialStorage.get(counter));
                 usedImageStorage.add(materialStorage.get(counter));
                 imagesWithMaterials.add(2);
-            }
-
-            else if (!imagesWithMaterials.contains(3)) {
+            } else if (!imagesWithMaterials.contains(3)) {
                 imageView_3.setImageResource(materialStorage.get(counter));
                 usedImageStorage.add(materialStorage.get(counter));
                 imagesWithMaterials.add(3);
-            }
-
-            else if (!imagesWithMaterials.contains(4)) {
+            } else if (!imagesWithMaterials.contains(4)) {
                 imageView_4.setImageResource(materialStorage.get(counter));
                 usedImageStorage.add(materialStorage.get(counter));
                 imagesWithMaterials.add(4);
-            }
-
-            else if (!imagesWithMaterials.contains(5)) {
+            } else if (!imagesWithMaterials.contains(5)) {
                 imageView_5.setImageResource(materialStorage.get(counter));
                 usedImageStorage.add(materialStorage.get(counter));
                 imagesWithMaterials.add(5);
-            }
-
-            else if (!imagesWithMaterials.contains(6)) {
+            } else if (!imagesWithMaterials.contains(6)) {
                 imageView_6.setImageResource(materialStorage.get(counter));
                 usedImageStorage.add(materialStorage.get(counter));
                 imagesWithMaterials.add(6);
             }
 
-        } while(!imagesWithMaterials.containsAll(answerRandomized));
+        } while (!imagesWithMaterials.containsAll(answerRandomized));
 
     }
 
+    /*
+        Function Name : checkAnswers
+        Function Description : This function will check if the user answered the correct answers.
+        Function Developer : Raeven Bauto
+     */
+    public boolean checkAnswers(ArrayList<Integer> answerSheet, int materialNumber,
+                                ArrayList<Integer> answersUser) {
 
-    public void abrasionPractice (String injuryType){
-        //Set the materials Image here.
-        //Soap & Water, Betadine, Gauze/Bandaid
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_soapwater);
-        correctMaterials.add(R.drawable.ic_material_betadine);
-        correctMaterials.add(R.drawable.ic_material_gauze); //Change to gauze
-        //Collections.shuffle(answerRandomized);
-        materialNumber = 3;
+        boolean isAllCorrect = false;
+        int numberOfCorrect = 0;
+        int numberOfIncorrect = 0;
+        int numberOfLoops = 0;
 
-        interModel.setNumberOfMaterials(materialNumber);
-        setImagesRandomly(materialNumber);
-//
-    }
 
-    public void animalBitesPractice (String injuryType){
-        //Set the materials Image here.
-        //Clean Gauze
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_gauze);
-        materialNumber = 1;
+        if (answersUser.size() != materialNumber) {
+            isAllCorrect = false;
+        } else {
+            for (int i = 0; i < materialNumber; i++) {
+                for (int j = 0; j < answersUser.size(); j++) {
 
-        interModel.setNumberOfMaterials(materialNumber);
+                    if (answerSheet.get(i) == answersUser.get(j)) {
+                        numberOfCorrect++;
+                    } else {
+                        numberOfIncorrect++;
+                    }
 
-        setImagesRandomly(materialNumber);
+                }
+            }//End of 1st For Loop
 
-//
-    }
+            int testHolder = answerSheet.size();
 
-    public void insectBitesPractice (String injuryType){
-        //Set the materials Image here.
-        //Tweezers, Soap and Water, Gauze, Cold pack
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_tweezer);
-        correctMaterials.add(R.drawable.ic_material_soapwater);
-        correctMaterials.add(R.drawable.ic_material_gauze);
-//        correctMaterials.add(R.drawable.ic_material_coldpack);
-        materialNumber = 3;
 
-        interModel.setNumberOfMaterials(materialNumber);
-
-        setImagesRandomly(materialNumber);
-//
-    }
-
-    public void thermalPractice (String injuryType){
-        //Set the materials Image here.
-        //Water, Gauze, Soap and Water
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_soapwater);
-        correctMaterials.add(R.drawable.ic_material_gauze);
-//        correctMaterials.add(R.drawable.ic_material_soapwater);
-        //correctMaterials.add(R.drawable.ic_material_coldpack);
-        materialNumber = 2;
-
-        interModel.setNumberOfMaterials(materialNumber);
-
-        setImagesRandomly(materialNumber);
-//
-    }
-
-    public void thermalPractice2 (String injuryType){
-        //Set the materials Image here.
-        //None
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_soapwater);
-        correctMaterials.add(R.drawable.ic_material_gauze);
-        correctMaterials.add(R.drawable.ic_material_coldpack);
-        //correctMaterials.add(R.drawable.ic_material_coldpack);
-        materialNumber = 3;
-
-        interModel.setNumberOfMaterials(materialNumber);
-
-        setImagesRandomly(materialNumber);
-//
+            if (numberOfCorrect == materialNumber) {
+                isAllCorrect = true;
+            } else
+                isAllCorrect = false;
+        }
+        return isAllCorrect;
     }
 
 
 
-    public void chemicalPractice (String injuryType){
-        //Set the materials Image here.
-        //Soap and water, Gauze
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_soapwater);
-        correctMaterials.add(R.drawable.ic_material_gauze);
-        //correctMaterials.add(R.drawable.ic_material_coldpack);
-        materialNumber = 2;
 
-        interModel.setNumberOfMaterials(materialNumber);
+     /*
+        Function Name : showDialog
+        Function Description : This function will create an instance of DialogPractice and call
+                               a function of the initialized class.
+        Function Developer : Raeven Bauto
+     */
 
-        setImagesRandomly(materialNumber);
-//
+    public void showDialog(String correctOrNot) {
+        DialogPractice dialogPractice = new DialogPractice();
+        dialogPractice.showDialog(getActivity(), correctOrNot);
     }
 
-    public void concussionPractice (String injuryType){
-        //Set the materials Image here.
-        //Cold Pack, Ice
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_coldpack);
-        correctMaterials.add(R.drawable.ic_material_ice);
-//        correctMaterials.add(R.drawable.ic_material_gauze);
-        //correctMaterials.add(R.drawable.ic_material_coldpack);
-        materialNumber = 2;
+   /*
+        Function Name : moveToListFragment
+        Function Description : This function will redirect the user to the steps ordering
+                               stage if the user is correct.
+        Function Developer : Raeven Bauto
+     */
 
-        interModel.setNumberOfMaterials(materialNumber);
+    public void moveToListFragment() {
+        InteractivePracticeStepsOrdering listFrag = new InteractivePracticeStepsOrdering();
+        Bundle args = new Bundle();
+        args.putString("chosenInjury", injuryType);
 
-        setImagesRandomly(materialNumber);
-//
-    }
-
-    public void contussionPractice (String injuryType){
-        //Set the materials Image here.
-        //Cold Pack, Ice, PainReliever
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_coldpack);
-        correctMaterials.add(R.drawable.ic_material_ice);
-        //correctMaterials.add(R.drawable.ic_material_coldpack);
-        materialNumber = 2;
-
-        interModel.setNumberOfMaterials(2);
-
-        setImagesRandomly(materialNumber);
-//
-    }
-
-    public void fracturePractice (String injuryType){
-        //Set the materials Image here.
-        //Gauze, Ring Pad, Sling, Bandage
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_bandage);
-        correctMaterials.add(R.drawable.ic_material_sling);
-        correctMaterials.add(R.drawable.ic_material_ringpad);
-        materialNumber = 3;
-
-        interModel.setNumberOfMaterials(materialNumber);
-
-        setImagesRandomly(materialNumber);
-//
-    }
-
-    public void majorLacerationPractice (String injuryType){
-        //Set the materials Image here.
-        //Gloves, Gauze, Soap and Water, Antibiotic
-
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_gauze);
-        correctMaterials.add(R.drawable.ic_material_soapwater);
-        correctMaterials.add(R.drawable.ic_material_glove);
-        materialNumber = 3;
-
-        interModel.setNumberOfMaterials(materialNumber);
-
-        setImagesRandomly(materialNumber);
-//
-    }
-
-    public void minorLacerationPractice (String injuryType){
-        //Set the materials Image here.
-        //Gloves, Gauze, Soap and Water, Antibiotic
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_soapwater);
-        correctMaterials.add(R.drawable.ic_material_gauze);
-        correctMaterials.add(R.drawable.ic_material_glove);
-        materialNumber = 3;
-
-        interModel.setNumberOfMaterials(materialNumber);
+        InteractiveModel interModel = InteractiveModel.getInstance();
+        interModel.setNumberOfTries(numberOfTries);
+        interModel.setNumberOfError(numberOfError);
+        interModel.setNumberOfCorrect(numberOfCorrect);
+        interModel.assignFirstStageStats(numberOfCorrect, numberOfError, numberOfTries);
 
 
-        setImagesRandomly(materialNumber);
-//
-    }
+        listFrag.setArguments(args);
 
-    public void punctureSeverePractice (String injuryType){
-        //Set the materials Image here.
-        //Gloves, Soap and Water, Gauze
-        setChecksAsInvisible();
-
-        correctMaterials.add(R.drawable.ic_material_soapwater);
-        correctMaterials.add(R.drawable.ic_material_gauze);
-        correctMaterials.add(R.drawable.ic_material_glove);
-
-        //correctMaterials.add(R.drawable.ic_material_coldpack);
-        materialNumber = 3;
-
-        interModel.setNumberOfMaterials(materialNumber);
-
-        setImagesRandomly(materialNumber);
-//
-    }
-
-    public void punctureSlightPractice (String injuryType) {
-        //Set the materials Image here.
-        //Gloves, Soap and Water, Gauze
-        setChecksAsInvisible();
-        correctMaterials.add(R.drawable.ic_material_soapwater);
-        correctMaterials.add(R.drawable.ic_material_gauze);
-        correctMaterials.add(R.drawable.ic_material_glove);
-        materialNumber = 3;
-
-        interModel.setNumberOfMaterials(materialNumber);
-
-        //correctMaterials.add(R.drawable.ic_material_coldpack);
-        setImagesRandomly(materialNumber);
-//
+        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+        fragmentTransaction.add(listFrag, "listFrag")
+                .replace(R.id.fragment_container, listFrag)
+                .addToBackStack("listFrag")
+                .commit();
     }
 
 
+    /*
+        Function Name : onClick
+        Function Description : This function will set what will happen if the user clicks a
+                               certain image.
+        Function Developer : Raeven Bauto
+     */
+    @Override
+    public void onClick(View v) {
 
+        switch (v.getId()) {
+
+            case R.id.imageView_pic1:
+                if (imageView_1_check.getVisibility() == View.VISIBLE) {
+                    imageView_1_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove(Integer.valueOf(1));
+                } else if (imageView_1_check.getVisibility() == View.INVISIBLE) {
+                    imageView_1_check.setVisibility(View.VISIBLE);
+                    answersUser.add(1);
+                }
+                break;
+
+            case R.id.imageView_pic2:
+                if (imageView_2_check.getVisibility() == View.VISIBLE) {
+                    imageView_2_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove(Integer.valueOf(2));
+
+                } else if (imageView_2_check.getVisibility() == View.INVISIBLE) {
+                    imageView_2_check.setVisibility(View.VISIBLE);
+                    answersUser.add(2);
+                }
+                break;
+
+            case R.id.imageView_pic3:
+                if (imageView_3_check.getVisibility() == View.VISIBLE) {
+                    imageView_3_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove(Integer.valueOf(3));
+                } else if (imageView_3_check.getVisibility() == View.INVISIBLE) {
+                    imageView_3_check.setVisibility(View.VISIBLE);
+                    answersUser.add(3);
+                }
+                break;
+
+            case R.id.imageView_pic4:
+                if (imageView_4_check.getVisibility() == View.VISIBLE) {
+                    imageView_4_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove(Integer.valueOf(4));
+                } else if (imageView_4_check.getVisibility() == View.INVISIBLE) {
+                    imageView_4_check.setVisibility(View.VISIBLE);
+                    answersUser.add(4);
+                }
+                break;
+
+            case R.id.imageView_pic5:
+                if (imageView_5_check.getVisibility() == View.VISIBLE) {
+                    imageView_5_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove(Integer.valueOf(5));
+                } else if (imageView_5_check.getVisibility() == View.INVISIBLE) {
+                    imageView_5_check.setVisibility(View.VISIBLE);
+                    answersUser.add(5);
+                }
+                break;
+
+            case R.id.imageView_pic6:
+                if (imageView_6_check.getVisibility() == View.VISIBLE) {
+                    imageView_6_check.setVisibility(View.INVISIBLE);
+                    answersUser.remove(Integer.valueOf(6));
+                } else if (imageView_6_check.getVisibility() == View.INVISIBLE) {
+                    imageView_6_check.setVisibility(View.VISIBLE);
+                    answersUser.add(6);
+                }
+                break;
+        }
+    }
 }
