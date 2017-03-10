@@ -578,10 +578,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         float zoomLevel = (float) 16.0; //This goes up to 21
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel));
-        //mMap.animateCamera(CameraUpdateFactory.zoomIn());
-        //Toast.makeText(getActivity().getApplicationContext(),"Your Current Location", Toast.LENGTH_LONG).show();
-
-        //Insert *Conditions pag di naka on yung mga Location and stuff* here.
 
 
 
@@ -719,7 +715,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 counter = parentArray.length();
                 while (i != counter){
                     JSONObject finalObject = parentArray.getJSONObject(i);
-//                    JSONObject finalObject2 = parentArray3.getJSONObject(i);
 
                     String hospitalName = finalObject.getString("name");
                     hospitalNamesList.add(hospitalName);
@@ -783,7 +778,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
         protected void onPostExecute(ArrayList<String> testingArray) {
             //super.onPostExecute();
-            //Log.d("DALIRI", "DALIRI MO");
             Object[] DataTransfer = new Object[2];
             DataTransfer[0] = mMap;
             DataTransfer[1] = testingArray.get(0).toString();
@@ -807,7 +801,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
                 String latitude = hospitalLatitudeList.get(i);
                 String longitude = hospitalLongitudeList.get(i);
 
-                //Toast.makeText(getActivity().getApplicationContext(), latitude, Toast.LENGTH_LONG).show();
 
                 Hospital nHospital = new Hospital(hospitalName, hospitalVicinity, hospitalPlaceID, latitude, longitude);
                 data.add(nHospital);
