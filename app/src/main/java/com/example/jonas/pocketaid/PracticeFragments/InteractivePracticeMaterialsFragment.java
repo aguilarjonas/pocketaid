@@ -324,7 +324,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
       Function Developer : Raeven Bauto
    */
     public void insectBitesPractice(String injuryType) {
-        //Tweezers, Soap and Water, Gauze, Cold pack
+        //Tweezers, Soap and Water, Gauze
         setChecksAsInvisible();
         correctMaterials.add(R.drawable.ic_material_tweezer);
         correctMaterials.add(R.drawable.ic_material_soapwater);
@@ -420,7 +420,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
       Function Developer : Raeven Bauto
    */
     public void contussionPractice(String injuryType) {
-        //Cold Pack, Ice, PainReliever
+        //Cold Pack, Ice
         setChecksAsInvisible();
         correctMaterials.add(R.drawable.ic_material_coldpack);
         correctMaterials.add(R.drawable.ic_material_ice);
@@ -437,7 +437,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
           Function Developer : Raeven Bauto
        */
     public void fracturePractice(String injuryType) {
-        //Gauze, Ring Pad, Sling, Bandage
+        //Ring Pad, Sling, Bandage
         setChecksAsInvisible();
 
         correctMaterials.add(R.drawable.ic_material_bandage);
@@ -458,7 +458,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
        */
     public void majorLacerationPractice(String injuryType) {
         //Set the materials Image here.
-        //Gloves, Gauze, Soap and Water, Antibiotic
+        //Gauze, Soap and Water, Antibiotic
         setChecksAsInvisible();
 
         correctMaterials.add(R.drawable.ic_material_gauze);
