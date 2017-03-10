@@ -2,6 +2,7 @@ package com.example.jonas.pocketaid.PracticeFragments;
 
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -168,7 +170,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         material3.setOnTouchListener(this);
         buttonNext.setOnTouchListener(this);
     }
-
+    
     /*
         Function Name : setImagesForMaterials
         Function Description : This function will set the images chosen in the Interactive Practice
@@ -181,6 +183,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
+            tvTrigger.setBackgroundColor(Color.RED);
             int height = 150;
             int width = 150;
             tvTrigger.getLayoutParams().height = height;
@@ -202,7 +205,6 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         else if (chosenInjury.equals("Contusion") || chosenInjury.equals("Pasa")){
             material1.setImageResource(correctMaterials.get(0));
             tvTrigger.setRotation(325);
-
             int height = 115;
             int width = 350;
             tvTrigger.getLayoutParams().height = height;
@@ -218,7 +220,6 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         else if (chosenInjury.equals("Chemical Burns") || chosenInjury.equalsIgnoreCase("Paso dulot ng kemikal")){
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
-
             tvTrigger.setRotation(330);
             int height = 130;
             int width = 235;
