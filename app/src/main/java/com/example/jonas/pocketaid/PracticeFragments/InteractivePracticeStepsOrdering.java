@@ -10,7 +10,6 @@ import android.support.v4.util.Pair;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -530,13 +529,13 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         interModel.setNumberOfCorrect(numberOfCorrect);
 
         interModel.assignSecondStageStats(numberOfCorrect, numberOfErrors, numberOfTries);
-        Log.e("SCORE FROM FRAG 1", "CORRECT: " + String.valueOf(interModel.getStage1Stats().get(0)) + " ");
-        Log.e("SCORE FROM FRAG 1", "WRONG: " + String.valueOf(interModel.getStage1Stats().get(1)) + " ");
-        Log.e("SCORE FROM FRAG 1", "TRIES: " + String.valueOf(interModel.getStage1Stats().get(2)) + " ");
-
-        Log.e("SCORE FROM FRAG 2", "CORRECT: " + String.valueOf(interModel.getStage2Stats().get(0)) + " ");
-        Log.e("SCORE FROM FRAG 2", "WRONG: " + String.valueOf(interModel.getStage2Stats().get(1)) + " ");
-        Log.e("SCORE FROM FRAG 2", "TRIES: " + String.valueOf(interModel.getStage2Stats().get(2)) + " ");
+//        Log.e("SCORE FROM FRAG 1", "CORRECT: " + String.valueOf(interModel.getStage1Stats().get(0)) + " ");
+//        Log.e("SCORE FROM FRAG 1", "WRONG: " + String.valueOf(interModel.getStage1Stats().get(1)) + " ");
+//        Log.e("SCORE FROM FRAG 1", "TRIES: " + String.valueOf(interModel.getStage1Stats().get(2)) + " ");
+//
+//        Log.e("SCORE FROM FRAG 2", "CORRECT: " + String.valueOf(interModel.getStage2Stats().get(0)) + " ");
+//        Log.e("SCORE FROM FRAG 2", "WRONG: " + String.valueOf(interModel.getStage2Stats().get(1)) + " ");
+//        Log.e("SCORE FROM FRAG 2", "TRIES: " + String.valueOf(interModel.getStage2Stats().get(2)) + " ");
 
         InteractivePracticeApplication interactiveApplication = new InteractivePracticeApplication();
         FragmentTransaction fragmentTransaction = getFragmentManager ().beginTransaction();

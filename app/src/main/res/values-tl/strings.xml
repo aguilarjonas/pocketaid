@@ -402,7 +402,7 @@
     <string name="laceration_cause">Ang karaniwang sanhi nito ay kapag ang balat ng tao ay nahiwa ng matalas o hindi matalas na bagay kagaya ng bato, nabasag na salamin, kutsilyo o gunting.</string>
     <string name="burns_cause">Ang karaniwang sanhi nito ay kapag ang balat o anumang parte ng katawan ng tao ay dumikit sa apoy, mainit na tubig o kaya naman ay matagal na pagbilad sa araw.</string>
     <string name="third_deg_burns_cause">Ang karaniwang sanhi nito ay kapag ang balat o anumang parte ng katawan ng tao ay matagal na nakadikit sa napakainit na bagay, sa apoy, o natapunan ng kumukulong tubig, nakuryente o kaya naman ay natapunan ng kemikal. </string>
-    <string name="concussion_cause">Ang karaniwang sanhi ng umpog ay pagiging malikot, nakipagaway, nalaglag o aksidente. Maaari rin itong mangyari sa paglalaro ng isports kagaya ng putbol, boksing at iba pa. </string>
+    <string name="concussion_cause">Ang karaniwang sanhi ng untog ay pagiging malikot o di kaya naman ay nakipagaway, nalaglag o na-aksidente. Maaari rin itong mangyari sa paglalaro ng isports kagaya ng putbol, boksing at iba pa. </string>
     <string name="contusion_cause">Ang karaniwang sanhi ng pagkakaroon ng pasa ay kapag ang parte ng katawan ng tao ay nabugbog o nahampas nang malakas.</string>
     <string name="fracture_cause">Ang karaniwang sanhi nito ay kapag ang tao ay nalaglag o kaya naman ay naaksidente na nagdudulot ng malakas na puwersa sa buto upang maging sanhi ng pagkabali nito.</string>
     <string name="puncture_cause">Ang karaniwang sanhi nito ay kapag ang parte ng katawan ng tao ay natusok o nasaksak ng matulis na bagay kagaya ng lapis, pako o stik.</string>
