@@ -554,26 +554,31 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
 
         if (isLocationServiceEnabled()){
-           if (isConnectedToNetwork(getContext()) == false){
-               snackbar = Snackbar.make(getView(), "No Internet Connection", Snackbar.LENGTH_INDEFINITE);
-               snackbar.setAction("Retry", new View.OnClickListener() {
-                   @Override
-                   public void onClick(View v) {
-                       getActivity().getSupportFragmentManager().popBackStack();
-                       NearbyFragment nearbyFragment = new NearbyFragment();
-                       FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                       fragmentTransaction.add(nearbyFragment, "Nearby")
-                               .replace(R.id.fragment_container, nearbyFragment)
-                               .addToBackStack("Nearby")
-                               .commit();
-                   }
-               })
-                       .show();
-            }
+            try{
+                if (isConnectedToNetwork(getContext()) == false){
+                    snackbar = Snackbar.make(getView(), "No Internet Connection", Snackbar.LENGTH_INDEFINITE);
+                    snackbar.setAction("Retry", new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            getActivity().getSupportFragmentManager().popBackStack();
+                            NearbyFragment nearbyFragment = new NearbyFragment();
+                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                            fragmentTransaction.add(nearbyFragment, "Nearby")
+                                    .replace(R.id.fragment_container, nearbyFragment)
+                                    .addToBackStack("Nearby")
+                                    .commit();
+                        }
+                    })
+                            .show();
+                }
 
-            else
-               automaticHospitalSearch();
-        }
+                else
+                    automaticHospitalSearch();
+            }
+            catch (NullPointerException e){
+
+            }
+            }
 
         Log.d("onLocationChanged", String.format("latitude:%.3f longitude:%.3f",latitude,longitude));
 

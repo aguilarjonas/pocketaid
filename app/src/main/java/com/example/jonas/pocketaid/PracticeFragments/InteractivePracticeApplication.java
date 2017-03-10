@@ -202,6 +202,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         else if (chosenInjury.equals("Contusion") || chosenInjury.equals("Pasa")){
             material1.setImageResource(correctMaterials.get(0));
             tvTrigger.setRotation(325);
+
             int height = 115;
             int width = 350;
             tvTrigger.getLayoutParams().height = height;
@@ -211,11 +212,13 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         else if (chosenInjury.equals("Concussion") || chosenInjury.equals("Untog")){
             material1.setImageResource(correctMaterials.get(0));
 
+
         }
 
         else if (chosenInjury.equals("Chemical Burns") || chosenInjury.equalsIgnoreCase("Paso dulot ng kemikal")){
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
+
             tvTrigger.setRotation(330);
             int height = 130;
             int width = 235;
@@ -227,7 +230,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             tvTrigger.setRotation(323);
-            int height = 10;
+            int height = 110;
             int width = 370;
             tvTrigger.getLayoutParams().height = height;
             tvTrigger.getLayoutParams().width = width;
@@ -237,6 +240,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
+
             tvTrigger.setRotation(320);
             int height = 110;
             int width = 200;
@@ -247,6 +251,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
         else if (chosenInjury.equals("Animal Bites") || chosenInjury.equalsIgnoreCase("Kagat ng hayop")){
             material1.setImageResource(correctMaterials.get(0));
             tvTrigger.setRotation(323);
+
             int height = 200;
             int width = 200;
             tvTrigger.getLayoutParams().height = height;
@@ -257,6 +262,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
+
             tvTrigger.setRotation(320);
             int height = 130;
             int width = 180;
@@ -268,6 +274,7 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
+
             tvTrigger.setRotation(323);
             int height = 130;
             int width = 370;
