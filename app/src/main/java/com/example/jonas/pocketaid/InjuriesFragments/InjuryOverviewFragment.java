@@ -52,7 +52,7 @@ public class InjuryOverviewFragment extends Fragment {
     public void determineInjury(String injuryChosen, ViewGroup rootView) {
         if(injuryChosen.toLowerCase().equals(getResources().getString(R.string.abrasion).toLowerCase())) {
             injuryType = "abrasion";
-            initializeView(injuryType, rootView, "\t" + getResources().getString(R.string.abrasion_cause));
+            initializeView(injuryType, rootView, getResources().getString(R.string.abrasion_cause));
         } else if(injuryChosen.toLowerCase().equals(getResources().getString(R.string.bites).toLowerCase())) {
             injuryType = "bites";
             initializeView(injuryType, rootView, getResources().getString(R.string.insect_bites_cause) + " " + getResources().getString(R.string.animal_bites_cause));
