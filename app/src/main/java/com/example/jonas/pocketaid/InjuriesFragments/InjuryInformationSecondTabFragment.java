@@ -73,40 +73,40 @@ public class InjuryInformationSecondTabFragment extends Fragment {
         Function Developer : Jonas Aguilar
      */
     public void determineInjuryType(String chosenInjury) {
-        if (chosenInjury.equals("Abrasion")) {
+        if (chosenInjury.toLowerCase().equals(getResources().getString(R.string.abrasion_tab).toLowerCase())){
             youtubeLink = getResources().getString(R.string.abrasion_youtube);
             injuryType = "Abrasion";
-        } else if (chosenInjury.equals("Concussion")){
+        }else if (chosenInjury.toLowerCase().equals(getResources().getString(R.string.concussion_tab).toLowerCase())){
             injuryType = "Concussion";
             youtubeLink = getResources().getString(R.string.concussion_youtube);
-        } else if (chosenInjury.equals("Contusion")){
+        } else if (chosenInjury.toLowerCase().equals(getResources().getString(R.string.contusion_tab).toLowerCase())){
             injuryType = "Contusion";
             youtubeLink = getResources().getString(R.string.contusion_youtube);
-        } else if (chosenInjury.equals("Fracture")){
+        } else if (chosenInjury.toLowerCase().equals(getResources().getString(R.string.fracture).toLowerCase())){
             injuryType = "Fracture";
             youtubeLink = getResources().getString(R.string.fracture_youtube);
-        } else if(chosenInjury.equals("animal")){
+        } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.animal_tab).toLowerCase())){
             injuryType = "Animal";
             youtubeLink = getResources().getString(R.string.animal_bites_youtube);
-        } else if(chosenInjury.equals("insect")){
+        } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.insect_tab).toLowerCase())){
             injuryType = "Insect";
             youtubeLink = getResources().getString(R.string.insect_bites_youtube);
-        } else if(chosenInjury.toLowerCase().equals("first_second_degree")) {
+        } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.first_second_degree_tab).toLowerCase())) {
             injuryType = "FirstSecondDegree";
             youtubeLink = getResources().getString(R.string.first_second_degree_youtube);
-        } else if(chosenInjury.toLowerCase().equals("third_degree")) {
+        } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.third_degree_tab).toLowerCase())) {
             injuryType = "ThirdDegree";
             youtubeLink = getResources().getString(R.string.third_degree_youtube);
-        } else if(chosenInjury.toLowerCase().equals("major")) {
+        } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.major_laceration_tab).toLowerCase())) {
             injuryType = "Major";
             youtubeLink = getResources().getString(R.string.major_laceration_youtube);
-        } else if(chosenInjury.toLowerCase().equals("minor")) {
+        } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.minor_laceration_tab).toLowerCase())) {
             injuryType = "Minor";
             youtubeLink = getResources().getString(R.string.minor_laceration_youtube);
-        } else if(chosenInjury.toLowerCase().equals("severe")) {
+        } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.severe_puncture_tab).toLowerCase())) {
             injuryType = "Severe";
             youtubeLink = getResources().getString(R.string.severe_puncture_youtube);
-        } else if(chosenInjury.toLowerCase().equals("slight")) {
+        } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.slight_puncture_tab).toLowerCase())) {
             injuryType = "Slight";
             youtubeLink = getResources().getString(R.string.slight_puncture_youtube);
         }

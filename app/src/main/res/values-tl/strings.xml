@@ -25,7 +25,7 @@
 
     <string-array name="injuries">
         <item>Gasgas</item>
-        <item>Kagat ng hayop/insekto</item>
+        <item>Kagat ng Hayop o Insekto</item>
         <item>Paso</item>
         <item>Untog</item>
         <item>Pasa</item>
@@ -571,8 +571,8 @@
     <string name="concussion_tab">"UNTOG"</string>
     <string name="contusion_tab">"PASA"</string>
     <string name="fracture_tab">"BALING BUTO"</string>
-    <string name="major_laceration_tab">"MALUBHA"</string>
-    <string name="minor_laceration_tab">"HINDI MALUBHA"</string>
+    <string name="major_laceration_tab">"MALALIM"</string>
+    <string name="minor_laceration_tab">"HINDI MALALIM"</string>
     <string name="severe_puncture_tab">"MALUBHA"</string>
     <string name="slight_puncture_tab">"HINDI MALUBHA"</string>
 </resources>

@@ -2,15 +2,12 @@ package com.example.jonas.pocketaid.InjuriesFragments;
 
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.codesgood.views.JustifiedTextView;
 import com.example.jonas.pocketaid.MainActivity;
@@ -53,28 +50,28 @@ public class InjuryOverviewFragment extends Fragment {
         Function Developer : Jonas Aguilar
      */
     public void determineInjury(String injuryChosen, ViewGroup rootView) {
-        if(injuryChosen.toLowerCase().equals("abrasion")) {
+        if(injuryChosen.toLowerCase().equals(getResources().getString(R.string.abrasion).toLowerCase())) {
             injuryType = "abrasion";
             initializeView(injuryType, rootView, "\t" + getResources().getString(R.string.abrasion_cause));
-        } else if(injuryChosen.toLowerCase().equals("bites")) {
+        } else if(injuryChosen.toLowerCase().equals(getResources().getString(R.string.bites).toLowerCase())) {
             injuryType = "bites";
             initializeView(injuryType, rootView, getResources().getString(R.string.insect_bites_cause) + " " + getResources().getString(R.string.animal_bites_cause));
-        } else if(injuryChosen.toLowerCase().equals("burns")) {
+        } else if(injuryChosen.toLowerCase().equals(getResources().getString(R.string.burns_list).toLowerCase())) {
             injuryType = "burns";
             initializeView(injuryType, rootView, getResources().getString(R.string.burns_cause) + " " + getResources().getString(R.string.third_deg_burns_cause));
-        } else if(injuryChosen.toLowerCase().equals("concussion")) {
+        } else if(injuryChosen.toLowerCase().equals(getResources().getString(R.string.concussion).toLowerCase())) {
             injuryType = "concussion";
             initializeView(injuryType, rootView, getResources().getString(R.string.concussion_cause));
-        } else if(injuryChosen.toLowerCase().equals("contusion")) {
+        } else if(injuryChosen.toLowerCase().equals(getResources().getString(R.string.contusion).toLowerCase())) {
             injuryType = "contusion";
             initializeView(injuryType, rootView, getResources().getString(R.string.contusion_cause));
-        } else if(injuryChosen.toLowerCase().equals("fracture")) {
+        } else if(injuryChosen.toLowerCase().equals(getResources().getString(R.string.fracture).toLowerCase())) {
             injuryType = "fracture";
             initializeView(injuryType, rootView, getResources().getString(R.string.fracture_cause));
-        } else if(injuryChosen.toLowerCase().equals("laceration")) {
+        } else if(injuryChosen.toLowerCase().equals(getResources().getString(R.string.laceration).toLowerCase())) {
             injuryType = "laceration";
             initializeView(injuryType, rootView, getResources().getString(R.string.laceration_cause));
-        } else if(injuryChosen.toLowerCase().equals("puncture")) {
+        } else if(injuryChosen.toLowerCase().equals(getResources().getString(R.string.puncture).toLowerCase())) {
             injuryType = "puncture";
             initializeView(injuryType, rootView, getResources().getString(R.string.puncture_cause));
         }

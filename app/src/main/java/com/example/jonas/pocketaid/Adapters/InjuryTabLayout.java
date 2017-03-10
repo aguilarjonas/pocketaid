@@ -62,41 +62,41 @@ public class InjuryTabLayout extends Fragment {
         public Fragment getItem(int position) {
             String chosenInjury = getArguments().getString("injury");
 
-            if(chosenInjury.toLowerCase().equals("bites")) {
+            if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.bites).toLowerCase())) {
                 switch (position) {
                     case 0:
                         return setOverviewFragment(chosenInjury);
                     case 1:
-                        return setInjuryInformationFragment("animal");
+                        return setInjuryInformationFragment(getResources().getString(R.string.animal_tab));
                     case 2:
-                        return setInjuryInformationSecondTabFragment("insect");
+                        return setInjuryInformationSecondTabFragment(getResources().getString(R.string.insect_tab));
                 }
-            } else if(chosenInjury.toLowerCase().equals("burns")) {
+            } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.burns_list).toLowerCase())) {
                 switch (position) {
                     case 0:
                         return setOverviewFragment(chosenInjury);
                     case 1:
-                        return setInjuryInformationFragment("first_second_degree");
+                        return setInjuryInformationFragment(getResources().getString(R.string.first_second_degree_tab));
                     case 2:
-                        return setInjuryInformationSecondTabFragment("third_degree");
+                        return setInjuryInformationSecondTabFragment(getResources().getString(R.string.third_degree_tab));
                 }
-            } else if(chosenInjury.toLowerCase().equals("laceration")) {
+            } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.laceration).toLowerCase())) {
                 switch (position) {
                     case 0:
                         return setOverviewFragment(chosenInjury);
                     case 1:
-                        return setInjuryInformationFragment("major");
+                        return setInjuryInformationFragment(getResources().getString(R.string.major_laceration_tab));
                     case 2:
-                        return setInjuryInformationSecondTabFragment("minor");
+                        return setInjuryInformationSecondTabFragment(getResources().getString(R.string.minor_laceration_tab));
                 }
-            } else if(chosenInjury.toLowerCase().equals("puncture")) {
+            } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.puncture).toLowerCase())) {
                 switch (position) {
                     case 0:
                         return setOverviewFragment(chosenInjury);
                     case 1:
-                        return setInjuryInformationFragment("severe");
+                        return setInjuryInformationFragment(getResources().getString(R.string.severe_puncture_tab));
                     case 2:
-                        return setInjuryInformationSecondTabFragment("slight");
+                        return setInjuryInformationSecondTabFragment(getResources().getString(R.string.slight_puncture_tab));
                 }
             } else {
                 switch (position) {
@@ -113,10 +113,10 @@ public class InjuryTabLayout extends Fragment {
         @Override
         public int getCount() {
             String chosenInjury = getArguments().getString("injury");
-            if(chosenInjury.toLowerCase().equals("bites") ||
-                    chosenInjury.toLowerCase().equals("burns") ||
-                    chosenInjury.toLowerCase().equals("laceration") ||
-                    chosenInjury.toLowerCase().equals("puncture")) {
+            if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.bites).toLowerCase()) ||
+                    chosenInjury.toLowerCase().equals(getResources().getString(R.string.burns_list).toLowerCase()) ||
+                    chosenInjury.toLowerCase().equals(getResources().getString(R.string.laceration).toLowerCase()) ||
+                    chosenInjury.toLowerCase().equals(getResources().getString(R.string.puncture).toLowerCase())) {
                 tab_numbers = 3;
             } else {
                 tab_numbers = 2;
@@ -126,47 +126,47 @@ public class InjuryTabLayout extends Fragment {
 
         public CharSequence getPageTitle(int position) {
             String chosenInjury = getArguments().getString("injury");
-            if(chosenInjury.toLowerCase().equals("burns")) {
+            if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.burns_list).toLowerCase())) {
                 switch (position) {
                     case 0:
-                        return "OVERVIEW";
+                        return getResources().getString(R.string.overview_tab);
                     case 1:
-                        return "1st & 2nd Degree";
+                        return getResources().getString(R.string.first_second_degree_tab);
                     case 2:
-                        return "3rd Degree";
+                        return getResources().getString(R.string.third_degree_tab);
                 }
-            } else if(chosenInjury.toLowerCase().equals("laceration")){
+            } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.laceration).toLowerCase())){
                 switch (position) {
                     case 0:
-                        return "OVERVIEW";
+                        return getResources().getString(R.string.overview_tab);
                     case 1:
-                        return "MAJOR";
+                        return getResources().getString(R.string.major_laceration_tab);
                     case 2:
-                        return "MINOR";
+                        return getResources().getString(R.string.minor_laceration_tab);
                 }
-            } else if(chosenInjury.toLowerCase().equals("puncture")){
+            } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.puncture).toLowerCase())){
                 switch (position) {
                     case 0:
-                        return "OVERVIEW";
+                        return getResources().getString(R.string.overview_tab);
                     case 1:
-                        return "SEVERE";
+                        return getResources().getString(R.string.severe_puncture_tab);
                     case 2:
-                        return "SLIGHT";
+                        return getResources().getString(R.string.slight_puncture_tab);
                 }
-            } else if(chosenInjury.toLowerCase().equals("bites")){
+            } else if(chosenInjury.toLowerCase().equals(getResources().getString(R.string.bites).toLowerCase())){
                 switch (position) {
                     case 0:
-                        return "OVERVIEW";
+                        return getResources().getString(R.string.overview_tab);
                     case 1:
-                        return "ANIMAL";
+                        return getResources().getString(R.string.animal_tab);
                     case 2:
-                        return "INSECT";
+                        return getResources().getString(R.string.insect_tab);
                 }
             }
             else {
                 switch (position) {
                     case 0:
-                        return "OVERVIEW";
+                        return getResources().getString(R.string.overview_tab);
                     case 1:
                         return chosenInjury;
                 }
