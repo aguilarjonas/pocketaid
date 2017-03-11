@@ -274,7 +274,6 @@ public class InteractivePracticeApplication extends Fragment implements View.OnT
             material1.setImageResource(correctMaterials.get(0));
             material2.setImageResource(correctMaterials.get(1));
             material3.setImageResource(correctMaterials.get(2));
-            tvTrigger.setBackgroundColor(Color.RED);
             tvTrigger.setRotation(323);
             int height = 130;
             int width = 370;
