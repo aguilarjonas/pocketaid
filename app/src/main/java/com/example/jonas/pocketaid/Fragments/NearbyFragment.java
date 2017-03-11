@@ -409,7 +409,9 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     public void onDestroy() {
         super.onDestroy();
         mapView.onDestroy();
-        snackbar.dismiss();
+        if(snackbar != null && snackbar.isShown()) {
+            snackbar.dismiss();
+        }
     }
 
     @Override
