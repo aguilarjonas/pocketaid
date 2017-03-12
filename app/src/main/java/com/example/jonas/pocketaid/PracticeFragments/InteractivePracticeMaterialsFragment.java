@@ -92,25 +92,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         setImages(rootView);
         chosenPracticeChooser(CHOSEN_PRACTICE);
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (checkAnswers(answerRandomized, materialNumber, answersUser) == false) {
-                    showDialog(getString(R.string.wrong));
-                    setChecksAsInvisible();
-                    answersUser.clear();
-                    numberOfTries++;
-                    numberOfError++;
-                } else {
-                    answersUser.clear();
-                    showDialog(getString(R.string.correct));
-                    numberOfTries++;
-                    numberOfCorrect++;
-
-                    moveToListFragment();
-                }
-            }
-        });
         return rootView;
     }
 
@@ -128,6 +109,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         answerRandomized = interactiveSheet.getRANDOMIZED_ME();
         usedImageStorage.clear();
         imagesWithMaterials.clear();
+        answersUser.clear();
 
     }
 
@@ -601,8 +583,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         boolean isAllCorrect = false;
         int numberOfCorrect = 0;
         int numberOfIncorrect = 0;
-        int numberOfLoops = 0;
-
 
         if (answersUser.size() != materialNumber) {
             isAllCorrect = false;
@@ -698,7 +678,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
         for (int i = 0; i < counter; i++){
             if (answerSheet.get(i) == userAnswer){
-                Log.e("TEST", "" + answerSheet.get(i) + "==" + userAnswer);
                 isTheAnswerCorrect = true;
             }
 
@@ -730,10 +709,19 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     imageView_1_check.setVisibility(View.VISIBLE);
                     answersUser.add(1);
                     if (checkPerClick(1, answerRandomized) == true) {
+                        numberOfTries++;
+                        numberOfCorrect++;
                         showDialog(getString(R.string.correct));
+
+                        if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
+                            showDialog(getString(R.string.correct));
+                            moveToListFragment();
+                        }
                     }
 
                     else{
+                        numberOfTries++;
+                        numberOfError++;
                         showDialog(getString(R.string.wrong));
                         imageView_1_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(1));
@@ -750,10 +738,19 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     imageView_2_check.setVisibility(View.VISIBLE);
                     answersUser.add(2);
                     if (checkPerClick(2, answerRandomized) == true) {
+                        numberOfTries++;
+                        numberOfCorrect++;
                         showDialog(getString(R.string.correct));
+
+                        if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
+                            showDialog(getString(R.string.correct));
+                            moveToListFragment();
+                        }
                     }
 
                     else{
+                        numberOfTries++;
+                        numberOfError++;
                         showDialog(getString(R.string.wrong));
                         imageView_2_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(2));
@@ -765,14 +762,25 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 if (imageView_3_check.getVisibility() == View.VISIBLE) {
                     imageView_3_check.setVisibility(View.INVISIBLE);
                     answersUser.remove(Integer.valueOf(3));
-                } else if (imageView_3_check.getVisibility() == View.INVISIBLE) {
+                }
+
+                else if (imageView_3_check.getVisibility() == View.INVISIBLE) {
                     imageView_3_check.setVisibility(View.VISIBLE);
                     answersUser.add(3);
                     if (checkPerClick(3, answerRandomized) == true) {
+                        numberOfTries++;
+                        numberOfCorrect++;
                         showDialog(getString(R.string.correct));
+
+                        if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
+                            showDialog(getString(R.string.correct));
+                            moveToListFragment();
+                        }
                     }
 
                     else{
+                        numberOfTries++;
+                        numberOfError++;
                         showDialog(getString(R.string.wrong));
                         imageView_3_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(3));
@@ -784,14 +792,25 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 if (imageView_4_check.getVisibility() == View.VISIBLE) {
                     imageView_4_check.setVisibility(View.INVISIBLE);
                     answersUser.remove(Integer.valueOf(4));
-                } else if (imageView_4_check.getVisibility() == View.INVISIBLE) {
+                }
+
+                else if (imageView_4_check.getVisibility() == View.INVISIBLE) {
                     imageView_4_check.setVisibility(View.VISIBLE);
                     answersUser.add(4);
                     if (checkPerClick(4, answerRandomized) == true) {
+                        numberOfTries++;
+                        numberOfCorrect++;
                         showDialog(getString(R.string.correct));
+
+                        if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
+                            showDialog(getString(R.string.correct));
+                            moveToListFragment();
+                        }
                     }
 
                     else{
+                        numberOfTries++;
+                        numberOfError++;
                         showDialog(getString(R.string.wrong));
                         imageView_4_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(4));
@@ -803,14 +822,25 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 if (imageView_5_check.getVisibility() == View.VISIBLE) {
                     imageView_5_check.setVisibility(View.INVISIBLE);
                     answersUser.remove(Integer.valueOf(5));
-                } else if (imageView_5_check.getVisibility() == View.INVISIBLE) {
+                }
+
+                else if (imageView_5_check.getVisibility() == View.INVISIBLE) {
                     imageView_5_check.setVisibility(View.VISIBLE);
                     answersUser.add(5);
                     if (checkPerClick(5, answerRandomized) == true) {
+                        numberOfTries++;
+                        numberOfCorrect++;
                         showDialog(getString(R.string.correct));
+
+                        if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
+                            showDialog(getString(R.string.correct));
+                            moveToListFragment();
+                        }
                     }
 
                     else{
+                        numberOfTries++;
+                        numberOfError++;
                         showDialog(getString(R.string.wrong));
                         imageView_5_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(5));
@@ -826,10 +856,19 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     imageView_6_check.setVisibility(View.VISIBLE);
                     answersUser.add(6);
                     if (checkPerClick(6, answerRandomized) == true) {
+                        numberOfTries++;
+                        numberOfCorrect++;
                         showDialog(getString(R.string.correct));
+
+                        if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
+                            showDialog(getString(R.string.correct));
+                            moveToListFragment();
+                        }
                     }
 
                     else{
+                        numberOfTries++;
+                        numberOfError++;
                         showDialog(getString(R.string.wrong));
                         imageView_6_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(6));
