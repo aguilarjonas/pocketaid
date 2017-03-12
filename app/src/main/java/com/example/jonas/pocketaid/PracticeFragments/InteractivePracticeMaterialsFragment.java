@@ -20,6 +20,7 @@ import com.example.jonas.pocketaid.InteractiveModules.InteractiveModel;
 import com.example.jonas.pocketaid.MainActivity;
 import com.example.jonas.pocketaid.R;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -251,14 +252,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             }
             majorLacerationPractice(chosenPractice);
 
-//        } else if (chosenPractice.equals("Laceration(Minor)") || chosenPractice.equalsIgnoreCase("Hindi malubhang laslas")){
-//            if(chosenPractice.equals("Laceration(Minor)")){
-//                injuryType = "Laceration(Minor)";
-//            } else if (chosenPractice.equalsIgnoreCase("Hindi malubhang laslas")){
-//                injuryType = "Hindi malubhang laslas";
-//            }
-//            minorLacerationPractice(chosenPractice);
-//
         } else if (chosenPractice.equals("Puncture") || chosenPractice.equalsIgnoreCase("Tusok")) {
             if (chosenPractice.equals("Puncture")) {
                 injuryType = "Puncture";
@@ -267,15 +260,6 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
             }
             punctureSeverePractice(chosenPractice);
         }
-
-//        } else if (chosenPractice.equals("Puncture(Slight Bleeding)") || chosenPractice.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo)")){
-//            if(chosenPractice.equals("Puncture(Slight Bleeding)")){
-//                injuryType = "Puncture(Slight Bleeding)";
-//            } else if (chosenPractice.equalsIgnoreCase("Tusok(Hindi malubhang pagdurugo)")){
-//                injuryType = "Tusok(Hindi malubhang pagdurugo)";
-//            }
-//            punctureSlightPractice(chosenPractice);
-//        }
 
         instruction.append(injuryType + ".");
     }
@@ -508,6 +492,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
     }
 
 
+
+
     /*
         Function Name : setImagesRandomly
         Function Description : This function will check the materials added as well as
@@ -647,6 +633,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
 
 
+
+
      /*
         Function Name : showDialog
         Function Description : This function will create an instance of DialogPractice and call
@@ -687,6 +675,41 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 .commit();
     }
 
+    /*
+        Function Name : checkPerClick
+        Function Description : This function will check if the answer is correct. (Per Click)
+        Function Developer : Raeven Bauto
+     */
+
+    public boolean checkPerClick(int userAnswer, ArrayList<Integer> answerSheet){
+        int counter = 0;
+        boolean isTheAnswerCorrect = false;
+        if (materialNumber == 3){
+            counter = 3;
+        }
+
+        else if (materialNumber == 2){
+            counter = 2;
+        }
+
+        else if (materialNumber == 1){
+            counter = 1;
+        }
+
+        for (int i = 0; i < counter; i++){
+            if (answerSheet.get(i) == userAnswer){
+                Log.e("TEST", "" + answerSheet.get(i) + "==" + userAnswer);
+                isTheAnswerCorrect = true;
+            }
+
+            if (isTheAnswerCorrect == true){
+                break;
+            }
+        }
+
+        return isTheAnswerCorrect;
+
+    }
 
     /*
         Function Name : onClick
@@ -706,6 +729,15 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 } else if (imageView_1_check.getVisibility() == View.INVISIBLE) {
                     imageView_1_check.setVisibility(View.VISIBLE);
                     answersUser.add(1);
+                    if (checkPerClick(1, answerRandomized) == true) {
+                        showDialog(getString(R.string.correct));
+                    }
+
+                    else{
+                        showDialog(getString(R.string.wrong));
+                        imageView_1_check.setVisibility(View.INVISIBLE);
+                        answersUser.remove(Integer.valueOf(1));
+                    }
                 }
                 break;
 
@@ -717,6 +749,15 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 } else if (imageView_2_check.getVisibility() == View.INVISIBLE) {
                     imageView_2_check.setVisibility(View.VISIBLE);
                     answersUser.add(2);
+                    if (checkPerClick(2, answerRandomized) == true) {
+                        showDialog(getString(R.string.correct));
+                    }
+
+                    else{
+                        showDialog(getString(R.string.wrong));
+                        imageView_2_check.setVisibility(View.INVISIBLE);
+                        answersUser.remove(Integer.valueOf(2));
+                    }
                 }
                 break;
 
@@ -727,6 +768,15 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 } else if (imageView_3_check.getVisibility() == View.INVISIBLE) {
                     imageView_3_check.setVisibility(View.VISIBLE);
                     answersUser.add(3);
+                    if (checkPerClick(3, answerRandomized) == true) {
+                        showDialog(getString(R.string.correct));
+                    }
+
+                    else{
+                        showDialog(getString(R.string.wrong));
+                        imageView_3_check.setVisibility(View.INVISIBLE);
+                        answersUser.remove(Integer.valueOf(3));
+                    }
                 }
                 break;
 
@@ -737,6 +787,15 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 } else if (imageView_4_check.getVisibility() == View.INVISIBLE) {
                     imageView_4_check.setVisibility(View.VISIBLE);
                     answersUser.add(4);
+                    if (checkPerClick(4, answerRandomized) == true) {
+                        showDialog(getString(R.string.correct));
+                    }
+
+                    else{
+                        showDialog(getString(R.string.wrong));
+                        imageView_4_check.setVisibility(View.INVISIBLE);
+                        answersUser.remove(Integer.valueOf(4));
+                    }
                 }
                 break;
 
@@ -747,6 +806,15 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 } else if (imageView_5_check.getVisibility() == View.INVISIBLE) {
                     imageView_5_check.setVisibility(View.VISIBLE);
                     answersUser.add(5);
+                    if (checkPerClick(5, answerRandomized) == true) {
+                        showDialog(getString(R.string.correct));
+                    }
+
+                    else{
+                        showDialog(getString(R.string.wrong));
+                        imageView_5_check.setVisibility(View.INVISIBLE);
+                        answersUser.remove(Integer.valueOf(5));
+                    }
                 }
                 break;
 
@@ -757,6 +825,15 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                 } else if (imageView_6_check.getVisibility() == View.INVISIBLE) {
                     imageView_6_check.setVisibility(View.VISIBLE);
                     answersUser.add(6);
+                    if (checkPerClick(6, answerRandomized) == true) {
+                        showDialog(getString(R.string.correct));
+                    }
+
+                    else{
+                        showDialog(getString(R.string.wrong));
+                        imageView_6_check.setVisibility(View.INVISIBLE);
+                        answersUser.remove(Integer.valueOf(6));
+                    }
                 }
                 break;
         }
