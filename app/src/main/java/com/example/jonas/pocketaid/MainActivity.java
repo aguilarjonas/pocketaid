@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity
     private FloatingActionButton fab;
     NavigationView navigationView = null;
     Toolbar toolbar = null;
+    float launchTime = System.currentTimeMillis();
+
 
     //Added by Raeven
     MediaController mediaC;
