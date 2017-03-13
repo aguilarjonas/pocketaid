@@ -23,6 +23,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.MediaController;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.example.jonas.pocketaid.Fragments.AboutFragment;
@@ -40,7 +41,7 @@ import java.io.File;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    
     private ActionBarDrawerToggle toggle;
     private DrawerLayout drawer;
     private FloatingActionButton fab;
@@ -194,9 +195,11 @@ public class MainActivity extends AppCompatActivity
 
     public void checkPermission() {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) +
+                    ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 requestPermissions(new String[] {
-                        Manifest.permission.WRITE_EXTERNAL_STORAGE
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        Manifest.permission.ACCESS_FINE_LOCATION,
                 }, 200);
             }
         }
@@ -244,11 +247,20 @@ public class MainActivity extends AppCompatActivity
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case 200:
-                if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    return;
+                if(grantResults.length > 0) {
+                    if(grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
+
+                    if(grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                        NearbyFragment nearbyFragment = (NearbyFragment) getSupportFragmentManager().findFragmentByTag("Nearby");
+                        nearbyFragment.setUpGoogleApi();
+                    } else {
+                        Toast.makeText(this, "Permission was Denied", Toast.LENGTH_LONG).show();
+                    }
                 }
-             default:
-                 checkPermission();
+            default:
+                checkPermission();
         }
     }
 

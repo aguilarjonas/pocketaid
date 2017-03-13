@@ -12,7 +12,6 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
@@ -85,7 +84,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
     private GoogleMap mMap;
     private Snackbar snackbar;
 
-    public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
+
     String bufferCatcher = "";
 
 
@@ -171,10 +170,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
        Function Developer : Angel Montoya
     */
     public void checkVersionAndGooglePlayServices() {
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            checkLocationPermission();
-        }
-
         //Check if Google Play Services Available or not
         if (!CheckGooglePlayServices()) {
             Log.d("onCreate", "Finishing test case since Google Play Services are not available");
@@ -360,44 +355,6 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         }
         return false;
     }
-
-     /*
-        Function Name : checkLocationPermission
-        Function Description : This function will check if location is allowed to be used
-                                by the application.
-        Function Developer : Angel Montoya
-     */
-    public boolean checkLocationPermission(){
-        if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
-                android.Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            // Asking user if explanation is needed
-            if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
-                    android.Manifest.permission.ACCESS_FINE_LOCATION)) {
-
-                // Show an explanation to the user *asynchronously* -- don't block
-                // this thread waiting for the user's response! After the user
-                // sees the explanation, try again to request the permission.
-
-                //Prompt the user once explanation has been shown
-                ActivityCompat.requestPermissions(getActivity(),
-                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                        MY_PERMISSIONS_REQUEST_LOCATION);
-
-
-            } else {
-                // No explanation needed, we can request the permission.
-                ActivityCompat.requestPermissions(getActivity(),
-                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                        MY_PERMISSIONS_REQUEST_LOCATION);
-            }
-            return false;
-        } else {
-            return true;
-        }
-    }
-
 
     @Override
     public void onResume() {
@@ -598,40 +555,14 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
 
     }
 
-
-
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case MY_PERMISSIONS_REQUEST_LOCATION: {
-                // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-                    // permission was granted. Do the
-                    // contacts-related task you need to do.
-                    if (ContextCompat.checkSelfPermission(getActivity().getApplicationContext(),
-                            android.Manifest.permission.ACCESS_FINE_LOCATION)
-                            == PackageManager.PERMISSION_GRANTED) {
-
-                        if (mGoogleApiClient == null) {
-                            buildGoogleApiClient();
-                        }
-                        mMap.setMyLocationEnabled(true);
-                    }
-
-                } else {
-
-                    // Permission denied, Disable the functionality that depends on this permission.
-                    Toast.makeText(getActivity().getApplicationContext(), "Permission was Denied", Toast.LENGTH_LONG).show();
-                }
-                return;
-            }
-
-            // other 'case' lines to check for other permissions this app might request.
-            // You can add here other case statements according to your requirement.
+    public void setUpGoogleApi() {
+        if (mGoogleApiClient == null) {
+            buildGoogleApiClient();
+        }
+        try {
+            mMap.setMyLocationEnabled(true);
+        } catch (SecurityException se) {
+            se.printStackTrace();
         }
     }
 
