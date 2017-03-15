@@ -95,6 +95,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+//                            Change to Successful
+//                            showDialog(getString(R.string.correct));
                 moveToListFragment();
             }
         });
@@ -721,7 +723,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                         showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
-                            showDialog(getString(R.string.correct));
+//                            Change to Successful
+//                            showDialog(getString(R.string.correct));
                             nextButton.setVisibility(View.VISIBLE);
                         }
                     }
@@ -750,7 +753,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                         showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
-                            showDialog(getString(R.string.correct));
+//                            Change to Successful
+//                            showDialog(getString(R.string.correct));
                             nextButton.setVisibility(View.VISIBLE);
                         }
                     }
@@ -780,7 +784,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                         showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
-                            showDialog(getString(R.string.correct));
+//                            Change to Successful
+//                            showDialog(getString(R.string.correct));
                             nextButton.setVisibility(View.VISIBLE);
                         }
                     }
@@ -810,7 +815,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                         showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
-                            showDialog(getString(R.string.correct));
+//                            Change to Successful
+//                            showDialog(getString(R.string.correct));
                             nextButton.setVisibility(View.VISIBLE);
                         }
                     }
@@ -840,7 +846,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                         showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
-                            showDialog(getString(R.string.correct));
+//                            Change to Successful
+//                            showDialog(getString(R.string.correct));
                             nextButton.setVisibility(View.VISIBLE);
                         }
                     }
@@ -868,7 +875,8 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                         showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
-                            showDialog(getString(R.string.correct));
+//                            Change to Successful
+//                            showDialog(getString(R.string.correct));
                             nextButton.setVisibility(View.VISIBLE);
                         }
                     }

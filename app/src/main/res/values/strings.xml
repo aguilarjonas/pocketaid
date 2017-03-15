@@ -82,10 +82,27 @@
   },
   {
     "featureType": "poi.medical",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.medical",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.medical",
     "elementType": "labels.icon",
     "stylers": [
       {
-        "visibility": "simplified"
+        "visibility": "off"
       },
       {
         "weight": 5
@@ -421,14 +438,14 @@
     <string name="animal_bites_cause">"On the other hand, cats and dogs cause most animal bites. Children who have pets or who live in areas with these animals are more susceptible to animal bites."</string>
 
     <!-- NOTES OR PRECAUTIONS -->
-    
+
     <string-array name="abrasion_notes">
     	<item>Call your medical-care provider immediately for abrasion wounds longer than one-half inch that are gaping open and have edges that don’t stay together because as a rule, these wounds need stitches.</item>
     	<item>""</item>
         <item>Never dress a wound with obvious contamination. If you aren’t able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
     	<item>""</item>
     </string-array>
-    
+
     <string-array name="insect_bites_notes">
     	<item>""</item>
         <item>Don’t put petroleum jelly, alcohol, or ammonia on insect stuck on skin—they will make the insect bury deeper.</item>
@@ -444,13 +461,13 @@
         <item>Wild animals that gain access to your home pose a much more serious risk, as they are more likely to carry and transmit rabies and other viruses. These types of bites require immediate medical attention.
               The animal that has bitten the person needs to be monitored for rabies.</item>
     </string-array>
-    
+
     <string-array name="burns_thermal_notes">
     	<item>Immerse the burned area in cool water but not iced water.</item>
         <item>Never apply adhesive dressings or any lotions, ointments or creams to a first or second degree burn that you are treating at home unless the skin is broken.
               Never apply grease, oil, ointment, toothpaste, or any other substance to any burn.</item>
         <item>""</item>
-        
+
     </string-array>
 
     <string-array name="burns_chemical_notes">
@@ -461,7 +478,7 @@
               Never apply grease, oil, ointment, toothpaste, or any other substance to any burn.</item>
         <item>""</item>
         <item>""</item>
-        
+
     </string-array>
 
     <string-array name="burns_electrical_notes">
@@ -542,7 +559,7 @@
 
 
     <string name="youtube_api_key">"AIzaSyDPEigjFr7JJx5_6PNpzrgHYSYIU5dtgKw"</string>
-    
+
     <!-- YOUTUBE LINKS -->
     <string name="abrasion_youtube">"bhsbD46YpPc"</string>
     <string name="animal_bites_youtube">"NwNaYNBH0u8"</string>
