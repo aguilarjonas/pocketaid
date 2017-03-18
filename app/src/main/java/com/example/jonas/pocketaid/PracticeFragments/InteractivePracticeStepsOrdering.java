@@ -496,7 +496,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
                     int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(toPosition).getLayoutPosition();
                     RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
-                    thisHolder.itemView.setBackgroundColor(getResources().getColor(R.color.correct_position_color));
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                         thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
                     }
