@@ -3,6 +3,7 @@
 package com.example.jonas.pocketaid.PracticeFragments;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jonas.pocketaid.Adapters.DialogPractice;
 import com.example.jonas.pocketaid.Adapters.PracticeItemAdapter;
@@ -29,19 +31,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class InteractivePracticeStepsOrdering extends Fragment {
+public class InteractivePracticeStepsOrdering extends Fragment{
 
     private TextView instruction;
-    private Button backButton;
     private ArrayList<Pair<Long, String>> mItemArray;
     private DragListView mDragListView;
     String[] abrasionProcedure, animalBitesProcedure, insectBitesProcedure, thermalBurnProcedure, thirdDegreeBurnProcedure, concussionProcedure, contusionProcedure, fractureProcedure,
              majorLacerationProcedure, minorLacerationProcedure, slightPunctureProcedure, severePunctureProcedure, chemicalBurnProcedure, electricalBurnProcedure;
     RecyclerView lvStepNumber;
     Button checkAnswerBT;
-
     int numberOfMaterials = 0;
     String chosenInjury = "";
+    TextView text;
 
     int numberOfErrors = 0;
     int numberOfTries = 0;
@@ -61,7 +62,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         numberOfCorrect = interModel.getStage2Stats().get(0);
         numberOfErrors = interModel.getStage2Stats().get(1);
         numberOfTries = interModel.getStage2Stats().get(2);
-
         mDragListView = (DragListView) rootView.findViewById(R.id.drag_list_view);
         instruction = (TextView) rootView.findViewById(R.id.arrangement_instruction);
         mDragListView.getRecyclerView().setVerticalScrollBarEnabled(true);
@@ -82,11 +82,12 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         lvStepNumber = (RecyclerView) rootView.findViewById(R.id.lv_step_numberPrac);
         checkAnswerBT = (Button) rootView.findViewById(R.id.btCheckAnswersPrac);
 
+
         chosenInjury = getArguments().getString("chosenInjury");
         appendInjuryToInstruction(chosenInjury);
         selectedInjury(chosenInjury);
         numberOfMaterials = interModel.getNumberOfMaterials();
-
+        text = (TextView) rootView.findViewById(R.id.list_text);
         return rootView;
     }
 
@@ -468,25 +469,6 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         Collections.shuffle(mItemArray);
     }
 
-    public void checkOrderOfProcedures(){
-        mItemArray = new ArrayList<>();
-        mDragListView.setDragListListener(new DragListView.DragListListenerAdapter() {
-            @Override
-            public void onItemDragStarted(int position) {
-
-            }
-            @Override
-            public void onItemDragEnded(int fromPosition, int toPosition) {
-//                if (Long.valueOf(toPosition).equals((Long)(mItemArray.get(toPosition).first))) {
-//                    Toast.makeText(mDragListView.getContext(), "Correct position", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Toast.makeText(mDragListView.getContext(), "Incorrect position", Toast.LENGTH_SHORT).show();
-//                }
-            }
-        });
-        setupListRecyclerView();
-    }
-
     private void setupListRecyclerView() {
         mDragListView.setLayoutManager(new LinearLayoutManager(getActivity()) {
             @Override
@@ -500,6 +482,43 @@ public class InteractivePracticeStepsOrdering extends Fragment {
         mDragListView.setCustomDragItem(new MyDragItem(getContext(), R.layout.list_item));
     }
 
+
+    public void checkOrderOfProcedures(){
+        mItemArray = new ArrayList<>();
+        mDragListView.setDragListListener(new DragListView.DragListListenerAdapter() {
+            @Override
+            public void onItemDragStarted(int position) {
+            }
+            @Override
+            public void onItemDragEnded(final int fromPosition, final int toPosition) {
+                if (Long.valueOf(toPosition).equals((Long)(mItemArray.get(toPosition).first))) {
+                    Toast.makeText(mDragListView.getContext(), "Correct position", Toast.LENGTH_SHORT).show();
+
+                    int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(toPosition).getLayoutPosition();
+                    RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+                    thisHolder.itemView.setBackgroundColor(getResources().getColor(R.color.correct_position_color));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+                    }
+                    mDragListView.setDisableReorderWhenDragging(true);
+
+                } else {
+                    Toast.makeText(mDragListView.getContext(), "Incorrect position", Toast.LENGTH_SHORT).show();
+
+                    int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(toPosition).getLayoutPosition();
+                    RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+                    }
+                    mDragListView.setDisableReorderWhenDragging(true);
+
+                }
+            }
+        });
+        setupListRecyclerView();
+    }
+
+
     private static class MyDragItem extends DragItem {
         public MyDragItem(Context context, int layoutId) {
             super(context, layoutId);
@@ -507,8 +526,8 @@ public class InteractivePracticeStepsOrdering extends Fragment {
 
         @Override
         public void onBindDragView(View clickedView, View dragView) {
-            CharSequence text = ((TextView) clickedView.findViewById(R.id.text)).getText();
-            ((TextView) dragView.findViewById(R.id.text)).setText(text);
+            CharSequence text = ((TextView) clickedView.findViewById(R.id.list_text)).getText();
+            ((TextView) dragView.findViewById(R.id.list_text)).setText(text);
             dragView.setBackgroundColor(dragView.getResources().getColor(R.color.list_item_background));
         }
     }

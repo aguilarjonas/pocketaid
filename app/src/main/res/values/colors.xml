@@ -7,6 +7,7 @@
     <color name="noteColor">#7f8c8d</color>
     <color name="white">#fff</color>
     <color name="gray">#BDBDCF</color>
+    <color name="correct_position_color">#4DBD33</color>
     <color name="list_item_background">#AACCCCCC</color>
     <color name="background">#ECEFF1</color>
     <color name="dialogWrongBackground">#c0392b</color>

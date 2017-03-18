@@ -298,6 +298,8 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         Function Developer : Raeven Bauto
      */
     private String getUrl(double latitude, double longitude, String nearbyPlace) {
+        latitude = 14.61000892;
+        longitude = 120.99208687;
         StringBuilder googlePlacesUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
         googlePlacesUrl.append("location=" + latitude + "," + longitude);
         //googlePlacesUrl.append("&radius=8000");
