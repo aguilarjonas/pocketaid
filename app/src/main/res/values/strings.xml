@@ -371,7 +371,7 @@
     </string-array>
     <!-- MINOR LACERATION: RECOMMENDED -->
     <string-array name="laceration_minor_recommended">
-    	<item>"Wash your hands with soap and water.</item>
+        <item>"Wash your hands with soap and water.</item>
         <item>"Use disposable gloves."</item>
         <item>"Wash the wound thoroughly with soap and water."</item>
         <item>"Apply direct pressure for a few minutes to control any bleeding."</item>
@@ -419,6 +419,7 @@
     <string name="material_steps">"Tap the materials used for treating "</string>
     <string name="arrangement_steps">"Drag the steps to arrange it according to the first aid procedure of "</string>
     <string name="application_steps">"Tap the material to be used then tap the area where it should be applied."</string>
+    <string name="correct_order">"The correct order of procedures: "</string>
 
     <!-- CORRECT OR WRONG -->
     <string name="correct">Correct</string>
@@ -440,14 +441,14 @@
     <!-- NOTES OR PRECAUTIONS -->
 
     <string-array name="abrasion_notes">
-    	<item>Call your medical-care provider immediately for abrasion wounds longer than one-half inch that are gaping open and have edges that don’t stay together because as a rule, these wounds need stitches.</item>
-    	<item>""</item>
+        <item>Call your medical-care provider immediately for abrasion wounds longer than one-half inch that are gaping open and have edges that don’t stay together because as a rule, these wounds need stitches.</item>
+        <item>""</item>
         <item>Never dress a wound with obvious contamination. If you aren’t able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
-    	<item>""</item>
+        <item>""</item>
     </string-array>
 
     <string-array name="insect_bites_notes">
-    	<item>""</item>
+        <item>""</item>
         <item>Don’t put petroleum jelly, alcohol, or ammonia on insect stuck on skin—they will make the insect bury deeper.</item>
         <item>""</item>
         <item>""</item>
@@ -456,14 +457,14 @@
     </string-array>
 
     <string-array name="animal_bites_notes">
-    	<item>""</item>
-    	<item>""</item>
+        <item>""</item>
+        <item>""</item>
         <item>Wild animals that gain access to your home pose a much more serious risk, as they are more likely to carry and transmit rabies and other viruses. These types of bites require immediate medical attention.
               The animal that has bitten the person needs to be monitored for rabies.</item>
     </string-array>
 
     <string-array name="burns_thermal_notes">
-    	<item>Immerse the burned area in cool water but not iced water.</item>
+        <item>Immerse the burned area in cool water but not iced water.</item>
         <item>Never apply adhesive dressings or any lotions, ointments or creams to a first or second degree burn that you are treating at home unless the skin is broken.
               Never apply grease, oil, ointment, toothpaste, or any other substance to any burn.</item>
         <item>""</item>
@@ -471,9 +472,9 @@
     </string-array>
 
     <string-array name="burns_chemical_notes">
-    	<item>""</item>
-    	<item>Immerse the burned area in cool water but not iced water.</item>
-    	<item>""</item>
+        <item>""</item>
+        <item>Immerse the burned area in cool water but not iced water.</item>
+        <item>""</item>
         <item>Never apply adhesive dressings or any lotions, ointments or creams to a first or second degree burn that you are treating at home unless the skin is broken.
               Never apply grease, oil, ointment, toothpaste, or any other substance to any burn.</item>
         <item>""</item>
@@ -483,7 +484,7 @@
 
     <string-array name="burns_electrical_notes">
         <item>""</item>
-    	<item>""</item>
+        <item>""</item>
     </string-array>
 
 
@@ -494,16 +495,16 @@
     </string-array>
 
     <string-array name="contusion_notes">
-    	<item>Never apply ice directly to the skin, use ice bag or cover the ice with a clean towel then apply it to the affected area.</item>
-    	<item>""</item>
+        <item>Never apply ice directly to the skin, use ice bag or cover the ice with a clean towel then apply it to the affected area.</item>
+        <item>""</item>
         <item>""</item>
         <item>""</item>
     </string-array>
 
     <string-array name="fracture_notes">
-    	<item>Do not touch or try to clean the wound; just fasten a sterile or clean pad or cloth securely in place over the wound and secure it with bandages or cloth strips (belts, scarves, neckties).</item>
-    	<item>Do not move the injured person until a splint has been applied unless there is a greater danger of life-threatening urgency.</item>
-    	<item>""</item>
+        <item>Do not touch or try to clean the wound; just fasten a sterile or clean pad or cloth securely in place over the wound and secure it with bandages or cloth strips (belts, scarves, neckties).</item>
+        <item>Do not move the injured person until a splint has been applied unless there is a greater danger of life-threatening urgency.</item>
+        <item>""</item>
         <item>""</item>
         <item>""</item>
         <item>""</item>
@@ -512,11 +513,11 @@
     </string-array>
 
     <string-array name="laceration_major_notes">
-    	<item>Call your medical-care provider immediately for laceration wounds longer than one-half inch that are gaping open and have edges that don’t stay together because as a rule these wounds need stitches.</item>
+        <item>Call your medical-care provider immediately for laceration wounds longer than one-half inch that are gaping open and have edges that don’t stay together because as a rule these wounds need stitches.</item>
     	<item>Never wash deep cuts, because it may increase the rate of bleeding. Do not remove blood-stained dressings from deep cuts, as this may  restart bleeding.
     		  Never dress a wound with obvious contamination. If you are not able to get it clean, cover it lightly with a sterile bandage and seek
     		  medical attention.</item>
-    	<item>""</item>
+        <item>""</item>
         <item>""</item>
         <item>""</item>
         <item>""</item>
@@ -528,27 +529,27 @@
     </string-array>
 
     <string-array name="laceration_minor_notes">
-    	<item>""</item>
-    	<item>""</item>
-    	<item>""</item>
-    	<item>""</item>
-    	<item>""</item>
-    	<item>Never dress a wound with obvious contamination. If you are not able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>Never dress a wound with obvious contamination. If you are not able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
     </string-array>
 
     <string-array name="puncture_severe_notes">
-    	<item>""</item>
-    	<item>Never wash a major or severe puncture wound as this may cause more serious bleeding.</item>
-    	<item>Never probe or remove debris from a wound, attempt to push body parts back in, or breathe on a wound or dressing because doing so may cause serious infection later.</item>
-    	<item>""</item>
-    	<item>""</item>
+        <item>""</item>
+        <item>Never wash a major or severe puncture wound as this may cause more serious bleeding.</item>
+        <item>Never probe or remove debris from a wound, attempt to push body parts back in, or breathe on a wound or dressing because doing so may cause serious infection later.</item>
+        <item>""</item>
+        <item>""</item>
     </string-array>
 
     <string-array name="puncture_slight_notes">
-    	<item>""</item>
-    	<item>""</item>
-    	<item>""</item>
-    	<item>Never dress a wound with obvious contamination. If you are not able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
+        <item>""</item>
+        <item>""</item>
+        <item>""</item>
+        <item>Never dress a wound with obvious contamination. If you are not able to get it clean, cover it lightly with a sterile bandage and seek medical attention.</item>
     </string-array>
 
     <!-- INSTRUCTIONS FOR INTERACTIVE PRACTICE -->
@@ -602,4 +603,5 @@
     <string name="minor_laceration_tab">"MINOR"</string>
     <string name="severe_puncture_tab">"SEVERE"</string>
     <string name="slight_puncture_tab">"SLIGHT"</string>
+
 </resources>
