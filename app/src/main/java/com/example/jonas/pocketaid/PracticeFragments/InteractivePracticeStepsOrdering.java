@@ -11,6 +11,7 @@ import android.support.v4.util.Pair;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,8 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
     private TextView instruction;
     private ArrayList<Pair<Long, String>> mItemArray;
+    ArrayList<String> correctAnswers = new ArrayList<>();
+    ArrayList<String> incorrectAnswers = new ArrayList<>();
     private DragListView mDragListView;
     String[] abrasionProcedure, animalBitesProcedure, insectBitesProcedure, thermalBurnProcedure, thirdDegreeBurnProcedure, concussionProcedure, contusionProcedure, fractureProcedure,
              majorLacerationProcedure, minorLacerationProcedure, slightPunctureProcedure, severePunctureProcedure, chemicalBurnProcedure, electricalBurnProcedure;
@@ -249,6 +252,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
             mDragListView.setDragEnabled(false);
             getOnClickListenerCorrect(selectedInjury);
 
+
         } else if (chosenInjury.equals("Animal Bites") || chosenInjury.equalsIgnoreCase("Kagat ng hayop")){
             checkOrderOfProcedures();
             ArrayList<Integer> numberingProcedure = new ArrayList<>();
@@ -370,6 +374,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
             mDragListView.setDragEnabled(false);
             getOnClickListenerCorrect(selectedInjury);
 
+
         }
     }
 
@@ -396,13 +401,12 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
                         numberOfMaterials = 3;
                         interModel.setNumberOfMaterials(numberOfMaterials);
+                        Log.d("incorrect pos: ", String.valueOf(incorrectAnswers));
                         goToInteractiveApplication();
                     } else{
                         numberOfMaterials = 3;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-//                        showDialog(getString(R.string.wrong));
                         selectedInjuryCorrect(chosenInjury);
-//                        goToInteractiveApplication();
 
                     }
                 } else if(chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Baling Buto")){
@@ -417,6 +421,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
                         numberOfMaterials = (3-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
+                        Log.d("incorrect pos: ", String.valueOf(incorrectAnswers));
 
                         goToInteractiveApplication();
                     } else{
@@ -432,6 +437,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
                         numberOfMaterials = (2-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
+                        Log.d("incorrect pos: ", String.valueOf(incorrectAnswers));
 
                         goToInteractiveApplication();
                     } else{
@@ -446,6 +452,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
                         numberOfMaterials = (2-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
+                        Log.d("incorrect pos: ", String.valueOf(incorrectAnswers));
 
                         goToInteractiveApplication();
                     } else{
@@ -462,6 +469,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
                         numberOfMaterials = 0;
                         interModel.setNumberOfMaterials(numberOfMaterials);
+                        Log.d("incorrect pos: ", String.valueOf(incorrectAnswers));
 
                         goToInteractiveApplication();
                     } else{
@@ -479,6 +487,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
                         numberOfMaterials = 2;
                         interModel.setNumberOfMaterials(numberOfMaterials);
+                        Log.d("incorrect pos: ", String.valueOf(incorrectAnswers));
 
                         goToInteractiveApplication();
                     } else{
@@ -493,6 +502,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
                         numberOfMaterials = 2;
                         interModel.setNumberOfMaterials(numberOfMaterials);
+                        Log.d("incorrect pos: ", String.valueOf(incorrectAnswers));
 
                         goToInteractiveApplication();
                     } else{
@@ -510,6 +520,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
                         numberOfMaterials = 3;
                         interModel.setNumberOfMaterials(numberOfMaterials);
+                        Log.d("incorrect pos: ", String.valueOf(incorrectAnswers));
 
                         goToInteractiveApplication();
                     } else{
@@ -524,6 +535,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
                         numberOfMaterials = 1;
                         interModel.setNumberOfMaterials(numberOfMaterials);
+                        Log.d("incorrect pos: ", String.valueOf(incorrectAnswers));
 
                         goToInteractiveApplication();
                     } else{
@@ -541,6 +553,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
                         numberOfMaterials = (3-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
+                        Log.d("incorrect pos: ", String.valueOf(incorrectAnswers));
 
                         goToInteractiveApplication();
                     } else{
@@ -560,6 +573,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
                         numberOfMaterials = (3-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
+                        Log.d("incorrect pos: ", String.valueOf(incorrectAnswers));
 
                         goToInteractiveApplication();
                     } else{
@@ -572,6 +586,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
         });
     }
 
+
     public void getOnClickListener(final String chosenInjury){
         checkAnswerBT.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -583,22 +598,39 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     if(mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(0).second);
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifincorrect_spinner));
+//                        }
                     }
 
                     if(mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Lagyan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(1).second);
                     }
+
                     if(mItemArray.get(2).second.startsWith("Cover") || mItemArray.get(2).second.startsWith("Takpan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(2).second);
                     }
 
                     if(mItemArray.get(3).second.startsWith("Repeat") || mItemArray.get(3).second.startsWith("Ulitin")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(3).second);
                     }
-
 
                     if((mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")) &&
                             (mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Lagyan")) &&
@@ -611,10 +643,8 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     } else{
                         numberOfMaterials = 3;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-                        numberOfErrors++;
-//                        showDialog(getString(R.string.wrong));
+
                         selectedInjuryCorrect(chosenInjury);
-//                        goToInteractiveApplication();
 
                    }
                 } else if(chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Baling Buto")){
@@ -622,34 +652,66 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     if(mItemArray.get(0).second.startsWith("In") || mItemArray.get(0).second.startsWith("Kung")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(0).second);
                     }
+
                     if(mItemArray.get(1).second.startsWith("If") || mItemArray.get(1).second.startsWith("Gumamit")){
                         numberOfCorrect++;
                         numberOfTries++;
                     }
+                    else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(1).second);
+                    }
+
                     if(mItemArray.get(2).second.startsWith("Make") || mItemArray.get(2).second.startsWith("Siguraduhin")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(2).second);
                     }
+
                     if(mItemArray.get(3).second.startsWith("Support") || mItemArray.get(3).second.contains("Kung mayroong")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(3).second);
                     }
+
                     if(mItemArray.get(4).second.startsWith("Raise") || mItemArray.get(4).second.startsWith("Suportahan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(4).second);
                     }
+
                     if(mItemArray.get(5).second.startsWith("Immobilize") || mItemArray.get(5).second.startsWith("Gumamit")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(5).second);
                     }
+
                     if(mItemArray.get(6).second.startsWith("Check") || mItemArray.get(6).second.startsWith("Palaging")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(6).second);
                     }
+
                     if(mItemArray.get(7).second.startsWith("Call") || mItemArray.get(7).second.startsWith("Magpatingin")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(7).second);
                     }
 
                     if((mItemArray.get(0).second.startsWith("In") || mItemArray.get(0).second.startsWith("Kung")) &&
@@ -667,7 +729,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     } else{
                         numberOfMaterials = (3-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-                        numberOfErrors++;
                         selectedInjuryCorrect(chosenInjury);
                    }
                 } else if(chosenInjury.equals("Contusion") || chosenInjury.equalsIgnoreCase("Pasa")){
@@ -675,19 +736,35 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     if(mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Ilapat")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(0).second);
                     }
+
                     if(mItemArray.get(1).second.startsWith("If") || mItemArray.get(1).second.contains("Kung maaari")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(1).second);
                     }
+
                     if(mItemArray.get(2).second.startsWith("Rest") || mItemArray.get(2).second.startsWith("Ipahinga")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(2).second);
                     }
+
                     if(mItemArray.get(3).second.contains("If needed") || mItemArray.get(3).second.contains("Kung kinakailangan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(3).second);
                     }
+
 
                     if((mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Ilapat"))&&
                             (mItemArray.get(1).second.startsWith("If") || mItemArray.get(1).second.contains("Kung maaari")) &&
@@ -700,7 +777,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     } else{
                         numberOfMaterials = (2-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-                        numberOfErrors++;
                         selectedInjuryCorrect(chosenInjury);
                    }
                 } else if(chosenInjury.equals("Concussion") || chosenInjury.equalsIgnoreCase("Untog")){
@@ -708,15 +784,27 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     if(mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Lapatan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(0).second);
                     }
+
                     if(mItemArray.get(1).second.startsWith("Observe") || mItemArray.get(1).second.startsWith("Obserbahan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(1).second);
                     }
+
                     if(mItemArray.get(2).second.startsWith("If") || mItemArray.get(2).second.startsWith("Tumawag")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(2).second);
                     }
+
 
                     if((mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Lapatan")) &&
                             (mItemArray.get(1).second.startsWith("Observe") || mItemArray.get(1).second.startsWith("Obserbahan")) &&
@@ -728,7 +816,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     } else{
                         numberOfMaterials = (2-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-                        numberOfErrors++;
                         selectedInjuryCorrect(chosenInjury);
                     }
                 } else if(chosenInjury.equals("3rd Degree Burns") || chosenInjury.equalsIgnoreCase("Ikatlong degree na paso")){
@@ -736,22 +823,41 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     if(mItemArray.get(0).second.startsWith("Protect") || mItemArray.get(0).second.startsWith("Protektahan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(0).second);
                     }
+
                     if(mItemArray.get(1).second.startsWith("Remove") || mItemArray.get(1).second.startsWith("Tanggalin")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(1).second);
                     }
+
                     if(mItemArray.get(2).second.startsWith("Do") || mItemArray.get(2).second.startsWith("Huwag")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(2).second);
                     }
+
                     if(mItemArray.get(3).second.startsWith("If") || mItemArray.get(3).second.startsWith("Ilagay")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(3).second);
                     }
+
                     if(mItemArray.get(4).second.startsWith("Call") || mItemArray.get(4).second.startsWith("Tumawag")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(4).second);
                     }
 
                     if((mItemArray.get(0).second.startsWith("Protect") || mItemArray.get(0).second.startsWith("Protektahan")) &&
@@ -766,7 +872,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     } else{
                         numberOfMaterials = 0;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-                        numberOfErrors++;
                         selectedInjuryCorrect(chosenInjury);
                     }
                 } else if(chosenInjury.equals("Chemical Burns") || chosenInjury.equalsIgnoreCase("Paso dulot ng kemikal")){
@@ -774,26 +879,48 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     if(mItemArray.get(0).second.startsWith("Remove") || mItemArray.get(0).second.contains("Kung mayroon")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(0).second);
                     }
+
                     if(mItemArray.get(1).second.startsWith("Place") || mItemArray.get(1).second.startsWith("Panatilihing")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(1).second);
                     }
+
                     if(mItemArray.get(2).second.startsWith("Wash") || mItemArray.get(2).second.startsWith("Hugasan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(2).second);
                     }
+
                     if(mItemArray.get(3).second.startsWith("Cover") || mItemArray.get(3).second.startsWith("Takpan")){
                         numberOfCorrect++;
                         numberOfTries++;
                     }
+                    else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(3).second);
+                    }
                     if(mItemArray.get(4).second.startsWith("If") || mItemArray.get(4).second.contains("Kung ang kemikal")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(4).second);
                     }
                     if(mItemArray.get(5).second.startsWith("Seek") || mItemArray.get(5).second.startsWith("Magpasuri")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(5).second);
                     }
 
                     if((mItemArray.get(0).second.startsWith("Remove") || mItemArray.get(0).second.contains("Kung mayroon")) &&
@@ -809,7 +936,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     } else{
                         numberOfMaterials = 2;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-                        numberOfErrors++;
                         selectedInjuryCorrect(chosenInjury);
                     }
                 } else if(chosenInjury.equals("Thermal Burns") || chosenInjury.equalsIgnoreCase("Paso")){
@@ -817,14 +943,25 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     if(mItemArray.get(0).second.startsWith("Hold") || mItemArray.get(0).second.startsWith("Banlawan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(0).second);
                     }
+
                     if(mItemArray.get(1).second.startsWith("Cover") || mItemArray.get(1).second.startsWith("Hugasan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(1).second);
                     }
+
                     if(mItemArray.get(2).second.startsWith("Keep") || mItemArray.get(2).second.startsWith("Takpan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(2).second);
                     }
 
                     if((mItemArray.get(0).second.startsWith("Hold") || mItemArray.get(0).second.startsWith("Banlawan")) &&
@@ -837,7 +974,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     } else{
                         numberOfMaterials = 2;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-                        numberOfErrors++;
                         selectedInjuryCorrect(chosenInjury);
                     }
                 } else if(chosenInjury.equals("Insect Bites") || chosenInjury.equalsIgnoreCase("Kagat ng insekto")){
@@ -845,27 +981,51 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     if(mItemArray.get(0).second.startsWith("Check") || mItemArray.get(0).second.startsWith("Suriin")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(0).second);
                     }
+
                     if(mItemArray.get(1).second.startsWith("Carefully") || mItemArray.get(1).second.startsWith("Kung")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(1).second);
                     }
+
                     if(mItemArray.get(2).second.startsWith("Wash") || mItemArray.get(2).second.startsWith("Hugasan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(2).second);
                     }
+
                     if(mItemArray.get(3).second.startsWith("Cover")|| mItemArray.get(3).second.startsWith("Takpan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(3).second);
                     }
+
                     if(mItemArray.get(4).second.startsWith("Apply") || mItemArray.get(4).second.startsWith("Lapatan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(4).second);
                     }
+
                     if(mItemArray.get(5).second.startsWith("Call") || mItemArray.get(5).second.startsWith("Tumawag")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(45).second);
                     }
+
 
                     if((mItemArray.get(0).second.startsWith("Check") || mItemArray.get(0).second.startsWith("Suriin"))&&
                             (mItemArray.get(1).second.startsWith("Carefully") || mItemArray.get(1).second.startsWith("Kung")) &&
@@ -880,7 +1040,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     } else{
                         numberOfMaterials = 3;
                         interModel.setNumberOfMaterials(numberOfMaterials);
-                        numberOfErrors++;
                         selectedInjuryCorrect(chosenInjury);
                     }
                 } else if(chosenInjury.equals("Animal Bites") || chosenInjury.equalsIgnoreCase("Kagat ng hayop")){
@@ -917,22 +1076,41 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     if(mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(0).second);
                     }
+
                     if(mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Marahang")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(1).second);
                     }
+
                     if(mItemArray.get(2).second.startsWith("Clean") || mItemArray.get(2).second.startsWith("Linisin")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(2).second);
                     }
+
                     if(mItemArray.get(3).second.startsWith("Do") || mItemArray.get(3).second.startsWith("Huwag")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(3).second);
                     }
+
                     if(mItemArray.get(4).second.startsWith("Consult") || mItemArray.get(4).second.startsWith("Kumonsulta")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(4).second);
                     }
 
                     if((mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")) &&
@@ -947,7 +1125,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     } else{
                         numberOfMaterials = (3-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-                        numberOfErrors++;
                         selectedInjuryCorrect(chosenInjury);
                     }
                 }
@@ -956,30 +1133,57 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     if(mItemArray.get(0).second.startsWith("Put") || mItemArray.get(0).second.startsWith("Magsuot")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(0).second);
                     }
+
                     if(mItemArray.get(1).second.startsWith("Stop") || mItemArray.get(1).second.startsWith("Kontrolin")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(1).second);
                     }
+
                     if(mItemArray.get(2).second.startsWith("Continue") || mItemArray.get(2).second.startsWith("Obserbahan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(2).second);
                     }
+
                     if(mItemArray.get(3).second.startsWith("Care") || mItemArray.get(3).second.startsWith("Iwasan")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(3).second);
                     }
+
                     if(mItemArray.get(4).second.startsWith("Have") || mItemArray.get(4).second.startsWith("Tiyaking")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(4).second);
                     }
+
                     if(mItemArray.get(5).second.startsWith("Wash") || mItemArray.get(5).second.startsWith("Maghugas")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(5).second);
                     }
+
                     if(mItemArray.get(6).second.startsWith("Call") || mItemArray.get(6).second.startsWith("Tumawag")){
                         numberOfCorrect++;
                         numberOfTries++;
+                    } else{
+                        numberOfErrors++;
+                        incorrectAnswers.add(mItemArray.get(6).second);
                     }
 
                     if((mItemArray.get(0).second.startsWith("Put") || mItemArray.get(0).second.startsWith("Magsuot")) &&
@@ -996,8 +1200,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                     } else{
                         numberOfMaterials = (3-1);
                         interModel.setNumberOfMaterials(numberOfMaterials);
-                        numberOfErrors++;
-//                        showDialog(getString(R.string.wrong));
                         selectedInjuryCorrect(chosenInjury);
                     }
                 }
@@ -1074,7 +1276,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                         thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
                     }
                     mDragListView.setDisableReorderWhenDragging(true);
-
                 }
             }
         });
