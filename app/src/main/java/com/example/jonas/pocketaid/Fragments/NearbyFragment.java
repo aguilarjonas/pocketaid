@@ -304,7 +304,7 @@ public class NearbyFragment extends Fragment implements OnMapReadyCallback, Goog
         googlePlacesUrl.append("location=" + latitude + "," + longitude);
         //googlePlacesUrl.append("&radius=8000");
         googlePlacesUrl.append("&rankby=distance");
-        googlePlacesUrl.append("&keyword=hospital|center");
+        googlePlacesUrl.append("&keyword=hospital");
         googlePlacesUrl.append("&type=" + nearbyPlace);
         googlePlacesUrl.append("&sensor=true");
         googlePlacesUrl.append("&key=" + "AIzaSyBRaI6vWSTL-W1cJm-SB60xNBjlbb8TMaU"); //dito yung api key nasa sticky note

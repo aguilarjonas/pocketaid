@@ -1,6 +1,7 @@
 package com.example.jonas.pocketaid.PracticeFragments;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -73,6 +74,13 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
     final ArrayList<ArrayList<String>> categoryAnswer = new ArrayList<ArrayList<String>>();
     Button nextButton;
 
+    FrameLayout framelayout_1;
+    FrameLayout framelayout_2;
+    FrameLayout framelayout_3;
+    FrameLayout framelayout_4;
+    FrameLayout framelayout_5;
+    FrameLayout framelayout_6;
+
     public InteractivePracticeMaterialsFragment() {
         // Required empty public constructor
     }
@@ -142,6 +150,14 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
         imageView_4_check = (ImageView) rootView.findViewById(R.id.imageView4_check);
         imageView_5_check = (ImageView) rootView.findViewById(R.id.imageView5_check);
         imageView_6_check = (ImageView) rootView.findViewById(R.id.imageView6_check);
+
+        framelayout_1 = (FrameLayout) rootView.findViewById(R.id.frame_layout_materials1);
+        framelayout_2 = (FrameLayout) rootView.findViewById(R.id.frame_layout_materials2);
+        framelayout_3 = (FrameLayout) rootView.findViewById(R.id.frame_layout_materials3);
+        framelayout_4 = (FrameLayout) rootView.findViewById(R.id.frame_layout_materials4);
+        framelayout_5 = (FrameLayout) rootView.findViewById(R.id.frame_layout_materials5);
+        framelayout_6 = (FrameLayout) rootView.findViewById(R.id.frame_layout_materials6);
+
 
         imageView_1.setOnClickListener(this);
         imageView_2.setOnClickListener(this);
@@ -720,6 +736,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     if (checkPerClick(1, answerRandomized) == true) {
                         numberOfTries++;
                         numberOfCorrect++;
+                        framelayout_1.setBackgroundColor(Color.GREEN);
                         showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
@@ -732,6 +749,7 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     else{
                         numberOfTries++;
                         numberOfError++;
+                        framelayout_1.setBackgroundColor(Color.RED);
                         showDialog(getString(R.string.wrong));
                         imageView_1_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(1));

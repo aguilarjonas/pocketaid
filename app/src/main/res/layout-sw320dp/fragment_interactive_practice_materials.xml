@@ -106,7 +106,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/border_spinner"
                     android:layout_marginEnd="30dp"
-                    android:layout_marginRight="30dp">
+                    android:layout_marginRight="30dp"
+                    android:id="@+id/frame_layout_materials3">
 
                     <ImageView
                         android:layout_width="100dp"
@@ -134,7 +135,8 @@
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_spinner">
+                    android:background="@drawable/border_spinner"
+                    android:id="@+id/frame_layout_materials4">
 
                     <ImageView
                         android:layout_width="100dp"
@@ -173,7 +175,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="30dp"
                     android:layout_marginEnd="30dp"
-                    android:background="@drawable/border_spinner">
+                    android:background="@drawable/border_spinner"
+                    android:id="@+id/frame_layout_materials5">
 
                     <ImageView
                         android:layout_width="100dp"
@@ -202,7 +205,8 @@
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/border_spinner">
+                    android:background="@drawable/border_spinner"
+                    android:id="@+id/frame_layout_materials6">
 
                     <ImageView
                         android:layout_width="100dp"
