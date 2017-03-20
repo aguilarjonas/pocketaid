@@ -2,6 +2,9 @@ package com.example.jonas.pocketaid.PracticeFragments;
 
 
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -736,8 +739,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     if (checkPerClick(1, answerRandomized) == true) {
                         numberOfTries++;
                         numberOfCorrect++;
-                        framelayout_1.setBackgroundColor(Color.GREEN);
-                        showDialog(getString(R.string.correct));
+                        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                        shape.getPaint().setColor(Color.GREEN);
+                        shape.getPaint().setStyle(Paint.Style.STROKE);
+                        shape.getPaint().setStrokeWidth(10);
+                        framelayout_1.setBackground(shape);
+//                        showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
 //                            Change to Successful
@@ -749,7 +756,11 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     else{
                         numberOfTries++;
                         numberOfError++;
-                        framelayout_1.setBackgroundColor(Color.RED);
+                        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                        shape.getPaint().setColor(Color.RED);
+                        shape.getPaint().setStyle(Paint.Style.STROKE);
+                        shape.getPaint().setStrokeWidth(10);
+                        framelayout_1.setBackground(shape);
                         showDialog(getString(R.string.wrong));
                         imageView_1_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(1));
@@ -768,7 +779,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     if (checkPerClick(2, answerRandomized) == true) {
                         numberOfTries++;
                         numberOfCorrect++;
-                        showDialog(getString(R.string.correct));
+                        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                        shape.getPaint().setColor(Color.GREEN);
+                        shape.getPaint().setStyle(Paint.Style.STROKE);
+                        shape.getPaint().setStrokeWidth(10);
+                        framelayout_2.setBackground(shape);
+//                        showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
 //                            Change to Successful
@@ -780,6 +796,11 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     else{
                         numberOfTries++;
                         numberOfError++;
+                        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                        shape.getPaint().setColor(Color.RED);
+                        shape.getPaint().setStyle(Paint.Style.STROKE);
+                        shape.getPaint().setStrokeWidth(10);
+                        framelayout_2.setBackground(shape);
                         showDialog(getString(R.string.wrong));
                         imageView_2_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(2));
@@ -799,7 +820,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     if (checkPerClick(3, answerRandomized) == true) {
                         numberOfTries++;
                         numberOfCorrect++;
-                        showDialog(getString(R.string.correct));
+                        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                        shape.getPaint().setColor(Color.GREEN);
+                        shape.getPaint().setStyle(Paint.Style.STROKE);
+                        shape.getPaint().setStrokeWidth(10);
+                        framelayout_3.setBackground(shape);
+//                        showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
 //                            Change to Successful
@@ -811,6 +837,11 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     else{
                         numberOfTries++;
                         numberOfError++;
+                        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                        shape.getPaint().setColor(Color.RED);
+                        shape.getPaint().setStyle(Paint.Style.STROKE);
+                        shape.getPaint().setStrokeWidth(10);
+                        framelayout_3.setBackground(shape);
                         showDialog(getString(R.string.wrong));
                         imageView_3_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(3));
@@ -830,7 +861,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     if (checkPerClick(4, answerRandomized) == true) {
                         numberOfTries++;
                         numberOfCorrect++;
-                        showDialog(getString(R.string.correct));
+                        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                        shape.getPaint().setColor(Color.GREEN);
+                        shape.getPaint().setStyle(Paint.Style.STROKE);
+                        shape.getPaint().setStrokeWidth(10);
+                        framelayout_4.setBackground(shape);
+//                        showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
 //                            Change to Successful
@@ -842,6 +878,11 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     else{
                         numberOfTries++;
                         numberOfError++;
+                        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                        shape.getPaint().setColor(Color.RED);
+                        shape.getPaint().setStyle(Paint.Style.STROKE);
+                        shape.getPaint().setStrokeWidth(10);
+                        framelayout_4.setBackground(shape);
                         showDialog(getString(R.string.wrong));
                         imageView_4_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(4));
@@ -861,7 +902,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     if (checkPerClick(5, answerRandomized) == true) {
                         numberOfTries++;
                         numberOfCorrect++;
-                        showDialog(getString(R.string.correct));
+                        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                        shape.getPaint().setColor(Color.GREEN);
+                        shape.getPaint().setStyle(Paint.Style.STROKE);
+                        shape.getPaint().setStrokeWidth(10);
+                        framelayout_5.setBackground(shape);
+//                        showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
 //                            Change to Successful
@@ -873,6 +919,11 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     else{
                         numberOfTries++;
                         numberOfError++;
+                        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                        shape.getPaint().setColor(Color.RED);
+                        shape.getPaint().setStyle(Paint.Style.STROKE);
+                        shape.getPaint().setStrokeWidth(10);
+                        framelayout_5.setBackground(shape);
                         showDialog(getString(R.string.wrong));
                         imageView_5_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(5));
@@ -890,7 +941,12 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     if (checkPerClick(6, answerRandomized) == true) {
                         numberOfTries++;
                         numberOfCorrect++;
-                        showDialog(getString(R.string.correct));
+                        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                        shape.getPaint().setColor(Color.GREEN);
+                        shape.getPaint().setStyle(Paint.Style.STROKE);
+                        shape.getPaint().setStrokeWidth(10);
+                        framelayout_6.setBackground(shape);
+//                        showDialog(getString(R.string.correct));
 
                         if(checkAnswers(answerRandomized, materialNumber, answersUser) == true){
 //                            Change to Successful
@@ -902,6 +958,11 @@ public class InteractivePracticeMaterialsFragment extends Fragment implements Vi
                     else{
                         numberOfTries++;
                         numberOfError++;
+                        ShapeDrawable shape = new ShapeDrawable(new RectShape());
+                        shape.getPaint().setColor(Color.RED);
+                        shape.getPaint().setStyle(Paint.Style.STROKE);
+                        shape.getPaint().setStrokeWidth(10);
+                        framelayout_6.setBackground(shape);
                         showDialog(getString(R.string.wrong));
                         imageView_6_check.setVisibility(View.INVISIBLE);
                         answersUser.remove(Integer.valueOf(6));
