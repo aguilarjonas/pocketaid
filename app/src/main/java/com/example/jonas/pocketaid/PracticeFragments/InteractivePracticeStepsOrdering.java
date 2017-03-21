@@ -41,7 +41,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
     String[] abrasionProcedure, animalBitesProcedure, insectBitesProcedure, thermalBurnProcedure, thirdDegreeBurnProcedure, concussionProcedure, contusionProcedure, fractureProcedure,
             majorLacerationProcedure, minorLacerationProcedure, slightPunctureProcedure, severePunctureProcedure, chemicalBurnProcedure, electricalBurnProcedure;
     RecyclerView lvStepNumber;
-    Button checkAnswerBT;
+    Button checkAnswerBT, getHints;
     int numberOfMaterials = 0;
     String chosenInjury = "";
     TextView text;
@@ -91,12 +91,14 @@ public class InteractivePracticeStepsOrdering extends Fragment{
         severePunctureProcedure = getResources().getStringArray(R.array.puncture_severe_recommended);
         lvStepNumber = (RecyclerView) rootView.findViewById(R.id.lv_step_numberPrac);
         checkAnswerBT = (Button) rootView.findViewById(R.id.btCheckAnswersPrac);
+        getHints = (Button) rootView.findViewById(R.id.btGetHints);
 
         chosenInjury = getArguments().getString("chosenInjury");
         appendInjuryToInstruction(chosenInjury);
         selectedInjury(chosenInjury);
         numberOfMaterials = interModel.getNumberOfMaterials();
         text = (TextView) rootView.findViewById(R.id.list_text);
+        mDragListView.setDisableReorderWhenDragging(true);
         return rootView;
     }
 
@@ -244,6 +246,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
     public void selectedInjuryCorrect(String chosenInjury){
         instruction.setText(getResources().getText(R.string.correct_order));
         String selectedInjury = chosenInjury;
+        mDragListView.setDisableReorderWhenDragging(true);
 
         if (chosenInjury.equals("Abrasion") || chosenInjury.equalsIgnoreCase("Gasgas")){
             checkOrderOfProcedures();
@@ -397,7 +400,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
     public void getOnClickListener(final String chosenInjury){
 
 
-//        getHint.setOnClickListener(new View.OnClickListener(){
+//        getHints.setOnClickListener(new View.OnClickListener(){
 //
 //            @Override
 //            public void onClick(View view) {
@@ -464,7 +467,646 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 //                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
 //                            }
 //                        }
+//                    } else if(chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Baling Buto")){
+//                        if(mItemArray.get(0).second.startsWith("In") || mItemArray.get(0).second.startsWith("Kung")){
+//                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                            }
+//                        } else {
+//
+//                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                            }
+//                        }
+//                        if(mItemArray.get(1).second.startsWith("If") || mItemArray.get(1).second.startsWith("Gumamit")){
+//                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                            }
+//                        } else {
+//
+//                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                            }
+//                        }
+//                    if(mItemArray.get(2).second.startsWith("Make") || mItemArray.get(2).second.startsWith("Siguraduhin")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
 //                    }
+//                    if(mItemArray.get(3).second.startsWith("Support") || mItemArray.get(3).second.contains("Kung mayroong")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(4).second.startsWith("Raise") || mItemArray.get(4).second.startsWith("Suportahan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(4).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(4).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(5).second.startsWith("Immobilize") || mItemArray.get(5).second.startsWith("Gumamit")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(5).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(5).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(6).second.startsWith("Check") || mItemArray.get(6).second.startsWith("Palaging")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(6).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(6).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(7).second.startsWith("Call") || mItemArray.get(7).second.startsWith("Magpatingin")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(7).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(7).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                } else if(chosenInjury.equals("Contusion") || chosenInjury.equalsIgnoreCase("Pasa")){
+//                    if(mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Ilapat")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(1).second.startsWith("If") || mItemArray.get(1).second.contains("Kung maaari")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(2).second.startsWith("Rest") || mItemArray.get(2).second.startsWith("Ipahinga")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(3).second.contains("If needed") || mItemArray.get(3).second.contains("Kung kinakailangan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                } else if(chosenInjury.equals("Concussion") || chosenInjury.equalsIgnoreCase("Untog")){
+//                    if(mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Lapatan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(1).second.startsWith("Observe") || mItemArray.get(1).second.startsWith("Obserbahan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(2).second.startsWith("If") || mItemArray.get(2).second.startsWith("Tumawag")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                } else if(chosenInjury.equals("Chemical Burns") || chosenInjury.equalsIgnoreCase("Paso dulot ng kemikal")){
+//                    if(mItemArray.get(0).second.startsWith("Remove") || mItemArray.get(0).second.contains("Kung mayroon")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(1).second.startsWith("Place") || mItemArray.get(1).second.startsWith("Panatilihing")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(2).second.startsWith("Wash") || mItemArray.get(2).second.startsWith("Hugasan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(3).second.startsWith("Cover") || mItemArray.get(3).second.startsWith("Takpan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(4).second.startsWith("If") || mItemArray.get(4).second.contains("Kung ang kemikal")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(4).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(4).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(5).second.startsWith("Seek") || mItemArray.get(5).second.startsWith("Magpasuri")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(5).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(5).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                } else if(chosenInjury.equals("Thermal Burns") || chosenInjury.equalsIgnoreCase("Paso")){
+//                    if(mItemArray.get(0).second.startsWith("Hold") || mItemArray.get(0).second.startsWith("Banlawan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(1).second.startsWith("Cover") || mItemArray.get(1).second.startsWith("Hugasan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(2).second.startsWith("Keep") || mItemArray.get(2).second.startsWith("Takpan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                } else if(chosenInjury.equals("Insect Bites") || chosenInjury.equalsIgnoreCase("Kagat ng insekto")){
+//                    if(mItemArray.get(0).second.startsWith("Check") || mItemArray.get(0).second.startsWith("Suriin")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(1).second.startsWith("Carefully") || mItemArray.get(1).second.startsWith("Kung")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(2).second.startsWith("Wash") || mItemArray.get(2).second.startsWith("Hugasan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if (mItemArray.get(3).second.startsWith("Cover")|| mItemArray.get(3).second.startsWith("Takpan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(4).second.startsWith("Apply") || mItemArray.get(4).second.startsWith("Lapatan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(4).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(4).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(5).second.startsWith("Call") || mItemArray.get(5).second.startsWith("Tumawag")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(5).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(5).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                } else if(chosenInjury.equals("Animal Bites") || chosenInjury.equalsIgnoreCase("Kagat ng hayop")){
+//                    if(mItemArray.get(0).second.startsWith("Control") || mItemArray.get(0).second.startsWith("Kontrolin")) {
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(1).second.startsWith("Do") || mItemArray.get(1).second.startsWith("Huwag")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(2).second.startsWith("Call") || mItemArray.get(2).second.startsWith("Tumawag")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                } else if(chosenInjury.equals("Puncture") || chosenInjury.equalsIgnoreCase("Tusok")){
+//                    if(mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if (mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Marahang")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(2).second.startsWith("Clean") || mItemArray.get(2).second.startsWith("Linisin")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(3).second.startsWith("Do") || mItemArray.get(3).second.startsWith("Huwag")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(4).second.startsWith("Consult") || mItemArray.get(4).second.startsWith("Kumonsulta")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(4).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(4).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                } else if(chosenInjury.equals("Laceration") || chosenInjury.equalsIgnoreCase("Laslas")){
+//                    if(mItemArray.get(0).second.startsWith("Put") || mItemArray.get(0).second.startsWith("Magsuot")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(1).second.startsWith("Stop") || mItemArray.get(1).second.startsWith("Kontrolin")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(2).second.startsWith("Continue") || mItemArray.get(2).second.startsWith("Obserbahan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(3).second.startsWith("Care") || mItemArray.get(3).second.startsWith("Iwasan")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(4).second.startsWith("Have") || mItemArray.get(4).second.startsWith("Tiyaking")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(4).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(4).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(5).second.startsWith("Wash") || mItemArray.get(5).second.startsWith("Maghugas")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(5).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(5).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                    if(mItemArray.get(6).second.startsWith("Call") || mItemArray.get(6).second.startsWith("Tumawag")){
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(6).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                        }
+//                    } else {
+//
+//                        int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(6).getLayoutPosition();
+//                        RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                            thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                        }
+//                    }
+//                }
 //            }
 //        });
 
@@ -1611,10 +2253,24 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                 if (Long.valueOf(toPosition).equals((Long)(mItemArray.get(toPosition).first))) {
                     Toast.makeText(mDragListView.getContext(), "Correct position", Toast.LENGTH_SHORT).show();
 
+//                    int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(toPosition).getLayoutPosition();
+//                    RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                        thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                    }
+
+                    mDragListView.setDisableReorderWhenDragging(true);
 
                 } else {
                     Toast.makeText(mDragListView.getContext(), "Incorrect position", Toast.LENGTH_SHORT).show();
 
+//                    int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(toPosition).getLayoutPosition();
+//                    RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                        thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                    }
+
+                    mDragListView.setDisableReorderWhenDragging(true);
                 }
 
 

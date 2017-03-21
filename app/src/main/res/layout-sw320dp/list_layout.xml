@@ -63,8 +63,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <!--<Button-->
+                    <!--android:id="@+id/btGetHints"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginBottom="40dp"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:text="Get Hint"-->
+                    <!--android:layout_gravity="bottom|center"-->
+                    <!--style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"/>-->
+
                 <Button
                     android:id="@+id/btCheckAnswersPrac"
+                    android:layout_below="@id/btGetHints"
                     style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
                     android:textSize="16sp"
                     android:layout_gravity="bottom|center"
