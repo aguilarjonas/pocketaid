@@ -1,22 +1,23 @@
-
-
 package com.example.jonas.pocketaid.PracticeFragments;
 
 import android.content.Context;
-import android.graphics.Paint;
+import android.content.DialogInterface;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.util.Pair;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,9 +49,12 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
     int numberOfErrors = 0;
     int numberOfTries = 0;
+    int stepNumberHolder = 0;
     int numberOfCorrect = 0;
 
     ArrayList<Integer> wrongAnswer = new ArrayList<Integer>();
+    ArrayList<String> incorrectAnswers = new ArrayList<>();
+    Bundle savedInstanceState;
 
 
     InteractiveModel interModel = InteractiveModel.getInstance();
@@ -58,6 +62,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        this.savedInstanceState = savedInstanceState;
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.list_layout, container, false);
         ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         ((MainActivity) getActivity()).resetActionBar(true, DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
@@ -99,7 +104,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
     public void appendInjuryToInstruction(String injury) {
         instruction.append(injury + ".");
     }
-
 
     public void selectedInjury(String chosenInjury){
         String selectedInjury = chosenInjury;
@@ -238,6 +242,148 @@ public class InteractivePracticeStepsOrdering extends Fragment{
         }
     }
 
+    public void selectedInjuryCorrect(String chosenInjury){
+        instruction.setText(getResources().getText(R.string.correct_order));
+        String selectedInjury = chosenInjury;
+
+        if (chosenInjury.equals("Abrasion") || chosenInjury.equalsIgnoreCase("Gasgas")){
+            checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
+            for (int counter = 0; counter < abrasionProcedure.length; ++counter) {
+                stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                setStepNumberAdapter(abrasionProcedure);
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + abrasionProcedure[counter]));
+            }
+            mDragListView.setDragEnabled(false);
+            getOnClickListenerCorrect(selectedInjury);
+
+
+        } else if (chosenInjury.equals("Animal Bites") || chosenInjury.equalsIgnoreCase("Kagat ng hayop")){
+            checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
+            for (int counter = 0; counter < animalBitesProcedure.length; ++counter) {
+                stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                setStepNumberAdapter(animalBitesProcedure);
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + animalBitesProcedure[counter]));
+            }
+            mDragListView.setDragEnabled(false);
+            getOnClickListenerCorrect(selectedInjury);
+
+        } else if (chosenInjury.equals("Insect Bites") || chosenInjury.equalsIgnoreCase("Kagat ng insekto")){
+            checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
+            for (int counter = 0; counter < insectBitesProcedure.length; ++counter) {
+                stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                setStepNumberAdapter(insectBitesProcedure);
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + insectBitesProcedure[counter]));
+            }
+            mDragListView.setDragEnabled(false);
+            getOnClickListenerCorrect(selectedInjury);
+
+        } else if (chosenInjury.equals("Thermal Burns") || chosenInjury.equalsIgnoreCase("Paso")){
+            checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
+            for (int counter = 0; counter < thermalBurnProcedure.length; ++counter) {
+                stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                setStepNumberAdapter(thermalBurnProcedure);
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thermalBurnProcedure[counter]));
+            }
+            mDragListView.setDragEnabled(false);
+            getOnClickListenerCorrect(selectedInjury);
+
+        } else if (chosenInjury.equals("Chemical Burns") || chosenInjury.equalsIgnoreCase("Paso dulot ng kemikal")){
+            checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
+            for (int counter = 0; counter < chemicalBurnProcedure.length; ++counter) {
+                stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                setStepNumberAdapter(chemicalBurnProcedure);
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + chemicalBurnProcedure[counter]));
+            }
+            mDragListView.setDragEnabled(false);
+            getOnClickListenerCorrect(selectedInjury);
+
+        } else if (chosenInjury.equals("3rd Degree Burns") || chosenInjury.equalsIgnoreCase("Ikatlong digri ng paso")){
+            checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
+            for (int counter = 0; counter < thirdDegreeBurnProcedure.length; ++counter) {
+                stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                setStepNumberAdapter(thirdDegreeBurnProcedure);
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + thirdDegreeBurnProcedure[counter]));
+            }
+            mDragListView.setDragEnabled(false);
+            getOnClickListenerCorrect(selectedInjury);
+
+        } else if (chosenInjury.equals("Concussion") || chosenInjury.equalsIgnoreCase("Untog")){
+            checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
+            for (int counter = 0; counter < concussionProcedure.length; ++counter) {
+                stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                setStepNumberAdapter(concussionProcedure);
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + concussionProcedure[counter]));
+            }
+            mDragListView.setDragEnabled(false);
+            getOnClickListenerCorrect(selectedInjury);
+
+        } else if (chosenInjury.equals("Contusion") || chosenInjury.equalsIgnoreCase("Pasa")){
+            checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
+            for (int counter = 0; counter < contusionProcedure.length; ++counter) {
+                stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                setStepNumberAdapter(contusionProcedure);
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + contusionProcedure[counter]));
+            }
+            mDragListView.setDragEnabled(false);
+            getOnClickListenerCorrect(selectedInjury);
+
+        } else if (chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Baling Buto")){
+            checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
+            for (int counter = 0; counter < fractureProcedure.length; ++counter) {
+                stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                setStepNumberAdapter(fractureProcedure);
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + fractureProcedure[counter]));
+            }
+            mDragListView.setDragEnabled(false);
+            getOnClickListenerCorrect(selectedInjury);
+
+        } else if (chosenInjury.equals("Laceration") || chosenInjury.equalsIgnoreCase("Laslas")){
+            checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
+            for (int counter = 0; counter < majorLacerationProcedure.length; ++counter) {
+                stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                setStepNumberAdapter(majorLacerationProcedure);
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + majorLacerationProcedure[counter]));
+            }
+            mDragListView.setDragEnabled(false);
+            getOnClickListenerCorrect(selectedInjury);
+
+        }
+        else if (chosenInjury.equals("Puncture") || chosenInjury.equalsIgnoreCase("Tusok")){
+            checkOrderOfProcedures();
+            ArrayList<Integer> numberingProcedure = new ArrayList<>();
+            for (int counter = 0; counter < severePunctureProcedure.length; ++counter) {
+                stepNumberHolder = counter + 1;
+                numberingProcedure.addAll(Arrays.asList(stepNumberHolder));
+                setStepNumberAdapter(severePunctureProcedure);
+                mItemArray.add(new Pair<>(Long.valueOf(counter), "" + severePunctureProcedure[counter]));
+            }
+            mDragListView.setDragEnabled(false);
+            getOnClickListenerCorrect(selectedInjury);
+
+
+        }
+    }
+
     public void setStepNumberAdapter(String[] injury) {
         StepNumberListAdapter adapter = new StepNumberListAdapter(getActivity().getApplicationContext(), injury);
         lvStepNumber.setAdapter(adapter);
@@ -280,6 +426,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(0);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(0).second);
                         }
 
                         if ((mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Lagyan"))){
@@ -291,6 +438,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(1);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(1).second);
                         }
 
                         if (mItemArray.get(2).second.startsWith("Cover") || mItemArray.get(2).second.startsWith("Takpan")){
@@ -302,6 +450,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(2);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(2).second);
                         }
 
                         if((mItemArray.get(3).second.startsWith("Repeat") || mItemArray.get(3).second.startsWith("Ulitin"))){
@@ -313,11 +462,11 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(3);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(3).second);
                         }
 
                         //Change to Go to Correct Procedure shit
-                        goToInteractiveApplication();
-                        showDialog(getString(R.string.wrong));
+                        displayIncorrectAnswers();
                     }
 
                 } else if(chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Baling Buto")){
@@ -351,6 +500,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(0);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(0).second);
                         }
 
                         if ((mItemArray.get(1).second.startsWith("If") || mItemArray.get(1).second.startsWith("Gumamit"))){
@@ -362,6 +512,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(1);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(1).second);
                         }
 
                         if ((mItemArray.get(2).second.startsWith("Make") || mItemArray.get(2).second.startsWith("Siguraduhin"))){
@@ -373,6 +524,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(2);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(2).second);
                         }
 
                         if ((mItemArray.get(3).second.startsWith("Support") || mItemArray.get(3).second.contains("Kung mayroong"))){
@@ -384,6 +536,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(3);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(3).second);
                         }
 
                         if ((mItemArray.get(4).second.startsWith("Raise") || mItemArray.get(4).second.startsWith("Suportahan"))){
@@ -395,6 +548,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(4);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(4).second);
                         }
 
                         if ((mItemArray.get(5).second.startsWith("Immobilize") || mItemArray.get(5).second.startsWith("Gumamit"))){
@@ -406,6 +560,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(5);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(5).second);
                         }
 
                         if ((mItemArray.get(6).second.startsWith("Check") || mItemArray.get(6).second.startsWith("Palaging"))){
@@ -417,6 +572,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(6);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(6).second);
                         }
 
                         if ((mItemArray.get(7).second.startsWith("Call") || mItemArray.get(7).second.startsWith("Magpatingin"))){
@@ -428,11 +584,11 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(7);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(7).second);
                         }
 
                         //Change to Go to Correct Procedure shit
-                        goToInteractiveApplication();
-                        showDialog(getString(R.string.wrong));
+                        displayIncorrectAnswers();
 
 //                        numberOfMaterials = (3-1);
 //                        interModel.setNumberOfMaterials(numberOfMaterials);
@@ -464,6 +620,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(0);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(0).second);
                         }
 
 
@@ -476,6 +633,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(1);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(1).second);
                         }
 
 
@@ -488,6 +646,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(2);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(2).second);
                         }
 
 
@@ -500,10 +659,10 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(3);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(3).second);
                         }
                         //Change to Go to Correct Procedure shit
-                        goToInteractiveApplication();
-                        showDialog(getString(R.string.wrong));
+                        displayIncorrectAnswers();
                     }
                 } else if(chosenInjury.equals("Concussion") || chosenInjury.equalsIgnoreCase("Untog")){
                     numberOfMaterials = (2-1);
@@ -530,6 +689,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(0);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(0).second);
                         }
 
                         if ((mItemArray.get(1).second.startsWith("Observe") || mItemArray.get(1).second.startsWith("Obserbahan"))){
@@ -541,6 +701,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(1);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(1).second);
                         }
 
                         if ((mItemArray.get(2).second.startsWith("If") || mItemArray.get(2).second.startsWith("Tumawag"))){
@@ -552,12 +713,12 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(2);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(2).second);
                         }
 
 
                         //Change to Go to Correct Procedure shit
-                        goToInteractiveApplication();
-                        showDialog(getString(R.string.wrong));
+                        displayIncorrectAnswers();
                     }
                 }
 //                else if(chosenInjury.equals("3rd Degree Burns") || chosenInjury.equalsIgnoreCase("Ikatlong degree na paso")){
@@ -605,6 +766,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(0);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(0).second);
                         }
 
                         if ((mItemArray.get(1).second.startsWith("Place") || mItemArray.get(1).second.startsWith("Panatilihing"))){
@@ -616,6 +778,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(1);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(1).second);
                         }
 
                         if ((mItemArray.get(2).second.startsWith("Wash") || mItemArray.get(2).second.startsWith("Hugasan"))){
@@ -627,6 +790,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(2);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(2).second);
                         }
 
                         if ((mItemArray.get(3).second.startsWith("Cover") || mItemArray.get(3).second.startsWith("Takpan"))){
@@ -638,6 +802,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(3);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(3).second);
                         }
 
                         if ((mItemArray.get(4).second.startsWith("If") || mItemArray.get(4).second.contains("Kung ang kemikal"))){
@@ -649,6 +814,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(4);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(4).second);
                         }
 
                         if ((mItemArray.get(5).second.startsWith("Seek") || mItemArray.get(5).second.startsWith("Magpasuri"))){
@@ -660,10 +826,10 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(5);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(5).second);
                         }
                         //Change to Go to Correct Procedure shit
-                        goToInteractiveApplication();
-                        showDialog(getString(R.string.wrong));
+                        displayIncorrectAnswers();
                     }
                 } else if(chosenInjury.equals("Thermal Burns") || chosenInjury.equalsIgnoreCase("Paso")){
                     numberOfMaterials = 2;
@@ -690,6 +856,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(0);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(0).second);
                         }
 
                         if ((mItemArray.get(1).second.startsWith("Cover") || mItemArray.get(1).second.startsWith("Hugasan"))){
@@ -701,6 +868,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(1);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(1).second);
                         }
 
                         if ((mItemArray.get(2).second.startsWith("Keep") || mItemArray.get(2).second.startsWith("Takpan"))){
@@ -712,10 +880,11 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(2);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(2).second);
+
                         }
                         //Change to Go to Correct Procedure shit
-                        goToInteractiveApplication();
-                        showDialog(getString(R.string.wrong));
+                        displayIncorrectAnswers();
                     }
                 } else if(chosenInjury.equals("Insect Bites") || chosenInjury.equalsIgnoreCase("Kagat ng insekto")){
                     numberOfMaterials = 3;
@@ -744,6 +913,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(0);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(0).second);
                         }
 
                         if ((mItemArray.get(1).second.startsWith("Carefully") || mItemArray.get(1).second.startsWith("Kung"))) {
@@ -755,6 +925,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(1);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(1).second);
                         }
 
                         if ((mItemArray.get(2).second.startsWith("Wash") || mItemArray.get(2).second.startsWith("Hugasan"))){
@@ -766,6 +937,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(2);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(2).second);
                         }
 
                         if ((mItemArray.get(3).second.startsWith("Cover")|| mItemArray.get(3).second.startsWith("Takpan"))){
@@ -777,6 +949,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(3);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(3).second);
                         }
 
                         if ((mItemArray.get(4).second.startsWith("Apply") || mItemArray.get(4).second.startsWith("Lapatan"))){
@@ -788,6 +961,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(4);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(4).second);
                         }
 
                         if ((mItemArray.get(5).second.startsWith("Call") || mItemArray.get(5).second.startsWith("Tumawag"))){
@@ -799,10 +973,10 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(5);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(5).second);
                         }
                         //Change to Go to Correct Procedure shit
-                        goToInteractiveApplication();
-                        showDialog(getString(R.string.wrong));
+                        displayIncorrectAnswers();
                     }
 
                 } else if(chosenInjury.equals("Animal Bites") || chosenInjury.equalsIgnoreCase("Kagat ng hayop")){
@@ -830,6 +1004,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(0);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(0).second);
                         }
 
                         if ((mItemArray.get(1).second.startsWith("Do") || mItemArray.get(1).second.startsWith("Huwag"))){
@@ -841,6 +1016,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(1);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(1).second);
                         }
 
                         if ((mItemArray.get(2).second.startsWith("Call") || mItemArray.get(2).second.startsWith("Tumawag"))){
@@ -852,10 +1028,10 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(2);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(2).second);
                         }
                         //Change to Go to Correct Procedure shit
-                        goToInteractiveApplication();
-                        showDialog(getString(R.string.wrong));
+                        displayIncorrectAnswers();
                     }
                 }
                 else if(chosenInjury.equals("Puncture") || chosenInjury.equalsIgnoreCase("Tusok")){
@@ -885,6 +1061,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(0);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(0).second);
                         }
 
                         if ((mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Marahang"))){
@@ -896,6 +1073,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(1);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(1).second);
                         }
 
                         if ((mItemArray.get(2).second.startsWith("Clean") || mItemArray.get(2).second.startsWith("Linisin"))){
@@ -907,6 +1085,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(2);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(2).second);
                         }
 
                         if ((mItemArray.get(3).second.startsWith("Do") || mItemArray.get(3).second.startsWith("Huwag"))){
@@ -918,6 +1097,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(3);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(3).second);
                         }
 
                         if ((mItemArray.get(4).second.startsWith("Consult") || mItemArray.get(4).second.startsWith("Kumonsulta"))){
@@ -929,10 +1109,10 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(4);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(4).second);
                         }
                         //Change to Go to Correct Procedure shit
-                        goToInteractiveApplication();
-                        showDialog(getString(R.string.wrong));
+                        displayIncorrectAnswers();
                     }
                 }
                 else if(chosenInjury.equals("Laceration") || chosenInjury.equalsIgnoreCase("Laslas")){
@@ -964,6 +1144,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(0);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(0).second);
                         }
 
                         if ((mItemArray.get(1).second.startsWith("Stop") || mItemArray.get(1).second.startsWith("Kontrolin"))){
@@ -975,6 +1156,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(1);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(1).second);
                         }
 
                         if ((mItemArray.get(2).second.startsWith("Continue") || mItemArray.get(2).second.startsWith("Obserbahan"))){
@@ -986,6 +1168,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(2);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(2).second);
                         }
 
                         if ((mItemArray.get(3).second.startsWith("Care") || mItemArray.get(3).second.startsWith("Iwasan"))){
@@ -997,6 +1180,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(3);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(3).second);
                         }
 
                         if ((mItemArray.get(4).second.startsWith("Have") || mItemArray.get(4).second.startsWith("Tiyaking"))){
@@ -1008,6 +1192,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(4);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(4).second);
                         }
 
                         if ((mItemArray.get(5).second.startsWith("Wash") || mItemArray.get(5).second.startsWith("Maghugas"))){
@@ -1019,6 +1204,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(5);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(5).second);
                         }
 
                         if ((mItemArray.get(6).second.startsWith("Call") || mItemArray.get(6).second.startsWith("Tumawag"))){
@@ -1030,14 +1216,223 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             wrongAnswer.add(6);
                             numberOfTries++;
                             numberOfErrors++;
+                            incorrectAnswers.add(mItemArray.get(6).second);
                         }
                         //Change to Go to Correct Procedure shit
-                        goToInteractiveApplication();
-                        showDialog(getString(R.string.wrong));
+                        displayIncorrectAnswers();
                     }
                 }
             }
         });
+    }
+
+    public void getOnClickListenerCorrect(final String chosenInjury){
+        checkAnswerBT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(chosenInjury.equals("Abrasion") || chosenInjury.equalsIgnoreCase("Gasgas")){
+                    if((mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")) &&
+                            (mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Lagyan")) &&
+                            (mItemArray.get(2).second.startsWith("Cover") || mItemArray.get(2).second.startsWith("Takpan")) &&
+                            (mItemArray.get(3).second.startsWith("Repeat") || mItemArray.get(3).second.startsWith("Ulitin"))){
+
+                        numberOfMaterials = 3;
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+                        goToInteractiveApplication();
+                    } else{
+                        numberOfMaterials = 3;
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+                        selectedInjuryCorrect(chosenInjury);
+
+                    }
+                } else if(chosenInjury.equals("Fracture") || chosenInjury.equalsIgnoreCase("Baling Buto")){
+                    if((mItemArray.get(0).second.startsWith("In") || mItemArray.get(0).second.startsWith("Kung")) &&
+                            (mItemArray.get(1).second.startsWith("If") || mItemArray.get(1).second.startsWith("Gumamit")) &&
+                            (mItemArray.get(2).second.startsWith("Make") || mItemArray.get(2).second.startsWith("Siguraduhin")) &&
+                            (mItemArray.get(3).second.startsWith("Support") || mItemArray.get(3).second.contains("Kung mayroong")) &&
+                            (mItemArray.get(4).second.startsWith("Raise") || mItemArray.get(4).second.startsWith("Suportahan")) &&
+                            (mItemArray.get(5).second.startsWith("Immobilize") || mItemArray.get(5).second.startsWith("Gumamit")) &&
+                            (mItemArray.get(6).second.startsWith("Check") || mItemArray.get(6).second.startsWith("Palaging")) &&
+                            (mItemArray.get(7).second.startsWith("Call") || mItemArray.get(7).second.startsWith("Magpatingin"))){
+
+                        numberOfMaterials = (3-1);
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+
+                        goToInteractiveApplication();
+                    } else{
+                        numberOfMaterials = (3-1);
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+                        selectedInjuryCorrect(chosenInjury);
+                    }
+                } else if(chosenInjury.equals("Contusion") || chosenInjury.equalsIgnoreCase("Pasa")){
+                    if((mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Ilapat"))&&
+                            (mItemArray.get(1).second.startsWith("If") || mItemArray.get(1).second.contains("Kung maaari")) &&
+                            (mItemArray.get(2).second.startsWith("Rest") || mItemArray.get(2).second.startsWith("Ipahinga")) &&
+                            (mItemArray.get(3).second.contains("If needed") || mItemArray.get(3).second.contains("Kung kinakailangan"))){
+
+                        numberOfMaterials = (2-1);
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+
+                        goToInteractiveApplication();
+                    } else{
+                        numberOfMaterials = (2-1);
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+                        selectedInjuryCorrect(chosenInjury);
+                    }
+                } else if(chosenInjury.equals("Concussion") || chosenInjury.equalsIgnoreCase("Untog")){
+                    if((mItemArray.get(0).second.startsWith("Apply") || mItemArray.get(0).second.startsWith("Lapatan")) &&
+                            (mItemArray.get(1).second.startsWith("Observe") || mItemArray.get(1).second.startsWith("Obserbahan")) &&
+                            (mItemArray.get(2).second.startsWith("If") || mItemArray.get(2).second.startsWith("Tumawag"))){
+
+                        numberOfMaterials = (2-1);
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+
+                        goToInteractiveApplication();
+                    } else{
+                        numberOfMaterials = (2-1);
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+                        selectedInjuryCorrect(chosenInjury);
+                    }
+                } else if(chosenInjury.equals("3rd Degree Burns") || chosenInjury.equalsIgnoreCase("Ikatlong degree na paso")){
+                    if((mItemArray.get(0).second.startsWith("Protect") || mItemArray.get(0).second.startsWith("Protektahan")) &&
+                            (mItemArray.get(1).second.startsWith("Remove") || mItemArray.get(1).second.startsWith("Tanggalin")) &&
+                            (mItemArray.get(2).second.startsWith("Do") || mItemArray.get(2).second.startsWith("Huwag")) &&
+                            (mItemArray.get(3).second.startsWith("If") || mItemArray.get(3).second.startsWith("Ilagay")) &&
+                            (mItemArray.get(4).second.startsWith("Call") || mItemArray.get(4).second.startsWith("Tumawag"))){
+
+                        numberOfMaterials = 0;
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+
+                        goToInteractiveApplication();
+                    } else{
+                        numberOfMaterials = 0;
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+                        selectedInjuryCorrect(chosenInjury);
+                    }
+                } else if(chosenInjury.equals("Chemical Burns") || chosenInjury.equalsIgnoreCase("Paso dulot ng kemikal")){
+                    if((mItemArray.get(0).second.startsWith("Remove") || mItemArray.get(0).second.contains("Kung mayroon")) &&
+                            (mItemArray.get(1).second.startsWith("Place") || mItemArray.get(1).second.startsWith("Panatilihing")) &&
+                            (mItemArray.get(2).second.startsWith("Wash") || mItemArray.get(2).second.startsWith("Hugasan")) &&
+                            (mItemArray.get(3).second.startsWith("Cover") || mItemArray.get(3).second.startsWith("Takpan")) &&
+                            (mItemArray.get(4).second.startsWith("If") || mItemArray.get(4).second.contains("Kung ang kemikal")) &&
+                            (mItemArray.get(5).second.startsWith("Seek") || mItemArray.get(5).second.startsWith("Magpasuri"))){
+
+                        numberOfMaterials = 2;
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+
+                        goToInteractiveApplication();
+                    } else{
+                        numberOfMaterials = 2;
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+                        selectedInjuryCorrect(chosenInjury);
+                    }
+                } else if(chosenInjury.equals("Thermal Burns") || chosenInjury.equalsIgnoreCase("Paso")){
+                    if((mItemArray.get(0).second.startsWith("Hold") || mItemArray.get(0).second.startsWith("Banlawan")) &&
+                            (mItemArray.get(1).second.startsWith("Cover") || mItemArray.get(1).second.startsWith("Hugasan")) &&
+                            (mItemArray.get(2).second.startsWith("Keep") || mItemArray.get(2).second.startsWith("Takpan"))){
+
+                        numberOfMaterials = 2;
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+
+                        goToInteractiveApplication();
+                    } else{
+                        numberOfMaterials = 2;
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+                        selectedInjuryCorrect(chosenInjury);
+                    }
+                } else if(chosenInjury.equals("Insect Bites") || chosenInjury.equalsIgnoreCase("Kagat ng insekto")){
+                    if((mItemArray.get(0).second.startsWith("Check") || mItemArray.get(0).second.startsWith("Suriin"))&&
+                            (mItemArray.get(1).second.startsWith("Carefully") || mItemArray.get(1).second.startsWith("Kung")) &&
+                            (mItemArray.get(2).second.startsWith("Wash") || mItemArray.get(2).second.startsWith("Hugasan")) &&
+                            (mItemArray.get(3).second.startsWith("Cover")|| mItemArray.get(3).second.startsWith("Takpan")) &&
+                            (mItemArray.get(4).second.startsWith("Apply") || mItemArray.get(4).second.startsWith("Lapatan")) &&
+                            (mItemArray.get(5).second.startsWith("Call") || mItemArray.get(5).second.startsWith("Tumawag"))){
+
+                        numberOfMaterials = 3;
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+
+                        goToInteractiveApplication();
+                    } else{
+                        numberOfMaterials = 3;
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+                        selectedInjuryCorrect(chosenInjury);
+                    }
+                } else if(chosenInjury.equals("Animal Bites") || chosenInjury.equalsIgnoreCase("Kagat ng hayop")){
+                    if((mItemArray.get(0).second.startsWith("Control") || mItemArray.get(0).second.startsWith("Kontrolin")) &&
+                            (mItemArray.get(1).second.startsWith("Do") || mItemArray.get(1).second.startsWith("Huwag")) &&
+                            (mItemArray.get(2).second.startsWith("Call") || mItemArray.get(2).second.startsWith("Tumawag"))){
+
+                        numberOfMaterials = 1;
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+
+                        goToInteractiveApplication();
+                    } else{
+                        numberOfMaterials = 1;
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+                        selectedInjuryCorrect(chosenInjury);
+                    }
+                }
+                else if(chosenInjury.equals("Puncture") || chosenInjury.equalsIgnoreCase("Tusok")){
+                    if((mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")) &&
+                            (mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Marahang")) &&
+                            (mItemArray.get(2).second.startsWith("Clean") || mItemArray.get(2).second.startsWith("Linisin")) &&
+                            (mItemArray.get(3).second.startsWith("Do") || mItemArray.get(3).second.startsWith("Huwag")) &&
+                            (mItemArray.get(4).second.startsWith("Consult") || mItemArray.get(4).second.startsWith("Kumonsulta"))){
+
+                        numberOfMaterials = (3-1);
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+
+                        goToInteractiveApplication();
+                    } else{
+                        numberOfMaterials = (3-1);
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+                        selectedInjuryCorrect(chosenInjury);
+                    }
+                }
+                else if(chosenInjury.equals("Laceration") || chosenInjury.equalsIgnoreCase("Laslas")){
+                    if((mItemArray.get(0).second.startsWith("Put") || mItemArray.get(0).second.startsWith("Magsuot")) &&
+                            (mItemArray.get(1).second.startsWith("Stop") || mItemArray.get(1).second.startsWith("Kontrolin")) &&
+                            (mItemArray.get(2).second.startsWith("Continue") || mItemArray.get(2).second.startsWith("Obserbahan")) &&
+                            (mItemArray.get(3).second.startsWith("Care") || mItemArray.get(3).second.startsWith("Iwasan")) &&
+                            (mItemArray.get(4).second.startsWith("Have") || mItemArray.get(4).second.startsWith("Tiyaking")) &&
+                            (mItemArray.get(5).second.startsWith("Wash") || mItemArray.get(5).second.startsWith("Maghugas")) &&
+                            (mItemArray.get(6).second.startsWith("Call") || mItemArray.get(6).second.startsWith("Tumawag"))){
+
+                        numberOfMaterials = (3-1);
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+
+                        goToInteractiveApplication();
+                    } else{
+                        numberOfMaterials = (3-1);
+                        interModel.setNumberOfMaterials(numberOfMaterials);
+                        selectedInjuryCorrect(chosenInjury);
+                    }
+                }
+            }
+        });
+    }
+
+    public void displayIncorrectAnswers(){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        LayoutInflater inflater = getLayoutInflater(savedInstanceState);
+        View convertView = (View) inflater.inflate(R.layout.layout_display_incorrect_ordering, null);
+        builder.setView(convertView);
+        builder.setIcon(getResources().getDrawable(R.drawable.information));
+        builder.setTitle("Incorrect position/s of: ");
+
+        ListView lv = (ListView) convertView.findViewById(R.id.listView1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),R.layout.list_view_ordering_layout,incorrectAnswers);
+        lv.setAdapter(adapter);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                selectedInjuryCorrect(chosenInjury);
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
     public void showDialog(String correctOrNot) {
