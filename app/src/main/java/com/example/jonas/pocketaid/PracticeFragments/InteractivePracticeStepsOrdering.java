@@ -11,7 +11,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +45,7 @@ public class InteractivePracticeStepsOrdering extends Fragment{
     int numberOfMaterials = 0;
     String chosenInjury = "";
     TextView text;
+    PracticeItemAdapter listAdapter = new PracticeItemAdapter(mItemArray, R.layout.list_item, R.id.image, false);
 
     int numberOfErrors = 0;
     int numberOfTries = 0;
@@ -91,7 +91,6 @@ public class InteractivePracticeStepsOrdering extends Fragment{
         severePunctureProcedure = getResources().getStringArray(R.array.puncture_severe_recommended);
         lvStepNumber = (RecyclerView) rootView.findViewById(R.id.lv_step_numberPrac);
         checkAnswerBT = (Button) rootView.findViewById(R.id.btCheckAnswersPrac);
-
 
         chosenInjury = getArguments().getString("chosenInjury");
         appendInjuryToInstruction(chosenInjury);
@@ -396,12 +395,87 @@ public class InteractivePracticeStepsOrdering extends Fragment{
     }
 
     public void getOnClickListener(final String chosenInjury){
+
+
+//        getHint.setOnClickListener(new View.OnClickListener(){
+//
+//            @Override
+//            public void onClick(View view) {
+//                if(chosenInjury.equals("Abrasion") || chosenInjury.equalsIgnoreCase("Gasgas")){
+//
+//                        if ((mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan"))){
+//
+//                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                            }
+//                        } else {
+//
+//                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+//                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                            }
+//                        }
+//                        if ((mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Lagyan"))){
+//
+//                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                            }
+//                        } else {
+//
+//                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+//                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                            }
+//                        }
+//                        if (mItemArray.get(2).second.startsWith("Cover") || mItemArray.get(2).second.startsWith("Takpan")){
+//
+//                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                            }
+//                        } else {
+//
+//                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+//                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                            }
+//                        }
+//
+//                        if((mItemArray.get(3).second.startsWith("Repeat") || mItemArray.get(3).second.startsWith("Ulitin"))){
+//
+//                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+//                            }
+//                        } else {
+//
+//                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+//                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+//                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+//                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+//                            }
+//                        }
+//                    }
+//            }
+//        });
+
+
         checkAnswerBT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(chosenInjury.equals("Abrasion") || chosenInjury.equalsIgnoreCase("Gasgas")){
                     numberOfMaterials = 3;
                     interModel.setNumberOfMaterials(numberOfMaterials);
+                    mDragListView.setDisableReorderWhenDragging(true);
                     if((mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan")) &&
                             (mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Lagyan")) &&
                             (mItemArray.get(2).second.startsWith("Cover") || mItemArray.get(2).second.startsWith("Takpan")) &&
@@ -420,6 +494,12 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                         if ((mItemArray.get(0).second.startsWith("Wash") || mItemArray.get(0).second.startsWith("Hugasan"))){
                             numberOfCorrect++;
                             numberOfTries++;
+
+                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+                            }
                         }
 
                         else {
@@ -427,11 +507,23 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             numberOfTries++;
                             numberOfErrors++;
                             incorrectAnswers.add(mItemArray.get(0).second);
+
+                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(0).getLayoutPosition();
+                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+                            }
                         }
 
                         if ((mItemArray.get(1).second.startsWith("Apply") || mItemArray.get(1).second.startsWith("Lagyan"))){
                             numberOfCorrect++;
                             numberOfTries++;
+
+                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+                            }
                         }
 
                         else {
@@ -439,11 +531,22 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             numberOfTries++;
                             numberOfErrors++;
                             incorrectAnswers.add(mItemArray.get(1).second);
+
+                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(1).getLayoutPosition();
+                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+                            }
                         }
 
                         if (mItemArray.get(2).second.startsWith("Cover") || mItemArray.get(2).second.startsWith("Takpan")){
                             numberOfCorrect++;
                             numberOfTries++;
+                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+                            }
                         }
 
                         else {
@@ -451,11 +554,23 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             numberOfTries++;
                             numberOfErrors++;
                             incorrectAnswers.add(mItemArray.get(2).second);
+
+                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(2).getLayoutPosition();
+                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+                            }
                         }
 
                         if((mItemArray.get(3).second.startsWith("Repeat") || mItemArray.get(3).second.startsWith("Ulitin"))){
                             numberOfCorrect++;
                             numberOfTries++;
+
+                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
+                            }
                         }
 
                         else {
@@ -463,6 +578,12 @@ public class InteractivePracticeStepsOrdering extends Fragment{
                             numberOfTries++;
                             numberOfErrors++;
                             incorrectAnswers.add(mItemArray.get(3).second);
+
+                            int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(3).getLayoutPosition();
+                            RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                                thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
+                            }
                         }
 
                         //Change to Go to Correct Procedure shit
@@ -1478,37 +1599,25 @@ public class InteractivePracticeStepsOrdering extends Fragment{
 
     public void checkOrderOfProcedures(){
         mItemArray = new ArrayList<>();
-//        Log.e("TESTING LANG", "" + thisPosition);
 
         mDragListView.setDragListListener(new DragListView.DragListListenerAdapter() {
-
 
             @Override
             public void onItemDragStarted(int position) {
             }
             @Override
             public void onItemDragEnded(final int fromPosition, final int toPosition) {
+
                 if (Long.valueOf(toPosition).equals((Long)(mItemArray.get(toPosition).first))) {
                     Toast.makeText(mDragListView.getContext(), "Correct position", Toast.LENGTH_SHORT).show();
 
-                    int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(toPosition).getLayoutPosition();
-                    Log.e("TESTING TAMA", " " + thisPosition);
-                    RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_ifcorrect_spinner));
-                    }
-                    mDragListView.setDisableReorderWhenDragging(true);
 
                 } else {
                     Toast.makeText(mDragListView.getContext(), "Incorrect position", Toast.LENGTH_SHORT).show();
 
-                    int thisPosition = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(toPosition).getLayoutPosition();
-                    RecyclerView.ViewHolder thisHolder = mDragListView.getRecyclerView().findViewHolderForLayoutPosition(thisPosition);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                        thisHolder.itemView.setBackground(getResources().getDrawable(R.drawable.border_spinner));
-                    }
-                    mDragListView.setDisableReorderWhenDragging(true);
                 }
+
+
             }
         });
         setupListRecyclerView();
