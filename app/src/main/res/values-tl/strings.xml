@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">PocketAid</string>
     <!-- NAV BAR ITEMS -->
-    <string name="injuries">Mga Injuri</string>
-    <string name="nearby">Malapit na mga Ospital</string>
-    <string name="practice">Interaktibong Pagsasanay</string>
+    <string name="injuries">Mga Injuris</string>
+    <string name="nearby">Malapit na Ospital</string>
+    <string name="practice">Kasanayang Interaktibo</string>
     <string name="about">Impormasyon</string>
-    <string name="setting">Settings</string>
+    <string name="setting">Setings</string>
 
     <!-- PRACTICE NAV BAR ITEMS -->
     <string name="material">Pagpili ng mga Material</string>
@@ -136,17 +136,17 @@
          ***************************************** -->
 
     <string-array name="animal_bites_practice">
-        <item>"Kontrolin ang pagdurugo sa pamamagitan ng pagdiin sa kagat gamit ang gasa."</item>
-        <item>"Huwag linisin ang malubhang sugat. Ito ay mas magandang linisin sa isang medikal na pasilidad."</item>
+        <item>"Kontrolin ang pagdurugo at diinan ang kagat gamit ang gasa."</item>
+        <item>"Huwag linisin ang malubhang sugat. Maaaring linisin ito sa isang medikal na pasilidad."</item>
         <item>"Tumawag sa 911 o pumunta kaagad sa pinakamalapit na ospital upang maturukan ng anti-rabies."</item>
     </string-array>
 
     <string-array name="insect_bites_practice">
-        <item>"Suriin kung ang pinagkagatan ng insekto ay namamaga at/o nagdurugo."</item>
-        <item>"Kung mayroong makikitang pangtusok ng insekto, maingat na gumamit ng tiyani upang alisin ito."</item>
+        <item>"Suriin kung ang pinagkagatan ng insekto ay namamaga o nagdurugo."</item>
+        <item>"Kung mayroong makikitang pangtusok ng insekto, tanggalin nang dahan-dahan ang tusok gamit ang tyani."</item>
         <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
         <item>"Takpan ang pinagkagatan ng insekto gamit ang malinis na benda o gasa."</item>
-        <item>"Lapatan ng yelo ang apektadong lugar upang mabawasan ang sakit at pamamaga."</item>
+        <item>"Lapatan ng yelo ang apektadong bahagi upang mabawasan ang sakit at pamamaga."</item>
         <item>"Tumawag sa 911 o pumunta sa pinakamalapit na ospital kung ang tao ay nakararanas ng pangangati o problema sa paghinga."</item>
     </string-array>
 
@@ -160,7 +160,7 @@
     </string-array>
 
     <string-array name="concussion_practice">
-        <item>"Lapatan ng yelo ang apektadong lugar sa loob ng 20 minuto kada 3 oras."</item>
+        <item>"Lapatan ng yelo ang apektadong bahagi sa loob ng 20 minuto kada 3 oras."</item>
         <item>"Obserbahan ang tao kung ito ay nakararanas ng sintomas ng internal injuri gaya ng pananakit ng ulo o pagsuka."</item>
         <item>"Tumawag sa 911 o magpunta kaagad sa pinakamalapit na ospital sa sandaling makaranas ang tao ng nasabing mga sintomas."</item>
     </string-array>
@@ -232,16 +232,16 @@
         <item>"Kung mayroong makikitang pangtusok ng insekto, maingat na gumamit ng tiyani upang alisin ito."</item>
         <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
         <item>"Takpan ang pinagkagatan ng insekto gamit ang malinis na benda o gasa."</item>
-        <item>"Lapatan ng yelo ang apektadong lugar upang mabawasan ang sakit at pamamaga."</item>
+        <item>"Lapatan ng yelo ang apektadong bahagi upang mabawasan ang sakit at pamamaga."</item>
         <item>"Tumawag sa 911 o pumunta sa pinakamalapit na ospital kung ang tao ay nakararanas ng problema sa paghinga."</item>
     </string-array>
     <!-- INSECT BITES: ALTERNATIVE -->
     <string-array name="bites_insect_alternative">
         <item>"Suriin kung ang pinagkagatan ng insekto ay namamaga at/o nagdurugo."</item>
-        <item>"Kung mayroong makikitang pangtusok ng insekto, gumamit ng patag na gamit katulad ng credit card at tanggalin ito dahan-dahan."</item>
+        <item>"Kung mayroong makikitang pangtusok ng insekto, gamitan ng patag na gamit katulad ng credit card at tanggalin ito dahan-dahan."</item>
         <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
         <item>"Takpan ang pinagkagatan ng insekto gamit ang malinis na panyo."</item>
-        <item>"Lapatan ng malamig na yelo ang apektadong lugar upang mabawasan ang sakit at pamamaga."</item>
+        <item>"Lapatan ng yelo ang apektadong bahagi upang mabawasan ang sakit at pamamaga."</item>
         <item>"Tumawag sa 911 o pumunta sa pinakamalapit na ospital kung ang biktima ay nakararanas ng problema sa paghinga."</item>
     </string-array>
 
@@ -262,7 +262,7 @@
         <item>"Magpasuri kaagad sa isang doktor o magpunta sa pinakamalapit na ospital."</item>
     </string-array>
     <string-array name="burns_electrical_recommended">
-        <item>"Hugutin o patayin ang kuryente. Kung ito ay imposible, tawagan ang kumpanya ng kuryente o humingi ng tulong."</item>
+        <item>"Hugutin o patayin ang kuryente o tawagan ang kumpanya ng kuryente sa paghingi ng tulong."</item>
         <item>"Magpunta kaagad sa pinakamalapit na ospital."</item>
     </string-array>
     <!-- 1ST & 2ND DEGREE BURNS: ALTERNATIVE -->
@@ -302,7 +302,7 @@
     <!-- CONCUSSION: RECOMMENDED -->
 
     <string-array name="concussion_recommended">
-        <item>"Lapatan ng yelo ang apektadong lugar sa loob ng 20 minuto kada 3 oras."</item>
+        <item>"Lapatan ng yelo ang apektadong bahagi sa loob ng 20 minuto kada 3 oras."</item>
         <item>"Obserbahan ang tao kung ito ay nakararanas ng sintomas ng internal injuri gaya ng pananakit ng ulo o pagsuka."</item>
         <item>"Tumawag sa 911 o magpunta kaagad sa pinakamalapit na ospital sa sandaling makaranas ang tao ng nasabing mga sintomas."</item>
     </string-array>
@@ -315,7 +315,7 @@
     	<item>"Ilapat ang yelo sa apektadong parte ng katawan sa loob ng 15 minuto upang mawala ang pasa o pamamaga."</item>
         <item>"Kung maaari, itaas ang parte ng katawan na may pasa nang mas mataas ng bahagya sa dibdib."</item>
         <item>"Ipahinga at huwag masyadong galawin ang nabugbog na parte."</item>
-        <item>"Kung kinakailangan, uminom ng gamot na pampawala ng sakit upang makatulong na mabawasan ang sakit."</item>
+        <item>"Kung kinakailangan, uminom ng gamot na nakakalunas na mabawasan ang sakit."</item>
     </string-array>
 
 
@@ -365,7 +365,7 @@
     <!-- MINOR LACERATION: ALTERNATIVE -->
     <string-array name="laceration_minor_alternative">
         <item>"Hugasan ang iyong mga kamay gamit ang sabon at tubig.</item>
-        <item>"Kung walang guwantes, gumamit ng anumang malinis na tela o damit sa pagitan ng iyong mga kamay at ng sugat."</item>
+        <item>"Kung walang gwantes, gumamit ng anumang malinis na tela o damit sa pagitan ng iyong mga kamay at ng sugat."</item>
         <item>"Hugasan ang sugat gamit ang sabon at tubig."</item>
         <item>"Mag-aplay ng hindi kalakasang presyur sa sugat upang tumigil ang pagdurugo."</item>
         <item>"Pahiran ng antiseptic o antibiotic cream ang sugat kung walang alerji ang tao sa ganitong uri ng gamot."</item>
@@ -497,7 +497,7 @@
         <item>""</item>
     	<item>Kumonsulta kaagad sa doktor kung:
     		(1) Ang sugat ay hindi tumitigil sa pagdurugo.
-    		(2) Kung may suspetsiya ka na may natamaang ugat o litid.
+    		(2) Kung apektado ang ugat o litid.
     		(3) Kung mayroong nakabaon na bagay sa sugat.
     		(4) Kung ang hiwa ay nasa bibig, mukha, kamay o sensitibong parte ng katawan.</item>
     </string-array>
@@ -568,17 +568,17 @@
     <string name="application_steps">"Piliin ang materyal at pindutin kung saan ito dapat ilagay."</string>
 
     <!-- TAB TITLES -->
-    <string name="overview_tab">"OVERVIEW"</string>
+    <string name="overview_tab">"Pananaw"</string>
     <string name="abrasion_tab">"GASGAS"</string>
     <string name="animal_tab">"HAYOP"</string>
     <string name="insect_tab">"INSEKTO"</string>
-    <string name="first_second_degree_tab">"1st &amp; 2nd DEGREE"</string>
-    <string name="third_degree_tab">"3rd DEGREE"</string>
+    <string name="first_second_degree_tab">"1st &amp; 2nd DIGRI"</string>
+    <string name="third_degree_tab">"3rd DIGRI"</string>
     <string name="concussion_tab">"UNTOG"</string>
     <string name="contusion_tab">"PASA"</string>
     <string name="fracture_tab">"BALING BUTO"</string>
     <string name="major_laceration_tab">"MALALIM"</string>
-    <string name="minor_laceration_tab">"HINDI MALALIM"</string>
+    <string name="minor_laceration_tab">"MABABAW"</string>
     <string name="severe_puncture_tab">"MALUBHA"</string>
     <string name="slight_puncture_tab">"HINDI MALUBHA"</string>
 </resources>
