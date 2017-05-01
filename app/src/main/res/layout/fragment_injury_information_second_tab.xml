@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/fragment_injury_information"
-    tools:context="com.example.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment"
+    tools:context="com.pocketaid.jonas.pocketaid.com.pocketaid.jonas.pocketaid.InjuriesFragments.InjuryInformationFragment"
     android:weightSum="1">
 
     <!-- TODO: Update blank fragment layout -->

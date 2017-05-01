@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:padding="5dp"
     android:orientation="vertical"
-    tools:context="com.example.jonas.pocketaid.PracticeFragments.DisplayScoreFragment">
+    tools:context="com.pocketaid.jonas.pocketaid.com.pocketaid.jonas.pocketaid.PracticeFragments.DisplayScoreFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView

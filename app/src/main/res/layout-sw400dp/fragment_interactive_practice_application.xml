@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context="com.example.jonas.pocketaid.PracticeFragments.InteractivePracticeApplication">
+    tools:context="com.pocketaid.jonas.pocketaid.com.pocketaid.jonas.pocketaid.PracticeFragments.InteractivePracticeApplication">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
