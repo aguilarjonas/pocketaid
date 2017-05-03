@@ -208,7 +208,11 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    //Added by Raeven
+    /*
+        Function Name : streamVideo
+        Function Description :  This function is access from InjuryInformationFragment & InjuryInformationSecondFragment
+        Function Developer : Raeven Bauto
+     */
     public boolean streamVideo (String injuryType, VideoView videoView, YouTubePlayerSupportFragment youTubePlayerSupportFragment, final String youtubeLink, ImageView videoPlayImage){
         File extStore = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
         File myFile = new File(extStore.getAbsolutePath() + "/.VideoTutorials/", injuryType + ".mp4");
@@ -263,17 +267,26 @@ public class MainActivity extends AppCompatActivity
                 if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
-             default:
+            default:
                 checkPermission();
         }
     }
 
-    //method to set title bar
+    /*
+        Function Name : setActionBarTitle
+        Function Description :  This function changes the action bar title
+        Function Developer : Jonas Aguilar
+     */
     public void setActionBarTitle(String title) {
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setTitle(""); //to solve Android's bug
         getSupportActionBar().setTitle(title);
     }
 
+    /*
+        Function Name : hideOrShowFAB
+        Function Description :  This function hides or shows the FAB
+        Function Developer : Jonas Aguilar
+     */
     public void hideOrShowFAB(String hideOrShow) {
         fab = (FloatingActionButton) findViewById(R.id.fab);
 
@@ -284,6 +297,11 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    /*
+        Function Name : resetActionBar
+        Function Description :  This function sets the action bar to back button or not
+        Function Developer : Jonas Aguilar
+     */
     public void resetActionBar(boolean childAction, int drawerMode) {
         if (childAction) {
             //sets icon to back button

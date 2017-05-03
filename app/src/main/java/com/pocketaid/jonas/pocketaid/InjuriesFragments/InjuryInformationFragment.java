@@ -224,7 +224,7 @@ public class InjuryInformationFragment extends Fragment {
         Function Name : downloadTutorial
         Function Description :  This function will be called in the downloadSwitchListener
                                 This function downloads the injury video when the switch is clicked
-        Function Developer : Jonas Aguilar
+        Function Developer : Raeven Bauto
      */
     public void downloadTutorial() {
         myURL = "https://s3-ap-southeast-1.amazonaws.com/funtastic4thesis/"+injuryType+".mp4";
@@ -241,8 +241,6 @@ public class InjuryInformationFragment extends Fragment {
         dir.mkdirs();
 
         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS +"/.VideoTutorials/", fileName);
-
-//        Log.e("TESTING", Environment.DIRECTO);
 
         manager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
 
